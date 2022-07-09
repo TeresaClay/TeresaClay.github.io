@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cheat Sheet | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Cheat Sheet | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lec9：Mathematical Description of Physical Phenomena">
+<meta property="og:url" content="http://example.com/2022/07/08/Note_Wangyang/Lec%209/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-08T21:12:54.596Z">
+<meta property="article:modified_time" content="2022-07-09T13:53:50.046Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(8)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        
+                        Course
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%209/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9：Mathematical Description of Physical Phenomena">Lec9：Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%208:%20Vector%20Calculus/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8：Vector Calculus">Lec8：Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%207/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec7:Introduction">Lec7:Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/Lec1:%20Lagrangesche%20Ableitung%20und%20Advektion/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-05 16:58:33">2022/07/05</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Markdown_Note" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Cheat Sheet</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-07-08 08:30:07'>2022-07-08 08:28</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HyperSnips-%E8%87%AA%E5%8A%A8%E6%89%A9%E5%B1%95"><span class="toc-text">HyperSnips 自动扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F%E7%BC%96%E5%8F%B7%E4%B8%8E%E5%BC%95%E7%94%A8-tag"><span class="toc-text">公式编号与引用 - tag</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><hr>
+<h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><pre><code>    lalala
+</code></pre><hr>
+<p>分割线</p>
+<p><em>斜体</em></p>
+<blockquote>
+<p>Ctrl + I</p>
+</blockquote>
+<p><strong>重点加粗</strong></p>
+<blockquote>
+<p>Ctrl + B</p>
+</blockquote>
+<p><del>删除线</del></p>
+<hr>
+<p>Markdown Preview Enhenced 拓展功能</p>
+<p>==高亮==</p>
+<hr>
+<p>列表:</p>
+<ul>
+<li>无序列表<ul>
+<li>嵌套无序列表</li>
+<li>嵌套无序列表</li>
+</ul>
+</li>
+<li>无序列表</li>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>另一种无序列表<ul>
+<li>嵌套无序列表</li>
+<li>嵌套无序列表</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>有序列表<ol>
+<li>有序嵌套列表</li>
+<li>有序嵌套列表</li>
+</ol>
+</li>
+<li>有序列表</li>
+<li>走序列表</li>
+</ol>
+<hr>
+<p>引用文本:</p>
+<blockquote>
+<p>引用别人说的话</p>
+<p>就这样写</p>
+<p>By. OrangeX4</p>
+</blockquote>
+<hr>
+<p>这是 ‘行内代码’语法</p>
+<p> 代码块语法</p>
+<pre><code class="lang-python">print(&quot;Hello, world&quot;)
+</code></pre>
+<p>Markdown Preview Enhanced 拓展功能</p>
+<p>代码行数的展示<br><code>javascript &#123;.line-numbers&#125;
+function add(x,y)&#123;
+    return x + y
+&#125;</code></p>
+<hr>
+<p><a href="链接地址">超链接名称</a></p>
+<p><a target="_blank" rel="noopener" href="https://orangex4.cool/">OrangeX4’s Blog</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366596107">Markdown数学笔记</a></p>
+<p><img src="图片地址" alt="图片提示语"></p>
+<p><img src="https://orangex4.cool/images/icons/profile.jpg" alt="OrangeX&#39;s Avatar"></p>
+<p><img src="images/profile.jpg" alt="OrangeX&#39;s Avatar"></p>
+<hr>
+<p> 表格</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>内容</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>拓展功能</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>^</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> 表格自动对齐<br> shift + alt + F</p>
+<hr>
+<p>注释:<br> <!-- you can not see me  --></p>
+ <!-- 多行注释
+ 像这样 -->
+<p> cntrl + \ 将当前注释 / 反注释</p>
+<hr>
+<p>数学公式支持</p>
+<ul>
+<li><p>行内公式</p>
+<p>单位圆 $x^2+y^2=15$</p>
+</li>
+</ul>
+<ul>
+<li><p>公式块</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+  x=\rho\cos\theta  \\
+  y=\rho\sin\theta \\
+\end{cases}</script></li>
+</ul>
+<hr>
+<h4 id="HyperSnips-自动扩展"><a href="#HyperSnips-自动扩展" class="headerlink" title="HyperSnips 自动扩展"></a>HyperSnips 自动扩展</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Auto enviroment</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lm</td>
+<td>inline math</td>
+</tr>
+<tr>
+<td>dm</td>
+<td>display math</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>   eqt</p>
+<pre><code>\begin&#123;equation&#125;
+
+\end&#123;equation&#125;
+</code></pre><p>   eqs</p>
+<pre><code>\begin&#123;equation*&#125;
+
+\end&#123;equation*&#125;
+</code></pre><p>   beg </p>
+<pre><code>\begin&#123;&#125;
+
+\end&#123;&#125;
+</code></pre><p>   ali (diaply equation)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+y&=(x+5)^{2}-(x+1)^{2}  \\
+&=(x_2+10x+25)-(x^{2}+2x+1) \\
+&=8x+24
+\end{aligned}</script><p>ali (under inline equation)</p>
+<p>$\begin{aligned}<br>y&amp;=(x+5)^{2}-(x+1)^{2} \\<br>&amp;=(x^{2}+10x+25)-(x^{2}+2x+1) \\<br>&amp;=8x+24<br>\end{aligned}$</p>
+<p>case</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    x+y+z \\ x+y+z
+\end{cases}</script><h5 id="公式编号与引用-tag"><a href="#公式编号与引用-tag" class="headerlink" title="公式编号与引用 - tag"></a>公式编号与引用 - tag</h5><script type="math/tex; mode=display">
+\begin{aligned}
+x_1+x_2+x_3=y_1 \\ x_4+x_5+x_6=y_2
+\end{aligned}\tag{1.2}</script><p>由公式 $(1.2)$ 可得到结论</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Superscript and subscript</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x$ + invs</td>
+<td>$x^{-1}$</td>
+</tr>
+<tr>
+<td>$x$ + sr</td>
+<td>$x^{2}$</td>
+</tr>
+<tr>
+<td>$x$ + pow, tp</td>
+<td>$x^{5}$, $x^{t_{n+1}}$</td>
+</tr>
+<tr>
+<td>x1</td>
+<td>$x_1$</td>
+</tr>
+<tr>
+<td>xii</td>
+<td>$x_i$</td>
+</tr>
+<tr>
+<td>$x$ + sb, td</td>
+<td>$x_{5}$, $x_{ein}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Fraction</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1/</td>
+<td>$\frac{1}{3}$</td>
+</tr>
+<tr>
+<td>(1+2)/</td>
+<td>$(1+2)/$</td>
+</tr>
+<tr>
+<td>//</td>
+<td>$\frac{x+1}{x-1}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Static hat operation</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x$ + bar</td>
+<td>$\bar{x}$</td>
+</tr>
+<tr>
+<td>$x$ + hat</td>
+<td>$\hat{x}$</td>
+</tr>
+<tr>
+<td>hsq + $x$</td>
+<td>$\sqrt{x}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Space</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小空格 a\,b</td>
+<td>$a\,b$</td>
+</tr>
+<tr>
+<td>中空格 a\;b</td>
+<td>$a\;b$</td>
+</tr>
+<tr>
+<td>大空格 a\ b</td>
+<td>$a\ b$</td>
+</tr>
+<tr>
+<td>quad空格 a\ b</td>
+<td>$a\quad b$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sum</td>
+<td>$\sum_{k=1}^{n}\frac{1}{k}$</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>$\prod_{k=1}^{n} \frac{1}{k}$</td>
+</tr>
+<tr>
+<td>dint</td>
+<td>$\int_{-\infty}^{\infty}  \mathrm{d}x$</td>
+</tr>
+<tr>
+<td>taylor</td>
+<td>$\sum_{k=0}^{\infty} c_k (x-a)^k $</td>
+</tr>
+<tr>
+<td>lim</td>
+<td>$\lim_{n \to \infty}$</td>
+</tr>
+<tr>
+<td>diff</td>
+<td>$\frac{\mathrm{d}y}{\mathrm{d}x}$</td>
+</tr>
+<tr>
+<td>part</td>
+<td>$\frac{\partial V}{\partial x}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>括号</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@ + (</td>
+<td>$\left(  \right) $</td>
+</tr>
+<tr>
+<td>@ + [</td>
+<td>$\left\{  \right\} $</td>
+</tr>
+<tr>
+<td>@ + {</td>
+<td>$\left[  \right] $ </td>
+</tr>
+<tr>
+<td>@ + &lt;</td>
+<td>$\left&lt; \right&gt;$</td>
+</tr>
+<tr>
+<td>set</td>
+<td>$\{  \}$</td>
+</tr>
+<tr>
+<td>norm</td>
+<td>$\left\</td>
+<td>\right\</td>
+<td>_{}$</td>
+</tr>
+<tr>
+<td>abs</td>
+<td>$\left\vert  \right\vert $</td>
+<td>2   </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Vector</th>
+<th></th>
+<th>List</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vec3</td>
+<td>$\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>vecC</td>
+<td>$\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}$</td>
+</tr>
+<tr>
+<td>vecr3</td>
+<td>$\begin{bmatrix} x_1 &amp; x_2 &amp; x_3 \\\end{bmatrix}$</td>
+<td>xyb</td>
+<td>$(x, y)$</td>
+</tr>
+<tr>
+<td>vecR</td>
+<td>$\begin{bmatrix} x_1, x_2, \cdots, x_n \end{bmatrix}$</td>
+<td>rij</td>
+<td>$(x_n)_{n \in N}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Matrix</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bmat2</td>
+<td>$\begin{bmatrix} x_1 &amp; x_2 \\ x_3 &amp; x_4 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>pmat2</td>
+<td>$\begin{pmatrix} x_1 &amp; x_2 \\ x_3 &amp; x_4 \\\end{pmatrix}$</td>
+</tr>
+<tr>
+<td>vmat2</td>
+<td>$\begin{bmatrix} x_1 &amp; x_2 \\ x_3 &amp; x_4 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>omis</td>
+<td>$\begin{pmatrix}1&amp;1&amp;\cdots&amp;1\\1&amp;1&amp;\cdots&amp;1\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\1&amp;1&amp;\cdots&amp;1\end{pmatrix}$</td>
+</tr>
+<tr>
+<td>jacobi</td>
+<td>$\begin{pmatrix}\frac{\partial f_1}{\partial x_1}&amp;\frac{\partial f_1}{\partial x_2}&amp;\cdots&amp;\frac{\partial f_1}{\partial x_n}\\\frac{\partial f_2}{\partial x_1}&amp;\frac{\partial f_2}{\partial x_2}&amp;\cdots&amp;\frac{\partial f_2}{\partial x_n}\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\\frac{\partial f_n}{\partial x_1}&amp;\frac{\partial f_n}{\partial x_2}&amp;\cdots&amp;\frac{\partial f_n}{\partial x_n}\end{pmatrix}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>  <a target="_blank" rel="noopener" href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">list of symbols</a></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>一些特殊字符</th>
+<th></th>
+<th>Logic symbol</th>
+<th></th>
+<th>Compare symbol</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**</td>
+<td>$x\cdot y$</td>
+<td>exmpty</td>
+<td>$\empty$</td>
+<td>—</td>
+<td>$\setminus$</td>
+</tr>
+<tr>
+<td>xx</td>
+<td>$x \times y$</td>
+<td>inn</td>
+<td>$\in $</td>
+<td>&gt;=</td>
+<td>$\ge $ </td>
+</tr>
+<tr>
+<td>odot</td>
+<td>$x\odot y$</td>
+<td>sse</td>
+<td>$\subseteq $</td>
+<td>&lt;=</td>
+<td>$\le $</td>
+</tr>
+<tr>
+<td>otimes,oplus,</td>
+<td>$\otimes,\oplus$</td>
+<td>sqs</td>
+<td>$\sqsubseteq $</td>
+<td>!=</td>
+<td>$\neq $</td>
+</tr>
+<tr>
+<td>pm</td>
+<td>$\pm$</td>
+<td>tto</td>
+<td>$\to $</td>
+<td>==</td>
+<td>$\equiv $</td>
+</tr>
+<tr>
+<td>circ</td>
+<td>$\circ$</td>
+<td>-&gt;</td>
+<td>$\to $</td>
+<td>sim</td>
+<td>$\sim $</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>$\alpha$</td>
+<td>!&gt;</td>
+<td>$\mapsto $</td>
+<td>~~</td>
+<td>$\thickapprox $</td>
+</tr>
+<tr>
+<td>eps</td>
+<td>$\epsilon$</td>
+<td>=&gt;</td>
+<td>$\implies$</td>
+<td>~=</td>
+<td>$\cong$</td>
+</tr>
+<tr>
+<td>oo</td>
+<td>$\infty$</td>
+<td>=&lt;</td>
+<td>$\impliedby$</td>
+<td>&gt;&gt;</td>
+<td>$\gg$</td>
+</tr>
+<tr>
+<td>…</td>
+<td>$\cdots $</td>
+<td>iff</td>
+<td>$\iff$</td>
+<td>&lt;&lt;</td>
+<td>$\ll$</td>
+</tr>
+<tr>
+<td>ell</td>
+<td>$\ell$</td>
+<td>EE</td>
+<td>$\exists $ 存在</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td></td>
+<td>AA</td>
+<td>$\forall $ 任意</td>
+</tr>
+<tr>
+<td>star</td>
+<td>$^{*}$</td>
+<td>bec</td>
+<td>$\because $ 因为</td>
+</tr>
+<tr>
+<td></td>
+<td>$\diamond $</td>
+<td>thr</td>
+<td>$\therefore $ 所以</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>xr</td>
+<td>$\xrightarrow[x]{y}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>

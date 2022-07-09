@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>拓展知识 | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="拓展知识 | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lec9：Mathematical Description of Physical Phenomena">
+<meta property="og:url" content="http://example.com/2022/07/08/Note_Wangyang/Lec%209/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-08T21:12:54.596Z">
+<meta property="article:modified_time" content="2022-07-09T13:53:50.046Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(8)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        
+                        Course
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%209/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9：Mathematical Description of Physical Phenomena">Lec9：Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%208:%20Vector%20Calculus/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8：Vector Calculus">Lec8：Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%207/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec7:Introduction">Lec7:Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/Lec1:%20Lagrangesche%20Ableitung%20und%20Advektion/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-05 16:58:33">2022/07/05</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Note_Wangyang/拓展知识" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">拓展知识</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-07-08 21:02:56'>2022-07-08 16:02</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86"><span class="toc-text">拓展知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%A6%E7%B1%8D-%E7%90%86%E8%AE%BA-%E8%AF%BE%E7%A8%8B"><span class="toc-text">书籍 理论 课程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-text">工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">小的知识点</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h3><h4 id="书籍-理论-课程"><a href="#书籍-理论-课程" class="headerlink" title="书籍 理论 课程"></a>书籍 理论 课程</h4><ul>
+<li><p>汪洋的PDE课程 bilibili</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cfd-peric.de/">Comutational methods for fluid dynamics, Joel H. Ferziger, Milovan Peric, Robert L. street</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/damogranlabs/classy_blocks">classy blocks (mesh)</a></p>
+</li>
+<li><p>icem</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/flame/blis">Blis</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/doyubkim/fluid-engine-dev">fluid engine development —Flip</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doc.cfd.direct/notes/cfd-general-principles/">Notes on Computational Fluid Dynamics: General Principles, Henry Weller</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.amazon.de/Modern-FORTRAN-Milan-Curcic/dp/1617295280/ref=asc_df_1617295280/?tag=googshopde-21&amp;linkCode=df0&amp;hvadid=447474488305&amp;hvpos=&amp;hvnetw=g&amp;hvrand=2944107959076367289&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9060640&amp;hvtargid=pla-921664658623&amp;psc=1&amp;th=1&amp;psc=1">Modern Fortran: Building Efficient Parallel Applications</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://item.jd.com/12580612.html">The C Programming Language, C程序设计语言</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~kmcrane/Projects/DDG/">Diescrete Differential Geometry 计算几何</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://orbit.dtu.dk/en/persons/david-r-fuhrman">Turbulence in coastal and civil enginerring, Fuhrman, DTU</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/c/timofeymukha">WMLES, Timofey Mukha</a> </p>
+</li>
+<li><a target="_blank" rel="noopener" href="http://www.ulaff.net/">Linear Algebra: Foundations to Frontiers</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/c/SciNetHPCattheUniversityofToronto">HPC at University of Toronto</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/c/QiqiWangGG">Qiqi Wang</a></li>
+<li><p>计算机四大神兽: MIT CMU Berkery Stanford</p>
+<ul>
+<li>CS106a</li>
+<li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/schedule.html">CS6.8282 Operating System Engineering</a></li>
+<li>CS267 Berkeley</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/CME211">CME211, Sotfware Development for Scientists and Engineers (Standford)</a></li>
+<li>CME212</li>
+<li>CME213</li>
+<li>CME345 (Fahrhat)</li>
+<li><a target="_blank" rel="noopener" href="http://www.tfd.chalmers.se/~lada/turbulent_flow/">MTF245 Turbulent Flow - Chalmers</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLMrJAkhIeNNR2W2sPWsYxfrxcASrUt_9j">ME564, ME565, Engineering Mathematics, Steve Brunton</a> </li>
+<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/aa222/cgi-bin/wordpress/">AA222 Engineering Design Optimization (Standford)</a></li>
+<li>CS61abc</li>
+<li><a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs107/">CS107 Computer Organization &amp; Systems</a></li>
+<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs110/">CS110 Principles of Computer Systems (Stanford)</a></li>
+<li><a target="_blank" rel="noopener" href="https://sites.google.com/lbl.gov/cs267-spr2021">CS267 Applications of Parallel Computers (Berkeley)</a></li>
+<li>MIT 操作系统</li>
+</ul>
+</li>
+<li><p>Tobi OpenFOM (Holzman), youtube</p>
+</li>
+<li><p>一些小网站</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://0xffff.one/">https://0xffff.one/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell-io-redirections.html">RUNOOB</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://user-web.icecube.wisc.edu/~dglo/c_class/">C Language</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
+<li><p>beamer</p>
+</li>
+<li><p>blender</p>
+</li>
+<li><p>画图的工具</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://matplotlib.org/">matplotlib.org</a></li>
+<li><a target="_blank" rel="noopener" href="https://plotly.com/python/">Plotly</a></li>
+<li>Inkspace (.svg)</li>
+<li>klatexformula </li>
+<li><a target="_blank" rel="noopener" href="https://matplotlib-cpp.readthedocs.io/en/latest/">c++</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>比较快的从HPC下载方法</p>
+<p>  | | |<br>  |——|——|——|<br>  | $ scp<br>  | $ rsync -raul <br> $ rsync -azvhp | 速度更快</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/88325211">Linux截图工具 flamshot</a></p>
+</li>
+</ul>
+<h4 id="小的知识点"><a href="#小的知识点" class="headerlink" title="小的知识点"></a>小的知识点</h4><ul>
+<li>一个核算5万个网格比较好 </li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>

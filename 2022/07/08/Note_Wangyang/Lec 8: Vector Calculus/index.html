@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lec8：Vector Calculus | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Lec8：Vector Calculus | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lec9：Mathematical Description of Physical Phenomena">
+<meta property="og:url" content="http://example.com/2022/07/08/Note_Wangyang/Lec%209/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-08T21:12:54.596Z">
+<meta property="article:modified_time" content="2022-07-09T13:53:50.046Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(8)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        
+                        Course
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%209/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9：Mathematical Description of Physical Phenomena">Lec9：Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%208:%20Vector%20Calculus/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8：Vector Calculus">Lec8：Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course "
+           href="/2022/07/08/Note_Wangyang/Lec%207/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec7:Introduction">Lec7:Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/Lec1:%20Lagrangesche%20Ableitung%20und%20Advektion/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-05 16:58:33">2022/07/05</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Note_Wangyang/Lec 8: Vector Calculus" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Lec8：Vector Calculus</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-07-08 23:12:12'>2022-07-08 16:02</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%9A%84%E5%81%8F%E6%96%B9%E7%A8%8B"><span class="toc-text">经典的偏方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-text">向量微积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6-gradient-nabla"><span class="toc-text">梯度, gradient, $\nabla $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%A3%E5%BA%A6-divergent%EF%BC%8C-nabla-cdot"><span class="toc-text">散度, divergent，$\nabla \cdot$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E5%BA%A6-curl-nabla-times"><span class="toc-text">旋度, curl, $\nabla \times $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="toc-text">高斯散度定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stokes%E5%AE%9A%E7%90%86%E5%92%8C%E6%A0%BC%E6%9E%97%E5%AE%9A%E7%90%86"><span class="toc-text">Stokes定理和格林定理</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="经典的偏方程"><a href="#经典的偏方程" class="headerlink" title="经典的偏方程"></a>经典的偏方程</h4><ul>
+<li><p>波动方程 (线性) </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ u_{tt}&=c^{2}u_{xx} \\
+ u_{tt}&=c^{2}\nabla ^{2}u 
+\end{aligned}</script><ul>
+<li>Fourier级数，变换; 正交基 $\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin x \cos x \mathrm{d}x$</li>
+<li>Krlow CG (painless的CG) $ \begin{bmatrix} x_1, x_2, \cdots, x_n \end{bmatrix} ^{T} \cdot \begin{bmatrix} y_1, y_2, \cdots, y_n \end{bmatrix}^{T}=0$</li>
+<li>time-initial condition; space - boundary condition    </li>
+</ul>
+</li>
+<li><p>热传导方程 (线性)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+u_{t}&=\alpha^{2}u_{xx} \\
+u_t&=\alpha^{2}\nabla ^{2}u
+\end{aligned}</script><ul>
+<li>$\alpha$: 扩散系数  </li>
+</ul>
+</li>
+<li><p>拉普拉斯方程 (线性)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+u_{x x}+u_{yy}&=0 \\
+\nabla ^{2}u&=0
+\end{aligned}</script></li>
+<li><p>Navier-Stokes 方程 (非线性) </p>
+</li>
+</ul>
+<hr>
+<h4 id="向量微积分"><a href="#向量微积分" class="headerlink" title="向量微积分"></a>向量微积分</h4><ul>
+<li>守恒率 <ul>
+<li>质量</li>
+<li>动量</li>
+<li>不可压基本不用能量守恒，可压的部分密度基</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="梯度-gradient-nabla"><a href="#梯度-gradient-nabla" class="headerlink" title="梯度, gradient, $\nabla $"></a>梯度, gradient, $\nabla $</h4><script type="math/tex; mode=display">
+    \text{标量场}\implies \text{向量场}</script><ul>
+<li>梯度是一个方向，最快变化 （24.27）  </li>
+<li><p>标量场函数 $f(x,y)$</p>
+<script type="math/tex; mode=display">
+      \nabla f= \begin{bmatrix} 
+          \frac{\partial f}{\partial x} \\
+          \frac{\partial f}{\partial 
+          y} 
+      \end{bmatrix}</script></li>
+<li><p>梯度是线性的 </p>
+<script type="math/tex; mode=display">\nabla (f_1+f_2) = \nabla f_1+\nabla f_2</script></li>
+<li><p>方向导数  </p>
+<script type="math/tex; mode=display">
+  D_v(f)=\boldsymbol{n_v}\cdot \nabla f</script><ul>
+<li>same direction (变化最快的方向): $\frac{\nabla f}{\left\vert \nabla f \right\vert }\cdot \nabla f= \left\vert \nabla f \right\vert $ </li>
+<li>if $D_v(f)=0$, 在 $\boldsymbol{n}_v$方向是不会走改变的</li>
+</ul>
+</li>
+<li><p>Example: $f=x_2+y_2$ 35.33</p>
+</li>
+</ul>
+<hr>
+<h4 id="散度-divergent，-nabla-cdot"><a href="#散度-divergent，-nabla-cdot" class="headerlink" title="散度, divergent，$\nabla \cdot$"></a>散度, divergent，$\nabla \cdot$</h4><script type="math/tex; mode=display">
+    \text{向量场}\implies \text{标量场}</script><ul>
+<li>吸星大法(加图)</li>
+<li><p>向量场函数 $\boldsymbol{f}(x,y)$</p>
+<script type="math/tex; mode=display">
+      \nabla \cdot  \boldsymbol{f}= \begin{bmatrix} 
+          \frac{\partial }{\partial x} \\
+          \frac{\partial }{\partial 
+          y}
+      \end{bmatrix} \cdot \begin{bmatrix}
+      f_1 \\ f_2
+      \end{bmatrix} = \frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}</script></li>
+<li><p>散度&gt;0: source </p>
+</li>
+<li>散度=0: divergence free<ul>
+<li>不可压的速度满足无散条件 $\nabla \cdot \boldsymbol{U}=0 $</li>
+</ul>
+</li>
+<li>散度是线性的 <script type="math/tex; mode=display">
+\nabla \cdot (\boldsymbol{f}_1+\boldsymbol{f}_2)=\nabla \cdot \boldsymbol{f}_1+\nabla \cdot \boldsymbol{f}_2</script></li>
+<li><p>拉普拉斯方程 （梯度的散度） </p>
+<script type="math/tex; mode=display">\begin{aligned}
+\nabla \cdot \nabla f&=\frac{\partial ^{2} f}{\partial x^{2}}+ \frac{\partial ^{2} f}{\partial y^{2}}\\ \nabla ^{2}f&=\Delta f
+\end{aligned}</script></li>
+<li><p>43.24</p>
+</li>
+</ul>
+<hr>
+<h4 id="旋度-curl-nabla-times"><a href="#旋度-curl-nabla-times" class="headerlink" title="旋度, curl, $\nabla \times $"></a>旋度, curl, $\nabla \times $</h4><script type="math/tex; mode=display">
+\text{向量场}\implies \text{向量场}</script><ul>
+<li>向量场函数 $\boldsymbol{f}=(f_1,f_2,f_3)$<script type="math/tex; mode=display">
+\text{curl}(\boldsymbol{f})=\nabla\times \boldsymbol{f}= \text{det} \begin{bmatrix} i & j & k \\ \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\ f_1 & f_2 & f_3 \\\end{bmatrix}</script></li>
+<li>无旋，irrotational (旋度的散度) $\nabla \cdot (\nabla \times \boldsymbol{f})=0$</li>
+<li>思考 (梯度的旋度) $\nabla \times (\nabla f)$</li>
+<li><p>思考 (两次旋度的)横等0 $\nabla \times (\nabla \times \boldsymbol{f}) \equiv 0 \qquad  \vec{a} \times ( \vec{a} \times \vec{b} ) \equiv 0 $</p>
+</li>
+<li><p>1.12.50</p>
+</li>
+<li>1.30.35</li>
+<li>马桶抽水</li>
+</ul>
+<hr>
+<h4 id="高斯散度定理"><a href="#高斯散度定理" class="headerlink" title="高斯散度定理"></a>高斯散度定理</h4><ul>
+<li><p>穿过一个封闭面 $S$ 的通量 $F$ 等于对该封闭体内散度 $div(F)$ 的体积分</p>
+<script type="math/tex; mode=display">
+\iiint_V \nabla \cdot \boldsymbol{F} dV=\iint_S \boldsymbol{F} \cdot  \boldsymbol{n} dS</script></li>
+<li><p>推倒质量守恒，非常走意思的过程</p>
+<script type="math/tex; mode=display">
+m=\iiint_V \rho dV</script><script type="math/tex; mode=display">
+\frac{\partial }{\partial t} \iiint_V \rho dV = - \iint_S \rho \boldsymbol{F} \cdot \boldsymbol{n} dS = - \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV</script><script type="math/tex; mode=display">
+\iiint \frac{\partial \rho}{\partial t} dV + \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV = \iiint_V \left[\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\boldsymbol{F})\right] dV =0</script><script type="math/tex; mode=display">
+\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol{F})=0</script><script type="math/tex; mode=display">
+\text{incompressible:  } \quad \nabla \cdot \boldsymbol{F}=0</script></li>
+</ul>
+<hr>
+<h4 id="Stokes定理和格林定理"><a href="#Stokes定理和格林定理" class="headerlink" title="Stokes定理和格林定理"></a>Stokes定理和格林定理</h4><ul>
+<li><p>对一个封闭曲面上的旋度进行积分</p>
+<script type="math/tex; mode=display">
+\iint_S (\nabla \times \boldsymbol{F} ) \cdot d\boldsymbol{S}= \int_{\partial S} \boldsymbol{F}\cdot dS</script></li>
+<li><p>格林公式是Stokes的二维情况</p>
+<script type="math/tex; mode=display">
+\iint_S (\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}) dxdy=\int_{\partial{S}}f_1dx+f_2dy</script></li>
+<li><p>可以用格林来求面积</p>
+<script type="math/tex; mode=display">
+\boldsymbol{F}=(-y,x)^{T} \\
+\iint_S (1+1)dxdy=2A=\int_{\partial S}{-ydx+xdy}</script></li>
+<li><p>Note</p>
+<script type="math/tex; mode=display">
+\nabla \times \boldsymbol{F} = \det</script></li>
+</ul>
+<hr>
+<p>补充：</p>
+<ul>
+<li>Machine Learning for Fluid Mechanics, Bruonton, Annual Revies of Fluid Mechanics</li>
+<li>Chen11, xxx,xxx</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>
