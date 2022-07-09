@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋</title>
+  <title>Lec9：Mathematical Description of Physical Phenomena | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋">
+  <meta name="description" content="Lec9：Mathematical Description of Physical Phenomena | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Note:   Numerical Methods for Partial Differential Equations, Sandip, Chapter.2 An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8 Numerical Heat and Fluid Flow (P21, 2,2-3)  Pasanka? 2.2;">
 <meta property="og:type" content="article">
@@ -460,19 +460,29 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Lec1: Lagrangesche Ableitung und Advektion" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec 9" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec1 Lagrangesche Ableitung und Advektion</h1>
+        <h1 class="article-title">Lec9：Mathematical Description of Physical Phenomena</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
+            
+        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-05 17:02:28'>2022-07-05 16:58</time>
+            Created At : <time class="date" title='Updated At: 2022-07-09 17:22:28'>2022-07-08 23:12</time>
         
     </div>
     <div class="article-meta">
@@ -494,7 +504,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-text">控制微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E9%87%8F%E5%BD%A2%E5%BC%8F%EF%BC%8C%E8%BE%93%E8%BF%90%E5%BD%A2%E5%BC%8F-%E5%AE%88%E6%81%92%E5%BD%A2"><span class="toc-text">标量形式，输运形式, 守恒形</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%BE%AE%E5%88%86%E5%92%8C%E7%A7%AF%E5%88%86%E5%BD%A2%E5%BC%8F"><span class="toc-text">通用微分和积分形式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E4%BD%93%E7%A7%AF%E5%88%9D%E6%AD%A5%E6%B3%95"><span class="toc-text">有限体积初步法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB"><span class="toc-text">物理问题分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E8%BF%9B%E9%97%AE%E9%A2%98-Marching-problems"><span class="toc-text">前进问题 Marching problems</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98-Equilibrium-problems"><span class="toc-text">平衡问题 Equilibrium problems</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PDE-%E6%96%B9%E7%A8%8B%E9%80%9A%E7%94%A8%E5%88%86%E7%B1%BB"><span class="toc-text">PDE 方程通用分类</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -510,24 +520,118 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Systemthoretische Hydrodynamik</p>
+        <p>Note: </p>
+<ul>
+<li>Numerical Methods for Partial Differential Equations, Sandip, Chapter.2</li>
+<li>An Introduction to Computational Fluid Dynamics (蓝皮), Chap 2.8</li>
+<li><p>Numerical Heat and Fluid Flow (P21, 2,2-3)</p>
+<ul>
+<li>Pasanka? 2.2; 1979 </li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/71219134">数值耗散 (dissipation) 和数值色散 (dispersion)</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/86401560">扩散 (diffusion) 耗散 (dissipation) 色散 (dispersion)</a></p>
+<hr>
+<h4 id="控制微分方程"><a href="#控制微分方程" class="headerlink" title="控制微分方程"></a>控制微分方程</h4><h5 id="标量形式，输运形式-守恒形"><a href="#标量形式，输运形式-守恒形" class="headerlink" title="标量形式，输运形式, 守恒形"></a>标量形式，输运形式, 守恒形</h5><p>$<br>    \begin{aligned}<br>    \text{连续性方程} \quad \quad &amp;  \frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\boldsymbol{U})=0  \\ \\ \text{动量方程} \quad \quad &amp; \frac{\partial \rho u}{\partial t}+\nabla \cdot (\rho u \boldsymbol{U})=\nabla \cdot (\mu\nabla u)+S_\phi \\ &amp; \frac{\partial \rho v}{\partial t}+\nabla \cdot (\rho v \boldsymbol{U}) =\nabla \cdot (\mu \nabla v)+S_\phi \\ &amp; \frac{\partial \rho w}{\partial t}+\nabla \cdot (\rho w \boldsymbol{U})=\nabla \cdot (\mu \nabla w) + S_\phi \\ \\ \text{湍动能} \quad \quad &amp; \frac{\partial \rho k}{\partial t}+\nabla \cdot (\rho k \boldsymbol{U})= \nabla \cdot (\frac{\mu_t}{\sigma_t}\nabla k)+2\mu_t \boldsymbol{S} _{ij}\cdot \boldsymbol{S}_{ij}-\rho \epsilon \\ \text{湍耗散} \quad \quad &amp; \frac{\partial \rho\epsilon}{\partial t}+\nabla \cdot (\rho\epsilon\boldsymbol{U})=\nabla \cdot (\frac{\mu_t}{\sigma_t }\nabla \epsilon)+C_{1\epsilon} \frac{\epsilon}{k}2\mu_t \boldsymbol{S}_{i,j}\cdot \boldsymbol{S}_{j,i}-C_{2\epsilon}\rho  \frac{\epsilon}{k} \\ \\  &amp;\frac{\partial \alpha}{\partial t}+\nabla \cdot (\alpha \boldsymbol{U})=0<br>    \end{aligned}<br>$</p>
+<hr>
+<h5 id="通用微分和积分形式"><a href="#通用微分和积分形式" class="headerlink" title="通用微分和积分形式"></a>通用微分和积分形式</h5><p>$\begin{aligned}<br> \quad \text{微分形式} \quad \quad &amp; \frac{\partial \rho\phi}{\partial t}+\nabla \cdot (\rho\phi\boldsymbol{U})=\nabla \cdot (\mu\nabla \phi)+S_\phi  \\  &amp; \color{grey}{\frac{\partial \rho \phi}{\partial t}+\text{div}(\rho\phi\boldsymbol{U})=\text{div}(\mu \text{ grad} \phi)+S_\phi} \\ \\ \text{积分形式} \quad &amp; \int_{CV}\frac{\partial \rho\phi}{\partial t}dV+\int_{CV}\nabla \cdot (\rho\phi\boldsymbol{U})dV=\int_{CV}\nabla \cdot (\mu \nabla \phi)dV+\int_{CV}S_\phi dV<br>\end{aligned}$</p>
+<ul>
+<li><p>$\phi=1,u,v,w,k,\epsilon$</p>
+</li>
+<li><p>要求解的未知量：$u,v,w$; 已知 $\boldsymbol{U}$ </p>
+</li>
+<li><p>Introduction book 3. Chapter</p>
+</li>
+<li><p>高斯散度定理分析对流项 $ \color{grey}{<br>  \int_{CV}\nabla \cdot(\rho\phi\boldsymbol{U})dV=\int_S \boldsymbol{n} \cdot (\rho\phi \boldsymbol{U}) dS}<br>  $</p>
+</li>
+</ul>
+<hr>
+<h5 id="有限体积初步法"><a href="#有限体积初步法" class="headerlink" title="有限体积初步法"></a>有限体积初步法</h5><ul>
+<li><p><strong>积分形式</strong>可改写为</p>
 <script type="math/tex; mode=display">
-\frac{dM}{dt}=\rho _{ein}A _{ein}v _{ein}-\rho _{aus}A _{aus}v _{aus}
-\  a</script><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><script type="math/tex; mode=display">
-\frac{x}{y}=z</script><script type="math/tex; mode=display">
- x_1+y_1=2^3</script><pre><code class="lang-bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="lang-bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="lang-bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="lang-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+  \frac{\partial }{\partial t}\left[ \int_{CV}\rho\phi dV \right]+\int_S \boldsymbol{n} \cdot (\rho\phi \boldsymbol{U}) dS = \int_S \boldsymbol{n}\cdot (\mu\nabla \phi)dS+\int_{CV}S_\phi dV</script></li>
+<li><p>稳态问题 (没有时间项)</p>
+<script type="math/tex; mode=display">
+  \int_S \boldsymbol{n} \cdot (\rho\phi \boldsymbol{U}) dS = \int_S \boldsymbol{n}\cdot (\mu\nabla \phi)dS+\int_{CV}S_\phi dV</script></li>
+<li><p>舜态问题 （对微分形式做 $\int_{\Delta t}(   )dt$）</p>
+<script type="math/tex; mode=display">
+      \int_{\Delta t}  \frac{\partial }{\partial t}\left[ \int_{CV}\rho\phi dV \right] dt +\int_{\Delta t}\int_S \boldsymbol{n} \cdot (\rho\phi \boldsymbol{U}) dS dt =\int_{\Delta t} \int_S \boldsymbol{n}\cdot (\mu\nabla \phi)dS dt+\int_{\Delta t}\int_{CV}S_\phi dV dt</script></li>
+<li><p>fvScheme: 如何得到Ax=b</p>
+</li>
+<li><p>fvSolution: 求解 Ax=b</p>
+</li>
+</ul>
+<hr>
+<h4 id="物理问题分类"><a href="#物理问题分类" class="headerlink" title="物理问题分类"></a>物理问题分类</h4><h5 id="前进问题-Marching-problems"><a href="#前进问题-Marching-problems" class="headerlink" title="前进问题 Marching problems"></a>前进问题 Marching problems</h5><ul>
+<li><p>热传导方程 (舜态扩散方程)， <strong>抛物问题</strong> （初始+边界条件）</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+   \frac{\partial \phi}{\partial t}&=\frac{\partial ^2\phi}{\partial x^2} \\ \\ \phi_t &= \phi_{xx} 
+\end{aligned}</script></li>
+<li><p>抛物方程的图例</p>
+<ul>
+<li><strong>时间显式推进</strong></li>
+<li>numerical dissipation (数值耗散)<ul>
+<li>类似扩散项 (粘性项)</li>
+<li>计算时可以加数值粘性/扩散/粘性（使得计算稳定）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>边界层方程 </p>
+<script type="math/tex; mode=display">
+  u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=\nu \frac{\partial ^{2}u}{\partial x^{2}}</script></li>
+</ul>
+<hr>
+<ul>
+<li><p>波动方程, <strong>双曲问题</strong> </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  \frac{\partial ^2\phi}{\partial t^2}&=c^2\frac{\partial ^2\phi}{\partial x^2} \\ \\ \phi_{tt}&=c^2\nabla ^2\phi
+\end{aligned}</script></li>
+<li><p>图例 1</p>
+</li>
+<li>图例 2 （一维有粘性Burger equation）</li>
+<li>一维无粘欧拉方程<script type="math/tex; mode=display">
+\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}=0  \\ \to  \frac{\partial ^2u}{\partial ^{2}}+u\frac{\partial u}{\partial t}\frac{\partial u}{\partial x}+u\frac{\partial ^{2}u}{\partial x \partial t}</script></li>
+<li>水体积分数</li>
+</ul>
+<hr>
+<h5 id="平衡问题-Equilibrium-problems"><a href="#平衡问题-Equilibrium-problems" class="headerlink" title="平衡问题 Equilibrium problems"></a>平衡问题 Equilibrium problems</h5><ul>
+<li><p>拉普拉斯方程，伯松方程（扩散项类似): </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ \frac{\partial ² \phi}{\partial x^2}+\frac{\partial ^2\phi}{\partial y^2}=0 \\ \\\nabla ^2\phi=0 \\ \\ \Delta\phi=0
+\end{aligned}</script></li>
+<li><p><strong>椭圆问题</strong></p>
+<ul>
+<li>不需要初始条件 </li>
+<li>需要全部的边界条件（可以不连续） </li>
+</ul>
+</li>
+<li><p>Pasaka (44’)</p>
+<ul>
+<li>空间坐标都是 two-dimensional, two-way</li>
+<li>时间坐标：one-way</li>
+</ul>
+</li>
+<li><p>例题 (1.25.35)</p>
+</li>
+</ul>
+<ul>
+<li>c常定 N-S 方程<script type="math/tex; mode=display">
+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}=\nu\left(\frac{\partial ^{2}u}{\partial x^{2}}+\frac{\partial ^{2}v}{\partial y^{2}}\right)-\frac{1}{\rho}\frac{\partial \rho}{\partial x}</script></li>
+</ul>
+<hr>
+<h5 id="PDE-方程通用分类"><a href="#PDE-方程通用分类" class="headerlink" title="PDE 方程通用分类"></a>PDE 方程通用分类</h5><ul>
+<li><p>判别式 </p>
+<script type="math/tex; mode=display">
+A\frac{\partial ^2\phi}{\partial x²}+B\frac{\partial ^2\phi}{\partial x \partial y}+C\frac{\partial ^2\phi}{\partial y²} \cdots =0</script><script type="math/tex; mode=display">
+B^2-4AC=\begin{cases}
+  < 0 椭圆 \\ =0 抛物 \\ >0 双曲
+\end{cases}</script><p>  $\color{grey}{\phi \text{ 因变量 } x,y \text{ 自变量}}$</p>
+</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
