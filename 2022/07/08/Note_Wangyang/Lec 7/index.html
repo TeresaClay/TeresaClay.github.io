@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec8 Vector Calculus | TeresaClay的小屋</title>
+  <title>Lec7 Introduction | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec8 Vector Calculus | TeresaClay的小屋">
+  <meta name="description" content="Lec7 Introduction | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Systemtheoretische Hydromechanik \frac{\partial M}{\partial t}&#x3D;\rho_{ein}A_{ein}v_{ein}-\rho_{aus}A_{aus}v_{aus} \\ \frac{\partial \vec{I}}{\partial t}&#x3D;\vec{F}_{sonst}-\sum_{i}\left( p_{i}A_{i}\vec{n}">
 <meta property="og:type" content="article">
@@ -471,9 +471,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Note_Wangyang/Lec 8: Vector Calculus" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec 7" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec8 Vector Calculus</h1>
+        <h1 class="article-title">Lec7 Introduction</h1>
     
     <div class="article-meta">
         
@@ -493,7 +493,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-09 22:59:26'>2022-07-08 16:02</time>
+            Created At : <time class="date" title='Updated At: 2022-07-09 22:59:21'>2022-07-08 16:02</time>
         
     </div>
     <div class="article-meta">
@@ -515,7 +515,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%9A%84%E5%81%8F%E6%96%B9%E7%A8%8B"><span class="toc-text">经典的偏方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-text">向量微积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6-gradient-nabla"><span class="toc-text">梯度, gradient, $\nabla $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%A3%E5%BA%A6-divergent%EF%BC%8C-nabla-cdot"><span class="toc-text">散度, divergent，$\nabla \cdot$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E5%BA%A6-curl-nabla-times"><span class="toc-text">旋度, curl, $\nabla \times $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="toc-text">高斯散度定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stokes%E5%AE%9A%E7%90%86%E5%92%8C%E6%A0%BC%E6%9E%97%E5%AE%9A%E7%90%86"><span class="toc-text">Stokes定理和格林定理</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8E%8B%E5%AE%88%E6%81%92-N-S%E6%96%B9%E7%A8%8B"><span class="toc-text">不可压守恒 N-S方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B2%E4%B8%80%E7%82%B9%E7%82%B9%E5%8F%AF%E5%8E%8B"><span class="toc-text">讲一点点可压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-text">分析过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PDE-%E4%BA%8C%E9%98%B6-%E6%B1%82%E8%A7%A3"><span class="toc-text">PDE(二阶)求解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E4%BD%93%E7%A7%AF%E6%B3%95"><span class="toc-text">有限体积法</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -531,144 +531,132 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="经典的偏方程"><a href="#经典的偏方程" class="headerlink" title="经典的偏方程"></a>经典的偏方程</h4><ul>
-<li><p>波动方程 (线性) </p>
-<script type="math/tex; mode=display">
-\begin{aligned}
- u_{tt}&=c^{2}u_{xx} \\
- u_{tt}&=c^{2}\nabla ^{2}u 
-\end{aligned}</script><ul>
-<li>Fourier级数，变换; 正交基 $\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin x \cos x \mathrm{d}x$</li>
-<li>Krlow CG (painless的CG) $ \begin{bmatrix} x_1, x_2, \cdots, x_n \end{bmatrix} ^{T} \cdot \begin{bmatrix} y_1, y_2, \cdots, y_n \end{bmatrix}^{T}=0$</li>
-<li>time-initial condition; space - boundary condition    </li>
-</ul>
-</li>
-<li><p>热传导方程 (线性)</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-u_{t}&=\alpha^{2}u_{xx} \\
-u_t&=\alpha^{2}\nabla ^{2}u
-\end{aligned}</script><ul>
-<li>$\alpha$: 扩散系数  </li>
-</ul>
-</li>
-<li><p>拉普拉斯方程 (线性)</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-u_{x x}+u_{yy}&=0 \\
-\nabla ^{2}u&=0
-\end{aligned}</script></li>
-<li><p>Navier-Stokes 方程 (非线性) </p>
-</li>
-</ul>
-<hr>
-<h4 id="向量微积分"><a href="#向量微积分" class="headerlink" title="向量微积分"></a>向量微积分</h4><ul>
-<li>守恒率 <ul>
-<li>质量</li>
-<li>动量</li>
-<li>不可压基本不用能量守恒，可压的部分密度基</li>
+        <ul>
+<li>作业要求<ul>
+<li>用自己目标期刊的latex模板</li>
+<li>Overleaf</li>
+<li>中英均可</li>
 </ul>
 </li>
 </ul>
-<hr>
-<h4 id="梯度-gradient-nabla"><a href="#梯度-gradient-nabla" class="headerlink" title="梯度, gradient, $\nabla $"></a>梯度, gradient, $\nabla $</h4><script type="math/tex; mode=display">
-    \text{标量场}\implies \text{向量场}</script><ul>
-<li>梯度是一个方向，最快变化 （24.27）  </li>
-<li><p>标量场函数 $f(x,y)$</p>
-<script type="math/tex; mode=display">
-      \nabla f= \begin{bmatrix} 
-          \frac{\partial f}{\partial x} \\
-          \frac{\partial f}{\partial 
-          y} 
-      \end{bmatrix}</script></li>
-<li><p>梯度是线性的 </p>
-<script type="math/tex; mode=display">\nabla (f_1+f_2) = \nabla f_1+\nabla f_2</script></li>
-<li><p>方向导数  </p>
-<script type="math/tex; mode=display">
-  D_v(f)=\boldsymbol{n_v}\cdot \nabla f</script><ul>
-<li>same direction (变化最快的方向): $\frac{\nabla f}{\left\vert \nabla f \right\vert }\cdot \nabla f= \left\vert \nabla f \right\vert $ </li>
-<li>if $D_v(f)=0$, 在 $\boldsymbol{n}_v$方向是不会走改变的</li>
-</ul>
-</li>
-<li><p>Example: $f=x_2+y_2$ 35.33</p>
-</li>
-</ul>
-<hr>
-<h4 id="散度-divergent，-nabla-cdot"><a href="#散度-divergent，-nabla-cdot" class="headerlink" title="散度, divergent，$\nabla \cdot$"></a>散度, divergent，$\nabla \cdot$</h4><script type="math/tex; mode=display">
-    \text{向量场}\implies \text{标量场}</script><ul>
-<li>吸星大法(加图)</li>
-<li><p>向量场函数 $\boldsymbol{f}(x,y)$</p>
-<script type="math/tex; mode=display">
-      \nabla \cdot  \boldsymbol{f}= \begin{bmatrix} 
-          \frac{\partial }{\partial x} \\
-          \frac{\partial }{\partial 
-          y}
-      \end{bmatrix} \cdot \begin{bmatrix}
-      f_1 \\ f_2
-      \end{bmatrix} = \frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}</script></li>
-<li><p>散度&gt;0: source </p>
-</li>
-<li>散度=0: divergence free<ul>
-<li>不可压的速度满足无散条件 $\nabla \cdot \boldsymbol{U}=0 $</li>
-</ul>
-</li>
-<li>散度是线性的 <script type="math/tex; mode=display">
-\nabla \cdot (\boldsymbol{f}_1+\boldsymbol{f}_2)=\nabla \cdot \boldsymbol{f}_1+\nabla \cdot \boldsymbol{f}_2</script></li>
-<li><p>拉普拉斯方程 （梯度的散度） </p>
-<script type="math/tex; mode=display">\begin{aligned}
-\nabla \cdot \nabla f&=\frac{\partial ^{2} f}{\partial x^{2}}+ \frac{\partial ^{2} f}{\partial y^{2}}\\ \nabla ^{2}f&=\Delta f
-\end{aligned}</script></li>
-<li><p>43.24</p>
-</li>
-</ul>
-<hr>
-<h4 id="旋度-curl-nabla-times"><a href="#旋度-curl-nabla-times" class="headerlink" title="旋度, curl, $\nabla \times $"></a>旋度, curl, $\nabla \times $</h4><script type="math/tex; mode=display">
-\text{向量场}\implies \text{向量场}</script><ul>
-<li>向量场函数 $\boldsymbol{f}=(f_1,f_2,f_3)$<script type="math/tex; mode=display">
-\text{curl}(\boldsymbol{f})=\nabla\times \boldsymbol{f}= \text{det} \begin{bmatrix} i & j & k \\ \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\ f_1 & f_2 & f_3 \\\end{bmatrix}</script></li>
-<li>无旋，irrotational (旋度的散度) $\nabla \cdot (\nabla \times \boldsymbol{f})=0$</li>
-<li>思考 (梯度的旋度) $\nabla \times (\nabla f)$</li>
-<li><p>思考 (两次旋度的)横等0 $\nabla \times (\nabla \times \boldsymbol{f}) \equiv 0 \qquad  \vec{a} \times ( \vec{a} \times \vec{b} ) \equiv 0 $</p>
-</li>
-<li><p>1.12.50</p>
-</li>
-<li>1.30.35</li>
-<li>马桶抽水</li>
-</ul>
-<hr>
-<h4 id="高斯散度定理"><a href="#高斯散度定理" class="headerlink" title="高斯散度定理"></a>高斯散度定理</h4><ul>
-<li><p>穿过一个封闭面 $S$ 的通量 $F$ 等于对该封闭体内散度 $div(F)$ 的体积分</p>
-<script type="math/tex; mode=display">
-\iiint_V \nabla \cdot \boldsymbol{F} dV=\iint_S \boldsymbol{F} \cdot  \boldsymbol{n} dS</script></li>
-<li><p>推倒质量守恒，非常走意思的过程</p>
-<script type="math/tex; mode=display">
-m=\iiint_V \rho dV</script><script type="math/tex; mode=display">
-\frac{\partial }{\partial t} \iiint_V \rho dV = - \iint_S \rho \boldsymbol{F} \cdot \boldsymbol{n} dS = - \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV</script><script type="math/tex; mode=display">
-\iiint \frac{\partial \rho}{\partial t} dV + \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV = \iiint_V \left[\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\boldsymbol{F})\right] dV =0</script><script type="math/tex; mode=display">
-\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol{F})=0</script><script type="math/tex; mode=display">
-\text{incompressible:  } \quad \nabla \cdot \boldsymbol{F}=0</script></li>
-</ul>
-<hr>
-<h4 id="Stokes定理和格林定理"><a href="#Stokes定理和格林定理" class="headerlink" title="Stokes定理和格林定理"></a>Stokes定理和格林定理</h4><ul>
-<li><p>对一个封闭曲面上的旋度进行积分</p>
-<script type="math/tex; mode=display">
-\iint_S (\nabla \times \boldsymbol{F} ) \cdot d\boldsymbol{S}= \int_{\partial S} \boldsymbol{F}\cdot dS</script></li>
-<li><p>格林公式是Stokes的二维情况</p>
-<script type="math/tex; mode=display">
-\iint_S (\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}) dxdy=\int_{\partial{S}}f_1dx+f_2dy</script></li>
-<li><p>可以用格林来求面积</p>
-<script type="math/tex; mode=display">
-\boldsymbol{F}=(-y,x)^{T} \\
-\iint_S (1+1)dxdy=2A=\int_{\partial S}{-ydx+xdy}</script></li>
-<li><p>Note</p>
-<script type="math/tex; mode=display">
-\nabla \times \boldsymbol{F} = \det</script></li>
-</ul>
-<hr>
-<p>补充：</p>
+<p>Note：</p>
 <ul>
-<li>Machine Learning for Fluid Mechanics, Bruonton, Annual Revies of Fluid Mechanics</li>
-<li>Chen11, xxx,xxx</li>
+<li>开头部分对书籍的介绍重新听一下</li>
+<li>安德森的书</li>
+</ul>
+<hr>
+<h4 id="不可压守恒-N-S方程"><a href="#不可压守恒-N-S方程" class="headerlink" title="不可压守恒 N-S方程"></a>不可压守恒 N-S方程</h4><script type="math/tex; mode=display">
+\begin{equation*}
+\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol U )=0   \quad \implies \quad \nabla \cdot \boldsymbol{U}=0 
+\end{equation*}</script><script type="math/tex; mode=display">
+\begin{aligned}  
+ \\ \frac{\partial \rho \boldsymbol{U}}{\partial t}+\nabla \cdot (\rho \boldsymbol{UU})&=-\nabla p+\nabla \cdot (\mu(\nabla \boldsymbol{U})+(\nabla \boldsymbol{U})^{T})
+ \\ &=-\frac{2}{3}\mu(\nabla \cdot \boldsymbol{U})\boldsymbol{I}+\rho\boldsymbol{g}+\boldsymbol{S}
+ \\
+ \\ \implies  \frac{\partial \boldsymbol{U}}{\partial t}+\nabla \cdot (\boldsymbol{UU})&=-\frac{\nabla p}{\rho}+\nabla \cdot (\nu\nabla \boldsymbol{U})+\boldsymbol{g} \qquad \text{微分形式}
+ \\ &=-\boldsymbol{g}+\frac{\boldsymbol{S}}{\rho}
+\end{aligned}</script><ul>
+<li>不可压速度散度为零, 标量</li>
+<li>没有显含 $p$ 的方程，所以人为制造出压力补偿方程 (Pisson)，semi—implicit</li>
+<li>需要理解<ul>
+<li>积分形式 微分形式 守恒形式 不守恒形式</li>
+<li>为什么会出现有限体积法</li>
+<li>网格 离散 系数矩阵(稀疏矩阵 sparse) 代数方程求解</li>
+</ul>
+</li>
+<li><p>需要注意的点</p>
+<ul>
+<li><p>$\boldsymbol{UU} = \begin{bmatrix} u \\ v \\ w \\\end{bmatrix} \cdot \begin{bmatrix} u &amp; v &amp; w \end{bmatrix}$</p>
+</li>
+<li><p>$\boldsymbol{U}\cdot \nabla \boldsymbol{U} \to  \nabla \cdot (\boldsymbol{UU})$</p>
+</li>
+<li><p>primitive variables: $p,\boldsymbol{U}$ </p>
+</li>
+<li>标量：$T,p,\alpha,k,\epsilon$ </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="讲一点点可压"><a href="#讲一点点可压" class="headerlink" title="讲一点点可压"></a>讲一点点可压</h4><ul>
+<li>可压是密度基<ul>
+<li>激波 (shock wave), 间断, 黎曼解</li>
+</ul>
+</li>
+<li><p>不可压是压力基</p>
+<script type="math/tex; mode=display">\frac{\partial \alpha}{\partial t}+\mu \frac{\partial \alpha}{\partial x}=0</script><p>  在自然界中，要么是气体，要么是液体，不存在说不清道不明的地方 —- interface 瞬变<br>  所以此方程其实是可压的属性，有间断的属性，不连续，较难算<br>  所以VOF是借鉴可压的方法，interface大概2-3个网格， isoAdvector可以达到1-2个网格 </p>
+</li>
+<li><p>SWE (shallow water equation)<br>  人为加了一些条件，把不可压的方程变成可压  - TORO 老师的Riemann solver (书）<br>  不考虑中间的过程，让他们无穷靠近<br>  最早用特征线的方法，用时间项显示推进，不需要构造矩阵，而是一个大的特征值矩阵，把三维问题变成大一统, Runge Kutta<br>  他们的代码比较直观，还有用有限差分 </p>
+</li>
+<li>gradient limiter, flux limiter<br>通量限制器是可压部分研究出来，他们对对流项特别深入的研究 </li>
+</ul>
+<p>Burgers 方程</p>
+<script type="math/tex; mode=display">
+  \begin{aligned}
+  \frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}&=0   
+  \\ \frac{\partial u}{\partial t}+c \frac{\partial u}{\partial x}&=0 
+  \end{aligned}</script><ul>
+<li><p>显示方程<br>$ \color{grey}{\frac{u-u^{0}}{\Delta t}+u^{0}\frac{u^{0}_{i}-u^{0}_{i-1}}{\Delta x}=0 \to u_i=u^{0}+ \frac{\Delta t}{\Delta x} u^0(u^0_i-u^0_{i-1})}$</p>
+</li>
+<li><p>CFL$= \frac{c\Delta t}{\Delta x} &lt; 1$<br>物理信息的网格不超过一个网格，不可压严格来说 &lt;0.5<br>OpenFOAM 有一套自己解决的办法</p>
+</li>
+</ul>
+<ul>
+<li>图形学和可压部分的研究，如果水平一般的研究者，不需要构造矩阵</li>
+</ul>
+<hr>
+<h4 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h4><ul>
+<li>对物理模型和数学方程的理解，需要通过大量读论文，做实验，试验 </li>
+<li>连续的集合和离散的点 <ul>
+<li>自然界的 t,V - continus; geometry - 有限的, 而CFD 间断，有限 </li>
+<li>OpenFOAM:  <ul>
+<li>points, owner, neighbour,face, bondary (没有体的概念) (OpenFOAM: polymesh folder)</li>
+<li>物理量的梯度变化过大的地方，需要加密网格 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>边界条件<ul>
+<li>Dirichlet 定值: T=300k, p=1bar</li>
+<li>Neumann  梯度边界： $\frac{\partial T}{\partial x}=0$</li>
+<li>Roboin  混合</li>
+</ul>
+</li>
+<li>Example 插图理解</li>
+</ul>
+<hr>
+<h4 id="PDE-二阶-求解"><a href="#PDE-二阶-求解" class="headerlink" title="PDE(二阶)求解"></a>PDE(二阶)求解</h4><ul>
+<li>椭圆 - 稳态(无t) <ul>
+<li>插图</li>
+<li>根据杆的导热系数，会达到平衡，进入一种稳态 </li>
+</ul>
+</li>
+<li>抛物(t)</li>
+<li>双曲(t)<br>代数方程组求解</li>
+<li>解析解</li>
+<li><p>数值解 (1.14.49)</p>
+<ul>
+<li>FPM 有限差分, FEM 有限元</li>
+<li><p>FVM有限体积</p>
+<p>代数方程组Ax=b<br>good A means: 对称，对角占优，正定 $x^{T}Ax&gt;0$<br>最早Gauss消元<br>CG(conjagate gradient，共軛梯度), PCG(preconditional),<br>  Ax=b -&gt; Max=Mb -&gt; A‘x=b’<br>MG(multigrid 多重网格), GAMG（2.25.22）（GS+Jacobian)</p>
+<p>图形学 MGPCG</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="有限体积法"><a href="#有限体积法" class="headerlink" title="有限体积法"></a>有限体积法</h4><p>Steady-state 定常</p>
+<ul>
+<li>网格划分<ul>
+<li>OpenFOAM是非结构化求解器，是要读取拓扑关系</li>
+</ul>
+</li>
+<li>边界条件确定</li>
+<li>求解精度选取</li>
+<li>离散数值格式选取</li>
+<li>显式与隐式妥协<ul>
+<li>Ax (隐式) = b (显式)</li>
+</ul>
+</li>
 </ul>
 
       
