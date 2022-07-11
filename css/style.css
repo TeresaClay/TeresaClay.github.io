@@ -5,13 +5,18 @@
 #comments .comment-bar {
   display: block;
   cursor: pointer;
-  background: rgba(255,255,255,0.3);
-  padding: 0.5rem;
-  -webkit-box-shadow: 3px 2px 8px rgba(0,0,0,0.07);
-  box-shadow: 3px 2px 8px rgba(0,0,0,0.07);
-  text-align: center;
-  font-size: 2rem;
 }
+#comments .comment-bar # background rgba(255,
+#comments .comment-bar 255,
+#comments .comment-bar 0.3),
+#comments .comment-bar background rgba(255,
+#comments .comment-bar 0,
+#comments .comment-bar padding 0.5rem,
+#comments .comment-bar -webkit-box-shadow 3px 2px 8px rgba(0,
+#comments .comment-bar 0.07),
+#comments .comment-bar box-shadow 3px 2px 8px rgba(0,
+#comments .comment-bar text-align center,
+#comments .comment-bar font-size 2rem,
 #comments .comment-bar a {
   display: inline-block;
   width: 3em;
@@ -20,23 +25,78 @@
   color: #258fb8;
   outline: none;
 }
+#comments .comment-bar # background rgba(255 .fa.pulse,
+#comments .comment-bar 255 .fa.pulse,
+#comments .comment-bar 0.3) .fa.pulse,
+#comments .comment-bar background rgba(255 .fa.pulse,
+#comments .comment-bar 0 .fa.pulse,
+#comments .comment-bar padding 0.5rem .fa.pulse,
+#comments .comment-bar -webkit-box-shadow 3px 2px 8px rgba(0 .fa.pulse,
+#comments .comment-bar 0.07) .fa.pulse,
+#comments .comment-bar box-shadow 3px 2px 8px rgba(0 .fa.pulse,
+#comments .comment-bar text-align center .fa.pulse,
+#comments .comment-bar font-size 2rem .fa.pulse,
 #comments .comment-bar a .fa.pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
+#comments .comment-bar # background rgba(255 .fa.animated,
+#comments .comment-bar 255 .fa.animated,
+#comments .comment-bar 0.3) .fa.animated,
+#comments .comment-bar background rgba(255 .fa.animated,
+#comments .comment-bar 0 .fa.animated,
+#comments .comment-bar padding 0.5rem .fa.animated,
+#comments .comment-bar -webkit-box-shadow 3px 2px 8px rgba(0 .fa.animated,
+#comments .comment-bar 0.07) .fa.animated,
+#comments .comment-bar box-shadow 3px 2px 8px rgba(0 .fa.animated,
+#comments .comment-bar text-align center .fa.animated,
+#comments .comment-bar font-size 2rem .fa.animated,
 #comments .comment-bar a .fa.animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+#comments .comment-bar # background rgba(255 .fa.animated.infinite,
+#comments .comment-bar 255 .fa.animated.infinite,
+#comments .comment-bar 0.3) .fa.animated.infinite,
+#comments .comment-bar background rgba(255 .fa.animated.infinite,
+#comments .comment-bar 0 .fa.animated.infinite,
+#comments .comment-bar padding 0.5rem .fa.animated.infinite,
+#comments .comment-bar -webkit-box-shadow 3px 2px 8px rgba(0 .fa.animated.infinite,
+#comments .comment-bar 0.07) .fa.animated.infinite,
+#comments .comment-bar box-shadow 3px 2px 8px rgba(0 .fa.animated.infinite,
+#comments .comment-bar text-align center .fa.animated.infinite,
+#comments .comment-bar font-size 2rem .fa.animated.infinite,
 #comments .comment-bar a .fa.animated.infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
+#comments .comment-bar # background rgba(255 .fa:before,
+#comments .comment-bar 255 .fa:before,
+#comments .comment-bar 0.3) .fa:before,
+#comments .comment-bar background rgba(255 .fa:before,
+#comments .comment-bar 0 .fa:before,
+#comments .comment-bar padding 0.5rem .fa:before,
+#comments .comment-bar -webkit-box-shadow 3px 2px 8px rgba(0 .fa:before,
+#comments .comment-bar 0.07) .fa:before,
+#comments .comment-bar box-shadow 3px 2px 8px rgba(0 .fa:before,
+#comments .comment-bar text-align center .fa:before,
+#comments .comment-bar font-size 2rem .fa:before,
 #comments .comment-bar a .fa:before {
   content: "\f27b";
 }
+#comments .comment-bar # background rgba(255 .fa.fa-spinner,
+#comments .comment-bar 255 .fa.fa-spinner,
+#comments .comment-bar 0.3) .fa.fa-spinner,
+#comments .comment-bar background rgba(255 .fa.fa-spinner,
+#comments .comment-bar 0 .fa.fa-spinner,
+#comments .comment-bar padding 0.5rem .fa.fa-spinner,
+#comments .comment-bar -webkit-box-shadow 3px 2px 8px rgba(0 .fa.fa-spinner,
+#comments .comment-bar 0.07) .fa.fa-spinner,
+#comments .comment-bar box-shadow 3px 2px 8px rgba(0 .fa.fa-spinner,
+#comments .comment-bar text-align center .fa.fa-spinner,
+#comments .comment-bar font-size 2rem .fa.fa-spinner,
 #comments .comment-bar a .fa.fa-spinner {
   display: none;
 }
