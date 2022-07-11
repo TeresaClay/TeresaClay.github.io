@@ -5,7 +5,7 @@
 #comments .comment-bar {
   display: block;
   cursor: pointer;
-  background: rgba(255,255,0,0.3);
+  background: rgba(255,255,0,0.5);
   padding: 0.5rem;
   -webkit-box-shadow: 3px 2px 8px rgba(0,0,0,0.07);
   box-shadow: 3px 2px 8px rgba(0,0,0,0.07);
@@ -1392,7 +1392,7 @@
   display: inline-block;
 }
 #post .pjax article blockquote {
-  color: #666;
+  color: rgba(68,68,153,0.267) 9;
   padding: 1px 23px;
   margin: 22px 0;
   border-left: 4px solid #cbcbcb;
