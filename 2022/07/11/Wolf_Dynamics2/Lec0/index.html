@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋</title>
+  <title>Lec0 Initial Note | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋">
+  <meta name="description" content="Lec0 Initial Note | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="$ tar -zxvf file_name.tar.gz $ sh run_all.sh  The turbulent world around us turbulence (turbulent flows) in fluid fluid dynamics characterize a certain type of flow the counterpart of a streamline mot">
 <meta property="og:type" content="article">
@@ -542,9 +542,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec1" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Wolf_Dynamics2/Lec0" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec1 Lagrangesche Ableitung und Advektion</h1>
+        <h1 class="article-title">Lec0 Initial Note</h1>
     
     <div class="article-meta">
         
@@ -556,7 +556,9 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics&lt;---&gt;Turbulence">Turbulence</a>
             
         </span>
         
@@ -564,7 +566,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 18:29:34'>2022-07-09 22:18</time>
+            Created At : <time class="date" title='Updated At: 2022-07-11 11:39:54'>2022-07-11 08:54</time>
         
     </div>
     <div class="article-meta">
@@ -586,7 +588,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Systemtheoretische-Hydromechanik"><span class="toc-text">Systemtheoretische Hydromechanik</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hydrodynamik-heute-%E2%80%94-Navier-Stokes-Gleichung"><span class="toc-text">Hydrodynamik heute — Navier-Stokes Gleichung</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><span class="toc-text">Die Bahnlinie als Kurve -(1 Strömungspartikel)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lagrangesche-Erhaltungsgrosen"><span class="toc-text">Lagrangesche Erhaltungsgrößen</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-turbulent-world-around-us"><span class="toc-text">The turbulent world around us</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#characteristics-of-turbulent-flows"><span class="toc-text">characteristics of turbulent flows</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#small-summary"><span class="toc-text">small summary</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -602,25 +604,96 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Systemtheoretische-Hydromechanik"><a href="#Systemtheoretische-Hydromechanik" class="headerlink" title="Systemtheoretische Hydromechanik"></a>Systemtheoretische Hydromechanik</h4><script type="math/tex; mode=display">
-\frac{\partial M}{\partial t}=\rho_{ein}A_{ein}v_{ein}-\rho_{aus}A_{aus}v_{aus} \\ \frac{\partial \vec{I}}{\partial t}=\vec{F}_{sonst}-\sum_{i}\left( p_{i}A_{i}\vec{n}+\rho_{i}A_{i}(\vec{n}_i\vec{v}_i)\vec{v}_i +M\vec{g} \right)</script><p>Die klassische <strong>stationäre</strong> Hydraulik</p>
-<script type="math/tex; mode=display">
-A_{ein}v_{ein}=A_{aus}v_{aus}\\z_1+\frac{1}{2g}v^{2}_{2}+\frac{p_1}{\rho g}=z_2+\frac{1}{2g}v^{2}_{2}+\frac{p_2}{\rho g}+h_v</script><h4 id="Hydrodynamik-heute-—-Navier-Stokes-Gleichung"><a href="#Hydrodynamik-heute-—-Navier-Stokes-Gleichung" class="headerlink" title="Hydrodynamik heute — Navier-Stokes Gleichung"></a>Hydrodynamik heute — Navier-Stokes Gleichung</h4><script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+
-w\frac{\partial u}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial x}+\nu\left(\frac{\partial ^{2}u}{\partial x^{2}}+\frac{\partial ^{2}u}{\partial y^{2}}+\frac{\partial ^{2}u}{\partial z^{2}}\right) \\ \cdots 
-\end{aligned}</script><h4 id="Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><a href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel" class="headerlink" title="Die Bahnlinie als Kurve -(1 Strömungspartikel)"></a>Die Bahnlinie als Kurve -(1 Strömungspartikel)</h4><p><img src="/images/2022-07-10-10-13-07.png" alt=""></p>
-<p>$<br>\quad \quad u=\frac{\mathrm{d}x(t)}{\mathrm{d}t} \quad v=\frac{\mathrm{d}y(t)}{\mathrm{d}t} \quad w=\frac{\mathrm{d}z(t)}{\mathrm{d}t}<br>$</p>
-<p>die Weglänge: $\quad s=\lim_{N \to \infty}\sum_{i=1}^{N-1}\left| \vec{x}(t_{i+1})-\vec{x}(t_i) \right|_{}=\int_{t_1}^{t_2} \sqrt{u^{2}(t)+v^{2}(t)+w^{2}(t)} \mathrm{d}t$ </p>
-<p>die Bahnableitung $\frac{DT}{Dt}: \quad $ wie verändert sich die Temperatur ==entlang dieser Bahn==? </p>
-<h4 id="Lagrangesche-Erhaltungsgrosen"><a href="#Lagrangesche-Erhaltungsgrosen" class="headerlink" title="Lagrangesche Erhaltungsgrößen"></a>Lagrangesche Erhaltungsgrößen</h4><p>==sind Gräßen, deren Wert sich auf einer Bahnlinie nicht ändert==</p>
-<ul>
-<li>Lineare Advekctionsgleichung (linear: Form ändert sich nicht)</li>
+        <pre><code class="lang-bash">$ tar -zxvf file_name.tar.gz
+$ sh run_all.sh
+</code></pre>
+<h4 id="The-turbulent-world-around-us"><a href="#The-turbulent-world-around-us" class="headerlink" title="The turbulent world around us"></a>The turbulent world around us</h4><ul>
+<li>turbulence (turbulent flows) in fluid fluid dynamics<ul>
+<li>characterize a certain type of flow</li>
+<li>the counterpart of a streamline motion, smooth flow, or a laminar flow</li>
 </ul>
+</li>
+</ul>
+<h5 id="characteristics-of-turbulent-flows"><a href="#characteristics-of-turbulent-flows" class="headerlink" title="characteristics of turbulent flows"></a>characteristics of turbulent flows</h5><ul>
+<li>irregularity (randomness)<ul>
+<li>described statistically</li>
+</ul>
+</li>
+<li>diffusivity<ul>
+<li>case rapid mixing and increased rates of momentum, heat and mass transfer  </li>
+</ul>
+</li>
+</ul>
+<p><code>A flow that looks rand but does not exhibit the spreading of velocity fluctuations through the surrounding fluid is not turbulent.</code>  </p>
+<ul>
+<li><p>dissipative</p>
+<ul>
+<li>kinetic energy gets converted into heat due to viscous shear stresses</li>
+</ul>
+</li>
+<li><p>high Reynolds numbers</p>
+<ul>
+<li>a compex interaction between the viscous forces and convection</li>
+</ul>
+</li>
+<li>rotational (non-zero vorticity)</li>
+<li>continuum<ul>
+<li>even the smallest eddies are significantly larger thant the molecular scales</li>
+</ul>
+</li>
+<li>a feature of fluid flow <ul>
+<li>not a property of the flow</li>
+</ul>
+</li>
+</ul>
+<h5 id="small-summary"><a href="#small-summary" class="headerlink" title="small summary"></a>small summary</h5><ul>
+<li>unsteady, aperiodic motion in which all three velocity components fluctuate in space and time</li>
+<li>every transported quantity shows similar fluctuations (pressure, temperature, species, concentration…)</li>
+<li>contains a wide range of eddy sizes (scales)<ul>
+<li>Large eddies <ul>
+<li>derives their energy from the mean flow</li>
+<li>are unstable and break into smaller eddies</li>
+</ul>
+</li>
+<li>Small eddies <ul>
+<li>convert kinetic energy into thermal energy via viscous dissipation</li>
+<li>their behavior is more universal in nature</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Introduction-to-turbulence-modelling"><a href="#Introduction-to-turbulence-modelling" class="headerlink" title="Introduction to turbulence modelling"></a>Introduction to turbulence modelling</h4><p>The goal of turbulence modelling</p>
+<ul>
+<li>develop equations that predict the <strong>time averaged</strong> primitive fields (velocity, pressure, temperature, concentration) without calculating the complete turbulent flow pattern as a function of time (from smalles to system scales)</li>
+</ul>
+<p>Turbulence can be</p>
+<ul>
+<li>wall bounded </li>
+<li>free shear -&gt; (mixing layers and jets)</li>
+</ul>
+<h5 id="Reynolds-number-and-Rayleigh-number"><a href="#Reynolds-number-and-Rayleigh-number" class="headerlink" title="Reynolds number and Rayleigh number"></a>Reynolds number and Rayleigh number</h5><ul>
+<li><p>Reynolds number</p>
 <script type="math/tex; mode=display">
-\frac{DC}{Dt}=0 \quad \to \quad \frac{\partial c}{\partial t}+u\frac{\partial c}{\partial x}+v\frac{\partial c}{\partial y}+w\frac{\partial c}{\partial z}=0</script><ul>
-<li>Die nichtlineare Advekctionsgleichung (nichtlinear: Form ändert sich)<script type="math/tex; mode=display">
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}=0</script></li>
+  Re_L=\frac{\rho UL}{\mu}=\frac{UL}{\nu}=\frac{\text{convective}}{\text{viscous}} \qquad \nu=\frac{\mu}{\rho}</script><p>  $U$: a charactersitic veloctiy, e.g. free-stream velocity<br>  $L$: a representative length sclae (or system scale), e.g., length, height, diameter, etc.</p>
+</li>
+<li><p>Rayleigh number</p>
+</li>
+<li>Grashof number</li>
+<li>Prandtl number</li>
+</ul>
+<h5 id="Turbulent-occurs-at-large-Re"><a href="#Turbulent-occurs-at-large-Re" class="headerlink" title="Turbulent occurs at large Re"></a>Turbulent occurs at large Re</h5><ul>
+<li>for external flow<br>$\begin{aligned}<br>Re_x &amp; \ge 5000 &amp;\qquad &amp; \text{around slender/streamlined bodies (aerodynamic bodies)} \\ Re_d &amp; \ge 2300 &amp;\qquad &amp; \text{around an obstacle (bluff bodies)}<br>\end{aligned}$<ul>
+<li>for internal flow<br>$Re_{d_h}\ge 2300$</li>
+<li>for natural convection and buoyancy<br>$\frac{Ra}{Pr} \ge  10^{9}$</li>
+</ul>
+</li>
+</ul>
+<p><code>Note: other factors may cause transition to turbulence at lower Reynolds number: free-stream turbulence, surface conditions, transpiration(blowing/suction),roughness…</code></p>
+<h5 id="Fluctuations-of-transported-quantities"><a href="#Fluctuations-of-transported-quantities" class="headerlink" title="Fluctuations of transported quantities"></a>Fluctuations of transported quantities</h5><p><code>impractial to account for all instantaneous fluctuations: remove,avoid,filter the small scales by usind models</p>
+<ul>
+<li>Reynolds averaging</li>
+<li>Filtering</li>
 </ul>
 
       

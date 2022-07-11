@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋</title>
+  <title>TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋">
+  <meta name="description" content="TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="$ tar -zxvf file_name.tar.gz $ sh run_all.sh  The turbulent world around us turbulence (turbulent flows) in fluid fluid dynamics characterize a certain type of flow the counterpart of a streamline mot">
 <meta property="og:type" content="article">
@@ -542,29 +542,17 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec1" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">Lec1 Lagrangesche Ableitung und Advektion</h1>
+        <article id="post-Andreas_Malcherek/Lec6" class="article article-type-post" itemscope itemprop="blogPost">
     
     <div class="article-meta">
         
         
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="Course">Course</a> > 
-            
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
-            
-        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 18:29:34'>2022-07-09 22:18</time>
+            Created At : <time class="date" title='Updated At: 2022-07-10 20:08:55'>2022-07-10 20:08</time>
         
     </div>
     <div class="article-meta">
@@ -586,7 +574,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Systemtheoretische-Hydromechanik"><span class="toc-text">Systemtheoretische Hydromechanik</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hydrodynamik-heute-%E2%80%94-Navier-Stokes-Gleichung"><span class="toc-text">Hydrodynamik heute — Navier-Stokes Gleichung</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><span class="toc-text">Die Bahnlinie als Kurve -(1 Strömungspartikel)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lagrangesche-Erhaltungsgrosen"><span class="toc-text">Lagrangesche Erhaltungsgrößen</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -602,27 +590,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Systemtheoretische-Hydromechanik"><a href="#Systemtheoretische-Hydromechanik" class="headerlink" title="Systemtheoretische Hydromechanik"></a>Systemtheoretische Hydromechanik</h4><script type="math/tex; mode=display">
-\frac{\partial M}{\partial t}=\rho_{ein}A_{ein}v_{ein}-\rho_{aus}A_{aus}v_{aus} \\ \frac{\partial \vec{I}}{\partial t}=\vec{F}_{sonst}-\sum_{i}\left( p_{i}A_{i}\vec{n}+\rho_{i}A_{i}(\vec{n}_i\vec{v}_i)\vec{v}_i +M\vec{g} \right)</script><p>Die klassische <strong>stationäre</strong> Hydraulik</p>
-<script type="math/tex; mode=display">
-A_{ein}v_{ein}=A_{aus}v_{aus}\\z_1+\frac{1}{2g}v^{2}_{2}+\frac{p_1}{\rho g}=z_2+\frac{1}{2g}v^{2}_{2}+\frac{p_2}{\rho g}+h_v</script><h4 id="Hydrodynamik-heute-—-Navier-Stokes-Gleichung"><a href="#Hydrodynamik-heute-—-Navier-Stokes-Gleichung" class="headerlink" title="Hydrodynamik heute — Navier-Stokes Gleichung"></a>Hydrodynamik heute — Navier-Stokes Gleichung</h4><script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+
-w\frac{\partial u}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial x}+\nu\left(\frac{\partial ^{2}u}{\partial x^{2}}+\frac{\partial ^{2}u}{\partial y^{2}}+\frac{\partial ^{2}u}{\partial z^{2}}\right) \\ \cdots 
-\end{aligned}</script><h4 id="Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><a href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel" class="headerlink" title="Die Bahnlinie als Kurve -(1 Strömungspartikel)"></a>Die Bahnlinie als Kurve -(1 Strömungspartikel)</h4><p><img src="/images/2022-07-10-10-13-07.png" alt=""></p>
-<p>$<br>\quad \quad u=\frac{\mathrm{d}x(t)}{\mathrm{d}t} \quad v=\frac{\mathrm{d}y(t)}{\mathrm{d}t} \quad w=\frac{\mathrm{d}z(t)}{\mathrm{d}t}<br>$</p>
-<p>die Weglänge: $\quad s=\lim_{N \to \infty}\sum_{i=1}^{N-1}\left| \vec{x}(t_{i+1})-\vec{x}(t_i) \right|_{}=\int_{t_1}^{t_2} \sqrt{u^{2}(t)+v^{2}(t)+w^{2}(t)} \mathrm{d}t$ </p>
-<p>die Bahnableitung $\frac{DT}{Dt}: \quad $ wie verändert sich die Temperatur ==entlang dieser Bahn==? </p>
-<h4 id="Lagrangesche-Erhaltungsgrosen"><a href="#Lagrangesche-Erhaltungsgrosen" class="headerlink" title="Lagrangesche Erhaltungsgrößen"></a>Lagrangesche Erhaltungsgrößen</h4><p>==sind Gräßen, deren Wert sich auf einer Bahnlinie nicht ändert==</p>
-<ul>
-<li>Lineare Advekctionsgleichung (linear: Form ändert sich nicht)</li>
-</ul>
-<script type="math/tex; mode=display">
-\frac{DC}{Dt}=0 \quad \to \quad \frac{\partial c}{\partial t}+u\frac{\partial c}{\partial x}+v\frac{\partial c}{\partial y}+w\frac{\partial c}{\partial z}=0</script><ul>
-<li>Die nichtlineare Advekctionsgleichung (nichtlinear: Form ändert sich)<script type="math/tex; mode=display">
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}=0</script></li>
-</ul>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
