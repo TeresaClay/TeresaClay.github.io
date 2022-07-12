@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec4 Die Potentialströmungen | TeresaClay的小屋</title>
+  <title>Lec11 Die Druck-Poisson-Gleichung | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec4 Die Potentialströmungen | TeresaClay的小屋">
+  <meta name="description" content="Lec11 Die Druck-Poisson-Gleichung | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Spannung auf einen Quader innere  Spannungen beschreiben alle möglichen inneren Kräfte in einem Material  Spannungstensor \begin{aligned}   \sigma_{i,j}&amp;&#x3D;\begin{bmatrix} \sigma_{xx} &amp; \sigma_{xy} &amp; \s">
 <meta property="og:type" content="article">
@@ -591,9 +591,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec4" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Andreas_Malcherek/Lec11" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec4 Die Potentialströmungen</h1>
+        <h1 class="article-title">Lec11 Die Druck-Poisson-Gleichung</h1>
     
     <div class="article-meta">
         
@@ -613,7 +613,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 20:08:25'>2022-07-10 19:36</time>
+            Created At : <time class="date" title='Updated At: 2022-07-12 10:43:43'>2022-07-12 10:25</time>
         
     </div>
     <div class="article-meta">
@@ -624,7 +624,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Das-Geschwindigkeitspotenzial"><span class="toc-text">Das Geschwindigkeitspotenzial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Potenzialstromung"><span class="toc-text">Die Potenzialströmung</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Recall"><span class="toc-text">Recall</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Herleitung-der-Druck-Poisson-Gleichung"><span class="toc-text">Herleitung der Druck-Poisson-Gleichung</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Randbedingungen"><span class="toc-text">Randbedingungen</span></a>
     
 <style>
     .left-col .switch-btn,
@@ -640,27 +640,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Das-Geschwindigkeitspotenzial"><a href="#Das-Geschwindigkeitspotenzial" class="headerlink" title="Das Geschwindigkeitspotenzial"></a>Das Geschwindigkeitspotenzial</h4><ul>
-<li><p>Anname für Potenzialströmung</p>
+        <h4 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h4><p><a href="">Eulergleichung</a>: Impulgsgleichung/Bewegungsgleichung+Kontinuitätgsgleichung)</p>
 <script type="math/tex; mode=display">
-\vec{u}=\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}=-\text{grad}\,\phi=-\begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\ \frac{\partial \phi}{\partial z} \\\end{bmatrix}</script><p><code>nicht alle Strömung durch Potentialströmung dargestellt werden</code></p>
-</li>
-<li><p>Bsp: die homogene stationäre Strömung</p>
-<script type="math/tex; mode=display">
-\text{given }\phi(x,y)=-u_{0}x-v_{0}y 
-\\ \to \vec{u}=-\text{grad}\,\phi=\begin{bmatrix} u_0 \\ v_0 \\\end{bmatrix}</script><p>die Umströmungeines kreiszylinders</p>
-<script type="math/tex; mode=display">
-\phi(x,y)=-u_{\infty}\left( 1+\frac{R^{2}}{x^{2}+y^{2}}x \right) \to</script><p><img src="/images/2022-07-10-19-51-54.png" alt=""></p>
-<p><code>Aber Potenzialströmung beschreibt keine Realität: Strömung direkt an der Kugel hat zero-Geschwindigkeit</code></p>
-</li>
+\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}=-\frac{1}{\rho}\frac{\partial p}{\partial x_i}-g_i</script><ul>
+<li>4 unknwons: $u,v,w,p$, </li>
+<li>4 Gleichungen</li>
+<li>aber die Passen nicht zu lösen</li>
 </ul>
-<hr>
-<h4 id="Die-Potenzialstromung"><a href="#Die-Potenzialstromung" class="headerlink" title="Die Potenzialströmung"></a>Die Potenzialströmung</h4><ul>
-<li>Geschwindigkeitspotenzial <script type="math/tex; mode=display">
-\vec{u}=-\text{grad} \, \phi</script></li>
-<li>Inkompressible Strömung<script type="math/tex; mode=display">
-\text{div}\vec{u}=0</script><script type="math/tex; mode=display">
-\to \text{div grad}\,\phi= \nabla \phi=\frac{\partial ^{2}\phi}{\partial x^{2}}+\frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial z^{2}}=0  \qquad \color{red}{\text{viele Lösung}}</script></li>
+<h3 id="Herleitung-der-Druck-Poisson-Gleichung"><a href="#Herleitung-der-Druck-Poisson-Gleichung" class="headerlink" title="Herleitung der Druck-Poisson-Gleichung"></a>Herleitung der Druck-Poisson-Gleichung</h3><ul>
+<li>divergenz Eulerigleichung $\frac{\partial }{\partial x_i} = \frac{\partial }{\partial x}+\frac{\partial }{\partial y}+\frac{\partial }{\partial z}$<script type="math/tex; mode=display">
+\frac{\partial }{\partial x_i}\frac{\partial v_i}{\partial t}+\frac{\partial }{\partial x_i}\left( v_j\frac{\partial v_i}{\partial x_j} \right)=-\frac{1}{\rho}\frac{\partial }{\partial x_i}\frac{\partial p}{\partial x_i}-\frac{\partial g_i}{\partial x_i} \\ \frac{\partial }{\partial t}\frac{\partial v_i}{\partial x_i}+v_j\frac{\partial }{\partial x_j}\frac{\partial v_i}{\partial x_i}+\frac{\partial v_j}{\partial x_i}\frac{\partial v_i}{\partial x_j}=-\frac{1}{\rho}\frac{\partial }{\partial x_i}\frac{\partial p}{\partial x_i} \\ \boxed{\frac{\partial }{\partial x_i}\frac{\partial p}{\partial x_i}=-\rho\frac{\partial v_j}{\partial x_i}\frac{\partial v_i}{\partial x_j}} \qquad \text{Poisson}</script></li>
+</ul>
+<h3 id="Randbedingungen"><a href="#Randbedingungen" class="headerlink" title="Randbedingungen"></a>Randbedingungen</h3><ul>
+<li><p>Randbedingung an geschlossenen Rändern</p>
+<ul>
+<li>只能平行沿着Rand，$\vec{n}$方向为零<br><img src="images/2022-07-12-10-40-28.png" alt=""> <script type="math/tex; mode=display">
+\frac{D\vec{v}\vec{n}}{Dt}=0=-\vec{n}\frac{1}{\rho}\text{grad}p+\vec{n}\vec{g} \implies -\vec{n}\nabla p=\vec{n}\rho\vec{g} \qquad \text{Neumann-RB}</script></li>
+</ul>
+</li>
+<li><p>Randbedingungen an offenen Rändern<br><img src="images/2022-07-12-10-43-13.png" alt=""></p>
+</li>
 </ul>
 
       

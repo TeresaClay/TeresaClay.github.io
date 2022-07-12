@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec4 Die Potentialströmungen | TeresaClay的小屋</title>
+  <title>Lec12,14 Deformation und Deformationstensor | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec4 Die Potentialströmungen | TeresaClay的小屋">
+  <meta name="description" content="Lec12,14 Deformation und Deformationstensor | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Spannung auf einen Quader innere  Spannungen beschreiben alle möglichen inneren Kräfte in einem Material  Spannungstensor \begin{aligned}   \sigma_{i,j}&amp;&#x3D;\begin{bmatrix} \sigma_{xx} &amp; \sigma_{xy} &amp; \s">
 <meta property="og:type" content="article">
@@ -591,9 +591,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec4" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Andreas_Malcherek/Lec12" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec4 Die Potentialströmungen</h1>
+        <h1 class="article-title">Lec12,14 Deformation und Deformationstensor</h1>
     
     <div class="article-meta">
         
@@ -613,7 +613,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 20:08:25'>2022-07-10 19:36</time>
+            Created At : <time class="date" title='Updated At: 2022-07-12 12:21:56'>2022-07-12 10:44</time>
         
     </div>
     <div class="article-meta">
@@ -624,7 +624,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Das-Geschwindigkeitspotenzial"><span class="toc-text">Das Geschwindigkeitspotenzial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Potenzialstromung"><span class="toc-text">Die Potenzialströmung</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reine-Bewegungsform"><span class="toc-text">Reine Bewegungsform</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Deformation"><span class="toc-text">Deformation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Verschiebungen"><span class="toc-text">Verschiebungen</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -640,27 +640,76 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Das-Geschwindigkeitspotenzial"><a href="#Das-Geschwindigkeitspotenzial" class="headerlink" title="Das Geschwindigkeitspotenzial"></a>Das Geschwindigkeitspotenzial</h4><ul>
-<li><p>Anname für Potenzialströmung</p>
+        <h3 id="Reine-Bewegungsform"><a href="#Reine-Bewegungsform" class="headerlink" title="Reine Bewegungsform"></a>Reine Bewegungsform</h3><p><img src="images/2022-07-12-11-55-01.png" alt=""></p>
+<ul>
+<li><p>Formtreuvolumenänderung (Kompression) </p>
 <script type="math/tex; mode=display">
-\vec{u}=\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}=-\text{grad}\,\phi=-\begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\ \frac{\partial \phi}{\partial z} \\\end{bmatrix}</script><p><code>nicht alle Strömung durch Potentialströmung dargestellt werden</code></p>
+\frac{\partial \rho}{\partial t}+\frac{\partial \rho u_j}{\partial x_j}=0 \implies \frac{\partial \rho u_j}{\partial x_j}\neq0 \qquad \text{if div}=0,\text{就成了incompressible Fluide}</script></li>
+<li><p>Deformationstensor</p>
+<script type="math/tex; mode=display">
+\dot{u}_{ij}=\frac{1}{2}\left( \frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i} \right):=\dot{u}_{ji} \qquad \qquad \frac{1}{2}\begin{bmatrix} \frac{\partial u}{\partial x}+\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y}+\frac{\partial v}{\partial x} & \frac{\partial u}{\partial z}+\frac{\partial w}{\partial x} \\ \frac{\partial v}{\partial x}+\frac{\partial u}{\partial y} & \frac{\partial v}{\partial y}+\frac{\partial v}{\partial y} & \frac{\partial v}{\partial z}+\frac{\partial w}{\partial y} \\ \frac{\partial w}{\partial x}+\frac{\partial u}{\partial z} & \frac{\partial w}{\partial y}+\frac{\partial v}{\partial z} & \frac{\partial w}{\partial z}+\frac{\partial w}{\partial z}  \\\end{bmatrix}</script><ul>
+<li>Es gibt keine formtreue Volumenänderung, wenn<script type="math/tex; mode=display">
+\dot{u}_{ij}=0=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}</script><blockquote>
+<p>weil linkompressible div=0 (keine Kompression)</p>
+</blockquote>
 </li>
-<li><p>Bsp: die homogene stationäre Strömung</p>
+<li>Formtreue Volumenänderung finden nicht statt, wenn<script type="math/tex; mode=display">
+\sigma_{jj}=0=\sigma_{xx}+\sigma_{yy}+\sigma_{zz}</script><blockquote>
+<p>Summe aller normaler Spannung null,ändert siche die gesamt Volumen nicht</p>
+</blockquote>
+</li>
+<li>Es gibt formtreue Volumenänderungen falls $\sigma_{jj}\neq 0$ (Normalspannung)<script type="math/tex; mode=display">
+\text{netto Normalspannung } p=-\frac{1}{3}(\sigma_{xx}+\sigma_{yy}+\sigma_{zz})</script>(Positiver Druck bewirkt Kompression; aber $\sigma_{jj}$ nach draußen)</li>
+</ul>
+</li>
+<li><p><strong>Gesamtspannungstensor zerlegen</strong></p>
 <script type="math/tex; mode=display">
-\text{given }\phi(x,y)=-u_{0}x-v_{0}y 
-\\ \to \vec{u}=-\text{grad}\,\phi=\begin{bmatrix} u_0 \\ v_0 \\\end{bmatrix}</script><p>die Umströmungeines kreiszylinders</p>
-<script type="math/tex; mode=display">
-\phi(x,y)=-u_{\infty}\left( 1+\frac{R^{2}}{x^{2}+y^{2}}x \right) \to</script><p><img src="/images/2022-07-10-19-51-54.png" alt=""></p>
-<p><code>Aber Potenzialströmung beschreibt keine Realität: Strömung direkt an der Kugel hat zero-Geschwindigkeit</code></p>
+  \begin{aligned}
+      \sigma_{ij} & =:\underbrace{-p\delta_{ij}}_{\text{Kompression Druck}} + \underbrace{\tau_{ij}}_{\text{Sherung, Spannungsdeviator}}  \\ &\tau_{ij}=\sigma_{ij}+p\delta_{ij}=\begin{bmatrix} \frac{2}{3}\sigma_{xx}-\frac{1}{3}\sigma_{yy}-\frac{1}{3}\sigma_{zz} & \sigma_{xy}  & \sigma_{xz}  \\ \sigma_{yz}  & -\frac{1}{3}\sigma_{xx}+\frac{2}{3}\sigma_{yy}-\frac{1}{3}\sigma_{zz}  & \sigma_{yz}\\ \sigma_{xz}  & \sigma_{zy}  & -\frac{1}{3}\sigma_{x x}-\frac{1}{3}\sigma_{yy}+\frac{2}{3}\sigma_{zz}  \\\end{bmatrix}
+  \end{aligned}</script><blockquote>
+<p>p definition ensures $\tau_{jj}$=0</p>
+</blockquote>
 </li>
 </ul>
 <hr>
-<h4 id="Die-Potenzialstromung"><a href="#Die-Potenzialstromung" class="headerlink" title="Die Potenzialströmung"></a>Die Potenzialströmung</h4><ul>
-<li>Geschwindigkeitspotenzial <script type="math/tex; mode=display">
-\vec{u}=-\text{grad} \, \phi</script></li>
-<li>Inkompressible Strömung<script type="math/tex; mode=display">
-\text{div}\vec{u}=0</script><script type="math/tex; mode=display">
-\to \text{div grad}\,\phi= \nabla \phi=\frac{\partial ^{2}\phi}{\partial x^{2}}+\frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial z^{2}}=0  \qquad \color{red}{\text{viele Lösung}}</script></li>
+<h4 id="Deformation"><a href="#Deformation" class="headerlink" title="Deformation"></a>Deformation</h4><ul>
+<li>bei einer Deformation verändern sich die Abstände der Moleküle untereinander<script type="math/tex; mode=display">
+ \begin{aligned}
+  dl&=\sqrt{dx^{+dy^{2}}}\\dl'&=\sqrt{dx ^{'2}+dy^{'2}}
+ \end{aligned}</script></li>
+<li>Defrmationbedingung<script type="math/tex; mode=display">
+dl^{2}\neq dl^{'2}</script></li>
+</ul>
+<h3 id="Verschiebungen"><a href="#Verschiebungen" class="headerlink" title="Verschiebungen"></a>Verschiebungen</h3><ul>
+<li>Verschiebungsvektor<script type="math/tex; mode=display">
+\vec{\xi}_{A}=\begin{bmatrix} \xi _{xA} \\ \xi _{yA}  \\\end{bmatrix} = \begin{bmatrix} x'_A -x_A \\ y'_A-y_A \\\end{bmatrix} \qquad \vec{\xi}_{B}=\begin{bmatrix} \xi _{xB} \\ \xi _{yB}  \\\end{bmatrix} = \begin{bmatrix} x'_B -x_B \\ y'_B-y_B \\\end{bmatrix}</script></li>
+<li><p>Verschiebungsvektorfeld (for all molecules in the field)</p>
+<script type="math/tex; mode=display">
+\vec{\xi}(x,y,z)=\begin{bmatrix} \xi_x(x,y,z) \\ \xi_y(x,y,z) \\ \xi_z(x,y,z) \\\end{bmatrix}=\begin{bmatrix} x'-x \\ y'-y \\ z'-z \\\end{bmatrix}</script></li>
+<li><p>Das totale Differential der Verschiebungen</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \xi_{xB}=\xi_{xA}+\frac{\partial \xi_x}{\partial x}dx+\frac{\partial \xi_x}{\partial y}dy \\ \xi_{yB}=\xi_{yA}+\frac{\partial \xi_y}{\partial x}dx+\frac{\partial \xi_y}{\partial y}dy
+\end{cases} \implies \begin{bmatrix} \xi_{xB}-\xi_{xA} \\ \xi_{yB}-\xi_{yA} \\\end{bmatrix} = \begin{bmatrix} \frac{\partial \xi_{x}}{\partial x} & \frac{\partial \xi_{x}}{\partial y} \\ \frac{\partial \xi_{y}}{\partial x} & \frac{\partial \xi_{y}}{\partial y} \\\end{bmatrix}\begin{bmatrix} dx \\ dy \\\end{bmatrix}</script></li>
+<li><p>Abstandsänderung</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  dl^{'2}&=dl^{2}+2\begin{bmatrix} dx \\ dy \\\end{bmatrix}^{T} \begin{bmatrix} \frac{1}{2}\left( \frac{\partial \xi_x}{\partial x}+\frac{\partial \xi_x}{\partial x} \right) & \frac{1}{2}\left( \frac{\partial \xi_y}{\partial x}+\frac{\partial \xi_x}{\partial y} \right)  \\  \frac{1}{2}\left( \frac{\partial \xi_x}{\partial y}+\frac{\partial \xi_y}{\partial x} \right)  & \frac{1}{2}\left( \frac{\partial \xi_y}{\partial y}+\frac{\partial \xi_y}{\partial y} \right) \\ \end{bmatrix} \begin{bmatrix} dx \\ dy \\\end{bmatrix}  \\ &= dl^{2}+2\sum_{i,k}\epsilon_{ik}dx_idx_k  \end{aligned}</script></li>
+<li><p><strong>Deformationstensor</strong> </p>
+<script type="math/tex; mode=display">
+\epsilon_{ik}=\frac{1}{2}\left( \frac{\partial \xi_i}{\partial x_k}+\frac{\partial \xi_k}{\partial x_i} \right)</script><ul>
+<li>Deformationsratentensor zeigt ob ein Körper deformiert:<blockquote>
+<p>wenn Verschiebung has Gradient -&gt; Deformation</p>
+</blockquote>
+</li>
+<li>Wahrum der Vorfaktor $\frac{1}{2}$ —&gt; Deformation<script type="math/tex; mode=display">
+\epsilon_{xx}=\frac{1}{2}\left(\frac{\partial \xi_x}{\partial x}+\frac{\partial \xi_x}{\partial x}\right)=\frac{\partial \xi_x}{\partial x}=\frac{\Delta L}{L}</script></li>
+<li>die Verschiebung nach der Zeit ableitet -&gt; Bewegungsgeschwindigkeit </li>
+</ul>
+</li>
+<li><p><strong>Deformationsraten</strong>tensor</p>
+<script type="math/tex; mode=display">
+\dot{\epsilon}_{ik}=\dot{u}_{ik}=\frac{1}{2} \left(\frac{\partial \dot{\xi}_x}{\partial x}+\frac{\partial \dot{\xi}_x}{\partial x}\right)=\boxed{\left( \frac{\partial u_i}{\partial x_k}+\frac{\partial u_k}{\partial x_i} \right):=D_{ik}}</script></li>
 </ul>
 
       

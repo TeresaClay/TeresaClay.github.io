@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec4 Die Potentialströmungen | TeresaClay的小屋</title>
+  <title>Lec13 Innere Spannungen und Cauchygleichungen | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec4 Die Potentialströmungen | TeresaClay的小屋">
+  <meta name="description" content="Lec13 Innere Spannungen und Cauchygleichungen | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Spannung auf einen Quader innere  Spannungen beschreiben alle möglichen inneren Kräfte in einem Material  Spannungstensor \begin{aligned}   \sigma_{i,j}&amp;&#x3D;\begin{bmatrix} \sigma_{xx} &amp; \sigma_{xy} &amp; \s">
 <meta property="og:type" content="article">
@@ -591,9 +591,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec4" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Andreas_Malcherek/Lec13" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec4 Die Potentialströmungen</h1>
+        <h1 class="article-title">Lec13 Innere Spannungen und Cauchygleichungen</h1>
     
     <div class="article-meta">
         
@@ -613,7 +613,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 20:08:25'>2022-07-10 19:36</time>
+            Created At : <time class="date" title='Updated At: 2022-07-12 12:25:12'>2022-07-12 11:19</time>
         
     </div>
     <div class="article-meta">
@@ -624,7 +624,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Das-Geschwindigkeitspotenzial"><span class="toc-text">Das Geschwindigkeitspotenzial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Potenzialstromung"><span class="toc-text">Die Potenzialströmung</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spannung-auf-einen-Quader"><span class="toc-text">Spannung auf einen Quader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Die-Kraftwirkung-innere-Spannungen"><span class="toc-text">Die Kraftwirkung innere Spannungen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Die-Bewegungsgleichung"><span class="toc-text">Die Bewegungsgleichung</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -640,27 +640,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Das-Geschwindigkeitspotenzial"><a href="#Das-Geschwindigkeitspotenzial" class="headerlink" title="Das Geschwindigkeitspotenzial"></a>Das Geschwindigkeitspotenzial</h4><ul>
-<li><p>Anname für Potenzialströmung</p>
+        <h3 id="Spannung-auf-einen-Quader"><a href="#Spannung-auf-einen-Quader" class="headerlink" title="Spannung auf einen Quader"></a>Spannung auf einen Quader</h3><ul>
+<li>innere  Spannungen beschreiben alle möglichen inneren Kräfte in einem Material </li>
+<li>Spannungstensor<script type="math/tex; mode=display">
+\begin{aligned}
+  \sigma_{i,j}&=\begin{bmatrix} \sigma_{xx} & \sigma_{xy} & \sigma_{xz}  \\ \sigma_{yx}  & \sigma_{yy} & \sigma_{yz}  \\ \sigma_{zx}  & \sigma_{zy}  & \sigma_{zz}  \\\end{bmatrix} 
+  \\ n_i\sigma_{i,j}&=\begin{bmatrix} \sigma_{xx}n_x+\sigma_{yx}n_y+\sigma_{zx}n_z \\ \sigma_{xy}n_x+\sigma_{yy}n_y+\sigma_{zy}n_z \\ \sigma_{xz}n_x+\sigma_{yz}n_y+\sigma_{zz}n_z \\\end{bmatrix}
+\end{aligned}</script></li>
+</ul>
+<h3 id="Die-Kraftwirkung-innere-Spannungen"><a href="#Die-Kraftwirkung-innere-Spannungen" class="headerlink" title="Die Kraftwirkung innere Spannungen"></a>Die Kraftwirkung innere Spannungen</h3><script type="math/tex; mode=display">
+\begin{aligned}
+F_i&=\underbrace{\Delta y\Delta z (\sigma_{xi,2}-\sigma_{xi,1})}_{\text{在 $\vec{n}_x$}平面上沿着i方向}+\underbrace{\Delta x \Delta z(\sigma_{yi,2}-\sigma_{yi,1})}_{\text{在 $\vec{n}_y$}平面上沿着i方向}+\underbrace{\Delta x \Delta y (\sigma_{zi,2}-\sigma_{zi,1})}_{\text{在 $\vec{n}_z$}平面上沿着i方向} \\ &=\Delta x \Delta y \Delta z \left( \frac{\sigma_{xi,2}-\sigma_{xi,1}}{\Delta x}+\frac{\sigma_{yi,2}-\sigma_{yi,1}}{\Delta y}+\frac{\sigma_{zi,2}-\sigma_{zi,1}}{\Delta z}\right)
+\end{aligned}</script><ul>
+<li><p>Kraft auf ein unendlich kleines Volumen</p>
 <script type="math/tex; mode=display">
-\vec{u}=\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}=-\text{grad}\,\phi=-\begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\ \frac{\partial \phi}{\partial z} \\\end{bmatrix}</script><p><code>nicht alle Strömung durch Potentialströmung dargestellt werden</code></p>
-</li>
-<li><p>Bsp: die homogene stationäre Strömung</p>
+F_i=V\left(\frac{\partial \sigma_{xi}}{\partial x}+\frac{\partial \sigma_{yi}}{\partial y}+\frac{\partial \sigma_{zi}}{\partial z}\right)=V\frac{\partial \sigma_{ji}}{\partial x_{j}}</script></li>
+<li><p>Die Kraftichte = Kraft pro Ma\subseteq </p>
 <script type="math/tex; mode=display">
-\text{given }\phi(x,y)=-u_{0}x-v_{0}y 
-\\ \to \vec{u}=-\text{grad}\,\phi=\begin{bmatrix} u_0 \\ v_0 \\\end{bmatrix}</script><p>die Umströmungeines kreiszylinders</p>
+f_i=\frac{F_i}{\rho V}=\frac{1}{\rho}\frac{\partial \sigma_{ji}}{\partial x_{j}}=\frac{1}{\rho}\left(\frac{\partial \sigma_{xi}}{\partial x}+\frac{\partial \sigma_{yi}}{\partial y}+\frac{\partial \sigma_{zi}}{\partial z}\right)</script></li>
+<li><p>Kraft auf ein beliebiges Volume</p>
 <script type="math/tex; mode=display">
-\phi(x,y)=-u_{\infty}\left( 1+\frac{R^{2}}{x^{2}+y^{2}}x \right) \to</script><p><img src="/images/2022-07-10-19-51-54.png" alt=""></p>
-<p><code>Aber Potenzialströmung beschreibt keine Realität: Strömung direkt an der Kugel hat zero-Geschwindigkeit</code></p>
+F_i=\int_\Omega f_i \rho \, d \Omega=\int_\Omega\frac{\partial \sigma_{ji}}{\partial x_{j}} d \Omega=\int_{\partial \Omega}\sigma_{ji}\,dS_j</script></li>
+</ul>
+<h3 id="Die-Bewegungsgleichung"><a href="#Die-Bewegungsgleichung" class="headerlink" title="Die Bewegungsgleichung"></a>Die Bewegungsgleichung</h3><ul>
+<li>LHS=Trägheitsterm für eine verteilte Masse<br>  (wie verändert sich die Impulse mit der Zeit)<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\mathrm{d}Mv_i}{\mathrm{d}t}&=\sum F \\
+\frac{\mathrm{d}}{\mathrm{d}t}\int_{\Omega(t)}\rho v_i d\Omega&=\underbrace{\int_{\Omega(t)}\rho f_i d \Omega}_{\text{äußere Kraft}}+\underbrace{\int_{\Omega(t)}\frac{\partial \sigma_{ji}}{\partial x_j}d\Omega}_{\text{innere Spannung}}
+\end{aligned}</script></li>
+<li><p>Reynoldsschen Transporttheorems<br>(Zeitableitung und Integral wechseln, mit ein neuem \mathrm{Te})</p>
+<script type="math/tex; mode=display">
+\int_{\Omega(t)}\left(\frac{\partial \rho v_i}{\partial t}+\frac{\partial \rho v_i v_j}{\partial x_j}\right)d \Omega=\int_{\Omega(t)}\rho f_i d\Omega+\int_{\Omega(t)}\frac{\partial \sigma_{ji}}{\partial x_j}d\Omega</script></li>
+<li><p><strong>Die Cauchyschen Bewegungsgleichung</strong></p>
+<ul>
+<li>conservative form<script type="math/tex; mode=display">
+\begin{aligned}
+    \boxed{\frac{\partial \rho v_i}{\partial t}+\frac{\partial \rho v_i v_j}{\partial x_j}=\rho f_i +\frac{\partial \sigma_{ji}}{\partial x_j}} =-\frac{\partial V}{\partial x} 
+\end{aligned}</script></li>
+<li><p>non-conservative form</p>
+<script type="math/tex; mode=display">
+\boxed{\frac{\partial v_i}{\partial t}+v_j \frac{\partial v_i}{\partial x_j}=f_i+\frac{1}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j}}</script></li>
+<li><p>with </p>
 </li>
 </ul>
-<hr>
-<h4 id="Die-Potenzialstromung"><a href="#Die-Potenzialstromung" class="headerlink" title="Die Potenzialströmung"></a>Die Potenzialströmung</h4><ul>
-<li>Geschwindigkeitspotenzial <script type="math/tex; mode=display">
-\vec{u}=-\text{grad} \, \phi</script></li>
-<li>Inkompressible Strömung<script type="math/tex; mode=display">
-\text{div}\vec{u}=0</script><script type="math/tex; mode=display">
-\to \text{div grad}\,\phi= \nabla \phi=\frac{\partial ^{2}\phi}{\partial x^{2}}+\frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial z^{2}}=0  \qquad \color{red}{\text{viele Lösung}}</script></li>
+</li>
 </ul>
 
       
