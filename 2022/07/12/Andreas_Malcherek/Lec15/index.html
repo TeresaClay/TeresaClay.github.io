@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec10 Stromlinien und Stromfunktion | TeresaClay的小屋</title>
+  <title>Lec15 Die Energiebilanz in der Kontinummsmechanik | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec10 Stromlinien und Stromfunktion | TeresaClay的小屋">
+  <meta name="description" content="Lec15 Die Energiebilanz in der Kontinummsmechanik | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="was ist eine Erhaltungsgröße?$E: \text{Energie}\ \quad e:\frac{\text{Energie}}{\text{Masse}} \quad \vec{\Phi}:\text{Energie rein or aus fließt}$  \frac{\mathrm{d}E}{\mathrm{d}t}&#x3D;\frac{\mathrm{d}}{\mat">
 <meta property="og:type" content="article">
@@ -600,9 +600,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec10" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Andreas_Malcherek/Lec15" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec10 Stromlinien und Stromfunktion</h1>
+        <h1 class="article-title">Lec15 Die Energiebilanz in der Kontinummsmechanik</h1>
     
     <div class="article-meta">
         
@@ -622,7 +622,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-12 10:24:39'>2022-07-12 09:40</time>
+            Created At : <time class="date" title='Updated At: 2022-07-12 14:36:22'>2022-07-12 13:33</time>
         
     </div>
     <div class="article-meta">
@@ -633,7 +633,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stromlinien"><span class="toc-text">Stromlinien</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#die-Stromfunktion"><span class="toc-text">die Stromfunktion</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Was-sagt-aus-der-Wert-der-Stromfunktion"><span class="toc-text">Was sagt aus der Wert der Stromfunktion?</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#was-ist-eine-Erhaltungsgrose"><span class="toc-text">was ist eine Erhaltungsgröße?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Herleitung-der-kinetischen-Energiebillanz"><span class="toc-text">Herleitung der kinetischen Energiebillanz</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-potentielle-Energie"><span class="toc-text">Die potentielle Energie</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Innere-Energie"><span class="toc-text">Innere Energie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#die-Erhaltung-der-Gesamtenergie"><span class="toc-text">die Erhaltung der Gesamtenergie</span></a>
     
 <style>
     .left-col .switch-btn,
@@ -649,47 +649,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Stromlinien"><a href="#Stromlinien" class="headerlink" title="Stromlinien"></a>Stromlinien</h3><ul>
-<li><p>Linien, deren Tangente in jedem Punkt in Richtung des dortigen Geschwindigkeitsvektors weist<br><img src="images/2022-07-12-09-41-05.png" alt=""></p>
+        <h4 id="was-ist-eine-Erhaltungsgrose"><a href="#was-ist-eine-Erhaltungsgrose" class="headerlink" title="was ist eine Erhaltungsgröße?"></a>was ist eine Erhaltungsgröße?</h4><p>$E: \text{Energie}\ \quad e:\frac{\text{Energie}}{\text{Masse}} \quad \vec{\Phi}:\text{Energie rein or aus fließt}$</p>
 <script type="math/tex; mode=display">
-y'=\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{v}{u} \implies udy-vdx=0</script></li>
-<li><p>Bedinung für eine Stromlinie in 3D</p>
-<script type="math/tex; mode=display">
-\vec{u}\times d\vec{r}=0</script></li>
-<li>wie kann man ein einzelne Stromlinie identizifiert?</li>
-</ul>
-<h3 id="die-Stromfunktion"><a href="#die-Stromfunktion" class="headerlink" title="die Stromfunktion"></a>die Stromfunktion</h3><ul>
-<li>dient der Beschreibung von Stromlinien <script type="math/tex; mode=display">
-u=\frac{\partial \Psi}{\partial y}+\frac{\partial \Psi}{\partial x}</script></li>
-<li>durch Stromlinien beschriebene Strömungen erfüllen die Kontinuitätsgleichung <script type="math/tex; mode=display">
-\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=\frac{\partial ^{2}\Psi}{\partial x \partial y}-\frac{\partial ^{2}\Psi}{\partial x\partial y}=0</script>-&gt; entlang einer Stromlinie ist die Stromfunktion konstnt<script type="math/tex; mode=display">
-d\Psi=\frac{\partial \Psi}{\partial x}dx+\frac{\partial \Psi}{\partial y}dy=-vdx+udy=0</script><blockquote>
-<p>Note: Jede Stromlinie wird durch einen bestimmten Wert der Stromfunktion beschrieben</p>
+\frac{\mathrm{d}E}{\mathrm{d}t}=\frac{\mathrm{d}}{\mathrm{d}t}\int_\Omega \rho e\, d\Omega=\int_{\partial \Omega}\vec{\Phi}\vec{n}\,dA=\int_\Omega\text{div}\,\vec{\Phi}\,d\Omega</script><script type="math/tex; mode=display">
+\implies \frac{\partial \rho e}{\partial t}=\frac{\partial }{\partial x_j}\left( \Phi_j \right)</script><blockquote>
+<p>wenn ich so eine Form finde, then ist es universell erhalten</p>
 </blockquote>
-</li>
-</ul>
-<h4 id="Was-sagt-aus-der-Wert-der-Stromfunktion"><a href="#Was-sagt-aus-der-Wert-der-Stromfunktion" class="headerlink" title="Was sagt aus der Wert der Stromfunktion?"></a>Was sagt aus der Wert der Stromfunktion?</h4><ul>
-<li><p>Volumencurchfluss und Flächendurchfluss</p>
-<script type="math/tex; mode=display">
+<h4 id="Herleitung-der-kinetischen-Energiebillanz"><a href="#Herleitung-der-kinetischen-Energiebillanz" class="headerlink" title="Herleitung der kinetischen Energiebillanz"></a>Herleitung der kinetischen Energiebillanz</h4><ul>
+<li>non-conservative form of <a href="https://teresaclay.github.io/2022/07/12/Andreas_Malcherek/Lec13/">Cauchyschen Bewegungsgleichugn</a><script type="math/tex; mode=display">
+\frac{\partial v_i}{\partial t}+v_j \frac{\partial v_i}{\partial x_j}=f_i+\frac{1}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j}</script></li>
+<li>multiply with $v_i$<script type="math/tex; mode=display">
+v_i\frac{\partial v_i}{\partial t}+v_iv_j \frac{\partial v_i}{\partial x_j}=f_iv_i+\frac{v_i}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j}</script></li>
+<li>with $e_k=\frac{v_iv_i}{2}$<script type="math/tex; mode=display">
 \begin{aligned}
-\text{3D: }Q&=\frac{V}{t} \quad \left[ \frac{m^{3}}{s}\right] \\ \text{2D: } q&=\frac{A}{t} \quad \left[ \frac{m^{2}}{s}\right] \qquad \text{through line AB} \\q&=\int_A^B\vec{u}\vec{ds}=\int_A^B(udy-vdy)=\int_A^Bd\Psi=\Psi_B-\Psi_A \\ & \text{with } \vec{s}=\begin{bmatrix} \Delta y \\ - \Delta x \\\end{bmatrix} \quad d\vec{s}\begin{bmatrix} dy \\ -dx \\\end{bmatrix} \\ & \text{steht senkrecht auf der Verbindung von A nach B}
+  \frac{\partial v_iv_i /2}{\partial t}+v_j \frac{\partial v_iv_i /2}{\partial x_j}&=
+f_iv_i+\frac{v_i}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j} \\ \frac{\partial e_k}{\partial t}+v_j\frac{\partial e_k}{\partial x_j}&=f_iv_i+\frac{v_i}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j} 
 \end{aligned}</script></li>
-<li><p>Stromlinien und Äquipotentiallinien</p>
+<li><p>multiply with $\rho$ and consider continuity equation -&gt; <strong>kinetische Energie</strong></p>
+<script type="math/tex; mode=display">
+\boxed{\frac{\partial \rho e_k}{\partial t}+\underbrace{\frac{\partial}{\partial x_j} (\rho v_j e_k)}_{\text{divergenzte Term, conservative}}=\underbrace{\rho f_iv_i}_{\text{Äußerekräfte, non-conservative}}+\underbrace{v_i\frac{\partial \sigma_{ji}}{\partial x_j}}_{\text{Innerekräfte}}}</script><h4 id="Die-potentielle-Energie"><a href="#Die-potentielle-Energie" class="headerlink" title="Die potentielle Energie"></a>Die potentielle Energie</h4><script type="math/tex; mode=display">
+\begin{aligned}
+e_p&=-g(z-z_0)\\ e_p&=-\int_{x_{1}}^{x_{2}}f_i\,dx_i\\
+E_p&=\int_\Omega\rho e_p d\Omega
+\end{aligned}</script></li>
+<li><p>Änderung entlang einer Bahnlinie</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-   &u=\frac{\partial \Phi}{\partial y}=\frac{\partial \phi}{\partial x} \qquad  & v=-\frac{\partial \Psi}{\partial x}=\frac{\partial \phi}{\partial y} \quad
-   \\ &\frac{\partial u}{\partial y}=\frac{\partial ^{2}\Psi}{\partial y^{2}}=\frac{\partial ^{2}\phi}{\partial x \partial y}  \qquad & -\frac{\partial v}{\partial x}=\frac{\partial ^{2}\Psi}{\partial x^{2}}=-\frac{\partial ^{2}\phi}{\partial x\partial y} \\ & \frac{\partial ^{2}\Psi}{\partial y^{2}}+\frac{\partial ^{2}\Psi}{\partial x^{2}}=0 \qquad & \frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial x^{2}}=0
-\end{aligned}</script><blockquote>
-<p>Stromlinien erfüllt Laplacegleichung (parallel zur Strömungsvektor)<br>Stromlinien stehen sekrecht auf Äquipotentiallinien</p>
-</blockquote>
-</li>
-<li><p>Randbedingungen für die Stromlinien-Laplacegleichung</p>
-<ul>
-<li>Partikel bewegen sich englang geschlossenen zusammenhängenden Rändern<br>(ein Rand hat einzige Stromfunktion, ein anderer Rand hat ein anderer Stromfunktion)<br>Dirichlet-RB für die Stromfunktion </li>
-<li>Geschwindigkeit über eine offenen Rand <script type="math/tex; mode=display">
-q=uB=\Psi_B-\Psi_A</script>offene Ränder: Stromlinien ändert ihren Wert über den Rand nicht —&gt; homogene Neuman-RB   </li>
+  \frac{De_p}{Dt}&=\frac{\partial e_p}{\partial t}+v_i\frac{\partial e_p}{\partial x_i}=-\frac{\mathrm{d}}{\mathrm{d}t}\int_{x_{0,i}}^{x_{i}}f_idx_i=-\frac{\mathrm{d}}{\mathrm{d}t}\int_{t_0}^{t}f_iv_idt=-f_iv_i+\underbrace{f_{i,0}v_{i,0}}_{\text{setze Null}} 
+\end{aligned}</script><ul>
+<li>add with  $\frac{\partial e_k}{\partial t}+v_j\frac{\partial e_k}{\partial x_j}=f_iv_i+\frac{v_i}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j}$</li>
 </ul>
 </li>
+<li><p>Zeitliche Änderung der <strong>mechanischer Energe</strong></p>
+<script type="math/tex; mode=display">
+\frac{\partial e_m}{\partial t}+v_j\frac{\partial e_m}{\partial x_j}=\frac{v_i}{\rho}\frac{\partial \sigma_{ji}}{\partial x_j}</script><blockquote>
+<p>Die Änderung der mechanischer Energie nur abhängig von Änderung der inneren Spannung</p>
+</blockquote>
+</li>
+<li><p>multiply $\rho$ and consider continuity equation </p>
+<script type="math/tex; mode=display">
+\frac{\partial \rho e_m}{\partial t}+\underbrace{\frac{\partial }{\partial x_j}(\rho v_j e_m)}_{\text{conservative}}=\underbrace{v_i\frac{\partial \sigma_{ji}}{\partial x_j}}_{\text{non-conservative}} \qquad \qquad =\frac{\partial v_i\sigma_{ji}}{\partial x_j}-\sigma_{ji}\frac{\partial v_i}{\partial x_j}</script><blockquote>
+<p>innere Spannungen ändert die mechanische Energie</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\frac{\partial \rho e_m}{\partial t}+\underbrace{\frac{\partial }{\partial x_j}(\rho v_j e_m -v_i \sigma_{ji})}_{\text{conservative}}=\underbrace{-\sigma_{ji}\frac{\partial v_i}{\partial x_j}}_{\text{non-conservative}}</script><blockquote>
+<p>vergleichen mit kinetische Energie</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Innere-Energie"><a href="#Innere-Energie" class="headerlink" title="Innere Energie"></a>Innere Energie</h3><ul>
+<li>definition<script type="math/tex; mode=display">
+\frac{\partial \rho u}{\partial t}+\frac{\partial}{\partial x_j}(\rho v_j u)=\sigma_{ji}\frac{\partial v_j}{\partial x_j}+p\dot{q} \\ \text{with Wärmeflüße}\quad p\dot{q}=\frac{\partial }{\partial x_i}\left( \lambda_w \frac{\partial T}{\partial x_j} \right)</script></li>
+</ul>
+<h3 id="die-Erhaltung-der-Gesamtenergie"><a href="#die-Erhaltung-der-Gesamtenergie" class="headerlink" title="die Erhaltung der Gesamtenergie"></a>die Erhaltung der Gesamtenergie</h3><ul>
+<li>add mec. and inn. Energie <script type="math/tex; mode=display">
+\frac{\partial V}{\partial x}</script></li>
 </ul>
 
       
