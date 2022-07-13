@@ -27,8 +27,9 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-19-38-45.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-19-43-23.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-19-49-13.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-20-58-13.png">
 <meta property="article:published_time" content="2022-07-13T13:04:43.113Z">
-<meta property="article:modified_time" content="2022-07-13T17:55:55.661Z">
+<meta property="article:modified_time" content="2022-07-13T19:34:17.884Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-11-11-58-43.png">
@@ -657,7 +658,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-13 19:55:55'>2022-07-13 15:04</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 21:34:17'>2022-07-13 15:04</time>
         
     </div>
     <div class="article-meta">
@@ -688,6 +689,7 @@
 <li><p>The goal of turbulence modelling</p>
 <ul>
 <li>develop equations that predict the <strong>time averaged</strong> primitive fields (velocity, pressure, temperature, concentration) without calculating the complete turbulent flow pattern as a function of time (from smalles to system scales)</li>
+<li>find the closure equations to model the additional terms (usually a stress tensor)</li>
 </ul>
 </li>
 <li><p>Turbulence can orginate as</p>
@@ -754,8 +756,18 @@
 </li>
 <li><p>methods</p>
 <ul>
-<li><strong>Reynolds averaging</strong></li>
-<li>Filtering</li>
+<li><strong>Reynolds averaging</strong> (RANS/URANS)<ul>
+<li>all turbulence scales are modeled</li>
+<li>2D or 3D</li>
+<li>steady or unsteady</li>
+</ul>
+</li>
+<li>Filtering (LES/DES)<ul>
+<li>resolves large eddies</li>
+<li>models small eddies</li>
+<li>intrinsically 3D and unsteady</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>conditions <ul>
@@ -942,7 +954,8 @@ u^{+}=y^{+}</script><ul>
 </ul>
 <hr>
 <h3 id="Near-wall-treatment-and-wall-functions"><a href="#Near-wall-treatment-and-wall-functions" class="headerlink" title="Near-wall treatment and wall functions"></a>Near-wall treatment and wall functions</h3><ul>
-<li>Wall resolving<br><img src="images/2022-07-13-19-43-23.png" alt=""><ul>
+<li><p>Wall resolving<br><img src="images/2022-07-13-19-43-23.png" alt=""></p>
+<ul>
 <li>cluster at leat 5-10 layers at $y^{+}&lt;5$</li>
 <li>don’t be afraid to use this approach for 2D steady simulations</li>
 </ul>
@@ -952,7 +965,20 @@ u^{+}=y^{+}</script><ul>
 <li>model everying below $y^{+}&lt;30$</li>
 <li>the first cell center located above $y^{+}&gt;40-50$ and below $y\approx_0.2\delta_{99}$(boundary layer thickness)</li>
 <li>5-10 layers close to the wall in order to resolve the profile of the transported quantities</li>
+<li>can be used in RANS, DES and LES</li>
 <li>use this approach if you are more interested in the mixing in the outer region rather than de accurate prediction of forces on the walls</li>
+<li>use this approach for unsteady cases</li>
+<li><p>Launder and Spalding</p>
+<pre><code>![](images/2022-07-13-20-46-37.png)
+</code></pre><ul>
+<li>in a separation point, $\tau_{w}=0 \to  U_{\tau}=0 \to $ a singularity in $u^{+}=\frac{U}{U^{\tau}}$</li>
+<li>therefore, introduce new paramters (independent of shear velocity)<script type="math/tex; mode=display">
+  \boxed{U^{*}_{\tau}=C^{\frac{1}{4}}_{\mu}k^{\frac{1}{2}}_{p}} \qquad \boxed{y^{*}=\frac{C^{\frac{1}{4}}_{\mu}k^{\frac{1}{2}}_{p}y_p}{\nu}} \qquad \boxed{u^{*}=\frac{1}{\kappa}\ln (Ey^{*2*})}</script>  <img src="images/2022-07-13-20-58-13.png" alt=""><blockquote>
+<p>Note: if you have flow separation, wall modeling is not approprite.?1’50’. But there are models take into account the adverse gradient.</p>
+</blockquote>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>$y^{+}$ insensitive wall treatment</p>
@@ -960,7 +986,10 @@ u^{+}=y^{+}</script><ul>
 <li>also called continuous wall functions / scalable wall functions</li>
 </ul>
 </li>
+<li><p>Removing small scales</p>
+</li>
 </ul>
+<hr>
 
       
        
