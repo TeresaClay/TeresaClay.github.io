@@ -16,14 +16,14 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-11-11-58-43.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-11-12-16-51.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-11-12-21-40.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-00-44-25.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-08-58-59.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-09-10-02.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-00-44-25.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-08-58-59.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-10-02.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-09-20-26.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-09-31-09.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-09-41-04.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-31-09.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-41-04.png">
 <meta property="article:published_time" content="2022-07-13T13:04:43.113Z">
-<meta property="article:modified_time" content="2022-07-13T13:17:20.900Z">
+<meta property="article:modified_time" content="2022-07-13T13:41:16.415Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-11-11-58-43.png">
@@ -652,7 +652,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-13 15:17:20'>2022-07-13 15:04</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 15:41:16'>2022-07-13 15:04</time>
         
     </div>
     <div class="article-meta">
@@ -741,19 +741,32 @@
 <p>Note: impractial to account for all instantaneous fluctuations: remove,avoid,filter the small scales by usind models.</p>
 </blockquote>
 <ul>
-<li>Important to understand<ul>
+<li><p>Important to understand</p>
+<ul>
 <li>the time averaged flow pattern is a statistical property of the flow, not the actual flow pattern</li>
 <li>the flow pattern changes from instant to instant</li>
 </ul>
 </li>
-</ul>
+<li><p>methods</p>
 <ul>
 <li><strong>Reynolds averaging</strong></li>
 <li>Filtering</li>
 </ul>
+</li>
+<li>conditions <ul>
+<li>averaging stationary turbulence</li>
+<li>averaging nonstationary turbulence</li>
+<li>statistically steady turbulence</li>
+</ul>
+</li>
+</ul>
 <hr>
 <h3 id="Boundary-layer"><a href="#Boundary-layer" class="headerlink" title="Boundary layer"></a>Boundary layer</h3><ul>
-<li>viscous boundary layer in the velocity distribution<br><img src="/images/2022-07-11-12-21-40.png" alt=""></li>
+<li><p>viscous boundary layer in the velocity distribution<br><img src="/images/2022-07-11-12-21-40.png" alt=""></p>
+</li>
+<li><p>wall resolving simulation: simulate down to the viscous sublayer</p>
+</li>
+<li>wall modelling: model everthing below $y=30$</li>
 </ul>
 <hr>
 <h3 id="Scales-of-turbulence"><a href="#Scales-of-turbulence" class="headerlink" title="Scales of turbulence"></a>Scales of turbulence</h3><ul>
@@ -775,7 +788,7 @@
 <li>The rate at which the larger eddies supply energy <script type="math/tex; mode=display">
  \boxed{\epsilon=-\frac{\mathrm{d}k}{\mathrm{d}t}}</script>$\qquad \epsilon \left[ \frac{m^{2}}{s^{3}}\right]$: turbulent dissipation rate per unit mass<br>$\qquad k \left[ \frac{m^{2}}{s^{2}}\right]$: turbulent kinetic energy per unit mass</li>
 <li><p>The kinematic viscosity $\nu$</p>
-<p><img src="images/2022-07-13-00-44-25.png" alt=""></p>
+<p><img src="/images/2022-07-13-00-44-25.png" alt=""></p>
 </li>
 </ul>
 <ul>
@@ -794,14 +807,14 @@
 </li>
 </ul>
 <hr>
-<h3 id="Energy-spectrum-and-mesh-resolution"><a href="#Energy-spectrum-and-mesh-resolution" class="headerlink" title="Energy spectrum and mesh resolution"></a>Energy spectrum and mesh resolution</h3><p>  <img src="images/2022-07-13-08-58-59.png" alt=""></p>
+<h3 id="Energy-spectrum-and-mesh-resolution"><a href="#Energy-spectrum-and-mesh-resolution" class="headerlink" title="Energy spectrum and mesh resolution"></a>Energy spectrum and mesh resolution</h3><p>  <img src="/images/2022-07-13-08-58-59.png" alt=""></p>
 <ul>
 <li><p>a range of wavenumbers exist in which the energy transferred by inertial effects</p>
 <script type="math/tex; mode=display">
 E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{\pi}{l}=\frac{2\pi f}{U}</script></li>
 <li><p>this equation describes the wavenumber depencence of the turbulent kinetic energy</p>
 </li>
-<li><p>$E(\kappa):$ energy (spectrum) density<br><img src="images/2022-07-13-09-10-02.png" alt=""></p>
+<li><p>$E(\kappa):$ energy (spectrum) density<br><img src="/images/2022-07-13-09-10-02.png" alt=""></p>
 <ul>
 <li>another distribution $D(\kappa)$ describes the dependence of the dssipation rate on the wavenumber in subrange (C)</li>
 <li><p>viscoosity plays a central role</p>
@@ -811,7 +824,7 @@ D(\kappa)=C_\epsilon\nu\epsilon^{\frac{2}{3}}\kappa^{\frac{1}{3}} \qquad C_\epsi
 <li><p>The mesh resolution determines the fraction of the energy spectrum directly resolved</p>
 </li>
 </ul>
-<p><img src="images/2022-07-13-09-31-09.png" alt=""><br><img src="images/2022-07-13-09-41-04.png" alt=""></p>
+<p><img src="/images/2022-07-13-09-31-09.png" alt=""><br><img src="/images/2022-07-13-09-41-04.png" alt=""></p>
 </li>
 </ul>
 <ul>
