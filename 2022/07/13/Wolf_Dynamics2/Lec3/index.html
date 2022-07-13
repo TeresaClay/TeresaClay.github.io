@@ -28,8 +28,9 @@
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-19-43-23.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-19-49-13.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-20-58-13.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-23-31-41.png">
 <meta property="article:published_time" content="2022-07-13T13:04:43.113Z">
-<meta property="article:modified_time" content="2022-07-13T19:34:17.884Z">
+<meta property="article:modified_time" content="2022-07-13T21:40:29.924Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-11-11-58-43.png">
@@ -658,7 +659,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-13 21:34:17'>2022-07-13 15:04</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 23:40:29'>2022-07-13 15:04</time>
         
     </div>
     <div class="article-meta">
@@ -669,7 +670,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-energy-cascade"><span class="toc-text">Energy spectrum and energy cascade</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integral-length-scale-and-grid-length-scale"><span class="toc-text">Integral length scale and grid length scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-near-the-wall"><span class="toc-text">Turbulence near the wall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Near-wall-treatment-and-wall-functions"><span class="toc-text">Near-wall treatment and wall functions</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-energy-cascade"><span class="toc-text">Energy spectrum and energy cascade</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integral-length-scale-and-grid-length-scale"><span class="toc-text">Integral length scale and grid length scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-near-the-wall"><span class="toc-text">Turbulence near the wall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Near-wall-treatment-and-wall-functions"><span class="toc-text">Near-wall treatment and wall functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RANS-model"><span class="toc-text">RANS model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-k-omega-family-of-Turbulence-models"><span class="toc-text">The $k-\omega$ family of Turbulence models</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -990,6 +991,84 @@ u^{+}=y^{+}</script><ul>
 </li>
 </ul>
 <hr>
+<h3 id="RANS-model"><a href="#RANS-model" class="headerlink" title="RANS model"></a>RANS model</h3><ul>
+<li><p>Starting equations: exact <strong>NES</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ \frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\bold{u})&=0 \\ \frac{\partial \rho\bold{u}}{\partial t}+\nabla \cdot (\rho\bold{u})&=-\nabla p+\nabla \cdot \tau+\bold{S}_u \\ \frac{\partial \rho e_t}{\partial t}+\nabla \cdot (\rho e_t \bold{u})&=-\nabla \cdot q-\nabla \cdot (p\bold{u})+\tau : \nabla \bold{u}+S_{e_t}
+\end{aligned}</script><p><center>additional closure equations for the turbulence models</p>
+</li>
+<li><p>Exact <strong>Navier-Stokes</strong> equations (no models)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\bold{u})=0 \\ \frac{\partial \bold{u}}{\partial t}+\nabla \cdot (\bold{uu})&=\frac{-\nabla p}{\rho}+\nu \nabla^{2}\bold{u} 
+\end{aligned}</script></li>
+<li><p>Incompressible <strong>RANS</strong> equations</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\bold{\overline{u}})=0 \\ \frac{\partial \bold{\overline{u}}}{\partial t}+\nabla \cdot (\bold{\overline{u}\,\overline{u}})&=\frac{-\nabla \overline{p}}{\rho}+\nu \nabla^{2}\bold{\overline{u}}-\color{red}{\frac{1}{\rho}\nabla \cdot \tau^{R}} 
+\end{aligned}</script></li>
+<li><strong>Renolys stress</strong> <script type="math/tex; mode=display">
+\boxed{\bold{\tau^{R}}=-\rho(\overline{\bold{u'u'}})}=-\begin{pmatrix} \rho\overline{u'u'} &\rho\overline{u'v'}  &\rho\overline{u'w'}  \\ \rho\overline{v'u'}  &\rho\overline{v'v'}  & \rho\overline{v'w'} \\ \rho\overline{w'u'} & \rho\overline{w'v'} & \rho\overline{w'w'} \\\end{pmatrix}</script></li>
+<li><p><strong>Boussinesq</strong> hypothesis: relate $\tau^{R}$ to the mean velocity gradient </p>
+<script type="math/tex; mode=display">
+\boxed{\tau^{R}=-\rho(\overline{\bold{u'u'}})=2\mu_t \overline{\bold{S}}^{R}-\frac{2}{3}\rho k \bold{I}=\mu_t \left[ \nabla \overline{\bold{u}}+\nabla \overline{\bold{u}}^{T}\right]-\frac{2}{3}\rho k \bold{I}}</script><ul>
+<li>strain-rate tensor $\overline{\bold{S}}^{R}=\frac{1}{2}\left[ \nabla \overline{\bold{u}}+\nabla \overline{\bold{u}}^{T}\right]$ </li>
+<li>identity matrix $\bold{I}$</li>
+<li>turbulent eddy viscosity $\mu_t \qquad$ (not a fluid property, but needed by the turbulence model) </li>
+<li><strong>turbulent kinetic energy</strong> $k=\frac{1}{2}\overline{\bold{u’\cdot u}}$ or $k=\frac{1}{2}\left(\overline{u^{‘2}}+\overline{v^{‘2}}+\overline{w^{‘2}}\right)$</li>
+</ul>
+</li>
+<li><p><strong>Solvable equations</strong>: RANS+Boussinesq</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\bold{\overline{u}})&=0 \\ \frac{\partial \bold{\overline{u}}}{\partial t}+\nabla \cdot (\bold{\overline{u}\,\overline{u}})&=-\frac{1}{\rho}\left( \nabla \overline{p}+\frac{2}{3}\rho \nabla  k \right)+\nabla \cdot \left[ \frac{1}{\rho}(\mu+\mu_t)\nabla \overline{\bold{u}} \right]
+\end{aligned}</script><ul>
+<li>each turbulence model computes $\mu_t=f(k,\epsilon,\omega,l,t,v\cdots )$ in a different way</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="The-k-omega-family-of-Turbulence-models"><a href="#The-k-omega-family-of-Turbulence-models" class="headerlink" title="The $k-\omega$ family of Turbulence models"></a>The $k-\omega$ family of Turbulence models</h3><ul>
+<li><p>The closure equations of the turbulence problem using Reynolds average<br>(scalar transport equation, y+ insensitive)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\rho \frac{\partial k}{\partial t}+\rho\nabla \cdot (\overline{\bold{u}}k)&=\overbrace{\tau^{R}:\nabla \overline{\bold{u}}}^{\text{production}}-\overbrace{\beta\rho k \omega}^{\text{dissipation}}+\overbrace{\nabla \cdot [(\mu+\sigma^{*}\mu_T)\nabla k]}^{\text{diffusion}}\\ \rho \frac{\partial \omega}{\partial t}+\rho\nabla \cdot (\overline{\bold{u}}\omega)&=\alpha \frac{\omega}{k}\tau^{R}:\nabla \overline{\bold{u}}-\beta\rho  \omega^{2}+\nabla \cdot [(\mu+\sigma \mu_T)\nabla \omega]
+\end{aligned}</script><ul>
+<li>$\nu_t=\frac{k}{\omega}$</li>
+<li>$\omega [\frac{1}{s}]$: specific rate of dissipation / dissipation frequency</li>
+<li>$k=\frac{1}{2}\left(\overline{u^{‘2}}+\overline{v^{‘2}}+\overline{w^{‘2}}\right)$</li>
+<li>closure coefficients $\alpha,\beta,\beta^{<em>},\sigma,\sigma ^{</em>}$</li>
+<li><p>auxiliary relationships $\epsilon=\beta ^{*}\omega k \qquad l=\frac{k^{\frac{1}{2}}}{\omega}$ </p>
+<blockquote>
+<p>Note:<br>Each equation requires boundary conditions and Initial conditions<br>This method can use wall function or can resolve the boundary layer</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Using wall function for $k-\epsilon$</p>
+<script type="math/tex; mode=display">
+U=\frac{u_\tau}{\kappa}\ln y+C \qquad k=\frac{u^{2_{\tau}}}{\beta^{*}} \qquad \omega=\frac{u_\tau}{\sqrt{\beta^{*}}ky}</script><ul>
+<li>relate local wall shear stress (through $u_\tau$) to $U,k,\omega$</li>
+<li>$u_\tau$ is solved iteratively by a small implicit system</li>
+<li>$u_\tau \to k\to \omega$</li>
+</ul>
+</li>
+<li><p>Resolving the boundary layer</p>
+<script type="math/tex; mode=display">
+\omega_{\text{wall}}=10 \frac{6\nu}{\beta y^{2}} \qquad k_{\text{wall}}=0</script><ul>
+<li>$\beta=0.075$</li>
+<li>$y$: distance to the first cell center normal to the wall</li>
+</ul>
+</li>
+<li><p>The free-streeam initial conditions<br>  <img src="images/2022-07-13-23-31-41.png" alt=""></p>
+<ul>
+<li>set turbulence intensity level $I$</li>
+<li>find the viscosity ration $\frac{\mu_t}{\mu}$</li>
+<li>then get $\omega_\text{farfield}=\frac{\rho k}{\mu}\left( \frac{\mu_t}{\mu}\right)^{-1} \qquad k_{\text{farfield}}=\frac{3}{2}(UI)^{2}$</li>
+</ul>
+</li>
+</ul>
 
       
        
