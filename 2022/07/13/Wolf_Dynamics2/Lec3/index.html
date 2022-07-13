@@ -24,8 +24,11 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-31-09.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-41-04.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-18-49-55.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-19-38-45.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-19-43-23.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/13/Wolf_Dynamics2/Lec3/images/2022-07-13-19-49-13.png">
 <meta property="article:published_time" content="2022-07-13T13:04:43.113Z">
-<meta property="article:modified_time" content="2022-07-13T17:07:56.149Z">
+<meta property="article:modified_time" content="2022-07-13T17:55:55.661Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-11-11-58-43.png">
@@ -654,7 +657,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-13 19:07:56'>2022-07-13 15:04</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 19:55:55'>2022-07-13 15:04</time>
         
     </div>
     <div class="article-meta">
@@ -665,7 +668,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-energy-cascade"><span class="toc-text">Energy spectrum and energy cascade</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integral-length-scale-and-grid-length-scale"><span class="toc-text">Integral length scale and grid length scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-near-the-wall"><span class="toc-text">Turbulence near the wall</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-energy-cascade"><span class="toc-text">Energy spectrum and energy cascade</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integral-length-scale-and-grid-length-scale"><span class="toc-text">Integral length scale and grid length scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-near-the-wall"><span class="toc-text">Turbulence near the wall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Near-wall-treatment-and-wall-functions"><span class="toc-text">Near-wall treatment and wall functions</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -896,9 +899,7 @@ E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{2\p
 <h3 id="Turbulence-near-the-wall"><a href="#Turbulence-near-the-wall" class="headerlink" title="Turbulence near the wall"></a>Turbulence near the wall</h3><ul>
 <li><p>Definiton of $y^{+}$ and $u^{+}$</p>
 <script type="math/tex; mode=display">
-\begin{aligned}
-  y^{+}&=\frac{\rho U_{\tau}y}{\mu}=\frac{U_{\tau}y}{\nu} \\ u^{+}&=\frac{U}{U_{\tau}} \\ U_{\tau}=\sqr
-\end{aligned}</script></li>
+  \boxed{y^{+}=\frac{\rho U_{\tau}y}{\mu}=\frac{U_{\tau}y}{\nu}} \qquad \boxed{u^{+}=\frac{U}{U_{\tau}}} \qquad \boxed{U_{\tau}=\sqrt{\frac{\tau_{\omega}}{\rho }}}</script></li>
 <li><p>Law of the wall</p>
 <script type="math/tex; mode=display">
 \frac{U}{u_{\tau}}=f\left(\frac{yu_{\tau}}{\nu}\right) \qquad u^{+}=f(y^{+})</script><ul>
@@ -910,7 +911,7 @@ E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{2\p
 </li>
 </ul>
 </li>
-<li><p>Logarithmic law or log-law</p>
+<li><p><strong>Logarithmic law or log-law</strong></p>
 <script type="math/tex; mode=display">
 u^{+}=\frac{1}{\kappa}\ln y^{+}+C^{+}\qquad\text{with} \kappa\approx_0.41\quad C^{+}\approx 5.0</script><ul>
 <li>describe log-law layer for $30&lt;y^{+}&lt;300$</li>
@@ -918,7 +919,7 @@ u^{+}=\frac{1}{\kappa}\ln y^{+}+C^{+}\qquad\text{with} \kappa\approx_0.41\quad C
 <li>in CFD, the upper limit is $600$ </li>
 </ul>
 </li>
-<li><p>The viscous sublayer</p>
+<li><p><strong>The viscous sublayer</strong></p>
 <script type="math/tex; mode=display">
 u^{+}=y^{+}</script><ul>
 <li>valid in the viscous sublayer where laminar flow is very strong<ul>
@@ -929,11 +930,34 @@ u^{+}=y^{+}</script><ul>
 <li>in CFD, the upper limit $y^{+} &lt;6$</li>
 </ul>
 </li>
-<li><p>The buffer layer</p>
+<li><p><strong>The buffer layer</strong></p>
 <ul>
 <li>flow transition from laminar to turbulent</li>
 <li>$5&lt;y^{+}&lt;30$</li>
 <li>to avoid putting first cell center next to the wall in this region</li>
+</ul>
+</li>
+<li><p>Non-dimensional profiel vs physical velocity profile<br><img src="/images/2022-07-13-19-38-45.png" alt=""></p>
+</li>
+</ul>
+<hr>
+<h3 id="Near-wall-treatment-and-wall-functions"><a href="#Near-wall-treatment-and-wall-functions" class="headerlink" title="Near-wall treatment and wall functions"></a>Near-wall treatment and wall functions</h3><ul>
+<li>Wall resolving<br><img src="images/2022-07-13-19-43-23.png" alt=""><ul>
+<li>cluster at leat 5-10 layers at $y^{+}&lt;5$</li>
+<li>don’t be afraid to use this approach for 2D steady simulations</li>
+</ul>
+</li>
+<li><p>Wall functions<br><img src="images/2022-07-13-19-49-13.png" alt=""></p>
+<ul>
+<li>model everying below $y^{+}&lt;30$</li>
+<li>the first cell center located above $y^{+}&gt;40-50$ and below $y\approx_0.2\delta_{99}$(boundary layer thickness)</li>
+<li>5-10 layers close to the wall in order to resolve the profile of the transported quantities</li>
+<li>use this approach if you are more interested in the mixing in the outer region rather than de accurate prediction of forces on the walls</li>
+</ul>
+</li>
+<li><p>$y^{+}$ insensitive wall treatment</p>
+<ul>
+<li>also called continuous wall functions / scalable wall functions</li>
 </ul>
 </li>
 </ul>
