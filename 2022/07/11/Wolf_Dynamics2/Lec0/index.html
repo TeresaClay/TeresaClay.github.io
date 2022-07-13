@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/12/Note_Wangyang/Lec10/images/2022-07-12-20-07-56.png">
 <meta property="article:published_time" content="2022-07-12T13:33:21.624Z">
-<meta property="article:modified_time" content="2022-07-12T18:53:27.462Z">
+<meta property="article:modified_time" content="2022-07-12T19:19:23.252Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/2022/07/12/Note_Wangyang/Lec10/images/2022-07-12-20-07-56.png">
@@ -635,7 +635,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-11 15:56:11'>2022-07-11 08:54</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 08:17:05'>2022-07-11 08:54</time>
         
     </div>
     <div class="article-meta">
@@ -646,7 +646,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-turbulent-world-around-us"><span class="toc-text">The turbulent world around us</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#characteristics-of-turbulent-flows"><span class="toc-text">characteristics of turbulent flows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#small-summary"><span class="toc-text">small summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-turbulent-world-around-us"><span class="toc-text">The turbulent world around us</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Characteristics-of-turbulent-flows"><span class="toc-text">Characteristics of turbulent flows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Small-summary"><span class="toc-text">Small summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -665,26 +665,28 @@
         <pre><code class="lang-bash">$ tar -zxvf file_name.tar.gz
 $ sh run_all.sh
 </code></pre>
-<h2 id="The-turbulent-world-around-us"><a href="#The-turbulent-world-around-us" class="headerlink" title="The turbulent world around us"></a>The turbulent world around us</h2><ul>
+<h3 id="The-turbulent-world-around-us"><a href="#The-turbulent-world-around-us" class="headerlink" title="The turbulent world around us"></a>The turbulent world around us</h3><ul>
 <li>turbulence (turbulent flows) in fluid fluid dynamics<ul>
 <li>characterize a certain type of flow</li>
 <li>the counterpart of a streamline motion, smooth flow, or a laminar flow</li>
 </ul>
 </li>
 </ul>
-<h3 id="characteristics-of-turbulent-flows"><a href="#characteristics-of-turbulent-flows" class="headerlink" title="characteristics of turbulent flows"></a>characteristics of turbulent flows</h3><ul>
-<li>irregularity (randomness)<ul>
+<h3 id="Characteristics-of-turbulent-flows"><a href="#Characteristics-of-turbulent-flows" class="headerlink" title="Characteristics of turbulent flows"></a>Characteristics of turbulent flows</h3><ul>
+<li><p>irregularity (randomness)</p>
+<ul>
 <li>described statistically</li>
 </ul>
 </li>
-<li>diffusivity<ul>
+<li><p><strong>diffusivity</strong></p>
+<ul>
 <li>case rapid mixing and increased rates of momentum, heat and mass transfer  </li>
 </ul>
 </li>
 </ul>
 <p><code>A flow that looks rand but does not exhibit the spreading of velocity fluctuations through the surrounding fluid is not turbulent.</code>  </p>
 <ul>
-<li><p>dissipative</p>
+<li><p><strong>dissipative</strong></p>
 <ul>
 <li>kinetic energy gets converted into heat due to viscous shear stresses</li>
 </ul>
@@ -694,17 +696,32 @@ $ sh run_all.sh
 <li>a compex interaction between the viscous forces and convection</li>
 </ul>
 </li>
-<li>rotational (non-zero vorticity)</li>
-<li>continuum<ul>
+<li><p>rotational (non-zero vorticity)</p>
+</li>
+<li><p>three-dimensional Vorticity fluctuations</p>
+<ul>
+<li>due to vortex streching</li>
+<li><strong>in some cases 2D approximation</strong><blockquote>
+<p>Vorticity doesn not always men turbulence</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>continuum</p>
+<ul>
 <li>even the smallest eddies are significantly larger thant the molecular scales</li>
 </ul>
 </li>
-<li>a feature of fluid flow <ul>
-<li>not a property of the flow</li>
+<li><p>a feature of flow, not fluid </p>
+<ul>
+<li>dosen’t matter work with air, oil </li>
 </ul>
 </li>
 </ul>
-<h3 id="small-summary"><a href="#small-summary" class="headerlink" title="small summary"></a>small summary</h3><ul>
+<blockquote>
+<p>You can analize a laminar flow with turbulent model, but it is a waste of time and resources. </p>
+</blockquote>
+<h3 id="Small-summary"><a href="#Small-summary" class="headerlink" title="Small summary"></a>Small summary</h3><ul>
 <li>unsteady, aperiodic motion in which all three velocity components fluctuate in space and time</li>
 <li>every transported quantity shows similar fluctuations (pressure, temperature, species, concentration…)</li>
 <li>contains a wide range of eddy sizes (scales)<ul>
@@ -721,7 +738,7 @@ $ sh run_all.sh
 </ul>
 </li>
 </ul>
-<h3 id="Introduction-to-turbulence-modelling"><a href="#Introduction-to-turbulence-modelling" class="headerlink" title="Introduction to turbulence modelling"></a>Introduction to turbulence modelling</h3><ul>
+<h2 id="Introduction-to-turbulence-modelling"><a href="#Introduction-to-turbulence-modelling" class="headerlink" title="Introduction to turbulence modelling"></a>Introduction to turbulence modelling</h2><ul>
 <li><p>The goal of turbulence modelling</p>
 <ul>
 <li>develop equations that predict the <strong>time averaged</strong> primitive fields (velocity, pressure, temperature, concentration) without calculating the complete turbulent flow pattern as a function of time (from smalles to system scales)</li>
@@ -729,7 +746,7 @@ $ sh run_all.sh
 </li>
 <li><p>Turbulence can orginate as</p>
 <ul>
-<li>wall bounded </li>
+<li><strong>wall bounded</strong> </li>
 <li>free shear <ul>
 <li>jets, mixing layers,heated walls, atmospheric flows</li>
 </ul>
@@ -756,6 +773,7 @@ $ sh run_all.sh
 </ul>
 </li>
 </ul>
+<hr>
 <h3 id="Reynolds-number-and-Rayleigh-number"><a href="#Reynolds-number-and-Rayleigh-number" class="headerlink" title="Reynolds number and Rayleigh number"></a>Reynolds number and Rayleigh number</h3><ul>
 <li><p>Reynolds number</p>
 <script type="math/tex; mode=display">
@@ -766,8 +784,9 @@ $ sh run_all.sh
 <li>Grashof number</li>
 <li>Prandtl number</li>
 </ul>
+<hr>
 <h3 id="Turbulent-occurs-at-large-Re"><a href="#Turbulent-occurs-at-large-Re" class="headerlink" title="Turbulent occurs at large Re"></a>Turbulent occurs at large Re</h3><ul>
-<li>for external flow<br>$\begin{aligned}<br>Re_x &amp; \ge 5000 &amp;\qquad &amp; \text{around slender/streamlined bodies (aerodynamic bodies)} \\ Re_d &amp; \ge 2300 &amp;\qquad &amp; \text{around an obstacle (bluff bodies)}<br>\end{aligned}$<ul>
+<li>for external flow<br>$\begin{aligned}<br>Re_x &amp; \ge 500000 &amp;\qquad &amp; \text{around slender/streamlined bodies (aerodynamic bodies)} \\ Re_d &amp; \ge 20000 &amp;\qquad &amp; \text{around an obstacle (bluff bodies)}<br>\end{aligned}$<ul>
 <li>for internal flow<br>$Re_{d_h}\ge 2300$</li>
 <li>for natural convection and buoyancy<br>$\frac{Ra}{Pr} \ge  10^{9}$</li>
 </ul>
@@ -776,6 +795,7 @@ $ sh run_all.sh
 <blockquote>
 <p>Note: other factors may cause transition to turbulence at lower Reynolds number: free-stream turbulence, surface conditions, transpiration(blowing/suction),roughness…</p>
 </blockquote>
+<hr>
 <h3 id="Fluctuations-of-transported-quantities"><a href="#Fluctuations-of-transported-quantities" class="headerlink" title="Fluctuations of transported quantities"></a>Fluctuations of transported quantities</h3><blockquote>
 <p>Note: impractial to account for all instantaneous fluctuations: remove,avoid,filter the small scales by usind models.</p>
 </blockquote>
@@ -785,29 +805,20 @@ $ sh run_all.sh
 <li>the flow pattern changes from instant to instant</li>
 </ul>
 </li>
-<li></li>
-<li><p>Reynolds averaging</p>
-</li>
+</ul>
+<ul>
+<li><strong>Reynolds averaging</strong></li>
 <li>Filtering</li>
 </ul>
+<hr>
 <h3 id="Boundary-layer"><a href="#Boundary-layer" class="headerlink" title="Boundary layer"></a>Boundary layer</h3><ul>
-<li><p>viscous boundary layer in the velocity distribution<br><img src="/images/2022-07-11-12-21-40.png" alt=""></p>
-</li>
-<li><p>momentum boundary layer </p>
-</li>
-<li>thermal boundary layer<ul>
-<li>thickness is different from the other two boundary layers</li>
-<li>thickness (of the thermal sublayer) is fluid dependent<ul>
-<li>hight Prandtl number fluid (water): much less</li>
-<li>Prandtl number =1: equal to the momentum boundary layer</li>
+<li>viscous boundary layer in the velocity distribution<br><img src="/images/2022-07-11-12-21-40.png" alt=""></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+<hr>
 <h3 id="Scales-of-turbulence"><a href="#Scales-of-turbulence" class="headerlink" title="Scales of turbulence"></a>Scales of turbulence</h3><ul>
-<li>Kolmogorov’s hypothesis<ul>
-<li>local isotropy: the small-scale turbulent motions are <strong>statistically isotropic</strong></li>
+<li><p>Kolmogorov’s hypothesis</p>
+<ul>
+<li>local isotropy: the small-scale turbulent motions are <strong>statistically isotropic</strong> (the same shape)</li>
 <li><ol>
 <li>similarity hypothesis: the small-scale motions determined by $\nu$ and $\epsilon$</li>
 </ol>
@@ -818,6 +829,32 @@ $ sh run_all.sh
 </li>
 </ul>
 </li>
+<li><p>The motion at the smallest scales should depend only upon</p>
+<ul>
+<li>The rate at which the larger eddies supply energy <script type="math/tex; mode=display">
+ \epsilon=-\frac{\mathrm{d}k}{\mathrm{d}t}</script>$\qquad \epsilon \left[ \frac{m^{2}}{s^{3}}\right]$: turbulent dissipation rate per unit mass<br>$\qquad k \left[ \frac{m^{2}}{s^{2}}\right]$: turbulent kinetic energy per unit mass</li>
+<li><p>The kinematic viscosity $\nu$</p>
+<p><img src="images/2022-07-13-00-44-25.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>Kolmogorov Reynodls number</p>
+<script type="math/tex; mode=display">
+Re_{\eta}=\frac{\eta \mu_n}{\nu}=1</script><blockquote>
+<p>The energy cascade proceeds to smaller and smaller scales until the Reynolds number is small enough for dissipation due to <strong>viscosity</strong> to be effective.</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\frac{\text{Largest eddies}}{\text{Smalles eddies} }\qquad \frac{l^{0}}{\eta} \sim  Re^{\frac{3}{4}}_{T} \qquad \frac{\tau_{0}}{\tau_{\eta}}\sim Re^{\frac{1}{2}}_{T} \qquad \frac{u_0}{u_{\eta}}\sim Re^{\frac{1}{4}}_{T}</script><p>with turbulence Reynodls number $Re_T\equiv \frac{k^{\frac{1}{2}}l_{0}}{\nu}$</p>
+<blockquote>
+<p>These relationships give you some idea about the meshes.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Energy-spectrum-and-mesh-resolution"><a href="#Energy-spectrum-and-mesh-resolution" class="headerlink" title="Energy spectrum and mesh resolution"></a>Energy spectrum and mesh resolution</h3><ul>
+<li>resolve 80% of the turbulent kinetic energy $k(l)$</li>
 </ul>
 
       
