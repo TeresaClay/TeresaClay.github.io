@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello World | TeresaClay的小屋</title>
+  <title>Lec0 Initial Note | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Hello World | TeresaClay的小屋">
+  <meta name="description" content="Lec0 Initial Note | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Introduction to turbulence modelling The goal of turbulence modelling  develop equations that predict the time averaged primitive fields (velocity, pressure, temperature, concentration) without calcul">
 <meta property="og:type" content="article">
@@ -628,19 +628,31 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Wolf_Dynamics2/Lec3" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">Lec0 Initial Note</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics&lt;---&gt;Turbulence">Turbulence</a>
+            
+        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-05 16:57:10'>2022-07-05 15:03</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 15:06:31'>2022-07-13 15:04</time>
         
     </div>
     <div class="article-meta">
@@ -651,7 +663,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulent-occurs-at-large-Re"><span class="toc-text">Turbulent occurs at large Re</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integral-length-scale-and-grid-length-scale"><span class="toc-text">Integral length scale and grid length scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-near-the-wall"><span class="toc-text">Turbulence near the wall</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -667,21 +679,222 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><script type="math/tex; mode=display">
-\frac{x}{y}=z</script><script type="math/tex; mode=display">
- x_1+y_1=2^3</script><pre><code class="lang-bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="lang-bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="lang-bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="lang-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="Introduction-to-turbulence-modelling"><a href="#Introduction-to-turbulence-modelling" class="headerlink" title="Introduction to turbulence modelling"></a>Introduction to turbulence modelling</h2><ul>
+<li><p>The goal of turbulence modelling</p>
+<ul>
+<li>develop equations that predict the <strong>time averaged</strong> primitive fields (velocity, pressure, temperature, concentration) without calculating the complete turbulent flow pattern as a function of time (from smalles to system scales)</li>
+</ul>
+</li>
+<li><p>Turbulence can orginate as</p>
+<ul>
+<li><strong>wall bounded</strong> </li>
+<li>free shear <ul>
+<li>jets, mixing layers,heated walls, atmospheric flows</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Turbulent motion has a direct effects on</p>
+<ul>
+<li>the velocity profiles<ul>
+<li>in laminar case: the velocity gradient close to the walls is small (therefore the shear stresses are lower)</li>
+<li>in the turbulent case: close to the walls with very large velocity gradients(large shear stresses); far from the wall where the velocity profile is nearly uniform<br><img src="/images/2022-07-11-11-58-43.png" alt=""></li>
+</ul>
+</li>
+<li><p>shear stresse</p>
+<ul>
+<li>in a laminar flow or in the viscous sub-layer<script type="math/tex; mode=display">
+\tau_{wall}=\mu\frac{\partial u}{\partial y}|_{y=0}</script></li>
+<li>in a turbulent flow<script type="math/tex; mode=display">
+  \tau_{wall}=\mu\frac{\partial u}{\partial y}|_{y=0} + \underbrace{\tau^{R}}_{\text{effects of increased mixing,randomness,agitation of turbulence flows}}</script><code>Note:This approximation is valid for 2D boundary layers where $\tau^&#123;R&#125;=\overline&#123;u’v’&#125;$</code><br><img src="/images/2022-07-11-12-16-51.png" alt=""></li>
+</ul>
+</li>
+<li><p>mixing of transported quantities</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Reynolds-number-and-Rayleigh-number"><a href="#Reynolds-number-and-Rayleigh-number" class="headerlink" title="Reynolds number and Rayleigh number"></a>Reynolds number and Rayleigh number</h3><ul>
+<li><p>Reynolds number</p>
+<script type="math/tex; mode=display">
+  Re_L=\frac{\rho UL}{\mu}=\frac{UL}{\nu}=\frac{\text{convective}}{\text{viscous}} \qquad \nu=\frac{\mu}{\rho}</script><p>  $U$: a charactersitic veloctiy, e.g. free-stream velocity<br>  $L$: a representative length sclae (or system scale), e.g., length, height, diameter, etc.</p>
+</li>
+<li><p>Rayleigh number</p>
+</li>
+<li>Grashof number</li>
+<li>Prandtl number</li>
+</ul>
+<hr>
+<h3 id="Turbulent-occurs-at-large-Re"><a href="#Turbulent-occurs-at-large-Re" class="headerlink" title="Turbulent occurs at large Re"></a>Turbulent occurs at large Re</h3><ul>
+<li>for external flow<br>$\begin{aligned}<br>Re_x &amp; \ge 500000 &amp;\qquad &amp; \text{around slender/streamlined bodies (aerodynamic bodies)} \\ Re_d &amp; \ge 20000 &amp;\qquad &amp; \text{around an obstacle (bluff bodies)}<br>\end{aligned}$<ul>
+<li>for internal flow<br>$Re_{d_h}\ge 2300$</li>
+<li>for natural convection and buoyancy<br>$\frac{Ra}{Pr} \ge  10^{9}$</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Note: other factors may cause transition to turbulence at lower Reynolds number: free-stream turbulence, surface conditions, transpiration(blowing/suction),roughness…</p>
+</blockquote>
+<hr>
+<h3 id="Fluctuations-of-transported-quantities"><a href="#Fluctuations-of-transported-quantities" class="headerlink" title="Fluctuations of transported quantities"></a>Fluctuations of transported quantities</h3><blockquote>
+<p>Note: impractial to account for all instantaneous fluctuations: remove,avoid,filter the small scales by usind models.</p>
+</blockquote>
+<ul>
+<li>Important to understand<ul>
+<li>the time averaged flow pattern is a statistical property of the flow, not the actual flow pattern</li>
+<li>the flow pattern changes from instant to instant</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Reynolds averaging</strong></li>
+<li>Filtering</li>
+</ul>
+<hr>
+<h3 id="Boundary-layer"><a href="#Boundary-layer" class="headerlink" title="Boundary layer"></a>Boundary layer</h3><ul>
+<li>viscous boundary layer in the velocity distribution<br><img src="/images/2022-07-11-12-21-40.png" alt=""></li>
+</ul>
+<hr>
+<h3 id="Scales-of-turbulence"><a href="#Scales-of-turbulence" class="headerlink" title="Scales of turbulence"></a>Scales of turbulence</h3><ul>
+<li><p>Kolmogorov’s hypothesis</p>
+<ul>
+<li>local isotropy: the small-scale turbulent motions are <strong>statistically isotropic</strong> (the same shape)</li>
+<li><ol>
+<li>similarity hypothesis: the small-scale motions determined by $\nu$ and $\epsilon$</li>
+</ol>
+</li>
+<li><ol>
+<li>similarity hypothesis: the statistics of the motions between the large and small-scales determined by $\epsilon$, independt of $\nu$ </li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>The motion at the smallest scales should depend only upon</p>
+<ul>
+<li>The rate at which the larger eddies supply energy <script type="math/tex; mode=display">
+ \epsilon=-\frac{\mathrm{d}k}{\mathrm{d}t}</script>$\qquad \epsilon \left[ \frac{m^{2}}{s^{3}}\right]$: turbulent dissipation rate per unit mass<br>$\qquad k \left[ \frac{m^{2}}{s^{2}}\right]$: turbulent kinetic energy per unit mass</li>
+<li><p>The kinematic viscosity $\nu$</p>
+<p><img src="images/2022-07-13-00-44-25.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>Kolmogorov Reynodls number</p>
+<script type="math/tex; mode=display">
+Re_{\eta}=\frac{\eta \mu_n}{\nu}=1</script><blockquote>
+<p>The energy cascade proceeds to smaller and smaller scales until the Reynolds number is small enough for dissipation due to <strong>viscosity</strong> to be effective.</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\frac{\text{Largest eddies}}{\text{Smalles eddies} }\qquad \frac{l_{0}}{\eta} \sim  Re^{\frac{3}{4}}_{T} \qquad \frac{\tau_{0}}{\tau_{\eta}}\sim Re^{\frac{1}{2}}_{T} \qquad \frac{u_0}{u_{\eta}}\sim Re^{\frac{1}{4}}_{T}</script><p>with turbulence Reynodls number $Re_T\equiv \frac{k^{\frac{1}{2}}l_{0}}{\nu}$</p>
+<blockquote>
+<p>These relationships give you some idea about the meshes.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Energy-spectrum-and-mesh-resolution"><a href="#Energy-spectrum-and-mesh-resolution" class="headerlink" title="Energy spectrum and mesh resolution"></a>Energy spectrum and mesh resolution</h3><p>  <img src="images/2022-07-13-08-58-59.png" alt=""></p>
+<ul>
+<li><p>a range of wavenumbers exist in which the energy transferred by inertial effects</p>
+<script type="math/tex; mode=display">
+E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{\pi}{l}=\frac{2\pi f}{U}</script></li>
+<li><p>this equation describes the wavenumber depencence of the turbulent kinetic energy</p>
+</li>
+<li><p>$E(\kappa):$ energy (spectrum) density<br><img src="images/2022-07-13-09-10-02.png" alt=""></p>
+<ul>
+<li>another distribution $D(\kappa)$ describes the dependence of the dssipation rate on the wavenumber in subrange (C)</li>
+<li><p>viscoosity plays a central role</p>
+<script type="math/tex; mode=display">
+D(\kappa)=C_\epsilon\nu\epsilon^{\frac{2}{3}}\kappa^{\frac{1}{3}} \qquad C_\epsilon=2C_K</script><p><img src="images/2022-07-13-09-20-26.png" alt=""></p>
+</li>
+<li><p>The mesh resolution determines the fraction of the energy spectrum directly resolved</p>
+</li>
+</ul>
+<p><img src="images/2022-07-13-09-31-09.png" alt=""><br><img src="images/2022-07-13-09-41-04.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li>resolve at least 80% of the turbulent kinetic energy $k(l)$ (spectrum)</li>
+</ul>
+<ul>
+<li><p>some parameters </p>
+<ul>
+<li>$\kappa=\frac{2\pi}{l}=\frac{2\pi f}{U}$:wavenumber </li>
+<li>$l:$ the smallest vortex that can be resolved with the mesn (characteristic eddy size)</li>
+<li>$l_0:$ largest eddies or integral length scales</li>
+<li>$\Delta=\frac{l}{2}:$ cell size;grid cut-off dimension; the smallest eddies you can resolve with two cells  </li>
+</ul>
+</li>
+<li><p>to resolve an eddy with a length scale $l$ </p>
+</li>
+</ul>
+<hr>
+<h3 id="Integral-length-scale-and-grid-length-scale"><a href="#Integral-length-scale-and-grid-length-scale" class="headerlink" title="Integral length scale and grid length scale"></a>Integral length scale and grid length scale</h3><ul>
+<li>the integral length scale $l_0$ can be estimated from a precursor RANS simulation<ul>
+<li>two-equation turbulence models<ul>
+<li>$k-\epsilon$ </li>
+<li>$k-\omega$</li>
+</ul>
+</li>
+<li>compute turbulent kinetic energy $k$, disispation rate $\epsilon$, and specific dissipation rate $\omega$<script type="math/tex; mode=display">
+l_0=\frac{k^{1.5}}{\epsilon} \qquad l_0=\frac{k^{0.5}}{C_{\mu}\omega} \qquad \text{with }C_\mu=0.09</script><blockquote>
+<p>Note:<br>$l_0$ is telling you the region where occurs interaction of vorticies.It does not represent the dimension of the largest eddies or integral length scales.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>then compute grid length scales <script type="math/tex; mode=display">
+R_l=\frac{l_0}{\Delta} \qquad \text{with} \Delta\approx ^{3} \sqrt{\text{cell volume}}</script>  recommended $R_l &gt; 5-10$<blockquote>
+<p>Note:<br>The $R_l$ criterion is used to study the core of the flow; Close to the walls we use y+ as a criterion.</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="Turbulence-near-the-wall"><a href="#Turbulence-near-the-wall" class="headerlink" title="Turbulence near the wall"></a>Turbulence near the wall</h3><ul>
+<li><p>Definiton of $y^{+}$ and $u^{+}$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  y^{+}&=\frac{\rho U_{\tau}y}{\mu}=\frac{U_{\tau}y}{\nu} \\ u^{+}&=\frac{U}{U_{\tau}} \\ U_{\tau}=\sqr
+\end{aligned}</script></li>
+<li><p>Law of the wall</p>
+<script type="math/tex; mode=display">
+\frac{U}{u_{\tau}}=f\left(\frac{yu_{\tau}}{\nu}\right) \qquad u^{+}=f(y^{+})</script><ul>
+<li>The law of the wall basically describes the mean velocity distribution close to the wall, in the inner region of the boundary layer:<ul>
+<li>logarithmic layer</li>
+<li>buffer layer</li>
+<li>viscous sublayer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Logarithmic law or log-law</p>
+<script type="math/tex; mode=display">
+u^{+}=\frac{1}{\kappa}\ln y^{+}+C^{+}\qquad\text{with} \kappa\approx_0.41\quad C^{+}\approx 5.0</script><ul>
+<li>describe log-law layer for $30&lt;y^{+}&lt;300$</li>
+<li>in reality, the upper limit can be much higher (10000) and depends on Re</li>
+<li>in CFD, the upper limit is $600$ </li>
+</ul>
+</li>
+<li><p>The viscous sublayer</p>
+<script type="math/tex; mode=display">
+u^{+}=y^{+}</script><ul>
+<li>valid in the viscous sublayer where laminar flow is very strong<ul>
+<li>the behavior of the mean velocity is linear in this region</li>
+</ul>
+</li>
+<li>$\tau_{\text{wall}}=\mu\frac{\partial u}{\partial y}$</li>
+<li>in CFD, the upper limit $y^{+} &lt;6$</li>
+</ul>
+</li>
+<li><p>The buffer layer</p>
+<ul>
+<li>flow transition from laminar to turbulent</li>
+<li>$5&lt;y^{+}&lt;30$</li>
+<li>to avoid putting first cell center next to the wall in this region</li>
+</ul>
+</li>
+</ul>
 
       
        
