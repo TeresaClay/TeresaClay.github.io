@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-31-09.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-09-41-04.png">
 <meta property="article:published_time" content="2022-07-13T13:04:43.113Z">
-<meta property="article:modified_time" content="2022-07-13T15:35:35.371Z">
+<meta property="article:modified_time" content="2022-07-13T16:10:58.219Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-11-11-58-43.png">
@@ -652,7 +652,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-13 17:35:35'>2022-07-13 15:04</time>
+            Created At : <time class="date" title='Updated At: 2022-07-13 18:10:58'>2022-07-13 15:04</time>
         
     </div>
     <div class="article-meta">
@@ -800,7 +800,7 @@
 <li>The kinematic viscosity $\nu$</li>
 </ul>
 </li>
-<li><p>realations to determine the smallest scales in turbulence (Kolmogorov scales)<br>  <img src="/images/2022-07-13-00-44-25.png" alt=""></p>
+<li><p>Kolmogorov scales: realations to determine the smallest scales in turbulence<br>(new dimensional groups created with $\nu, \epsilon$)<br>  <img src="/images/2022-07-13-00-44-25.png" alt=""></p>
 <ul>
 <li><p>Kolmogorov Reynodls number</p>
 <script type="math/tex; mode=display">
@@ -808,7 +808,10 @@
 <p>The energy cascade proceeds to smaller and smaller scales until the Reynolds number is small enough for dissipation due to <strong>viscosity</strong> to be effective.</p>
 </blockquote>
 <script type="math/tex; mode=display">
-\frac{\text{Largest eddies}}{\text{Smalles eddies} }\qquad \frac{l_{0}}{\eta} \sim  Re^{\frac{3}{4}}_{T} \qquad \frac{\tau_{0}}{\tau_{\eta}}\sim Re^{\frac{1}{2}}_{T} \qquad \frac{u_0}{u_{\eta}}\sim Re^{\frac{1}{4}}_{T}</script><p>with turbulence Reynodls number $Re_T\equiv \frac{k^{\frac{1}{2}}l_{0}}{\nu}$</p>
+\color{red}{\frac{\text{Largest eddies}}{\text{Smalles eddies}} }\qquad \color{black}{\frac{l_{0}}{\eta} \sim  Re^{\frac{3}{4}}_{T} \qquad \frac{\tau_{0}}{\tau_{\eta}}\sim Re^{\frac{1}{2}}_{T} \qquad \frac{u_0}{u_{\eta}}\sim Re^{\frac{1}{4}}_{T}}</script><ul>
+<li>turbulence Reynolds number $\boxed{Re_T\equiv \frac{k^{\frac{1}{2}}l_{0}}{\nu}}$ </li>
+<li>integral scales (length and time), $\boxed{l_0=\frac{k^{\frac{3}{2}}}{\epsilon}},  \tau_0=t=\frac{k}{\epsilon}$</li>
+</ul>
 <blockquote>
 <p>These relationships give you some idea about the meshes.</p>
 </blockquote>
@@ -821,12 +824,12 @@
 <ul>
 <li><p>a range of wavenumbers exist in which the energy transferred by inertial effects</p>
 <script type="math/tex; mode=display">
-E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{\pi}{l}=\frac{2\pi f}{U}</script></li>
-<li><p>this equation describes the wavenumber depencence of the turbulent kinetic energy</p>
+E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{\pi}{l}=\frac{2\pi f}{U}</script><ul>
+<li>this equation describes the wavenumber depencence of the turbulent kinetic energy</li>
+<li><p>with energy (spectrum) density $E(\kappa)$<br><img src="/images/2022-07-13-09-10-02.png" alt=""></p>
 </li>
-<li><p>$E(\kappa):$ energy (spectrum) density<br><img src="/images/2022-07-13-09-10-02.png" alt=""></p>
-<ul>
-<li>another distribution $D(\kappa)$ describes the dependence of the dssipation rate on the wavenumber in subrange (C)</li>
+<li><p>another distribution $D(\kappa)$ describes the dependence of the dssipation rate on the wavenumber in subrange (C)</p>
+</li>
 <li><p>viscoosity plays a central role</p>
 <script type="math/tex; mode=display">
 D(\kappa)=C_\epsilon\nu\epsilon^{\frac{2}{3}}\kappa^{\frac{1}{3}} \qquad C_\epsilon=2C_K</script><p><img src="images/2022-07-13-09-20-26.png" alt=""></p>
