@@ -667,7 +667,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-12 21:19:23'>2022-07-12 15:33</time>
+            Created At : <time class="date" title='Updated At: 2022-07-16 18:19:06'>2022-07-12 15:33</time>
         
     </div>
     <div class="article-meta">
@@ -741,15 +741,15 @@
 <h4 id="半离散方程"><a href="#半离散方程" class="headerlink" title="半离散方程"></a>半离散方程</h4><ul>
 <li><p>微分形式: <script type="math/tex">\frac{\partial \rho \phi}{\partial t}+\nabla \cdot (\rho \phi \boldsymbol{U}) = \nabla \cdot (\Gamma \nabla \phi)+S_\phi</script> </p>
 </li>
-<li><p>稳态方程: <script type="math/tex">\nabla \cdot (\rho \phi \boldsymbol{U}) = \nabla \cdot (\Gamma \nabla \phi)+S_\phi</script> </p>
+<li><p><strong>稳态方程</strong>: <script type="math/tex">\nabla \cdot (\rho \phi \boldsymbol{U}) = \nabla \cdot (\Gamma \nabla \phi)+S_\phi</script> </p>
 </li>
 <li><p>积分形式：<script type="math/tex">\int_{CV}\nabla \cdot (\rho \phi \boldsymbol{U}) dV=\int_{CV} \nabla \cdot (\Gamma \nabla \phi) dV+\int_{CV} S_\phi dV</script> </p>
 </li>
 <li><p>高斯散度定理</p>
 <script type="math/tex; mode=display">
-\int_{\partial V_c} \boldsymbol{n}\cdot (\rho\phi \boldsymbol{U}) dS=\int_{\partial V_c} \boldsymbol{n}\cdot (\Gamma \nabla \phi ) dS + \int_{V_C}S_\phi dV</script></li>
+\boxed{\int_{\partial V_c} \boldsymbol{n}\cdot (\rho\phi \boldsymbol{U}) dS=\int_{\partial V_c} \boldsymbol{n}\cdot (\Gamma \nabla \phi ) dS + \int_{V_C}S_\phi dV}</script></li>
 </ul>
-<p>图</p>
+<p><img src="/images/2022-07-16-16-21-46.png" alt=""></p>
 <ul>
 <li>for internal cells: 守恒</li>
 <li>把封闭的变成n个连续的和<script type="math/tex; mode=display">
@@ -789,7 +789,7 @@
 </li>
 <li><p>源项处理</p>
 <script type="math/tex; mode=display">
-\int_{V_c} S^{\phi}dV=\sum_{ip}(S_{ip}w_{ip}V) \qquad=S_cV_c</script></li>
+\int_{V_c} S_{\phi}dV=\sum_{ip}(S_{ip}w_{ip}V) \qquad=S_cV_c</script></li>
 </ul>
 <hr>
 <h4 id="采用一个积分点"><a href="#采用一个积分点" class="headerlink" title="采用一个积分点"></a>采用一个积分点</h4><ul>
