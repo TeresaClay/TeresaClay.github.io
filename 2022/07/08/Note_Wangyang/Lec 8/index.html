@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋</title>
+  <title>Lec8 Vector Calculus | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋">
+  <meta name="description" content="Lec8 Vector Calculus | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Book 第六章RenumberMeshCMU 微分几何 C68 C65 c++代码  Domain discretization 几何离散 structured mesh&#x2F;grid unstructured mesh&#x2F;grid  The finite volume mesh 梯度计算 (扩散项)   \overline{\nabla \phi}_C&#x3D;\frac{1}{V_C}\int_{V_C}">
 <meta property="og:type" content="article">
@@ -659,9 +659,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec1" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec 8" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec1 Lagrangesche Ableitung und Advektion</h1>
+        <h1 class="article-title">Lec8 Vector Calculus</h1>
     
     <div class="article-meta">
         
@@ -673,7 +673,7 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
+            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
             
         </span>
         
@@ -681,7 +681,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 18:29:34'>2022-07-09 22:18</time>
+            Created At : <time class="date" title='Updated At: 2022-07-16 20:45:04'>2022-07-08 16:02</time>
         
     </div>
     <div class="article-meta">
@@ -692,7 +692,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Systemtheoretische-Hydromechanik"><span class="toc-text">Systemtheoretische Hydromechanik</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hydrodynamik-heute-%E2%80%94-Navier-Stokes-Gleichung"><span class="toc-text">Hydrodynamik heute — Navier-Stokes Gleichung</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><span class="toc-text">Die Bahnlinie als Kurve -(1 Strömungspartikel)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lagrangesche-Erhaltungsgrosen"><span class="toc-text">Lagrangesche Erhaltungsgrößen</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%9A%84%E5%81%8F%E6%96%B9%E7%A8%8B"><span class="toc-text">经典的偏方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-text">向量微积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6-gradient-nabla"><span class="toc-text">梯度, gradient, $\nabla $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%A3%E5%BA%A6-divergent%EF%BC%8C-nabla-cdot"><span class="toc-text">散度, divergent，$\nabla \cdot$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E5%BA%A6-curl-nabla-times"><span class="toc-text">旋度, curl, $\nabla \times $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="toc-text">高斯散度定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stokes%E5%AE%9A%E7%90%86%E5%92%8C%E6%A0%BC%E6%9E%97%E5%AE%9A%E7%90%86"><span class="toc-text">Stokes定理和格林定理</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -708,25 +708,146 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Systemtheoretische-Hydromechanik"><a href="#Systemtheoretische-Hydromechanik" class="headerlink" title="Systemtheoretische Hydromechanik"></a>Systemtheoretische Hydromechanik</h4><script type="math/tex; mode=display">
-\frac{\partial M}{\partial t}=\rho_{ein}A_{ein}v_{ein}-\rho_{aus}A_{aus}v_{aus} \\ \frac{\partial \vec{I}}{\partial t}=\vec{F}_{sonst}-\sum_{i}\left( p_{i}A_{i}\vec{n}+\rho_{i}A_{i}(\vec{n}_i\vec{v}_i)\vec{v}_i +M\vec{g} \right)</script><p>Die klassische <strong>stationäre</strong> Hydraulik</p>
+        <h4 id="经典的偏方程"><a href="#经典的偏方程" class="headerlink" title="经典的偏方程"></a>经典的偏方程</h4><ul>
+<li><p>波动方程 (线性) </p>
 <script type="math/tex; mode=display">
-A_{ein}v_{ein}=A_{aus}v_{aus}\\z_1+\frac{1}{2g}v^{2}_{2}+\frac{p_1}{\rho g}=z_2+\frac{1}{2g}v^{2}_{2}+\frac{p_2}{\rho g}+h_v</script><h4 id="Hydrodynamik-heute-—-Navier-Stokes-Gleichung"><a href="#Hydrodynamik-heute-—-Navier-Stokes-Gleichung" class="headerlink" title="Hydrodynamik heute — Navier-Stokes Gleichung"></a>Hydrodynamik heute — Navier-Stokes Gleichung</h4><script type="math/tex; mode=display">
 \begin{aligned}
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+
-w\frac{\partial u}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial x}+\nu\left(\frac{\partial ^{2}u}{\partial x^{2}}+\frac{\partial ^{2}u}{\partial y^{2}}+\frac{\partial ^{2}u}{\partial z^{2}}\right) \\ \cdots 
-\end{aligned}</script><h4 id="Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><a href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel" class="headerlink" title="Die Bahnlinie als Kurve -(1 Strömungspartikel)"></a>Die Bahnlinie als Kurve -(1 Strömungspartikel)</h4><p><img src="/images/2022-07-10-10-13-07.png" alt=""></p>
-<p>$<br>\quad \quad u=\frac{\mathrm{d}x(t)}{\mathrm{d}t} \quad v=\frac{\mathrm{d}y(t)}{\mathrm{d}t} \quad w=\frac{\mathrm{d}z(t)}{\mathrm{d}t}<br>$</p>
-<p>die Weglänge: $\quad s=\lim_{N \to \infty}\sum_{i=1}^{N-1}\left| \vec{x}(t_{i+1})-\vec{x}(t_i) \right|_{}=\int_{t_1}^{t_2} \sqrt{u^{2}(t)+v^{2}(t)+w^{2}(t)} \mathrm{d}t$ </p>
-<p>die Bahnableitung $\frac{DT}{Dt}: \quad $ wie verändert sich die Temperatur ==entlang dieser Bahn==? </p>
-<h4 id="Lagrangesche-Erhaltungsgrosen"><a href="#Lagrangesche-Erhaltungsgrosen" class="headerlink" title="Lagrangesche Erhaltungsgrößen"></a>Lagrangesche Erhaltungsgrößen</h4><p>==sind Gräßen, deren Wert sich auf einer Bahnlinie nicht ändert==</p>
-<ul>
-<li>Lineare Advekctionsgleichung (linear: Form ändert sich nicht)</li>
+ u_{tt}&=c^{2}u_{xx} \\
+ u_{tt}&=c^{2}\nabla ^{2}u 
+\end{aligned}</script><ul>
+<li>Fourier级数，变换; 正交基 $\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin x \cos x \mathrm{d}x$</li>
+<li>Krlow CG (painless的CG) $ \begin{bmatrix} x_1, x_2, \cdots, x_n \end{bmatrix} ^{T} \cdot \begin{bmatrix} y_1, y_2, \cdots, y_n \end{bmatrix}^{T}=0$</li>
+<li>time-initial condition; space - boundary condition    </li>
 </ul>
+</li>
+<li><p>热传导方程 (线性)</p>
 <script type="math/tex; mode=display">
-\frac{DC}{Dt}=0 \quad \to \quad \frac{\partial c}{\partial t}+u\frac{\partial c}{\partial x}+v\frac{\partial c}{\partial y}+w\frac{\partial c}{\partial z}=0</script><ul>
-<li>Die nichtlineare Advekctionsgleichung (nichtlinear: Form ändert sich)<script type="math/tex; mode=display">
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}=0</script></li>
+\begin{aligned}
+u_{t}&=\alpha^{2}u_{xx} \\
+u_t&=\alpha^{2}\nabla ^{2}u
+\end{aligned}</script><ul>
+<li>$\alpha$: 扩散系数  </li>
+</ul>
+</li>
+<li><p>拉普拉斯方程 (线性)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+u_{x x}+u_{yy}&=0 \\
+\nabla ^{2}u&=0
+\end{aligned}</script></li>
+<li><p>Navier-Stokes 方程 (非线性) </p>
+</li>
+</ul>
+<hr>
+<h4 id="向量微积分"><a href="#向量微积分" class="headerlink" title="向量微积分"></a>向量微积分</h4><ul>
+<li>守恒率 <ul>
+<li>质量</li>
+<li>动量</li>
+<li>不可压基本不用能量守恒，可压的部分密度基</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="梯度-gradient-nabla"><a href="#梯度-gradient-nabla" class="headerlink" title="梯度, gradient, $\nabla $"></a>梯度, gradient, $\nabla $</h4><script type="math/tex; mode=display">
+    \text{标量场}\implies \text{向量场}</script><ul>
+<li>梯度是一个方向，最快变化 （24.27）  </li>
+<li><p>标量场函数 $f(x,y)$</p>
+<script type="math/tex; mode=display">
+      \nabla f= \begin{bmatrix} 
+          \frac{\partial f}{\partial x} \\
+          \frac{\partial f}{\partial 
+          y} 
+      \end{bmatrix}</script></li>
+<li><p>梯度是线性的 </p>
+<script type="math/tex; mode=display">\nabla (f_1+f_2) = \nabla f_1+\nabla f_2</script></li>
+<li><p>方向导数  </p>
+<script type="math/tex; mode=display">
+  D_v(f)=\boldsymbol{n_v}\cdot \nabla f</script><ul>
+<li>same direction (变化最快的方向): $\frac{\nabla f}{\left\vert \nabla f \right\vert }\cdot \nabla f= \left\vert \nabla f \right\vert $ </li>
+<li>if $D_v(f)=0$, 在 $\boldsymbol{n}_v$方向$f$ 是不会改变的</li>
+</ul>
+</li>
+<li><p>Example: $f=x_2+y_2$ 35.33</p>
+</li>
+</ul>
+<hr>
+<h4 id="散度-divergent，-nabla-cdot"><a href="#散度-divergent，-nabla-cdot" class="headerlink" title="散度, divergent，$\nabla \cdot$"></a>散度, divergent，$\nabla \cdot$</h4><script type="math/tex; mode=display">
+    \text{向量场}\implies \text{标量场}</script><ul>
+<li>吸星大法(加图)</li>
+<li><p>向量场函数 $\boldsymbol{f}(x,y)$</p>
+<script type="math/tex; mode=display">
+      \nabla \cdot  \boldsymbol{f}= \begin{bmatrix} 
+          \frac{\partial }{\partial x} \\
+          \frac{\partial }{\partial 
+          y}
+      \end{bmatrix} \cdot \begin{bmatrix}
+      f_1 \\ f_2
+      \end{bmatrix} = \frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}</script></li>
+<li><p>散度&gt;0: source </p>
+</li>
+<li>散度=0: divergence free<ul>
+<li>不可压的速度满足无散条件 $\nabla \cdot \boldsymbol{U}=0 $</li>
+</ul>
+</li>
+<li>散度是线性的 <script type="math/tex; mode=display">
+\nabla \cdot (\boldsymbol{f}_1+\boldsymbol{f}_2)=\nabla \cdot \boldsymbol{f}_1+\nabla \cdot \boldsymbol{f}_2</script></li>
+<li><p>拉普拉斯方程 （梯度的散度） </p>
+<script type="math/tex; mode=display">\begin{aligned}
+\nabla \cdot \nabla f&=\frac{\partial ^{2} f}{\partial x^{2}}+ \frac{\partial ^{2} f}{\partial y^{2}}\\ \nabla ^{2}f&=\Delta f
+\end{aligned}</script></li>
+<li><p>43.24</p>
+</li>
+</ul>
+<hr>
+<h4 id="旋度-curl-nabla-times"><a href="#旋度-curl-nabla-times" class="headerlink" title="旋度, curl, $\nabla \times $"></a>旋度, curl, $\nabla \times $</h4><script type="math/tex; mode=display">
+\text{向量场}\implies \text{向量场}</script><ul>
+<li>向量场函数 $\boldsymbol{f}=(f_1,f_2,f_3)$<script type="math/tex; mode=display">
+\text{curl}(\boldsymbol{f})=\nabla\times \boldsymbol{f}= \text{det} \begin{bmatrix} i & j & k \\ \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\ f_1 & f_2 & f_3 \\\end{bmatrix}</script></li>
+<li>无旋，irrotational (旋度的散度) $\nabla \cdot (\nabla \times \boldsymbol{f})=0$</li>
+<li>思考 (梯度的旋度) $\nabla \times (\nabla f)$</li>
+<li><p>思考 (两次旋度的)横等0 $\nabla \times (\nabla \times \boldsymbol{f}) \equiv 0 \qquad  \vec{a} \times ( \vec{a} \times \vec{b} ) \equiv 0 $</p>
+</li>
+<li><p>1.12.50</p>
+</li>
+<li>1.30.35</li>
+<li>马桶抽水</li>
+</ul>
+<hr>
+<h4 id="高斯散度定理"><a href="#高斯散度定理" class="headerlink" title="高斯散度定理"></a>高斯散度定理</h4><ul>
+<li><p>穿过一个封闭面 $S$ 的<a href="https://teresaclay.github.io/2022/07/12/Note_Wangyang/Lec10/">通量</a> $F$ 等于对该封闭体内散度 $div(F)$ 的体积分</p>
+<script type="math/tex; mode=display">
+\iiint_V \nabla \cdot \boldsymbol{F} dV=\iint_S \boldsymbol{F} \cdot  \boldsymbol{n} dS</script></li>
+<li><p>推倒质量守恒，非常有意思的过程</p>
+<script type="math/tex; mode=display">
+m=\iiint_V \rho dV</script><script type="math/tex; mode=display">
+\frac{\partial }{\partial t} \iiint_V \rho dV = - \iint_S \rho \boldsymbol{F} \cdot \boldsymbol{n} dS = - \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV</script><script type="math/tex; mode=display">
+\iiint \frac{\partial \rho}{\partial t} dV + \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV = \iiint_V \left[\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\boldsymbol{F})\right] dV =0</script><script type="math/tex; mode=display">
+\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol{F})=0</script><script type="math/tex; mode=display">
+\text{incompressible:  } \quad \nabla \cdot \boldsymbol{F}=0</script></li>
+</ul>
+<hr>
+<h4 id="Stokes定理和格林定理"><a href="#Stokes定理和格林定理" class="headerlink" title="Stokes定理和格林定理"></a>Stokes定理和格林定理</h4><ul>
+<li><p>对一个封闭曲面上的旋度进行面积分</p>
+<script type="math/tex; mode=display">
+\iint_S (\nabla \times \boldsymbol{F} ) \cdot d\boldsymbol{S}= \int_{\partial S} \boldsymbol{F}\cdot dS</script><p><img src="/images/2022-07-16-15-41-20.png" alt=""></p>
+</li>
+<li><p>格林公式是Stokes的二维情况</p>
+<script type="math/tex; mode=display">
+\iint_S (\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}) dxdy=\int_{\partial{S}}f_1dx+f_2dy</script></li>
+<li><p>可以用格林来求面积</p>
+<script type="math/tex; mode=display">
+\boldsymbol{F}=(-y,x)^{T} \\
+\iint_S (1+1)dxdy=2A=\int_{\partial S}{-ydx+xdy}</script></li>
+<li><p>Note</p>
+<script type="math/tex; mode=display">
+\nabla \times \boldsymbol{F} = \det</script><p>1‘40</p>
+</li>
+</ul>
+<hr>
+<p>补充：</p>
+<ul>
+<li>Machine Learning for Fluid Mechanics, Bruonton, Annual Revies of Fluid Mechanics</li>
+<li>Chen11, xxx,xxx</li>
 </ul>
 
       
