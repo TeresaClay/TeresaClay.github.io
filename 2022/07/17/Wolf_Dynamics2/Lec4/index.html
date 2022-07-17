@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋</title>
+  <title>Lec4 FVM | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec1 Lagrangesche Ableitung und Advektion | TeresaClay的小屋">
+  <meta name="description" content="Lec4 FVM | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="The FVM: an overviewGeneral transport equation and profile assumptions The general transport equation  \underbrace{\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV}_{\text{time derivative}}+\underbra">
 <meta property="og:type" content="article">
@@ -671,9 +671,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec1" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Wolf_Dynamics2/Lec4" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec1 Lagrangesche Ableitung und Advektion</h1>
+        <h1 class="article-title">Lec4 FVM</h1>
     
     <div class="article-meta">
         
@@ -685,7 +685,9 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics&lt;---&gt;Turbulence">Turbulence</a>
             
         </span>
         
@@ -693,7 +695,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-10 18:29:34'>2022-07-09 22:18</time>
+            Created At : <time class="date" title='Updated At: 2022-07-17 16:27:06'>2022-07-17 11:07</time>
         
     </div>
     <div class="article-meta">
@@ -704,7 +706,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Systemtheoretische-Hydromechanik"><span class="toc-text">Systemtheoretische Hydromechanik</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hydrodynamik-heute-%E2%80%94-Navier-Stokes-Gleichung"><span class="toc-text">Hydrodynamik heute — Navier-Stokes Gleichung</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><span class="toc-text">Die Bahnlinie als Kurve -(1 Strömungspartikel)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lagrangesche-Erhaltungsgrosen"><span class="toc-text">Lagrangesche Erhaltungsgrößen</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-FVM-an-overview"><span class="toc-text">The FVM: an overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-transport-equation-and-profile-assumptions"><span class="toc-text">General transport equation and profile assumptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gauss-theorem-and-face-fluxes-computation"><span class="toc-text">Gauss theorem and face fluxes computation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convective-diffusive-gradients-and-source-terms-approximations"><span class="toc-text">Convective, diffusive, gradients and source terms approximations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-the-convective-fluxes"><span class="toc-text">Interpolation of the convective fluxes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-diffusive-fluxes"><span class="toc-text">Interpolation of diffusive fluxes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-at-cell-centers"><span class="toc-text">Gradient at cell centers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-computation-at-cell-centers"><span class="toc-text">Gradients computation at cell centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-reconstruction-at-face-centers"><span class="toc-text">Gradients reconstruction at face centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterative-approach"><span class="toc-text">Iterative approach</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -720,25 +722,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Systemtheoretische-Hydromechanik"><a href="#Systemtheoretische-Hydromechanik" class="headerlink" title="Systemtheoretische Hydromechanik"></a>Systemtheoretische Hydromechanik</h4><script type="math/tex; mode=display">
-\frac{\partial M}{\partial t}=\rho_{ein}A_{ein}v_{ein}-\rho_{aus}A_{aus}v_{aus} \\ \frac{\partial \vec{I}}{\partial t}=\vec{F}_{sonst}-\sum_{i}\left( p_{i}A_{i}\vec{n}+\rho_{i}A_{i}(\vec{n}_i\vec{v}_i)\vec{v}_i +M\vec{g} \right)</script><p>Die klassische <strong>stationäre</strong> Hydraulik</p>
+        <h2 id="The-FVM-an-overview"><a href="#The-FVM-an-overview" class="headerlink" title="The FVM: an overview"></a>The FVM: an overview</h2><h3 id="General-transport-equation-and-profile-assumptions"><a href="#General-transport-equation-and-profile-assumptions" class="headerlink" title="General transport equation and profile assumptions"></a>General transport equation and profile assumptions</h3><ul>
+<li><p>The general transport equation</p>
 <script type="math/tex; mode=display">
-A_{ein}v_{ein}=A_{aus}v_{aus}\\z_1+\frac{1}{2g}v^{2}_{2}+\frac{p_1}{\rho g}=z_2+\frac{1}{2g}v^{2}_{2}+\frac{p_2}{\rho g}+h_v</script><h4 id="Hydrodynamik-heute-—-Navier-Stokes-Gleichung"><a href="#Hydrodynamik-heute-—-Navier-Stokes-Gleichung" class="headerlink" title="Hydrodynamik heute — Navier-Stokes Gleichung"></a>Hydrodynamik heute — Navier-Stokes Gleichung</h4><script type="math/tex; mode=display">
+\underbrace{\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV}_{\text{time derivative}}+\underbrace{\int_{V_p}\nabla \cdot (\rho \boldsymbol{u}\phi)dV}_{\text{convective}}=\underbrace{\int_{V_p}\nabla \cdot (\Gamma_\phi \nabla \phi)dV}_{\text{diffusive}}+\underbrace{\int_{V_p}S_\phi(\phi)dV}_{\text{source term}}</script></li>
+<li><p>All dependent variables are assumed to vary <strong>linearly</strong> aroud a point P</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+
-w\frac{\partial u}{\partial z}=-\frac{1}{\rho}\frac{\partial p}{\partial x}+\nu\left(\frac{\partial ^{2}u}{\partial x^{2}}+\frac{\partial ^{2}u}{\partial y^{2}}+\frac{\partial ^{2}u}{\partial z^{2}}\right) \\ \cdots 
-\end{aligned}</script><h4 id="Die-Bahnlinie-als-Kurve-1-Stromungspartikel"><a href="#Die-Bahnlinie-als-Kurve-1-Stromungspartikel" class="headerlink" title="Die Bahnlinie als Kurve -(1 Strömungspartikel)"></a>Die Bahnlinie als Kurve -(1 Strömungspartikel)</h4><p><img src="/images/2022-07-10-10-13-07.png" alt=""></p>
-<p>$<br>\quad \quad u=\frac{\mathrm{d}x(t)}{\mathrm{d}t} \quad v=\frac{\mathrm{d}y(t)}{\mathrm{d}t} \quad w=\frac{\mathrm{d}z(t)}{\mathrm{d}t}<br>$</p>
-<p>die Weglänge: $\quad s=\lim_{N \to \infty}\sum_{i=1}^{N-1}\left| \vec{x}(t_{i+1})-\vec{x}(t_i) \right|_{}=\int_{t_1}^{t_2} \sqrt{u^{2}(t)+v^{2}(t)+w^{2}(t)} \mathrm{d}t$ </p>
-<p>die Bahnableitung $\frac{DT}{Dt}: \quad $ wie verändert sich die Temperatur ==entlang dieser Bahn==? </p>
-<h4 id="Lagrangesche-Erhaltungsgrosen"><a href="#Lagrangesche-Erhaltungsgrosen" class="headerlink" title="Lagrangesche Erhaltungsgrößen"></a>Lagrangesche Erhaltungsgrößen</h4><p>==sind Gräßen, deren Wert sich auf einer Bahnlinie nicht ändert==</p>
-<ul>
-<li>Lineare Advekctionsgleichung (linear: Form ändert sich nicht)</li>
+\phi(\boldsymbol{x})&=\phi_P+(\boldsymbol{x}-\boldsymbol{x}_P)\cdot (\nabla \phi)_P \\ \phi(t+\delta t)&=\phi^{t}+\delta t \left(\frac{\partial \phi}{\partial t}\right)^{t}
+\end{aligned}</script></li>
+<li>The centroid $\color{blue}{P}$<script type="math/tex; mode=display">
+\int_{V_p}(\boldsymbol{x}-\boldsymbol{x}_p)dV=0 \qquad \phi_P=\overline{\phi}=\frac{1}{V_p}\int_{V_p}\phi(\boldsymbol{x})dV</script></li>
+<li>The centroid of the face $\color{green}{f}$<script type="math/tex; mode=display">
+\int_{S_f}(\boldsymbol{x}-\boldsymbol{x}_p)dS=0</script><h3 id="Gauss-theorem-and-face-fluxes-computation"><a href="#Gauss-theorem-and-face-fluxes-computation" class="headerlink" title="Gauss theorem and face fluxes computation"></a>Gauss theorem and face fluxes computation</h3></li>
+<li>Applying Gauss theorem to convert the volume inegrals int osurface integrals<script type="math/tex; mode=display">
+\frac{\partial }{\partial t}\int\rho\phi dV+\underbrace{\int_{\partial V_p}(\rho\boldsymbol{u}\phi)\cdot d\boldsymbol{S}}_{\text{convective flux}}=\underbrace{\int_{\partial V_p}(\Gamma_\phi \nabla \phi)\cdot d\boldsymbol{S}}_{\text{diffusive flux}}+\int_{V_p}S_\phi(\phi)dV</script></li>
 </ul>
+<h3 id="Convective-diffusive-gradients-and-source-terms-approximations"><a href="#Convective-diffusive-gradients-and-source-terms-approximations" class="headerlink" title="Convective, diffusive, gradients and source terms approximations"></a>Convective, diffusive, gradients and source terms approximations</h3><p><img src="/images/2022-07-17-12-19-35.png" alt=""></p>
 <script type="math/tex; mode=display">
-\frac{DC}{Dt}=0 \quad \to \quad \frac{\partial c}{\partial t}+u\frac{\partial c}{\partial x}+v\frac{\partial c}{\partial y}+w\frac{\partial c}{\partial z}=0</script><ul>
-<li>Die nichtlineare Advekctionsgleichung (nichtlinear: Form ändert sich)<script type="math/tex; mode=display">
-\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}=0</script></li>
+\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV + \sum_{f}\underbrace{ (\rho\boldsymbol{u}\phi)_f \cdot \boldsymbol{S}_f}_{F^{C}}=\sum_{f} \underbrace{(\Gamma_\phi \nabla \phi)_f\cdot \boldsymbol{S}_f}_{F^{D}} + (S_cV_P+S_pV_P\phi_P)</script><hr>
+<h4 id="Interpolation-of-the-convective-fluxes"><a href="#Interpolation-of-the-convective-fluxes" class="headerlink" title="Interpolation of the convective fluxes"></a>Interpolation of the convective fluxes</h4><ul>
+<li>central differencing / linear interpolation <script type="math/tex; mode=display">
+\phi_f=f_x\phi_{P}+(1-f_x)\phi_N</script><ul>
+<li>may generate oscillatory/unbounded solutions</li>
+<li>2nd order accuracy</li>
+</ul>
+</li>
+<li><p><strong>UD</strong> (upwind differencing) </p>
+<script type="math/tex; mode=display">
+\phi_f=\begin{cases}
+  \phi_P \qquad \text{for } F\ge 0 \\ \phi_N \qquad \text{for } F<0
+\end{cases}</script><ul>
+<li>first order accurate</li>
+<li>bounded (non-oscillatory) and diffusive</li>
+</ul>
+</li>
+<li><p><strong>SOU LUD BW</strong> (2nd order UP; linear UP; Beam-Warming)</p>
+<script type="math/tex; mode=display">
+\phi_f=\begin{cases}
+  \phi_P+\frac{1}{2}(\phi_P-\phi_{PP})=\frac{3}{2}\phi_P-\frac{1}{2}\phi_{PP} \qquad \text{for }F\ge 0\\ \phi_N+\frac{1}{2}(\phi_N-\phi_{NN})=\frac{3}{2}\phi_N-\frac{1}{2}\phi_{NN} \qquad \text{for }F< 0
+\end{cases}</script><ul>
+<li>this scheme is oscillatroy (unbounded) for highly convective flows or in the presence of strong gradients</li>
+</ul>
+</li>
+<li><strong>TVD</strong> (add flux or gradient <strong>limiter</strong>)<br>  <img src="/images/2022-07-17-14-10-51.png" alt=""><script type="math/tex; mode=display">
+\phi_f=\begin{cases}
+  \phi_P+\frac{1}{2}\psi_{f}^{-}(\phi_P-\phi_{PP}) \qquad \text{for } F\ge 0 \\ \phi_N-\frac{1}{2}\psi_{f}^{-}(\phi_{NN}-\phi_N) \qquad \text{for } F<0
+\end{cases}</script><ul>
+<li>limiter function $\psi(r)$ is based on monitoring the ration of successive gradients<script type="math/tex; mode=display">
+  r^{-}_{f}=\frac{\phi_N-\phi_P}{\phi_P-\phi_{PP}} \qquad r^{+}_{f}=\frac{\phi_{P}-\phi_N}{\phi_N-\phi_{NN}}</script></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>TVD</strong> + unstructured meshes<br><img src="/images/2022-07-17-14-57-04.png" alt=""></p>
+<script type="math/tex; mode=display">
+\phi_f=\phi_U+\frac{1}{2}\psi(r^{\pm}_{f})(\phi_D-\phi_U)</script><ul>
+<li>ration of successive gradients <script type="math/tex; mode=display">
+r_{f}=\frac{(2\nabla \phi_U\cdot \boldsymbol{d}_{UD})}{\phi_D-\phi_U}-1=\frac{(2\nabla \phi_P\cdot \boldsymbol{d}_{PN})}{\phi_N-\phi_P}-1</script><img src="/images/2022-07-17-15-12-56.png" alt=""></li>
+</ul>
+</li>
+<li><p>Flux limiter $\psi$ and gradient limiter $\phi$ </p>
+<script type="math/tex; mode=display">
+  \psi(r)=\phi(r)(\frac{r+1}{2})</script></li>
+</ul>
+<hr>
+<h4 id="Interpolation-of-diffusive-fluxes"><a href="#Interpolation-of-diffusive-fluxes" class="headerlink" title="Interpolation of diffusive fluxes"></a>Interpolation of diffusive fluxes</h4><ul>
+<li>orthogonal mesh + central differencing<script type="math/tex; mode=display">
+(\nabla \phi)_f \cdot \boldsymbol{S}= \frac{\phi_N-\phi_P}{\left\vert \boldsymbol{d} \right\vert } \left\vert \boldsymbol{S} \right\vert</script></li>
+<li>non-orthogonal mesh <script type="math/tex; mode=display">
+  \begin{aligned}
+      \boldsymbol{S}&=\Delta_\perp+\boldsymbol{k}\\ \\ \boldsymbol{S}\cdot (\nabla \phi)_f&=\underbrace{\Delta_\perp\cdot (\nabla \phi)_f}_{\text{orthogonal contribution}}+\underbrace{\boldsymbol{k}\cdot (\nabla \phi)_f}_{\text{non-orghotonal contribution}} \\ &=\left\vert \Delta_\perp \right\vert \frac{\phi_N-\phi_P}{\left\vert \boldsymbol{d} \right\vert } + \boldsymbol{k}\cdot (\nabla \phi)_f
+  \end{aligned}</script><ul>
+<li><strong>over-relaxed approach</strong><br><img src="images/2022-07-17-15-50-09.png" alt=""></li>
+<li><strong>minimum correction approach</strong><br><img src="images/2022-07-17-15-49-44.png" alt=""></li>
+<li><strong>orghogonal correction approach</strong><br><img src="images/2022-07-17-15-51-03.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Gradient-at-cell-centers"><a href="#Gradient-at-cell-centers" class="headerlink" title="Gradient at cell centers"></a>Gradient at cell centers</h3><h4 id="Gradients-computation-at-cell-centers"><a href="#Gradients-computation-at-cell-centers" class="headerlink" title="Gradients computation at cell centers"></a>Gradients computation at cell centers</h4><ul>
+<li>Gauss cell-based method<script type="math/tex; mode=display">
+(\nabla \phi)_P=\frac{1}{V_P}\sum_{f}(\boldsymbol{S}_f \phi_f)</script><h4 id="Gradients-reconstruction-at-face-centers"><a href="#Gradients-reconstruction-at-face-centers" class="headerlink" title="Gradients reconstruction at face centers"></a>Gradients reconstruction at face centers</h4></li>
+<li>simple way<script type="math/tex; mode=display">
+\nabla \phi_f=\frac{\nabla \phi_P+\nabla \phi_N}{2}</script></li>
+<li>simple way<script type="math/tex; mode=display">
+\nabla \phi_f=f_x \nabla \phi_P+(1-f_x)\nabla \phi_N</script></li>
+<li>more accurate<script type="math/tex; mode=display">
+\nabla \phi_f=\frac{\phi_{N^{*}}-\phi_{P^{*}}}{\left\vert \boldsymbol{d} \right\vert _{P^{*}N^{*}}}</script><ul>
+<li>with<script type="math/tex; mode=display">
+\phi^{*}_{N}=\phi_N+\nabla \phi_N \cdot \boldsymbol{d}_{N^{*}N} \qquad \phi^{*}_{P}=\phi_P+\nabla \phi_P \cdot \boldsymbol{d}_{P^{*}P}</script><h4 id="Iterative-approach"><a href="#Iterative-approach" class="headerlink" title="Iterative approach"></a>Iterative approach</h4></li>
+</ul>
+</li>
 </ul>
 
       
