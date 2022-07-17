@@ -20,8 +20,9 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-50-09.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-49-44.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-51-03.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/Lec4/images/2022-07-17-17-11-58.png">
 <meta property="article:published_time" content="2022-07-17T09:07:22.749Z">
-<meta property="article:modified_time" content="2022-07-17T15:06:14.178Z">
+<meta property="article:modified_time" content="2022-07-17T15:13:29.590Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-17-12-19-35.png">
@@ -695,7 +696,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-17 17:06:14'>2022-07-17 11:07</time>
+            Created At : <time class="date" title='Updated At: 2022-07-17 17:13:29'>2022-07-17 11:07</time>
         
     </div>
     <div class="article-meta">
@@ -706,7 +707,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-FVM-an-overview"><span class="toc-text">The FVM: an overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-transport-equation-and-profile-assumptions"><span class="toc-text">General transport equation and profile assumptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gauss-theorem-and-face-fluxes-computation"><span class="toc-text">Gauss theorem and face fluxes computation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convective-diffusive-gradients-and-source-terms-approximations"><span class="toc-text">Convective, diffusive, gradients and source terms approximations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-the-convective-fluxes"><span class="toc-text">Interpolation of the convective fluxes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-diffusive-fluxes"><span class="toc-text">Interpolation of diffusive fluxes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-at-cell-centers"><span class="toc-text">Gradient at cell centers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-computation-at-cell-centers"><span class="toc-text">Gradients computation at cell centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-reconstruction-at-face-centers"><span class="toc-text">Gradients reconstruction at face centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterative-approach"><span class="toc-text">Iterative approach</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-FVM-an-overview"><span class="toc-text">The FVM: an overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-transport-equation-and-profile-assumptions"><span class="toc-text">General transport equation and profile assumptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gauss-theorem-and-face-fluxes-computation"><span class="toc-text">Gauss theorem and face fluxes computation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convective-diffusive-gradients-and-source-terms-approximations"><span class="toc-text">Convective, diffusive, gradients and source terms approximations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-the-convective-fluxes"><span class="toc-text">Interpolation of the convective fluxes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-diffusive-fluxes"><span class="toc-text">Interpolation of diffusive fluxes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-at-cell-centers"><span class="toc-text">Gradient at cell centers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-computation-at-cell-centers"><span class="toc-text">Gradients computation at cell centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-reconstruction-at-face-centers"><span class="toc-text">Gradients reconstruction at face centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterative-approach"><span class="toc-text">Iterative approach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state"><span class="toc-text">Effect of gradient limiters on solution accuracy and convergence to steady state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-induced-errors"><span class="toc-text">Mesh induced errors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-discretization"><span class="toc-text">Time discretization</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -826,7 +827,10 @@ r_{f}=\frac{(2\nabla \phi_U\cdot \boldsymbol{d}_{UD})}{\phi_D-\phi_U}-1=\frac{(2
 <li>Reconstruct the gradient at the face center  <script type="math/tex; mode=display">
   \nabla \phi_f=f_x \nabla \phi_P+(1-f_x)\nabla \phi_N</script></li>
 </ul>
-
+<hr>
+<h3 id="Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state"><a href="#Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state" class="headerlink" title="Effect of gradient limiters on solution accuracy and convergence to steady state"></a>Effect of gradient limiters on solution accuracy and convergence to steady state</h3><hr>
+<h3 id="Mesh-induced-errors"><a href="#Mesh-induced-errors" class="headerlink" title="Mesh induced errors"></a>Mesh induced errors</h3><p><img src="images/2022-07-17-17-11-58.png" alt=""></p>
+<h3 id="Time-discretization"><a href="#Time-discretization" class="headerlink" title="Time discretization"></a>Time discretization</h3>
       
        
     </div>
