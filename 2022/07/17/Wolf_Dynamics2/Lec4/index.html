@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-49-44.png">
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-51-03.png">
 <meta property="article:published_time" content="2022-07-17T09:07:22.749Z">
-<meta property="article:modified_time" content="2022-07-17T14:29:36.432Z">
+<meta property="article:modified_time" content="2022-07-17T14:48:31.024Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-17-12-19-35.png">
@@ -695,7 +695,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-17 16:29:36'>2022-07-17 11:07</time>
+            Created At : <time class="date" title='Updated At: 2022-07-17 16:48:31'>2022-07-17 11:07</time>
         
     </div>
     <div class="article-meta">
@@ -740,8 +740,7 @@
 </ul>
 <h3 id="Convective-diffusive-gradients-and-source-terms-approximations"><a href="#Convective-diffusive-gradients-and-source-terms-approximations" class="headerlink" title="Convective, diffusive, gradients and source terms approximations"></a>Convective, diffusive, gradients and source terms approximations</h3><p><img src="/images/2022-07-17-12-19-35.png" alt=""></p>
 <script type="math/tex; mode=display">
-\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV + \sum_{f}\underbrace{ (\rho\boldsymbol{u}\phi)_f \cdot \boldsymbol{S}_f}_{F^{C}}=\sum_{f} \underbrace{(\Gamma_\phi \nabla \phi)_f\cdot \boldsymbol{S}_f}_{F^{D}} + (S_cV_P+S_pV_P\phi_P)</script><hr>
-<h4 id="Interpolation-of-the-convective-fluxes"><a href="#Interpolation-of-the-convective-fluxes" class="headerlink" title="Interpolation of the convective fluxes"></a>Interpolation of the convective fluxes</h4><ul>
+\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV + \sum_{f}\underbrace{ (\rho\boldsymbol{u}\phi)_f \cdot \boldsymbol{S}_f}_{F^{C}}=\sum_{f} \underbrace{(\Gamma_\phi \nabla \phi)_f\cdot \boldsymbol{S}_f}_{F^{D}} + (S_cV_P+S_pV_P\phi_P)</script><h4 id="Interpolation-of-the-convective-fluxes"><a href="#Interpolation-of-the-convective-fluxes" class="headerlink" title="Interpolation of the convective fluxes"></a>Interpolation of the convective fluxes</h4><ul>
 <li>central differencing / linear interpolation <script type="math/tex; mode=display">
 \phi_f=f_x\phi_{P}+(1-f_x)\phi_N</script><ul>
 <li>may generate oscillatory/unbounded solutions</li>
@@ -811,9 +810,18 @@ r_{f}=\frac{(2\nabla \phi_U\cdot \boldsymbol{d}_{UD})}{\phi_D-\phi_U}-1=\frac{(2
 <li>more accurate<script type="math/tex; mode=display">
 \nabla \phi_f=\frac{\phi_{N^{*}}-\phi_{P^{*}}}{\left\vert \boldsymbol{d} \right\vert _{P^{*}N^{*}}}</script><ul>
 <li>with<script type="math/tex; mode=display">
-\phi^{*}_{N}=\phi_N+\nabla \phi_N \cdot \boldsymbol{d}_{N^{*}N} \qquad \phi^{*}_{P}=\phi_P+\nabla \phi_P \cdot \boldsymbol{d}_{P^{*}P}</script><h4 id="Iterative-approach"><a href="#Iterative-approach" class="headerlink" title="Iterative approach"></a>Iterative approach</h4></li>
+\phi^{*}_{N}=\phi_N+\nabla \phi_N \cdot \boldsymbol{d}_{N^{*}N} \qquad \phi^{*}_{P}=\phi_P+\nabla \phi_P \cdot \boldsymbol{d}_{P^{*}P}</script></li>
 </ul>
 </li>
+</ul>
+<h4 id="Iterative-approach"><a href="#Iterative-approach" class="headerlink" title="Iterative approach"></a>Iterative approach</h4><ul>
+<li>Cell centered gradients by Gauss cell-based method<script type="math/tex; mode=display">
+(\nabla \phi)_P=\frac{1}{V_P}\sum_{f}(\boldsymbol{S}_f \phi_f)</script><ul>
+<li>with a first approximation<script type="math/tex; mode=display">
+\phi_f=\frac{\phi_0+\phi_1}{2}</script></li>
+</ul>
+</li>
+<li>Reconstruct the gradient at the face center  </li>
 </ul>
 
       
