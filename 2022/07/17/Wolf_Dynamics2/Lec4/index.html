@@ -6,26 +6,21 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec4 FVM | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="The FVM: an overviewGeneral transport equation and profile assumptions The general transport equation  \underbrace{\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV}_{\text{time derivative}}+\underbra">
+<meta name="description" content="the source code of BC:$WM_PROJECT_DIR&#x2F;src&#x2F;finiteVolume&#x2F;fields&#x2F;fvPatchFields  $ foamInfo outletInlet   Look for source code $ cd $FOAM_SRC $ find . -name &#39;linearUpwind.C&#39; $ grep -R &#39;linear">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lec4 FVM">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/Lec4/index.html">
+<meta property="og:title" content="OpenFOAM">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/OpenFOAM/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="The FVM: an overviewGeneral transport equation and profile assumptions The general transport equation  \underbrace{\int_{V_p}\frac{\partial \rho \phi}{\partial t}dV}_{\text{time derivative}}+\underbra">
+<meta property="og:description" content="the source code of BC:$WM_PROJECT_DIR&#x2F;src&#x2F;finiteVolume&#x2F;fields&#x2F;fvPatchFields  $ foamInfo outletInlet   Look for source code $ cd $FOAM_SRC $ find . -name &#39;linearUpwind.C&#39; $ grep -R &#39;linear">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-12-19-35.png">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-14-10-51.png">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-14-57-04.png">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-12-56.png">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-50-09.png">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-49-44.png">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-17-15-51-03.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/Lec4/images/2022-07-17-17-11-58.png">
-<meta property="article:published_time" content="2022-07-17T09:07:22.749Z">
-<meta property="article:modified_time" content="2022-07-17T15:13:29.590Z">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/OpenFOAM/images/2022-07-17-21-21-42.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/OpenFOAM/images/2022-07-17-21-30-08.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/OpenFOAM/images/2022-07-17-21-32-31.png">
+<meta property="article:published_time" content="2022-07-17T19:07:24.447Z">
+<meta property="article:modified_time" content="2022-07-18T06:25:53.420Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-17-12-19-35.png">
+<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/17/Wolf_Dynamics2/OpenFOAM/images/2022-07-17-21-21-42.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -266,7 +261,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         Course
-                        <small>(24)</small>
+                        <small>(25)</small>
                         
                     </div>
                     
@@ -278,6 +273,18 @@
                                         AndreasMalcherek
                                         
                                             <small>(11
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->OpenFOAM">
+                                        
+                                        OpenFOAM
+                                        
+                                            <small>(1
                                                 )</small>
                                         
                                     </div>
@@ -326,6 +333,10 @@
                         </ul>
                     
                 </li>
+            
+        
+    
+        
             
         
     
@@ -410,6 +421,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All Course OpenFOAM "
+           href="/2022/07/17/Wolf_Dynamics2/OpenFOAM/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OpenFOAM">OpenFOAM</span>
+            <span class="post-date" title="2022-07-17 21:07:24">2022/07/17</span>
+        </a>
         
         
         <a  class="All Course WolfDynamics Turbulence "
@@ -638,15 +658,6 @@
         
         
         <a  class="All "
-           href="/2022/07/05/XX/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="xx">xx</span>
-            <span class="post-date" title="2022-07-05 16:58:33">2022/07/05</span>
-        </a>
-        
-        
-        <a  class="All "
            href="/2022/07/05/hello-world/"
            data-tag=""
            data-author="" >
@@ -696,7 +707,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-17 17:13:29'>2022-07-17 11:07</time>
+            Created At : <time class="date" title='Updated At: 2022-07-17 21:08:28'>2022-07-17 11:07</time>
         
     </div>
     <div class="article-meta">
@@ -707,7 +718,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-FVM-an-overview"><span class="toc-text">The FVM: an overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-transport-equation-and-profile-assumptions"><span class="toc-text">General transport equation and profile assumptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gauss-theorem-and-face-fluxes-computation"><span class="toc-text">Gauss theorem and face fluxes computation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convective-diffusive-gradients-and-source-terms-approximations"><span class="toc-text">Convective, diffusive, gradients and source terms approximations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-the-convective-fluxes"><span class="toc-text">Interpolation of the convective fluxes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-diffusive-fluxes"><span class="toc-text">Interpolation of diffusive fluxes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-at-cell-centers"><span class="toc-text">Gradient at cell centers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-computation-at-cell-centers"><span class="toc-text">Gradients computation at cell centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-reconstruction-at-face-centers"><span class="toc-text">Gradients reconstruction at face centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterative-approach"><span class="toc-text">Iterative approach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state"><span class="toc-text">Effect of gradient limiters on solution accuracy and convergence to steady state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-induced-errors"><span class="toc-text">Mesh induced errors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-discretization"><span class="toc-text">Time discretization</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-FVM-an-overview"><span class="toc-text">The FVM: an overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#General-transport-equation-and-profile-assumptions"><span class="toc-text">General transport equation and profile assumptions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gauss-theorem-and-face-fluxes-computation"><span class="toc-text">Gauss theorem and face fluxes computation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convective-diffusive-gradients-and-source-terms-approximations"><span class="toc-text">Convective, diffusive, gradients and source terms approximations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-the-convective-fluxes"><span class="toc-text">Interpolation of the convective fluxes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interpolation-of-diffusive-fluxes"><span class="toc-text">Interpolation of diffusive fluxes</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-at-cell-centers"><span class="toc-text">Gradient at cell centers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-computation-at-cell-centers"><span class="toc-text">Gradients computation at cell centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradients-reconstruction-at-face-centers"><span class="toc-text">Gradients reconstruction at face centers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterative-approach"><span class="toc-text">Iterative approach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state"><span class="toc-text">Effect of gradient limiters on solution accuracy and convergence to steady state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mesh-induced-errors"><span class="toc-text">Mesh induced errors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time-discretization"><span class="toc-text">Time discretization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linear-system-solution"><span class="toc-text">Linear system solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navier-Stokes-quation-and-pressure-velocity-coupling"><span class="toc-text">Navier-Stokes quation and pressure-velocity coupling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pressure-based-approach-predictor-corrector-implicit"><span class="toc-text">Pressure-based approach (predictor-corrector) - implicit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Pressure-equation-derivation"><span class="toc-text">Pressure equation derivation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Segregated-method"><span class="toc-text">Segregated method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Solvers"><span class="toc-text">Solvers</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-the-CFL-number"><span class="toc-text">On the CFL number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsteady-and-steady-simulations"><span class="toc-text">Unsteady and steady simulations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Understanding-the-residuals"><span class="toc-text">Understanding the residuals</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -735,7 +746,10 @@
 <li>The centroid $\color{blue}{P}$<script type="math/tex; mode=display">
 \int_{V_p}(\boldsymbol{x}-\boldsymbol{x}_p)dV=0 \qquad \phi_P=\overline{\phi}=\frac{1}{V_p}\int_{V_p}\phi(\boldsymbol{x})dV</script></li>
 <li>The centroid of the face $\color{green}{f}$<script type="math/tex; mode=display">
-\int_{S_f}(\boldsymbol{x}-\boldsymbol{x}_p)dS=0</script><h3 id="Gauss-theorem-and-face-fluxes-computation"><a href="#Gauss-theorem-and-face-fluxes-computation" class="headerlink" title="Gauss theorem and face fluxes computation"></a>Gauss theorem and face fluxes computation</h3></li>
+\int_{S_f}(\boldsymbol{x}-\boldsymbol{x}_p)dS=0</script></li>
+</ul>
+<hr>
+<h3 id="Gauss-theorem-and-face-fluxes-computation"><a href="#Gauss-theorem-and-face-fluxes-computation" class="headerlink" title="Gauss theorem and face fluxes computation"></a>Gauss theorem and face fluxes computation</h3><ul>
 <li>Applying Gauss theorem to convert the volume inegrals int osurface integrals<script type="math/tex; mode=display">
 \frac{\partial }{\partial t}\int\rho\phi dV+\underbrace{\int_{\partial V_p}(\rho\boldsymbol{u}\phi)\cdot d\boldsymbol{S}}_{\text{convective flux}}=\underbrace{\int_{\partial V_p}(\Gamma_\phi \nabla \phi)\cdot d\boldsymbol{S}}_{\text{diffusive flux}}+\int_{V_p}S_\phi(\phi)dV</script></li>
 </ul>
@@ -830,7 +844,36 @@ r_{f}=\frac{(2\nabla \phi_U\cdot \boldsymbol{d}_{UD})}{\phi_D-\phi_U}-1=\frac{(2
 <hr>
 <h3 id="Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state"><a href="#Effect-of-gradient-limiters-on-solution-accuracy-and-convergence-to-steady-state" class="headerlink" title="Effect of gradient limiters on solution accuracy and convergence to steady state"></a>Effect of gradient limiters on solution accuracy and convergence to steady state</h3><hr>
 <h3 id="Mesh-induced-errors"><a href="#Mesh-induced-errors" class="headerlink" title="Mesh induced errors"></a>Mesh induced errors</h3><p><img src="images/2022-07-17-17-11-58.png" alt=""></p>
-<h3 id="Time-discretization"><a href="#Time-discretization" class="headerlink" title="Time discretization"></a>Time discretization</h3>
+<hr>
+<h3 id="Time-discretization"><a href="#Time-discretization" class="headerlink" title="Time discretization"></a>Time discretization</h3><script type="math/tex; mode=display">
+\int_{t}^{t+\Delta t}\left[\left( \frac{\partial \rho \phi}{\partial t} \right)_P V_P+\sum_{f}(\rho\boldsymbol{u}\phi)_f \cdot \boldsymbol{S}_f-\sum_{f}(\Gamma_\phi \nabla \phi)_f\cdot \boldsymbol{S}_f\right]dt=\int_{t}^{t+\Delta t}(S_cV_P+S_pV_P\phi_P)dt</script><hr>
+<h3 id="Linear-system-solution"><a href="#Linear-system-solution" class="headerlink" title="Linear system solution"></a>Linear system solution</h3><script type="math/tex; mode=display">
+\boldsymbol{A}\phi=\boldsymbol{b}</script><ul>
+<li><p>$\boldsymbol{A}$ is diagonally dominant</p>
+<script type="math/tex; mode=display">
+a_{ii}\ge \sum_{j=1}^{N}\left\vert a_{ij} \right\vert</script><ul>
+<li>iterative until reaching a given residul $\boldsymbol{r}$ (tolerate or convergence criterion)<script type="math/tex; mode=display">
+\left\vert \boldsymbol{A}\phi^{i}-\boldsymbol{b} \right\vert\le \left\vert \boldsymbol{r}^{i} \right\vert</script></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="Navier-Stokes-quation-and-pressure-velocity-coupling"><a href="#Navier-Stokes-quation-and-pressure-velocity-coupling" class="headerlink" title="Navier-Stokes quation and pressure-velocity coupling"></a>Navier-Stokes quation and pressure-velocity coupling</h2><h3 id="Pressure-based-approach-predictor-corrector-implicit"><a href="#Pressure-based-approach-predictor-corrector-implicit" class="headerlink" title="Pressure-based approach (predictor-corrector) - implicit"></a>Pressure-based approach (predictor-corrector) - implicit</h3><h4 id="Pressure-equation-derivation"><a href="#Pressure-equation-derivation" class="headerlink" title="Pressure equation derivation"></a>Pressure equation derivation</h4><ul>
+<li>momentum equation<script type="math/tex; mode=display">
+\frac{\partial \boldsymbol{U}}{\partial t}+\nabla \cdot (\boldsymbol{UU})-\nu\nabla ^{2}\boldsymbol{U}=-\nabla p</script></li>
+<li>divergence of the momentum equatio + $\nabla \cdot \boldsymbol{U}=0$<script type="math/tex; mode=display">
+\nabla \cdot (\nabla \cdot (\boldsymbol{UU}))=-\nabla ^{2}p</script></li>
+<li>pressure-Poisson equation<script type="math/tex; mode=display">
+  \nabla ^{2}p=\nabla \cdot \boldsymbol{H(U)} \qquad \ \boldsymbol{H(U)}=-\nabla \cdot (\boldsymbol{UU})</script><h4 id="Segregated-method"><a href="#Segregated-method" class="headerlink" title="Segregated method"></a>Segregated method</h4></li>
+<li>mesh non-orghogonality introduceds 2nd gradients into the pressure equation<script type="math/tex; mode=display">
+\nabla ^{2}p=\nabla \cdot \boldsymbol{H}(\boldsymbol{U})+f(\nabla p) \qquad \boldsymbol{H(U)}=-\nabla \cdot (\boldsymbol{UU})</script><h4 id="Solvers"><a href="#Solvers" class="headerlink" title="Solvers"></a>Solvers</h4><img src="images/2022-07-17-19-36-19.png" alt=""></li>
+</ul>
+<hr>
+<h2 id="On-the-CFL-number"><a href="#On-the-CFL-number" class="headerlink" title="On the CFL number"></a>On the CFL number</h2><h2 id="Unsteady-and-steady-simulations"><a href="#Unsteady-and-steady-simulations" class="headerlink" title="Unsteady and steady simulations"></a>Unsteady and steady simulations</h2><ul>
+<li>monitor a quantity of interest (fluctuate in time)</li>
+<li>unsteady simulations can arrive at a steady state when flow variables stop changing with time</li>
+</ul>
+<h2 id="Understanding-the-residuals"><a href="#Understanding-the-residuals" class="headerlink" title="Understanding the residuals"></a>Understanding the residuals</h2>
       
        
     </div>
