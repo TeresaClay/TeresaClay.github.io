@@ -1452,6 +1452,13 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+#post .pjax article table tr th:nth-child(1) {
+  width: 160px;
+  htight: 20px;
+  position: absolute;
+  z-index: 1;
+  background: inherit;
+}
 #post .pjax article table tr td {
   border: 1px solid #ddd;
   text-align: left;
