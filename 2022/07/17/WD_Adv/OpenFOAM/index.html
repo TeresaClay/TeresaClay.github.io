@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec7 Introduction | TeresaClay的小屋</title>
+  <title>OpenFOAM | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec7 Introduction | TeresaClay的小屋">
+  <meta name="description" content="OpenFOAM | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Frage:mesh generation literature ?  $ foam            $ tree -L 1  $ echo $WM_ROJECT_DIR $ pwd  $ env | grep -i &quot;OpenFOAM&quot;  $ vim $WM_PROJECT_DIR&#x2F;etc&#x2F;config.sh&#x2F;aliases $ alias | grep -iname_">
 <meta property="og:type" content="article">
@@ -706,9 +706,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Note_Wangyang/Lec 7" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-WD_Adv/OpenFOAM" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec7 Introduction</h1>
+        <h1 class="article-title">OpenFOAM</h1>
     
     <div class="article-meta">
         
@@ -720,7 +720,7 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
+            <a  data-rel="Course&lt;---&gt;OpenFOAM">OpenFOAM</a>
             
         </span>
         
@@ -728,7 +728,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-16 10:46:01'>2022-07-08 16:02</time>
+            Created At : <time class="date" title='Updated At: 2022-07-18 22:00:15'>2022-07-17 21:07</time>
         
     </div>
     <div class="article-meta">
@@ -739,7 +739,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8E%8B%E5%AE%88%E6%81%92-N-S%E6%96%B9%E7%A8%8B"><span class="toc-text">不可压守恒 N-S方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B2%E4%B8%80%E7%82%B9%E7%82%B9%E5%8F%AF%E5%8E%8B"><span class="toc-text">讲一点点可压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-text">分析过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PDE-%E4%BA%8C%E9%98%B6-%E6%B1%82%E8%A7%A3"><span class="toc-text">PDE(二阶)求解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E4%BD%93%E7%A7%AF%E6%B3%95"><span class="toc-text">有限体积法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Area-and-centroid-of-faces"><span class="toc-text">Area and centroid of faces</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Function-used-for-defining-centers-and-areas-of-faces"><span class="toc-text">Function used for defining centers and areas of faces</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List-of-the-identies-of-points-defining-faces"><span class="toc-text">List of the identies of points defining faces</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84face%E7%9B%B4%E6%8E%A5%E8%AE%A1%E7%AE%97"><span class="toc-text">三角形的face直接计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Compute-estimated-centers-for-faces"><span class="toc-text">Compute estimated centers for faces</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -756,133 +756,114 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>作业要求<ul>
-<li>用自己目标期刊的latex模板</li>
-<li>Overleaf</li>
-<li>中英均可</li>
+<li>the source code of BC:<br><code>$WM_PROJECT_DIR/src/finiteVolume/fields/fvPatchFields</code></li>
 </ul>
-</li>
-</ul>
-<p>Note：</p>
+<pre><code class="lang-bash">$ foamInfo outletInlet
+</code></pre>
 <ul>
-<li>开头部分对书籍的介绍重新听一下</li>
-<li>安德森的书</li>
-</ul>
-<hr>
-<h4 id="不可压守恒-N-S方程"><a href="#不可压守恒-N-S方程" class="headerlink" title="不可压守恒 N-S方程"></a>不可压守恒 N-S方程</h4><script type="math/tex; mode=display">
-\begin{equation*}
-\text{标量方程: }
-\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol U )=0    \quad \implies \quad \nabla \cdot \boldsymbol{U}=0 
-\end{equation*}</script><script type="math/tex; mode=display">
-\begin{aligned}  
- \\ \frac{\partial \rho \boldsymbol{U}}{\partial t}+\nabla \cdot (\rho \boldsymbol{UU})&=-\nabla p+\nabla \cdot (\mu(\nabla \boldsymbol{U})+(\nabla \boldsymbol{U})^{T})
- \\ &=-\frac{2}{3}\mu(\nabla \cdot \boldsymbol{U})\boldsymbol{I}+\rho\boldsymbol{g}+\boldsymbol{S}
- \\
- \\ \implies  \frac{\partial \boldsymbol{U}}{\partial t}+\nabla \cdot (\boldsymbol{UU})&=-\frac{\nabla p}{\rho}+\nabla \cdot (\nu\nabla \boldsymbol{U})+\boldsymbol{g} \qquad \text{微分形式}
- \\ &=-\boldsymbol{g}+\frac{\boldsymbol{S}}{\rho}
-\end{aligned}</script><ul>
-<li>不可压速度散度为零, 标量</li>
-<li>没有显含 $p$ 的方程，所以人为制造出压力补偿方程 (Pisson)，semi—implicit</li>
-<li>需要理解<ul>
-<li>积分形式 微分形式 守恒形式 不守恒形式</li>
-<li>为什么会出现有限体积法</li>
-<li>网格 离散 系数矩阵(稀疏矩阵 sparse) 代数方程求解</li>
-</ul>
+<li>Look for source code <pre><code class="lang-bash">$ cd $FOAM_SRC
+$ find . -name &#39;linearUpwind.C&#39;
+$ grep -R &#39;linearUpwind&#39;
+$ grep -r . -e &quot;define.*forALL&quot;
+</code></pre>
 </li>
-<li><p>需要注意的点</p>
+</ul>
+<p><img src="images/2022-07-17-21-21-42.png" alt=""></p>
 <ul>
-<li><p>$\boldsymbol{UU} =\boldsymbol{UU^{T}}= \begin{bmatrix} u \\ v \\ w \\\end{bmatrix}  \begin{bmatrix} u &amp; v &amp; w \end{bmatrix}$</p>
+<li><p>ddt:<br><code> $WM_PROJECT_DIR/src/finiteVolume/finiteVolume/ddtSchemes</code></p>
 </li>
-<li><p>非守恒形： $\boldsymbol{U}\cdot \nabla \boldsymbol{U} \to  \nabla \cdot (\boldsymbol{UU})$</p>
-</li>
-<li><p>primitive variables: $p,\boldsymbol{U}$ </p>
-</li>
-<li>标量：$T,p,\alpha,k,\epsilon$ </li>
-</ul>
+<li><p><strong>divSchemes</strong>: convective terms discretization<br><code> $WM_PROJECT_DIR/src/finiteVolume/interpolation/surfaceInterpolation</code><br>  <img src="images/2022-07-17-21-30-08.png" alt=""></p>
 </li>
 </ul>
+<p><img src="images/2022-07-17-21-32-31.png" alt=""></p>
 <hr>
-<h4 id="讲一点点可压"><a href="#讲一点点可压" class="headerlink" title="讲一点点可压"></a>讲一点点可压</h4><ul>
-<li>可压是密度基<ul>
-<li>激波 (shock wave), 间断, 黎曼解</li>
-</ul>
-</li>
-<li><p>不可压是压力基</p>
-<script type="math/tex; mode=display">\frac{\partial \alpha}{\partial t}+\mu \frac{\partial \alpha}{\partial x}=0</script><p>  在自然界中，要么是气体，要么是液体，不存在说不清道不明的地方 —- interface 瞬变<br>  所以此方程其实是可压的属性，有间断的属性，不连续，较难算<br>  所以VOF是借鉴可压的方法，interface大概2-3个网格， isoAdvector可以达到1-2个网格 </p>
-</li>
-<li><p>SWE (shallow water equation)<br>  人为加了一些条件，把不可压的方程变成可压  - TORO 老师的Riemann solver (书）<br>  不考虑中间的过程，让他们无穷靠近<br>  最早用特征线的方法，用时间项显示推进，不需要构造矩阵，而是一个大的特征值矩阵，把三维问题变成大一统, Runge Kutta<br>  他们的代码比较直观，还有用有限差分 </p>
-</li>
-<li><strong>gradient limiter, flux limiter</strong><br>通量限制器是可压部分研究出来，他们对对流项特别深入的研究 </li>
-</ul>
-<p>Burgers 方程</p>
-<script type="math/tex; mode=display">
-  \begin{aligned}
-  \frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}&=0   
-  \\ \frac{\partial u}{\partial t}+c \frac{\partial u}{\partial x}&=0 
-  \end{aligned}</script><ul>
-<li><p>显示方程<br>$ \color{grey}{\frac{u-u^{0}}{\Delta t}+u^{0}\frac{u^{0}_{i}-u^{0}_{i-1}}{\Delta x}=0 \to u_i=u^{0}+ \frac{\Delta t}{\Delta x} u^0(u^0_i-u^0_{i-1})}$</p>
-</li>
-<li><p>CFL$= \frac{c\Delta t}{\Delta x} &lt; 1$<br>物理信息的网格不超过一个网格，不可压严格来说 &lt;0.5<br>OpenFOAM 有一套自己解决的办法</p>
-</li>
-</ul>
+<h3 id="Area-and-centroid-of-faces"><a href="#Area-and-centroid-of-faces" class="headerlink" title="Area and centroid of faces"></a>Area and centroid of faces</h3><h4 id="Function-used-for-defining-centers-and-areas-of-faces"><a href="#Function-used-for-defining-centers-and-areas-of-faces" class="headerlink" title="Function used for defining centers and areas of faces"></a>Function used for defining centers and areas of faces</h4><pre><code class="lang-c++">void Foam::primitiveMesh::makeFaceCentresAndAreas
+(
+    const pointField&amp; p,                    // data reas from files [x y z]
+    vectorField&amp; fCtrs,                     // centers
+    vectorField&amp; fAreas,                    // areas
+    scalarField&amp; magfAreas
+)
+</code></pre>
+<h4 id="List-of-the-identies-of-points-defining-faces"><a href="#List-of-the-identies-of-points-defining-faces" class="headerlink" title="List of the identies of points defining faces"></a>List of the identies of points defining faces</h4><pre><code class="lang-c++">const faceList&amp; fs = faces();               // face definition
+
+    forAll(fs, facei)                       // for loop for each face
+    &#123;
+        const labelList&amp; f = fs[facei];     // f: face点的编号
+        label nPoints = f.size();           // nPoint: face点的数量
+...
+</code></pre>
+<h4 id="三角形的face直接计算"><a href="#三角形的face直接计算" class="headerlink" title="三角形的face直接计算"></a>三角形的face直接计算</h4><pre><code class="lang-c++">        // If the face is a triangle, do a direct calculation for efficiency
+        // and to avoid round-off error-related problems
+        if (nPoints == 3)
+        &#123;
+            fCtrs[facei] = (1.0/3.0)*(p[f[0]] + p[f[1]] + p[f[2]]);
+            fAreas[facei] = 0.5*((p[f[1]] - p[f[0]])^(p[f[2]] - p[f[0]]));
+        &#125;
+</code></pre>
 <ul>
-<li>图形学和可压部分的研究，如果水平一般的研究者，不需要构造矩阵</li>
+<li>geometric center<script type="math/tex; mode=display">
+{\color{red}{\text{fCtrs: }}}\boldsymbol{x}_G=\frac{1}{k}\sum_{i=1}^{k}\boldsymbol{x}_i \tag{6.21}</script></li>
+<li>surface of a triangle<script type="math/tex; mode=display">
+{\color{red}{\text{fAreas: }}}\boldsymbol{S}_f=\frac{1}{2}(\boldsymbol{r}_2-\boldsymbol{r}_1)\times (\boldsymbol{r}_3-\boldsymbol{r}_1)   \tag{6.23}</script></li>
 </ul>
+<h4 id="Compute-estimated-centers-for-faces"><a href="#Compute-estimated-centers-for-faces" class="headerlink" title="Compute estimated centers for faces"></a>Compute estimated centers for faces</h4><p>./OpenFOAM/meshes/primitiveMesh/primitiveMeshFaceCentresAndAreas.C</p>
+<pre><code class="lang-c++"> // For more complex faces, decompose into triangles
+        else
+        &#123;
+            // Compute an estimate of the centre as the average of the points
+            point pAvg = p[f[0]];
+            for (label pi = 1; pi &lt; nPoints; pi++)
+            &#123;
+                pAvg += p[f[pi]];
+            &#125;
+            pAvg /= nPoints;
+</code></pre>
+<pre><code class="lang-c++">            // Compute the face area normal and unit normal by summing up the
+            // normals of the triangles formed by connecting each edge to the
+            // point average.
+            vector sumA = Zero;
+            forAll(f, i)
+            &#123;
+                const vector a =
+                    (p[f[f.fcIndex(i)]] - p[f[i]])^(pAvg - p[f[i]]);
+
+                sumA += a;                                      // sum up normals of sub-triangles
+            &#125;
+            const vector sumAHat = normalised(sumA);            // face area unit normal
+</code></pre>
+<pre><code class="lang-c++">            // Compute the area-weighted sum of the triangle centres. Note use
+            // the triangle area projected in the direction of the face normal
+            // as the weight, *not* the triangle area magnitude. Only the
+            // former makes the calculation independent of the initial estimate.
+            scalar sumAn = 0.0;
+            vector sumAnc = Zero;
+            forAll(f, i)
+            &#123;
+                const vector a =
+                    (p[f[f.fcIndex(i)]] - p[f[i]])^(pAvg - p[f[i]]);
+                const vector c = p[f[i]] + p[f[f.fcIndex(i)]] + pAvg;
+
+                const scalar an = a &amp; sumAHat;
+
+                sumAn += an;
+                sumAnc += an*c;
+            &#125;
+</code></pre>
 <hr>
-<h4 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h4><ul>
-<li>对物理模型和数学方程的理解，需要通过大量读论文，做实验，试验 </li>
-<li>连续的集合和离散的点 <ul>
-<li>自然界的 t,V - continus; geometry - 有限的, 而CFD 间断，有限 </li>
-<li>OpenFOAM:  <ul>
-<li>points, owner, neighbour,face, bondary (没有体的概念) (OpenFOAM: polymesh folder)</li>
-<li>物理量的梯度变化过大的地方，需要加密网格 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>边界条件<ul>
-<li>Dirichlet 定值: T=300k, p=1bar</li>
-<li>Neumann  梯度边界： $\frac{\partial T}{\partial x}=0$</li>
-<li>Roboin  混合</li>
-</ul>
-</li>
-<li>Example 插图理解</li>
-</ul>
-<hr>
-<h4 id="PDE-二阶-求解"><a href="#PDE-二阶-求解" class="headerlink" title="PDE(二阶)求解"></a><a href="https://teresaclay.github.io/2022/07/08/Note_Wangyang/Lec%209/">PDE(二阶)求解</a></h4><ul>
-<li>椭圆 (elliptic) - 稳态(无t) <ul>
-<li>插图</li>
-<li>根据杆的导热系数，会达到平衡，进入一种稳态 </li>
-</ul>
-</li>
-<li>抛物(parabolic)</li>
-<li>双曲(hyperbolic)<br>代数方程组求解</li>
-<li>解析解</li>
-<li><p>数值解 (1.14.49)</p>
-<ul>
-<li>FPM 有限差分, FEM 有限元</li>
-<li><p>FVM有限体积</p>
-<p>代数方程组Ax=b<br>good A means: 对称，对角占优，正定 $x^{T}Ax&gt;0$<br>最早Gauss消元<br>CG(conjagate gradient，共軛梯度), PCG(preconditional),<br>  Ax=b -&gt; Max=Mb -&gt; A‘x=b’<br>MG(multigrid 多重网格), GAMG（2.25.22）（GS+Jacobian)</p>
-<p>图形学 MGPCG</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="有限体积法"><a href="#有限体积法" class="headerlink" title="有限体积法"></a>有限体积法</h4><p>Steady-state 定常</p>
-<ul>
-<li>网格划分<ul>
-<li>OpenFOAM是非结构化求解器，是要读取拓扑关系</li>
-</ul>
-</li>
-<li>边界条件确定</li>
-<li>求解精度选取</li>
-<li>离散数值格式选取</li>
-<li>显式与隐式妥协<ul>
-<li>Ax (隐式) = b (显式)</li>
-</ul>
-</li>
-</ul>
+<p><code>forAll</code><br><a target="_blank" rel="noopener" href="https://foamscience.github.io/coding/the-forall-macro-in-openfoam/">page1</a><br><a target="_blank" rel="noopener" href="https://chowdera.com/2022/02/202202211333100201.html">page2</a><br>./OpenFOAM/containers/Lists/UList/UList.H</p>
+<pre><code class="lang-c++">//- Loop across all elements in \a list
+// \par Usage
+// \code
+// forAll(anyList, i)
+// &#123;
+//      statements;
+// &#125;
+// \endcode
+// \sa forAllReverse
+#define forAll(list, i) \
+    for (Foam::label i=0; i&lt;(list).size(); i++)
+</code></pre>
 
       
        
