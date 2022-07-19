@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/18/WD_Basic/Mod1/images/2022-07-19-01-22-29.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/18/WD_Basic/Mod1/images/2022-07-19-01-25-25.png">
 <meta property="article:published_time" content="2022-07-18T19:29:28.570Z">
-<meta property="article:modified_time" content="2022-07-19T11:50:19.657Z">
+<meta property="article:modified_time" content="2022-07-19T11:58:58.978Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/2022/07/18/WD_Basic/Mod1/images/2022-07-18-22-40-14.png">
@@ -730,7 +730,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-19 13:50:19'>2022-07-18 21:29</time>
+            Created At : <time class="date" title='Updated At: 2022-07-19 13:58:58'>2022-07-18 21:29</time>
         
     </div>
     <div class="article-meta">
@@ -798,13 +798,12 @@ $ opera $WM_PROJECT_DIR/doc/Doxygen/html/index.html
 </ul>
 <hr>
 <h3 id="case-1-cavity-2D"><a href="#case-1-cavity-2D" class="headerlink" title="case 1: cavity 2D"></a>case 1: cavity 2D</h3><ul>
-<li><strong>icoFocm</strong>: laminar incompressible unsteady solver </li>
-</ul>
-<pre><code class="lang-bash">$ foamInfo icoFoam
-$ foamInfo fixedValue
-$ foamCleanTutorials
+<li><p><strong>icoFocm</strong>: laminar incompressible unsteady solver </p>
+<pre><code class="lang-bash">  $ foamInfo icoFoam
+  $ foamInfo fixedValue
+  $ foamCleanTutorials
 </code></pre>
-<ul>
+</li>
 <li><p>run_all.sh</p>
 <pre><code class="lang-bash">  #!/bin/bash
 
@@ -842,41 +841,41 @@ $ foamCleanTutorials
 <li><p><strong>fvSchemes</strong></p>
 <ul>
 <li><p>second order accurate, but oscillatory</p>
-<pre><code class="lang-c++">ddtSchemes
-&#123;
-    default         backward;
-&#125;
+<pre><code class="lang-c++">    ddtSchemes
+    &#123;
+        default         backward;
+    &#125;
 
-gradSchemes
-&#123;
-    default         Gauss linear;
-    grad(p)         Gauss linear;
-&#125;
+    gradSchemes
+    &#123;
+        default         Gauss linear;
+        grad(p)         Gauss linear;
+    &#125;
 
-divSchemes
-&#123;
-    default         none;
-    div(phi,U)      Gauss linear;
+    divSchemes
+    &#123;
+        default         none;
+        div(phi,U)      Gauss linear;
 
-    div((nuEff*dev2(T(grad(U))))) Gauss linear;
-&#125;
+        div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    &#125;
 
-laplacianSchemes
-&#123;
-    //default         Gauss linear orthogonal;
-    default         Gauss linear limited 1;     // limited 1 corrections to handle mesh non-orthogonality and non-uniformity
-&#125;
+    laplacianSchemes
+    &#123;
+        //default         Gauss linear orthogonal;
+        default         Gauss linear limited 1;     // limited 1 corrections to handle mesh non-orthogonality and non-uniformity
+    &#125;
 
-interpolationSchemes
-&#123;
-    default         linear;
-&#125;
+    interpolationSchemes
+    &#123;
+        default         linear;
+    &#125;
 
-snGradSchemes
-&#123;
-    //default         orthogonal;
-    default         limited 1;
-&#125;
+    snGradSchemes
+    &#123;
+        //default         orthogonal;
+        default         limited 1;
+    &#125;
 </code></pre>
 </li>
 </ul>
@@ -949,6 +948,8 @@ relaxationFactors
 </code></pre>
 </li>
 </ul>
+</li>
+<li><p>sample</p>
 </li>
 </ul>
 <pre><code class="lang-c++">
