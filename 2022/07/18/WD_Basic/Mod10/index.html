@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec11 Die Druck-Poisson-Gleichung | TeresaClay的小屋</title>
+  <title>Lec1 Module 1 | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec11 Die Druck-Poisson-Gleichung | TeresaClay的小屋">
+  <meta name="description" content="Lec1 Module 1 | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TeresaClay的小屋">
@@ -718,9 +718,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec11" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-WD_Basic/Mod10" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec11 Die Druck-Poisson-Gleichung</h1>
+        <h1 class="article-title">Lec1 Module 1</h1>
     
     <div class="article-meta">
         
@@ -732,7 +732,9 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics&lt;---&gt;Basic">Basic</a>
             
         </span>
         
@@ -740,7 +742,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-12 10:43:43'>2022-07-12 10:25</time>
+            Created At : <time class="date" title='Updated At: 2022-07-19 14:13:50'>2022-07-18 21:29</time>
         
     </div>
     <div class="article-meta">
@@ -751,7 +753,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Recall"><span class="toc-text">Recall</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Herleitung-der-Druck-Poisson-Gleichung"><span class="toc-text">Herleitung der Druck-Poisson-Gleichung</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Randbedingungen"><span class="toc-text">Randbedingungen</span></a>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-Doxygen"><span class="toc-text">编译 Doxygen</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tutorial"><span class="toc-text">tutorial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#find"><span class="toc-text">find</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#case-1-cavity-2D"><span class="toc-text">case 1: cavity 2D</span></a>
     
 <style>
     .left-col .switch-btn,
@@ -767,27 +769,260 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h4><p><a href="">Eulergleichung</a>: Impulgsgleichung/Bewegungsgleichung+Kontinuitätgsgleichung)</p>
-<script type="math/tex; mode=display">
-\frac{\partial v_i}{\partial t}+v_j\frac{\partial v_i}{\partial x_j}=-\frac{1}{\rho}\frac{\partial p}{\partial x_i}-g_i</script><ul>
-<li>4 unknwons: $u,v,w,p$, </li>
-<li>4 Gleichungen</li>
-<li>aber die Passen nicht zu lösen</li>
+        <p>Frage:<br>mesh generation literature ?</p>
+<hr>
+<pre><code class="lang-bash">$ foam           
+$ tree -L 1
+
+$ echo $WM_ROJECT_DIR
+$ pwd
+
+$ env | grep -i &quot;OpenFOAM&quot;
+
+$ vim $WM_PROJECT_DIR/etc/config.sh/aliases
+$ alias | grep -iname_1 foam
+</code></pre>
+<p><img src="images/2022-07-18-22-40-14.png" alt=""></p>
+<hr>
+<h4 id="编译-Doxygen"><a href="#编译-Doxygen" class="headerlink" title="编译 Doxygen"></a>编译 Doxygen</h4><pre><code class="lang-bash">$ opera doc/Doxygen/README.html
+$ doxygen -w html header.html footer.html customdoxygen.css
+$ doxygen -w html header.html footer.html customdoxygen.css
+$ cd $WM_PROJECT_DIR/doc/Doxygen
+$ ./Allwmake
+$ opera $WM_PROJECT_DIR/doc/Doxygen/html/index.html
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://cpp.openfoam.org/v9/index.html">of9 Doxygen</a></p>
+<h4 id="tutorial"><a href="#tutorial" class="headerlink" title="tutorial"></a>tutorial</h4><ul>
+<li>of9: interFoam Dambreak</li>
+<li>of2112: interisoFoam Dambreak</li>
 </ul>
-<h3 id="Herleitung-der-Druck-Poisson-Gleichung"><a href="#Herleitung-der-Druck-Poisson-Gleichung" class="headerlink" title="Herleitung der Druck-Poisson-Gleichung"></a>Herleitung der Druck-Poisson-Gleichung</h3><ul>
-<li>divergenz Eulerigleichung $\frac{\partial }{\partial x_i} = \frac{\partial }{\partial x}+\frac{\partial }{\partial y}+\frac{\partial }{\partial z}$<script type="math/tex; mode=display">
-\frac{\partial }{\partial x_i}\frac{\partial v_i}{\partial t}+\frac{\partial }{\partial x_i}\left( v_j\frac{\partial v_i}{\partial x_j} \right)=-\frac{1}{\rho}\frac{\partial }{\partial x_i}\frac{\partial p}{\partial x_i}-\frac{\partial g_i}{\partial x_i} \\ \frac{\partial }{\partial t}\frac{\partial v_i}{\partial x_i}+v_j\frac{\partial }{\partial x_j}\frac{\partial v_i}{\partial x_i}+\frac{\partial v_j}{\partial x_i}\frac{\partial v_i}{\partial x_j}=-\frac{1}{\rho}\frac{\partial }{\partial x_i}\frac{\partial p}{\partial x_i} \\ \boxed{\frac{\partial }{\partial x_i}\frac{\partial p}{\partial x_i}=-\rho\frac{\partial v_j}{\partial x_i}\frac{\partial v_i}{\partial x_j}} \qquad \text{Poisson}</script></li>
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><ul>
+<li><p>locate a directoy<br><img src="images/2022-07-19-01-22-29.png" alt=""></p>
+<pre><code class="lang-bash">  $ find $FOAM_TUTORIALS -name &quot;*Dict&quot;
+  $ find $FOAM_TUTORIALS –iname &#39;*dict&#39;
+  $ find $FOAM_TUTORIALS -type f | xargs grep -sl &#39;slip&#39;
+  $ find $FOAM_SRC -name &quot;*slip*&quot;
+  $ find $WM_PROJECT_DIR -type f | xargs grep -sl &#39;noParallel&#39;
+</code></pre>
+</li>
+<li><p>find a string inside a file<br><img src="images/2022-07-19-01-25-25.png" alt=""></p>
+</li>
 </ul>
-<h3 id="Randbedingungen"><a href="#Randbedingungen" class="headerlink" title="Randbedingungen"></a>Randbedingungen</h3><ul>
-<li><p>Randbedingung an geschlossenen Rändern</p>
+<hr>
+<h3 id="case-1-cavity-2D"><a href="#case-1-cavity-2D" class="headerlink" title="case 1: cavity 2D"></a>case 1: cavity 2D</h3><ul>
+<li><p><strong>icoFocm</strong>: laminar incompressible unsteady solver </p>
+<pre><code class="lang-bash">  $ foamInfo icoFoam
+  $ foamInfo fixedValue
+  $ foamCleanTutorials
+</code></pre>
+</li>
+<li><p>run_all.sh</p>
+<pre><code class="lang-bash">  #!/bin/bash
+
+  sh run_solver.sh
+  sh run_sampling.sh
+</code></pre>
+</li>
+<li><p>run_solver.sh</p>
+<pre><code class="lang-bash">  #!/bin/bash
+
+  foamCleanTutorials
+  blockMesh | tee log.blockMesh
+  checkMesh | tee log.checkMesh
+
+  icoFoam | tee log.icoFoam
+  #pisoFoam | tee log.solver
+</code></pre>
+</li>
+<li><p>run_sampling.sh</p>
+<pre><code class="lang-bash">  #!/bin/bash
+
+  postProcess -func sampleDict -latestTime
+  gnuplot gnuplot/gnuplot_script
+</code></pre>
+</li>
+<li><p>plot the log information on the fly</p>
+<pre><code class="lang-bash">  $ pyFoamPlotRunner.py [options] &lt;foamApplication&gt;
+  $ pyFoamPlotRunner.py --help
+
+  $ pyFoamPlotRunner.py icoFoam           
+
+  $ pyFoamPlotWatcher.py log.icoFoam
+</code></pre>
+</li>
+<li><p><strong>fvSchemes</strong></p>
 <ul>
-<li>只能平行沿着Rand，$\vec{n}$方向为零<br><img src="images/2022-07-12-10-40-28.png" alt=""> <script type="math/tex; mode=display">
-\frac{D\vec{v}\vec{n}}{Dt}=0=-\vec{n}\frac{1}{\rho}\text{grad}p+\vec{n}\vec{g} \implies -\vec{n}\nabla p=\vec{n}\rho\vec{g} \qquad \text{Neumann-RB}</script></li>
+<li><p>second order accurate, but oscillatory</p>
+<pre><code class="lang-c++">    ddtSchemes
+    &#123;
+        default         backward;
+    &#125;
+
+    gradSchemes
+    &#123;
+        default         Gauss linear;
+        grad(p)         Gauss linear;
+    &#125;
+
+    divSchemes
+    &#123;
+        default         none;
+        div(phi,U)      Gauss linear;
+
+        div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    &#125;
+
+    laplacianSchemes
+    &#123;
+        //default         Gauss linear orthogonal;
+        default         Gauss linear limited 1;     // limited 1 corrections to handle mesh non-orthogonality and non-uniformity
+    &#125;
+
+    interpolationSchemes
+    &#123;
+        default         linear;
+    &#125;
+
+    snGradSchemes
+    &#123;
+        //default         orthogonal;
+        default         limited 1;
+    &#125;
+</code></pre>
+</li>
 </ul>
 </li>
-<li><p>Randbedingungen an offenen Rändern<br><img src="images/2022-07-12-10-43-13.png" alt=""></p>
+<li><p><strong>fvSolution</strong></p>
+<ul>
+<li>additional sub-dictionaries <strong>PISO, PIMPLE, SIMPLE</strong> and <strong>relaxationFactors</strong></li>
+<li><p>in this case, only <strong>PISO</strong> correction, no orthogonal corrections</p>
+<pre><code class="lang-c++">solvers
+&#123;
+    p
+    &#123;
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-06;
+        relTol          0;
+
+/*
+        solver           GAMG;
+        tolerance        1e-6;
+        relTol           0.0;
+        smoother         GaussSeidel;
+        nPreSweeps       0;
+        nPostSweeps      2;
+        cacheAgglomeration on;
+        agglomerator     faceAreaPair;
+        nCellsInCoarsestLevel 100;
+        mergeLevels      1;
+*/
+
+    &#125;
+
+    pFinal            // putting more computational effort in the last iteration (but for this case the same for p and pFinal)
+    &#123;
+        $p;
+        relTol          0;
+    &#125;
+
+    U
+    &#123;
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-08;
+        relTol          0;
+    &#125;
+&#125;
+
+PISO                                // pressure-velocity coupling
+&#123;
+    //consistent         yes;
+    //momentumPredictor   yes;
+
+    nCorrectors     1;             // at leat one PISO l_op 
+    nNonOrthogonalCorrectors 1;
+    pRefCell        0;
+    pRefValue       0;
+&#125;
+
+relaxationFactors
+&#123;
+    fields
+    &#123;
+        &quot;.*&quot; 0.9;
+    &#125;
+    equations
+    &#123;
+        &quot;.*&quot; 0.9;
+    &#125;
+&#125;
+</code></pre>
 </li>
 </ul>
+</li>
+<li><p>sampleDict</p>
+<pre><code class="lang-c++">  type sets;                           // sample along a line
+
+  setFormat raw;                       // output file is ascii format
+
+  //interpolationScheme cell;
+  //interpolationScheme cellPoint;
+  interpolationScheme cellPointFace;   // location of the interpolation points
+
+  // Fields to sample.
+  fields
+  (
+      U
+  );
+
+  sets
+  (
+
+      l1                                          // name of output file
+      &#123;
+          //type            lineCellFace;    
+          //type            lineCell;    
+          type            lineFace;                // smaple method (line)
+
+          //type            lineUniform;
+          //nPoints           100;
+
+          axis            x;
+          start           ( -1  0.5 0);
+          end             ( 2  0.5 0);
+      &#125;
+
+      l2
+      &#123;
+          //type            lineCellFace;    
+          //type            lineCell;    
+          type            lineFace;    
+
+          //type            lineUniform;
+          //nPoints           100;
+
+          axis            y;
+          start           (0.5 -1 0);
+          end             (0.5 2 0);
+      &#125;
+
+  );
+</code></pre>
+</li>
+<li><strong>Remark on the pressure field</strong><ul>
+<li>pressure p is <strong>relative presure</strong></li>
+<li>all the incompressible solvers (icoFoam, simpleFoam, pisoFoam, pipleFoam) use the modified presure<script type="math/tex; mode=display">
+P=\frac{p}{\rho} \qquad \left[ \frac{m^{2}}{s^{2}} \right]</script></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-c++">
+
+</code></pre>
+<pre><code class="lang-bash">
+
+</code></pre>
 
       
        
