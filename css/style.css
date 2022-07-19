@@ -1462,6 +1462,7 @@
 #post .pjax article table tr td:last-child {
   margin-top: 0;
   margin-bottom: 0;
+  white-space: nowrap;
 }
 #post .pjax article table.green tr:nth-child(2n) {
   background-color: #e3f1ea;
