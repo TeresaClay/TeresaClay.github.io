@@ -1452,8 +1452,9 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-#post .pjax article table tr th:nth-child(1) {
+#post .pjax article table tr th:first-child {
   position: sticky;
+  left: 0;
   z-index: 1;
   background: inherit;
 }
