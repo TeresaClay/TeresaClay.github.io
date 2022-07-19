@@ -6,15 +6,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="Mod11 Cavity 2D | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="case 2: 3D break free surface interFoam: incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach       type alpha.water u p_rgh k epsilon nut">
+<meta name="description" content="case 2: 3D break free surfaceinterFoam: incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach   |      | type     | alpha.water     | u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mod12 3D break free surface">
 <meta property="og:url" content="https://teresaclay.github.io/2022/07/19/WD_Basic/Mod12/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="case 2: 3D break free surface interFoam: incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach       type alpha.water u p_rgh k epsilon nut">
+<meta property="og:description" content="case 2: 3D break free surfaceinterFoam: incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach   |      | type     | alpha.water     | u">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-19T13:17:10.096Z">
-<meta property="article:modified_time" content="2022-07-19T18:08:32.622Z">
+<meta property="article:modified_time" content="2022-07-19T18:24:46.073Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 
@@ -744,7 +744,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-19 19:58:20'>2022-07-19 15:15</time>
+            Created At : <time class="date" title='Updated At: 2022-07-19 20:18:52'>2022-07-19 15:15</time>
         
     </div>
     <div class="article-meta">
@@ -755,7 +755,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#case-1-cavity-2D"><span class="toc-text">case 1: cavity 2D</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#case-1-cavity-2D"><span class="toc-text">case 1: cavity 2D</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#icoFocm-laminar-incompressible-unsteady-solver"><span class="toc-text">icoFocm: laminar incompressible unsteady solver</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-solver-sh"><span class="toc-text">run_solver.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-sampling-sh"><span class="toc-text">run_sampling.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#plot-the-log-information-on-the-fly"><span class="toc-text">plot the log information on the fly</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sampleDict"><span class="toc-text">sampleDict</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Remark-on-the-pressure-field"><span class="toc-text">Remark on the pressure field</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Screen-output"><span class="toc-text">Screen output</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Packed-functionObject-in-controlDict"><span class="toc-text">Packed functionObject in controlDict</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Expanded-functionObject"><span class="toc-text">Expanded functionObject</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -771,49 +771,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="case-1-cavity-2D"><a href="#case-1-cavity-2D" class="headerlink" title="case 1: cavity 2D"></a>case 1: cavity 2D</h3><ul>
-<li><p><strong>icoFocm</strong>: laminar incompressible unsteady solver </p>
-<pre><code class="lang-bash">  $ foamInfo icoFoam
-  $ foamInfo fixedValue
-  $ foamCleanTutorials
-</code></pre>
-</li>
-<li><p>run_all.sh</p>
-<pre><code class="lang-bash">  #!/bin/bash
+        <h3 id="case-1-cavity-2D"><a href="#case-1-cavity-2D" class="headerlink" title="case 1: cavity 2D"></a>case 1: cavity 2D</h3><h4 id="icoFocm-laminar-incompressible-unsteady-solver"><a href="#icoFocm-laminar-incompressible-unsteady-solver" class="headerlink" title="icoFocm: laminar incompressible unsteady solver"></a><strong>icoFocm</strong>: laminar incompressible unsteady solver</h4><pre><code>``` bash
+$ foamInfo icoFoam
+$ foamInfo fixedValue
+$ foamCleanTutorials
+```
+</code></pre><h4 id="run-all-sh"><a href="#run-all-sh" class="headerlink" title="run_all.sh"></a>run_all.sh</h4><pre><code>``` bash
+#!/bin/bash
 
-  sh run_solver.sh
-  sh run_sampling.sh
-</code></pre>
-</li>
-<li><p>run_solver.sh</p>
-<pre><code class="lang-bash">  #!/bin/bash
+sh run_solver.sh
+sh run_sampling.sh
+```
+</code></pre><h4 id="run-solver-sh"><a href="#run-solver-sh" class="headerlink" title="run_solver.sh"></a>run_solver.sh</h4><pre><code>``` bash
+#!/bin/bash
 
-  foamCleanTutorials
-  blockMesh | tee log.blockMesh
-  checkMesh | tee log.checkMesh
+foamCleanTutorials
+blockMesh | tee log.blockMesh
+checkMesh | tee log.checkMesh
 
-  icoFoam | tee log.icoFoam
-  #pisoFoam | tee log.solver
-</code></pre>
-</li>
-<li><p>run_sampling.sh</p>
-<pre><code class="lang-bash">  #!/bin/bash
+icoFoam | tee log.icoFoam
+#pisoFoam | tee log.solver
+```
+</code></pre><h4 id="run-sampling-sh"><a href="#run-sampling-sh" class="headerlink" title="run_sampling.sh"></a>run_sampling.sh</h4><pre><code>``` bash
+#!/bin/bash
 
-  postProcess -func sampleDict -latestTime
-  gnuplot gnuplot/gnuplot_script
-</code></pre>
-</li>
-<li><p>plot the log information on the fly</p>
-<pre><code class="lang-bash">  $ pyFoamPlotRunner.py [options] &lt;foamApplication&gt;
-  $ pyFoamPlotRunner.py --help
+postProcess -func sampleDict -latestTime
+gnuplot gnuplot/gnuplot_script
+```
+</code></pre><h4 id="plot-the-log-information-on-the-fly"><a href="#plot-the-log-information-on-the-fly" class="headerlink" title="plot the log information on the fly"></a>plot the log information on the fly</h4><pre><code>``` bash
+$ pyFoamPlotRunner.py [options] &lt;foamApplication&gt;
+$ pyFoamPlotRunner.py --help
 
-  $ pyFoamPlotRunner.py icoFoam           
+$ pyFoamPlotRunner.py icoFoam           
 
-  $ pyFoamPlotWatcher.py log.icoFoam
-</code></pre>
-</li>
-<li><p><strong>fvSchemes</strong></p>
-<ul>
+$ pyFoamPlotWatcher.py log.icoFoam      
+
+```
+</code></pre><h4 id="fvSchemes"><a href="#fvSchemes" class="headerlink" title="fvSchemes"></a><strong>fvSchemes</strong></h4><ul>
 <li><p>second order accurate, but oscillatory</p>
 <pre><code class="lang-c++">ddtSchemes
 &#123;
@@ -851,11 +845,7 @@ snGradSchemes
     default         limited 1;
 &#125;
 </code></pre>
-</li>
-</ul>
-</li>
-<li><p><strong>fvSolution</strong></p>
-<ul>
+<h4 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a><strong>fvSolution</strong></h4></li>
 <li>additional sub-dictionaries <strong>PISO, PIMPLE, SIMPLE</strong> and <strong>relaxationFactors</strong></li>
 <li><p>in this case, only <strong>PISO</strong> correction, no orthogonal corrections</p>
 <pre><code class="lang-c++">solvers
@@ -922,108 +912,99 @@ relaxationFactors
 </code></pre>
 </li>
 </ul>
-</li>
-<li><p>sampleDict</p>
-<pre><code class="lang-c++">  type sets;                           // sample along a line
+<h4 id="sampleDict"><a href="#sampleDict" class="headerlink" title="sampleDict"></a>sampleDict</h4><pre><code>``` c++
+type sets;                           // sample along a line
 
-  setFormat raw;                       // output file is ascii format
+setFormat raw;                       // output file is ascii format
 
-  //interpolationScheme cell;
-  //interpolationScheme cellPoint;
-  interpolationScheme cellPointFace;   // location of the interpolation points
+//interpolationScheme cell;
+//interpolationScheme cellPoint;
+interpolationScheme cellPointFace;   // location of the interpolation points
 
-  // Fields to sample.
-  fields
-  (
-      U
-  );
+// Fields to sample.
+fields
+(
+    U
+);
 
-  sets
-  (
+sets
+(
 
-      l1                                          // name of output file
-      &#123;
-          //type            lineCellFace;    
-          //type            lineCell;    
-          type            lineFace;                // smaple method (line)
+    l1                                          // name of output file
+    &#123;
+        //type            lineCellFace;    
+        //type            lineCell;    
+        type            lineFace;                // smaple method (line)
 
-          //type            lineUniform;
-          //nPoints           100;
+        //type            lineUniform;
+        //nPoints           100;
 
-          axis            x;
-          start           ( -1  0.5 0);
-          end             ( 2  0.5 0);
-      &#125;
+        axis            x;
+        start           ( -1  0.5 0);
+        end             ( 2  0.5 0);
+    &#125;
 
-      l2
-      &#123;
-          //type            lineCellFace;    
-          //type            lineCell;    
-          type            lineFace;    
+    l2
+    &#123;
+        //type            lineCellFace;    
+        //type            lineCell;    
+        type            lineFace;    
 
-          //type            lineUniform;
-          //nPoints           100;
+        //type            lineUniform;
+        //nPoints           100;
 
-          axis            y;
-          start           (0.5 -1 0);
-          end             (0.5 2 0);
-      &#125;
+        axis            y;
+        start           (0.5 -1 0);
+        end             (0.5 2 0);
+    &#125;
 
-  );
-</code></pre>
-</li>
-<li><p><strong>Remark on the pressure field</strong></p>
-<ul>
+);
+```  
+</code></pre><h4 id="Remark-on-the-pressure-field"><a href="#Remark-on-the-pressure-field" class="headerlink" title="Remark on the pressure field"></a><strong>Remark on the pressure field</strong></h4><ul>
 <li>pressure p is <strong>relative presure</strong></li>
 <li>all the incompressible solvers (icoFoam, simpleFoam, pisoFoam, pipleFoam) use the modified presure<script type="math/tex; mode=display">
 P=\frac{p}{\rho} \qquad \left[ \frac{m^{2}}{s^{2}} \right]</script></li>
 </ul>
-</li>
-<li><p>Screen output<br><img src="images/2022-07-19-14-25-24.png" alt=""></p>
-</li>
-<li><p>Packed <strong>functionObject</strong> in controlDict</p>
-<pre><code class="lang-c++">  functions
-  &#123;
-  //For scalars
-  cellMin
-  &#123;
-      #includeEtc &quot;caseDicts/postProcessing/minMax/cellMin.cfg&quot;
-      enabled         true;     //true or false
-      log             true;    //write to screen
-      fields  (p);
-  &#125;
+<h4 id="Screen-output"><a href="#Screen-output" class="headerlink" title="Screen output"></a>Screen output</h4><p>  <img src="images/2022-07-19-14-25-24.png" alt=""></p>
+<h4 id="Packed-functionObject-in-controlDict"><a href="#Packed-functionObject-in-controlDict" class="headerlink" title="Packed functionObject in controlDict"></a>Packed <strong>functionObject</strong> in controlDict</h4><pre><code>``` c++
+functions
+&#123;
+//For scalars
+cellMin
+&#123;
+    #includeEtc &quot;caseDicts/postProcessing/minMax/cellMin.cfg&quot;
+    enabled         true;     //true or false
+    log             true;    //write to screen
+    fields  (p);
+&#125;
 
-  cellMax
-  &#123;
-      #includeEtc &quot;caseDicts/postProcessing/minMax/cellMax.cfg&quot;
-      enabled         true;     //true or false
-      log             true;    //write to screen
-      fields  (p);
-  &#125;
+cellMax
+&#123;
+    #includeEtc &quot;caseDicts/postProcessing/minMax/cellMax.cfg&quot;
+    enabled         true;     //true or false
+    log             true;    //write to screen
+    fields  (p);
+&#125;
 
-  //For vectors
-  cellMinMag
-  &#123;
-      #includeEtc &quot;caseDicts/postProcessing/minMax/cellMinMag.cfg&quot;
-      enabled         true;     //true or false
-      log             true;    //write to screen
-      fields  (U);
-  &#125;
+//For vectors
+cellMinMag
+&#123;
+    #includeEtc &quot;caseDicts/postProcessing/minMax/cellMinMag.cfg&quot;
+    enabled         true;     //true or false
+    log             true;    //write to screen
+    fields  (U);
+&#125;
 
-  cellMaxMag
-  &#123;
-      #includeEtc &quot;caseDicts/postProcessing/minMax/cellMaxMag.cfg&quot;
-      enabled         true;     //true or false
-      log             true;    //write to screen
-      fields  (U);
-  &#125;
-  &#125;;
-</code></pre>
-</li>
-<li><p>Expanded <strong>functionObject</strong>  </p>
-</li>
-</ul>
-<pre><code class="lang-c++">
+cellMaxMag
+&#123;
+    #includeEtc &quot;caseDicts/postProcessing/minMax/cellMaxMag.cfg&quot;
+    enabled         true;     //true or false
+    log             true;    //write to screen
+    fields  (U);
+&#125;
+&#125;;
+```
+</code></pre><h4 id="Expanded-functionObject"><a href="#Expanded-functionObject" class="headerlink" title="Expanded functionObject"></a>Expanded <strong>functionObject</strong></h4><pre><code class="lang-c++">
 
 </code></pre>
 
