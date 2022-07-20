@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lec7 Introduction | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Lec7 Introduction | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mod13 2D Vortes Shedding">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
+<meta property="article:published_time" content="2022-07-20T08:12:13.096Z">
+<meta property="article:modified_time" content="2022-07-20T11:05:44.727Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
+
+
+<link rel="icon" href="/img/Teresa.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/Teresa.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(25)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Course
+                        <small>(23)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Course<--->AndreasMalcherek">
+                                        
+                                        AndreasMalcherek
+                                        
+                                            <small>(11
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WangYang">
+                                        
+                                        WangYang
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WolfDynamics">
+                                        
+                                        WolfDynamics
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/20/WD_Basic/Mod13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod13 2D Vortes Shedding">Mod13 2D Vortes Shedding</span>
+            <span class="post-date" title="2022-07-20 10:12:13">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/19/WD_Basic/Mod12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod12 3D break free surface">Mod12 3D break free surface</span>
+            <span class="post-date" title="2022-07-19 15:17:10">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/19/WD_Basic/Mod11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod11 Cavity 2D">Mod11 Cavity 2D</span>
+            <span class="post-date" title="2022-07-19 15:15:46">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/18/WD_Basic/Mod10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod10 Module 1">Mod10 Module 1</span>
+            <span class="post-date" title="2022-07-18 21:29:28">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/16/Note_Wangyang/Lec12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec12">Lec12</span>
+            <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/14/Note_Wangyang/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 The Finite Volume Method">Lec11 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-14 16:38:06">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/12/Note_Wangyang/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10 The Finite Volume Method">Lec10 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec15/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec15 Die Energiebilanz in der Kontinummsmechanik">Lec15 Die Energiebilanz in der Kontinummsmechanik</span>
+            <span class="post-date" title="2022-07-12 13:33:10">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec13 Innere Spannungen und Cauchygleichungen">Lec13 Innere Spannungen und Cauchygleichungen</span>
+            <span class="post-date" title="2022-07-12 11:19:36">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec12,14 Deformation und Deformationstensor">Lec12,14 Deformation und Deformationstensor</span>
+            <span class="post-date" title="2022-07-12 10:44:01">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 Die Druck-Poisson-Gleichung">Lec11 Die Druck-Poisson-Gleichung</span>
+            <span class="post-date" title="2022-07-12 10:25:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10 Stromlinien und Stromfunktion">Lec10 Stromlinien und Stromfunktion</span>
+            <span class="post-date" title="2022-07-12 09:40:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/11/Andreas_Malcherek/Lec9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9 Gibt es rotationsfreie Strömungen">Lec9 Gibt es rotationsfreie Strömungen</span>
+            <span class="post-date" title="2022-07-11 23:39:27">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/11/Andreas_Malcherek/Lec8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Das d&#39;Almebertsche Paradoxon">Lec8 Das d&#39;Almebertsche Paradoxon</span>
+            <span class="post-date" title="2022-07-11 23:32:11">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/10/Andreas_Malcherek/Lec6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec6-7 Hydraudynamische Druckberechnungen">Lec6-7 Hydraudynamische Druckberechnungen</span>
+            <span class="post-date" title="2022-07-10 20:08:55">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/10/Andreas_Malcherek/Lec4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec4 Die Potentialströmungen">Lec4 Die Potentialströmungen</span>
+            <span class="post-date" title="2022-07-10 19:36:35">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/09/Andreas_Malcherek/Lec2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec2-3 Kontinuitätsgleichung für kompressible Gleichung">Lec2-3 Kontinuitätsgleichung für kompressible Gleichung</span>
+            <span class="post-date" title="2022-07-09 23:05:59">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/09/Andreas_Malcherek/Lec1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-09 22:18:12">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%209/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9 Mathematical Description of Physical Phenomena">Lec9 Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%200:%20%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%200:%20%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%208/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Vector Calculus">Lec8 Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%207/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec7 Introduction">Lec7 Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Note_Wangyang/Lec 7" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Lec7 Introduction</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-07-16 10:46:01'>2022-07-08 16:02</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8E%8B%E5%AE%88%E6%81%92-N-S%E6%96%B9%E7%A8%8B"><span class="toc-text">不可压守恒 N-S方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B2%E4%B8%80%E7%82%B9%E7%82%B9%E5%8F%AF%E5%8E%8B"><span class="toc-text">讲一点点可压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-text">分析过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PDE-%E4%BA%8C%E9%98%B6-%E6%B1%82%E8%A7%A3"><span class="toc-text">PDE(二阶)求解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E4%BD%93%E7%A7%AF%E6%B3%95"><span class="toc-text">有限体积法</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>作业要求<ul>
+<li>用自己目标期刊的latex模板</li>
+<li>Overleaf</li>
+<li>中英均可</li>
+</ul>
+</li>
+</ul>
+<p>Note：</p>
+<ul>
+<li>开头部分对书籍的介绍重新听一下</li>
+<li>安德森的书</li>
+</ul>
+<hr>
+<h4 id="不可压守恒-N-S方程"><a href="#不可压守恒-N-S方程" class="headerlink" title="不可压守恒 N-S方程"></a>不可压守恒 N-S方程</h4><script type="math/tex; mode=display">
+\begin{equation*}
+\text{标量方程: }
+\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol U )=0    \quad \implies \quad \nabla \cdot \boldsymbol{U}=0 
+\end{equation*}</script><script type="math/tex; mode=display">
+\begin{aligned}  
+ \\ \frac{\partial \rho \boldsymbol{U}}{\partial t}+\nabla \cdot (\rho \boldsymbol{UU})&=-\nabla p+\nabla \cdot (\mu(\nabla \boldsymbol{U})+(\nabla \boldsymbol{U})^{T})
+ \\ &=-\frac{2}{3}\mu(\nabla \cdot \boldsymbol{U})\boldsymbol{I}+\rho\boldsymbol{g}+\boldsymbol{S}
+ \\
+ \\ \implies  \frac{\partial \boldsymbol{U}}{\partial t}+\nabla \cdot (\boldsymbol{UU})&=-\frac{\nabla p}{\rho}+\nabla \cdot (\nu\nabla \boldsymbol{U})+\boldsymbol{g} \qquad \text{微分形式}
+ \\ &=-\boldsymbol{g}+\frac{\boldsymbol{S}}{\rho}
+\end{aligned}</script><ul>
+<li>不可压速度散度为零, 标量</li>
+<li>没有显含 $p$ 的方程，所以人为制造出压力补偿方程 (Pisson)，semi—implicit</li>
+<li>需要理解<ul>
+<li>积分形式 微分形式 守恒形式 不守恒形式</li>
+<li>为什么会出现有限体积法</li>
+<li>网格 离散 系数矩阵(稀疏矩阵 sparse) 代数方程求解</li>
+</ul>
+</li>
+<li><p>需要注意的点</p>
+<ul>
+<li><p>$\boldsymbol{UU} =\boldsymbol{UU^{T}}= \begin{bmatrix} u \\ v \\ w \\\end{bmatrix}  \begin{bmatrix} u &amp; v &amp; w \end{bmatrix}$</p>
+</li>
+<li><p>非守恒形： $\boldsymbol{U}\cdot \nabla \boldsymbol{U} \to  \nabla \cdot (\boldsymbol{UU})$</p>
+</li>
+<li><p>primitive variables: $p,\boldsymbol{U}$ </p>
+</li>
+<li>标量：$T,p,\alpha,k,\epsilon$ </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="讲一点点可压"><a href="#讲一点点可压" class="headerlink" title="讲一点点可压"></a>讲一点点可压</h4><ul>
+<li>可压是密度基<ul>
+<li>激波 (shock wave), 间断, 黎曼解</li>
+</ul>
+</li>
+<li><p>不可压是压力基</p>
+<script type="math/tex; mode=display">\frac{\partial \alpha}{\partial t}+\mu \frac{\partial \alpha}{\partial x}=0</script><p>  在自然界中，要么是气体，要么是液体，不存在说不清道不明的地方 —- interface 瞬变<br>  所以此方程其实是可压的属性，有间断的属性，不连续，较难算<br>  所以VOF是借鉴可压的方法，interface大概2-3个网格， isoAdvector可以达到1-2个网格 </p>
+</li>
+<li><p>SWE (shallow water equation)<br>  人为加了一些条件，把不可压的方程变成可压  - TORO 老师的Riemann solver (书）<br>  不考虑中间的过程，让他们无穷靠近<br>  最早用特征线的方法，用时间项显示推进，不需要构造矩阵，而是一个大的特征值矩阵，把三维问题变成大一统, Runge Kutta<br>  他们的代码比较直观，还有用有限差分 </p>
+</li>
+<li><strong>gradient limiter, flux limiter</strong><br>通量限制器是可压部分研究出来，他们对对流项特别深入的研究 </li>
+</ul>
+<p>Burgers 方程</p>
+<script type="math/tex; mode=display">
+  \begin{aligned}
+  \frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}&=0   
+  \\ \frac{\partial u}{\partial t}+c \frac{\partial u}{\partial x}&=0 
+  \end{aligned}</script><ul>
+<li><p>显示方程<br>$ \color{grey}{\frac{u-u^{0}}{\Delta t}+u^{0}\frac{u^{0}_{i}-u^{0}_{i-1}}{\Delta x}=0 \to u_i=u^{0}+ \frac{\Delta t}{\Delta x} u^0(u^0_i-u^0_{i-1})}$</p>
+</li>
+<li><p>CFL$= \frac{c\Delta t}{\Delta x} &lt; 1$<br>物理信息的网格不超过一个网格，不可压严格来说 &lt;0.5<br>OpenFOAM 有一套自己解决的办法</p>
+</li>
+</ul>
+<ul>
+<li>图形学和可压部分的研究，如果水平一般的研究者，不需要构造矩阵</li>
+</ul>
+<hr>
+<h4 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h4><ul>
+<li>对物理模型和数学方程的理解，需要通过大量读论文，做实验，试验 </li>
+<li>连续的集合和离散的点 <ul>
+<li>自然界的 t,V - continus; geometry - 有限的, 而CFD 间断，有限 </li>
+<li>OpenFOAM:  <ul>
+<li>points, owner, neighbour,face, bondary (没有体的概念) (OpenFOAM: polymesh folder)</li>
+<li>物理量的梯度变化过大的地方，需要加密网格 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>边界条件<ul>
+<li>Dirichlet 定值: T=300k, p=1bar</li>
+<li>Neumann  梯度边界： $\frac{\partial T}{\partial x}=0$</li>
+<li>Roboin  混合</li>
+</ul>
+</li>
+<li>Example 插图理解</li>
+</ul>
+<hr>
+<h4 id="PDE-二阶-求解"><a href="#PDE-二阶-求解" class="headerlink" title="PDE(二阶)求解"></a><a href="https://teresaclay.github.io/2022/07/08/Note_Wangyang/Lec%209/">PDE(二阶)求解</a></h4><ul>
+<li>椭圆 (elliptic) - 稳态(无t) <ul>
+<li>插图</li>
+<li>根据杆的导热系数，会达到平衡，进入一种稳态 </li>
+</ul>
+</li>
+<li>抛物(parabolic)</li>
+<li>双曲(hyperbolic)<br>代数方程组求解</li>
+<li>解析解</li>
+<li><p>数值解 (1.14.49)</p>
+<ul>
+<li>FPM 有限差分, FEM 有限元</li>
+<li><p>FVM有限体积</p>
+<p>代数方程组Ax=b<br>good A means: 对称，对角占优，正定 $x^{T}Ax&gt;0$<br>最早Gauss消元<br>CG(conjagate gradient，共軛梯度), PCG(preconditional),<br>  Ax=b -&gt; Max=Mb -&gt; A‘x=b’<br>MG(multigrid 多重网格), GAMG（2.25.22）（GS+Jacobian)</p>
+<p>图形学 MGPCG</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="有限体积法"><a href="#有限体积法" class="headerlink" title="有限体积法"></a>有限体积法</h4><p>Steady-state 定常</p>
+<ul>
+<li>网格划分<ul>
+<li>OpenFOAM是非结构化求解器，是要读取拓扑关系</li>
+</ul>
+</li>
+<li>边界条件确定</li>
+<li>求解精度选取</li>
+<li>离散数值格式选取</li>
+<li>显式与隐式妥协<ul>
+<li>Ax (隐式) = b (显式)</li>
+</ul>
+</li>
+</ul>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2017 TeresaClay
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>
