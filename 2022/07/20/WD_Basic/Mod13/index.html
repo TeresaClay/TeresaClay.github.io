@@ -487,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 21:10:15'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 21:17:28'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -648,47 +648,34 @@
 
 &#125;
 </code></pre><pre><code>
-## functionObject - forces_object
+## functionObject - inMassFlow
 
-``` bash
+``` c++ 
+    inMassFlow
+    &#123;
+        type            surfaceFieldValue;
 
-    functions&#123;
+        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+        enabled         true;
 
-        fieldAverage
-        &#123;
-            type            fieldAverage;
-            functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
-            enabled         true;
-            writeControl   outputTime;
+//      writeControl     outputTime;
+        writeControl   timeStep;
+        writeInterval  1;
 
-        //writeControl   timeStep;
-        //writeInterval  100;
+        log             true;
 
-        //cleanRestart true;
+        writeFields     false;
 
-        //timeStart       20;
-        //timeEnd         200;
+        regionType          patch;
+        name      in;
 
-            fields
+        operation       sum;
+        fields
             (
-                U
-                &#123;
-                    mean        on;
-                    prime2Mean  on;     //fluctuation
-                    base        time;
-                &#125;
-
-                p
-                &#123;
-                    mean        on;
-                    prime2Mean  on;
-                    base        time;
-                &#125;
+                phi
             );
-        &#125;
-
     &#125;
-</code></pre><h2 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h2><pre><code class="lang-bash">    fieldAverage
+</code></pre><h2 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h2><pre><code class="lang-c++">    fieldAverage
     &#123;
         type            fieldAverage;
         functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
@@ -721,7 +708,7 @@
         );
     &#125;
 </code></pre>
-<h2 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h2><pre><code class="lang-bash">
+<h2 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h2><pre><code class="lang-c++">
     functions&#123;
 
     forces_object
@@ -750,7 +737,7 @@
     &#125;
     &#125;
 </code></pre>
-<h2 id="functionObject-forceCoeffs-object"><a href="#functionObject-forceCoeffs-object" class="headerlink" title="functionObject - forceCoeffs_object"></a>functionObject - forceCoeffs_object</h2><pre><code class="lang-bash">    function&#123;
+<h2 id="functionObject-forceCoeffs-object"><a href="#functionObject-forceCoeffs-object" class="headerlink" title="functionObject - forceCoeffs_object"></a>functionObject - forceCoeffs_object</h2><pre><code class="lang-c++">    function&#123;
     forceCoeffs_object
     &#123;
     // rhoInf - reference density
