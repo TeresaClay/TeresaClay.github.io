@@ -6,17 +6,19 @@
   <meta name="keywords" content="">
   <meta name="description" content="Mod12 3D break free surface | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="&#96;&#96; c++   --- ![](images&#x2F;2022-07-20-10-18-10.png)  ### C1 RE &#x3D; 200    icoFoam and blockMesh     ### C2     RE &#x3D; 200,    icoFoam and fluentMeshToFoam      &#96;&#96;&#96; bash     #!&#x2F;bin&#x2F;bash      foamCleanTutorial">
+<meta name="description" content="top and bottom: symmetry, slip (no boundary layer+)  C1RE &#x3D; 200    icoFoam and blockMesh C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam &#96;&#96;&#96; bash #!&#x2F;bin&#x2F;bash  foamCleanTutorials fluent3DMeshToFoam ..&#x2F;.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mod12 3D break free surface">
 <meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="&#96;&#96; c++   --- ![](images&#x2F;2022-07-20-10-18-10.png)  ### C1 RE &#x3D; 200    icoFoam and blockMesh     ### C2     RE &#x3D; 200,    icoFoam and fluentMeshToFoam      &#96;&#96;&#96; bash     #!&#x2F;bin&#x2F;bash      foamCleanTutorial">
+<meta property="og:description" content="top and bottom: symmetry, slip (no boundary layer+)  C1RE &#x3D; 200    icoFoam and blockMesh C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam &#96;&#96;&#96; bash #!&#x2F;bin&#x2F;bash  foamCleanTutorials fluent3DMeshToFoam ..&#x2F;.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
 <meta property="article:published_time" content="2022-07-20T08:12:13.096Z">
-<meta property="article:modified_time" content="2022-07-20T08:31:38.628Z">
+<meta property="article:modified_time" content="2022-07-20T09:31:04.406Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -753,7 +755,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 10:31:38'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 11:31:04'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -764,7 +766,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#C1"><span class="toc-text">C1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">#</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -780,31 +782,127 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>`` c++</p>
-<pre><code>
+        <hr>
+<p><img src="images/2022-07-20-10-18-10.png" alt=""></p>
+<ul>
+<li>top and bottom: symmetry, slip (no boundary layer+)</li>
+</ul>
+<h3 id="C1"><a href="#C1" class="headerlink" title="C1"></a>C1</h3><p>RE = 200    icoFoam and blockMesh</p>
+<h3 id="C2"><a href="#C2" class="headerlink" title="C2"></a>C2</h3><p>RE = 200,    icoFoam and fluentMeshToFoam</p>
+<pre><code>``` bash
+#!/bin/bash
 
----
-![](images/2022-07-20-10-18-10.png)
+foamCleanTutorials
+fluent3DMeshToFoam ../../../meshes_and_geometries/vortex_shedding/ascii.msh | tee log.fluentmesh
+checkMesh | tee log.checkMesh
+createPatch -dict system/createPatchDict.0 -overwrite
+createPatch -dict system/createPatchDict.1 -overwrite
+icoFoam | tee log.solver
 
-### C1
-RE = 200    icoFoam and blockMesh
+```
+</code></pre><h4 id="functionObject-inMassFlow"><a href="#functionObject-inMassFlow" class="headerlink" title="functionObject - inMassFlow"></a>functionObject - inMassFlow</h4><pre><code class="lang-c++">functions&#123;
 
+    inMassFlow                              // mass flow at the inlet
+    &#123;
+        type            surfaceFieldValue;
 
+        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+        enabled         true;
 
+//        writeControl     outputTime;
+        writeControl   timeStep;
+        writeInterval  1;
 
-### C2    
-RE = 200,    icoFoam and fluentMeshToFoam
+        log             true;
 
-    ``` bash
-    #!/bin/bash
+        writeFields     false;
 
-    foamCleanTutorials
-    fluent3DMeshToFoam ../../../meshes_and_geometries/vortex_shedding/ascii.msh | tee log.fluentmesh
-    checkMesh | tee log.checkMesh
-    createPatch -dict system/createPatchDict.0 -overwrite
-    createPatch -dict system/createPatchDict.1 -overwrite
-    icoFoam | tee log.solver
+        regionType      patch;
+        name            in;
+
+        operation       sum;
+        fields
+        (
+            phi
+        );
+    &#125;
+
+&#125;
 </code></pre>
+<h4 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h4><pre><code class="lang-c++">functions&#123;
+
+    fieldAverage
+    &#123;
+        type            fieldAverage;
+        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+        enabled         true;
+        writeControl   outputTime;
+
+    //writeControl   timeStep;
+    //writeInterval  100;
+
+    //cleanRestart true;
+
+    //timeStart       20;
+    //timeEnd         200;
+
+        fields
+        (
+            U
+            &#123;
+                mean        on;
+                prime2Mean  on;     //fluctuation
+                base        time;
+            &#125;
+
+            p
+            &#123;
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            &#125;
+        );
+    &#125;
+
+&#125;
+</code></pre>
+<h4 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h4><pre><code class="lang-c++">functions&#123;
+    forces_object
+    &#123;
+    type forces;
+    functionObjectLibs (&quot;libforces.so&quot;);
+
+    //writeControl outputTime;
+    writeControl   timeStep;
+    writeInterval  1;
+
+    //// Patches to sample
+    //patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
+    patches (&quot;cylinder&quot;);
+
+    //// Name of fields
+    pName p;
+    Uname U;
+
+    //// Density
+    rho rhoInf;
+    rhoInf 1.;
+
+    //// Centre of rotation
+    CofR (0 0 0);
+    &#125;
+
+
+&#125;
+</code></pre>
+<h3 id=""><a href="#" class="headerlink" title="#"></a>#</h3><ul>
+<li>initial residual goes down and up<ul>
+<li>not an indication of divergence, it just tells you that you have a strong unsteadniess</li>
+</ul>
+</li>
+<li>easy way is to moniter the quantity of interest</li>
+</ul>
+
       
        
     </div>
