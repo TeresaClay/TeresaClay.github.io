@@ -2,23 +2,21 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Mod13 2D Vortes Shedding | TeresaClay的小屋</title>
+  <title>Mod13 2D Vortes Shedding C2 | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Mod13 2D Vortes Shedding | TeresaClay的小屋">
+  <meta name="description" content="Mod13 2D Vortes Shedding C2 | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
+<meta name="description" content="C3 pisoFoam  add a perturbation in order to trigger the onset of the instability  increase the   setFieldsDict">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mod13 2D Vortes Shedding">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/index.html">
+<meta property="og:title" content="Mod14 2D Vortes Shedding C3">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod14/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
+<meta property="og:description" content="C3 pisoFoam  add a perturbation in order to trigger the onset of the instability  increase the   setFieldsDict">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
-<meta property="article:published_time" content="2022-07-20T08:12:13.096Z">
-<meta property="article:modified_time" content="2022-07-20T11:05:44.727Z">
+<meta property="article:published_time" content="2022-07-20T17:45:35.125Z">
+<meta property="article:modified_time" content="2022-07-20T17:54:58.237Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -79,7 +77,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(25)</small>
+                <small>(26)</small>
             
         </div>
     </li>
@@ -95,7 +93,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         Course
-                        <small>(23)</small>
+                        <small>(24)</small>
                         
                     </div>
                     
@@ -130,7 +128,7 @@
                                         
                                         WolfDynamics
                                         
-                                            <small>(4
+                                            <small>(5
                                                 )</small>
                                         
                                     </div>
@@ -164,7 +162,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_posts_number" value="26">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -217,10 +215,19 @@
         
         
         <a  class="All Course WolfDynamics "
+           href="/2022/07/20/WD_Basic/Mod14/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod14 2D Vortes Shedding C3">Mod14 2D Vortes Shedding C3</span>
+            <span class="post-date" title="2022-07-20 19:45:35">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
            href="/2022/07/20/WD_Basic/Mod13/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Mod13 2D Vortes Shedding">Mod13 2D Vortes Shedding</span>
+            <span class="post-title" title="Mod13 2D Vortes Shedding C2">Mod13 2D Vortes Shedding C2</span>
             <span class="post-date" title="2022-07-20 10:12:13">2022/07/20</span>
         </a>
         
@@ -460,7 +467,7 @@
     <div class="pjax">
         <article id="post-WD_Basic/Mod13" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Mod13 2D Vortes Shedding</h1>
+        <h1 class="article-title">Mod13 2D Vortes Shedding C2</h1>
     
     <div class="article-meta">
         
@@ -480,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 13:05:44'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 19:54:56'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -491,7 +498,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -517,7 +524,8 @@
 </ul>
 <h1 id="C2"><a href="#C2" class="headerlink" title="C2"></a>C2</h1><p>RE = 200,    icoFoam and fluentMeshToFoam</p>
 <ul>
-<li><p>top and bottom: symmetry, slip (no boundary layer+)</p>
+<li>top and bottom: symmetry, slip (no boundary layer+)</li>
+<li><p>run_solver.sh</p>
 <pre><code class="lang-bash">  #!/bin/bash
 
   foamCleanTutorials
@@ -528,74 +536,187 @@
   icoFoam | tee log.solver
 </code></pre>
 </li>
-</ul>
+<li><p>run_postProcess.sh</p>
+<pre><code class="lang-bash">  #!/bin/bash
+
+  postProcess -func vorticity -noZero
+  postProcess -func &#39;grad(U)&#39; -latestTime
+  postProcess -func &#39;grad(p)&#39; 
+  postProcess -func CourantNo -time 150:250
+  foamToVTK -time 50:300
+
+  #To use this one you need to define div(U) in fvSchemes.
+  #postProcess -func &#39;div(U)&#39; 
+
+  #These two will give you and error message, try to fix it.
+  #pisoFoam -postProcess -func CourantNo
+  #pisoFoam -postProcess -func wallShearStress
+</code></pre>
+<ul>
+<li><p>this can also be dones with paraview filter</p>
+<h2 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h2><pre><code class="lang-c++">solvers
+&#123;
+/*
+  p
+  &#123;
+      solver          PCG;
+      preconditioner  DIC;
+      tolerance       1e-06;
+      relTol          0;
+  minIter     2;
+  &#125;
+*/
+
+/*
+  p
+  &#123;
+      solver          PCG;
+      preconditioner
+      &#123;
+          preconditioner  GAMG;
+          tolerance       1e-06;
+          relTol          0;
+          smoother        GaussSeidel;
+          nPreSweeps      0;
+          nPostSweeps     2;
+          nFinestSweeps   2;
+          cacheAgglomeration on;
+          nCellsInCoarsestLevel 10;
+          agglomerator    faceAreaPair;
+          mergeLevels     1;
+      &#125;
+      tolerance       1e-06;
+      relTol          0.01;
+  minIter     2;
+  &#125;
+*/
+
+  p
+  &#123;
+      solver           GAMG;
+      tolerance        1e-6;
+      relTol           0;
+      smoother         GaussSeidel;
+      nPreSweeps       0;
+      nPostSweeps      2;
+      cacheAgglomeration on;
+      agglomerator     faceAreaPair;
+      nCellsInCoarsestLevel 100;
+      mergeLevels      1;
+      minIter     2;
+  &#125;
+
+  pFinal
+  &#123;
+      $p;
+      relTol          0;
+      minIter         2;
+  &#125;
+
+  U
+  &#123;
+      solver          PBiCGStab;
+      preconditioner  DILU;
+      tolerance       1e-08;
+      relTol          0;
+  &#125;
+
+/*
+  U
+  &#123;
+      type            coupled;
+      solver          PBiCCCG;
+      preconditioner  DILU;
+      tolerance       (1e-08 1e-08 1e-08);
+      relTol          (0 0 0);
+  &#125;
+*/
+&#125;
+
+PISO
+&#123;
+  consistent         yes;
+  momentumPredictor   yes;
+
+  //nOuterCorrectors    1;    //With PIMPLE
+  nCorrectors         2;
+  nNonOrthogonalCorrectors 1;    
+
+  //pRefCell        0;
+  //pRefValue       0;
+&#125;
+
+relaxationFactors
+&#123;
+  fields
+  &#123;
+      &quot;.*&quot;   0.9;  // ensure diagonal equality
+  &#125;
+  equations
+  &#123;
+      &quot;.*&quot;   0.9;  // ensure diagonal equality
+  &#125;
+&#125;
+</code></pre>
 <h2 id="functionObject-inMassFlow"><a href="#functionObject-inMassFlow" class="headerlink" title="functionObject - inMassFlow"></a>functionObject - inMassFlow</h2><pre><code class="lang-c++">functions&#123;
 
-    inMassFlow                              // mass flow at the inlet
-    &#123;
-        type            surfaceFieldValue;
+  inMassFlow                              // mass flow at the inlet
+  &#123;
+      type            surfaceFieldValue;
 
-        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
-        enabled         true;
+      functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+      enabled         true;
 
 //        writeControl     outputTime;
-        writeControl   timeStep;
-        writeInterval  1;
+      writeControl   timeStep;
+      writeInterval  1;
 
-        log             true;
+      log             true;
 
-        writeFields     false;
+      writeFields     false;
 
-        regionType      patch;
-        name            in;
+      regionType      patch;
+      name            in;
 
-        operation       sum;
-        fields
-        (
-            phi
-        );
-    &#125;
-
-&#125;
-</code></pre>
-<h2 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h2><pre><code class="lang-c++">functions&#123;
-
-    fieldAverage
-    &#123;
-        type            fieldAverage;
-        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
-        enabled         true;
-        writeControl   outputTime;
-
-    //writeControl   timeStep;
-    //writeInterval  100;
-
-    //cleanRestart true;
-
-    //timeStart       20;
-    //timeEnd         200;
-
-        fields
-        (
-            U
-            &#123;
-                mean        on;
-                prime2Mean  on;     //fluctuation
-                base        time;
-            &#125;
-
-            p
-            &#123;
-                mean        on;
-                prime2Mean  on;
-                base        time;
-            &#125;
-        );
-    &#125;
+      operation       sum;
+      fields
+      (
+          phi
+      );
+  &#125;
 
 &#125;
 </code></pre>
-<h2 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h2><pre><code class="lang-c++">functions&#123;
+<h2 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h2><p>``` c++<br>functions{</p>
+<p>fieldAverage<br>{<br>  type            fieldAverage;<br>  functionObjectLibs (“libfieldFunctionObjects.so”);<br>  enabled         true;<br>  writeControl   outputTime;</p>
+<p>//writeControl   timeStep;<br>//writeInterval  100;</p>
+<p>//cleanRestart true;</p>
+<p>//timeStart       20;<br>//timeEnd         200;</p>
+<p>  fields<br>  (</p>
+<pre><code>  U
+  &#123;
+      mean        on;
+      prime2Mean  on;     //fluctuation
+      base        time;
+  &#125;
+
+  p
+  &#123;
+      mean        on;
+      prime2Mean  on;
+      base        time;
+  &#125;
+</code></pre><p>  );<br>}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>}</p>
+<pre><code>
+## functionObject - forces_object
+
+``` c++
+functions&#123;
     forces_object
     &#123;
     type forces;
@@ -623,8 +744,8 @@
 
 
 &#125;
-</code></pre>
-<h2 id="Initial-Residuals"><a href="#Initial-Residuals" class="headerlink" title="Initial Residuals"></a>Initial Residuals</h2><ul>
+</code></pre><h2 id="Initial-Residuals"><a href="#Initial-Residuals" class="headerlink" title="Initial Residuals"></a>Initial Residuals</h2><p><img src="images/2022-07-20-18-47-54.png" alt=""></p>
+<ul>
 <li>initial residual goes down and up<ul>
 <li>not an indication of divergence, it just tells you that you have a strong unsteadniess</li>
 </ul>
