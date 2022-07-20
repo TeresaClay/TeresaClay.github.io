@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hello World | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Hello World | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mod13 2D Vortes Shedding">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
+<meta property="article:published_time" content="2022-07-20T08:12:13.096Z">
+<meta property="article:modified_time" content="2022-07-20T11:05:44.727Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
+
+
+<link rel="icon" href="/img/Teresa.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/Teresa.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(25)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Course
+                        <small>(23)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Course<--->AndreasMalcherek">
+                                        
+                                        AndreasMalcherek
+                                        
+                                            <small>(11
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WangYang">
+                                        
+                                        WangYang
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WolfDynamics">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        WolfDynamics
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="Course<--->WolfDynamicsBasic">
+                                                        
+                                                        Basic
+                                                        
+                                                            <small>(1)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/20/WD_Basic/Mod13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod13 2D Vortes Shedding">Mod13 2D Vortes Shedding</span>
+            <span class="post-date" title="2022-07-20 10:12:13">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics Basic "
+           href="/2022/07/19/WD_Basic/Mod12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod12 3D break free surface">Mod12 3D break free surface</span>
+            <span class="post-date" title="2022-07-19 15:17:10">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/19/WD_Basic/Mod11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod11 Cavity 2D">Mod11 Cavity 2D</span>
+            <span class="post-date" title="2022-07-19 15:15:46">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/18/WD_Basic/Mod10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod10 Module 1">Mod10 Module 1</span>
+            <span class="post-date" title="2022-07-18 21:29:28">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/16/Note_Wangyang/Lec12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec12">Lec12</span>
+            <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/14/Note_Wangyang/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 The Finite Volume Method">Lec11 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-14 16:38:06">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/12/Note_Wangyang/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10 The Finite Volume Method">Lec10 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec15/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec15 Die Energiebilanz in der Kontinummsmechanik">Lec15 Die Energiebilanz in der Kontinummsmechanik</span>
+            <span class="post-date" title="2022-07-12 13:33:10">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec13 Innere Spannungen und Cauchygleichungen">Lec13 Innere Spannungen und Cauchygleichungen</span>
+            <span class="post-date" title="2022-07-12 11:19:36">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec12,14 Deformation und Deformationstensor">Lec12,14 Deformation und Deformationstensor</span>
+            <span class="post-date" title="2022-07-12 10:44:01">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 Die Druck-Poisson-Gleichung">Lec11 Die Druck-Poisson-Gleichung</span>
+            <span class="post-date" title="2022-07-12 10:25:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10 Stromlinien und Stromfunktion">Lec10 Stromlinien und Stromfunktion</span>
+            <span class="post-date" title="2022-07-12 09:40:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/11/Andreas_Malcherek/Lec9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9 Gibt es rotationsfreie Strömungen">Lec9 Gibt es rotationsfreie Strömungen</span>
+            <span class="post-date" title="2022-07-11 23:39:27">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/11/Andreas_Malcherek/Lec8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Das d&#39;Almebertsche Paradoxon">Lec8 Das d&#39;Almebertsche Paradoxon</span>
+            <span class="post-date" title="2022-07-11 23:32:11">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/10/Andreas_Malcherek/Lec6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec6-7 Hydraudynamische Druckberechnungen">Lec6-7 Hydraudynamische Druckberechnungen</span>
+            <span class="post-date" title="2022-07-10 20:08:55">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/10/Andreas_Malcherek/Lec4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec4 Die Potentialströmungen">Lec4 Die Potentialströmungen</span>
+            <span class="post-date" title="2022-07-10 19:36:35">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/09/Andreas_Malcherek/Lec2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec2-3 Kontinuitätsgleichung für kompressible Gleichung">Lec2-3 Kontinuitätsgleichung für kompressible Gleichung</span>
+            <span class="post-date" title="2022-07-09 23:05:59">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/09/Andreas_Malcherek/Lec1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-09 22:18:12">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%209/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9 Mathematical Description of Physical Phenomena">Lec9 Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%200:%20%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%200:%20%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%208/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Vector Calculus">Lec8 Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec%207/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec7 Introduction">Lec7 Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Hello World</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-07-05 16:57:10'>2022-07-05 15:03</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><script type="math/tex; mode=display">
+\frac{x}{y}=z</script><script type="math/tex; mode=display">
+ x_1+y_1=2^3</script><pre><code class="lang-bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="lang-bash">$ hexo server
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="lang-bash">$ hexo generate
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="lang-bash">$ hexo deploy
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2017 TeresaClay
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 562px;
+    }
+    .nav.fullscreen {
+        margin-left: -562px;
+    }
+    .nav-left {
+        width: 140px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 512px;
+        }
+        .nav.fullscreen {
+            margin-left: -512px;
+        }
+        .nav-left {
+            width: 120px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 512px;
+            margin-left: -512px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>
