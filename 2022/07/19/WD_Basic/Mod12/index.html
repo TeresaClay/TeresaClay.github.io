@@ -6,15 +6,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="Mod12 3D break free surface | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="interFoam incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach  run_all.sh#!&#x2F;bin&#x2F;bash  sh run_mesh.sh sh run_solver.sh   run_mesh.sh   #!&#x2F;b">
+<meta name="description" content="Enige Details:  paraview: crinkle slice         interFoam incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach  run_all.sh#!&#x2F;bin&#x2F;bash  sh run_mesh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mod12 3D break free surface">
 <meta property="og:url" content="https://teresaclay.github.io/2022/07/19/WD_Basic/Mod12/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="interFoam incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach  run_all.sh#!&#x2F;bin&#x2F;bash  sh run_mesh.sh sh run_solver.sh   run_mesh.sh   #!&#x2F;b">
+<meta property="og:description" content="Enige Details:  paraview: crinkle slice         interFoam incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach  run_all.sh#!&#x2F;bin&#x2F;bash  sh run_mesh">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-19T13:17:10.096Z">
-<meta property="article:modified_time" content="2022-07-19T20:14:59.688Z">
+<meta property="article:modified_time" content="2022-07-19T21:28:18.585Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 
@@ -744,7 +744,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-19 22:14:59'>2022-07-19 15:17</time>
+            Created At : <time class="date" title='Updated At: 2022-07-19 23:28:18'>2022-07-19 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -755,7 +755,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#interFoam"><span class="toc-text">interFoam</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-water-in-domain"><span class="toc-text">functionObject: water_in_domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-prbles1"><span class="toc-text">functionObject: prbles1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-yPlus"><span class="toc-text">functionObject: yPlus</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#interFoam"><span class="toc-text">interFoam</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-water-in-domain"><span class="toc-text">functionObject: water_in_domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-prbles1"><span class="toc-text">functionObject: prbles1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-yPlus"><span class="toc-text">functionObject: yPlus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paraview"><span class="toc-text">paraview</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -771,7 +771,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code class="lang-c++">
+        <p>Enige Details:</p>
+<ul>
+<li>paraview: crinkle slice</li>
+</ul>
+<pre><code class="lang-c++">
 
 </code></pre>
 <pre><code class="lang-bash">
@@ -1185,6 +1189,13 @@ probes1
 
 &#125;
 </code></pre>
+<h4 id="paraview"><a href="#paraview" class="headerlink" title="paraview"></a>paraview</h4><ul>
+<li>interface<ul>
+<li>contour (surface), set $\alpha=$0.5</li>
+<li>threshhold (volume)</li>
+</ul>
+</li>
+</ul>
 
       
        
