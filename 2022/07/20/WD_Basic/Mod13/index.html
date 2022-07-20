@@ -6,16 +6,16 @@
   <meta name="keywords" content="">
   <meta name="description" content="Mod13 2D Vortes Shedding | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="To do: 101 about Residuals     top and bottom: symmetry, slip (no boundary layer+)  C1RE &#x3D; 200    icoFoam and blockMesh   C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam &#96;&#96;&#96; bash #!&#x2F;bin&#x2F;bash  foamCleanTut">
+<meta name="description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mod13 2D Vortes Shedding">
 <meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="To do: 101 about Residuals     top and bottom: symmetry, slip (no boundary layer+)  C1RE &#x3D; 200    icoFoam and blockMesh   C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam &#96;&#96;&#96; bash #!&#x2F;bin&#x2F;bash  foamCleanTut">
+<meta property="og:description" content="To do: 101 about Residuals     C1RE &#x3D; 200    icoFoam and blockMesh  C2RE &#x3D; 200,    icoFoam and fluentMeshToFoam  top and bottom: symmetry, slip (no boundary layer+)   #!&#x2F;bin&#x2F;bash    foamCleanTutorials">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
 <meta property="article:published_time" content="2022-07-20T08:12:13.096Z">
-<meta property="article:modified_time" content="2022-07-20T09:39:31.984Z">
+<meta property="article:modified_time" content="2022-07-20T09:40:26.195Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod13/images/2022-07-20-10-18-10.png">
@@ -755,7 +755,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 11:39:31'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 11:40:26'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -788,24 +788,23 @@
 <hr>
 <p><img src="images/2022-07-20-10-18-10.png" alt=""></p>
 <ul>
-<li><p>top and bottom: symmetry, slip (no boundary layer+)</p>
-</li>
-<li><p>C1<br>RE = 200    icoFoam and blockMesh</p>
-</li>
+<li>C1<br>RE = 200    icoFoam and blockMesh</li>
 </ul>
 <h1 id="C2"><a href="#C2" class="headerlink" title="C2"></a>C2</h1><p>RE = 200,    icoFoam and fluentMeshToFoam</p>
-<pre><code>``` bash
-#!/bin/bash
+<ul>
+<li><p>top and bottom: symmetry, slip (no boundary layer+)</p>
+<pre><code class="lang-bash">  #!/bin/bash
 
-foamCleanTutorials
-fluent3DMeshToFoam ../../../meshes_and_geometries/vortex_shedding/ascii.msh | tee log.fluentmesh
-checkMesh | tee log.checkMesh
-createPatch -dict system/createPatchDict.0 -overwrite
-createPatch -dict system/createPatchDict.1 -overwrite
-icoFoam | tee log.solver
-
-```
-</code></pre><h2 id="functionObject-inMassFlow"><a href="#functionObject-inMassFlow" class="headerlink" title="functionObject - inMassFlow"></a>functionObject - inMassFlow</h2><pre><code class="lang-c++">functions&#123;
+  foamCleanTutorials
+  fluent3DMeshToFoam ../../../meshes_and_geometries/vortex_shedding/ascii.msh | tee log.fluentmesh
+  checkMesh | tee log.checkMesh
+  createPatch -dict system/createPatchDict.0 -overwrite
+  createPatch -dict system/createPatchDict.1 -overwrite
+  icoFoam | tee log.solver
+</code></pre>
+</li>
+</ul>
+<h2 id="functionObject-inMassFlow"><a href="#functionObject-inMassFlow" class="headerlink" title="functionObject - inMassFlow"></a>functionObject - inMassFlow</h2><pre><code class="lang-c++">functions&#123;
 
     inMassFlow                              // mass flow at the inlet
     &#123;
