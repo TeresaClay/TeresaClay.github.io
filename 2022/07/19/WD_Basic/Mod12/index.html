@@ -484,7 +484,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 13:11:50'>2022-07-19 15:17</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 13:22:55'>2022-07-19 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -495,7 +495,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#interFoam"><span class="toc-text">interFoam</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-prbles1"><span class="toc-text">functionObject: prbles1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-yPlus"><span class="toc-text">functionObject: yPlus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paraview"><span class="toc-text">paraview</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#interFoam"><span class="toc-text">interFoam</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-water-in-domain"><span class="toc-text">functionObject: water_in_domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-prbles1"><span class="toc-text">functionObject: prbles1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-yPlus"><span class="toc-text">functionObject: yPlus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paraview"><span class="toc-text">paraview</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -706,111 +706,181 @@ snGradSchemes
 &#125;
 ```
 </code></pre><h4 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h4><ul>
-<li><p>33’57 对screen ouput 需要结合理论学习 (to do)<br>``` c++<br>solvers                             //smoothSolver method<br>{<br>“alpha.water.*”<br>{<br>  nAlphaCorr      2;<br>  nAlphaSubCycles 1;<br>  cAlpha          1;</p>
-<p>  MULESCorr       yes;        // semi-implicit method MULES<br>  nLimiterIter    10;         // contorls the number of MULES iterations </p>
-</li>
+<li>33’57 对screen ouput 需要结合理论学习 (to do)</li>
 </ul>
-</li>
-</ul>
-<p>/<em><br>        solver          smoothSolver;<br>        smoother        symGaussSeidel;<br>        tolerance       1e-8;<br>        relTol          0;
-</em>/</p>
-<pre><code>    solver          PBiCGStab;
-    preconditioner  DILU;
-    tolerance       1e-08;
-    relTol          0;
-&#125;
-
-&quot;(pcorr|pcorrFinal)&quot;           // pressure correction
+<pre><code class="lang-c++">solvers                             //smoothSolver method
 &#123;
-    solver          PCG;
-    preconditioner  DIC;
-    tolerance       1e-8;
-    relTol          0;
-&#125;
-
-p_rgh
-&#123;
-
-    solver          PCG;
-    preconditioner  DIC;
-    tolerance       1e-06;
-    relTol          0.01;
-    minIter        2;              // at least two iteration
-</code></pre><p>/<em><br>        solver           GAMG;<br>        tolerance        1e-6;<br>        relTol           0;<br>        smoother         GaussSeidel;<br>        nPreSweeps       0;<br>        nPostSweeps      2;<br>        cacheAgglomeration on;<br>        agglomerator     faceAreaPair;<br>        nCellsInCoarsestLevel 100;<br>        mergeLevels      1;
-</em>/</p>
-<p>/<em><br>        solver          PCG;<br>        preconditioner<br>        {<br>            preconditioner  GAMG;<br>            tolerance       1e-06;<br>            relTol          0;<br>            smoother        GaussSeidel;<br>            nPreSweeps      0;<br>            nPostSweeps     2;<br>            nFinestSweeps   2;<br>            cacheAgglomeration on;<br>            nCellsInCoarsestLevel 10;<br>            agglomerator    faceAreaPair;<br>            mergeLevels     1;<br>        }<br>        tolerance       1e-06;<br>        relTol          0.01;
-</em>/<br>    }</p>
-<pre><code>p_rghFinal
-&#123;
-    $p_rgh;
-    //tolerance       1e-08;
-    relTol          0;
-minIter        2;
-&#125;
-
-&quot;(U|UFinal)&quot;
-&#123;
-</code></pre><p>/<em><br>        solver          PBiCG;<br>        preconditioner  DILU;<br>        tolerance       1e-08;<br>        relTol          0;
-</em>/</p>
-<pre><code>    solver          PBiCGStab;
-    preconditioner  DILU;
-    tolerance       1e-08;
-    relTol          0;
-
-&#125;
-
-&quot;(k|epsilon).*&quot;
-&#123;
-</code></pre><p>/<em><br>        solver          PBiCG;<br>        preconditioner  DILU;<br>        tolerance       1e-08;<br>        relTol          0;
-</em>/</p>
-<pre><code>    solver          PBiCGStab;
-    preconditioner  DILU;
-    tolerance       1e-08;
-    relTol          0;
-
-&#125;
-</code></pre><p>}</p>
-<p>PIMPLE<br>{<br>    consistent         yes;<br>    momentumPredictor   yes;        // recommended for highly convective flows</p>
-<pre><code>nOuterCorrectors    2;          // 1 = running PISO; the most expensive / shock waves
-nCorrectors         3;          // not  very expensive
-nNonOrthogonalCorrectors 1;     // related to mesh quality; play n=3 - DIPCG
-</code></pre><p>}</p>
-<p>relaxationFactors                   // for unsteady problem<br>{<br>    fields<br>    {<br>        “.<em>“ 0.9;<br>    }<br>    equations<br>    {<br>        “.</em>“ 0.9;<br>    }<br>}</p>
-<pre><code>
-![](images/2022-07-20-09-48-47.png)
-
-
-#### functionObject: water_in_domain
-    - volume integral of the field variables $\alpha$ in all the domain
-    ``` c++
-    function 
+    &quot;alpha.water.*&quot;
     &#123;
+        nAlphaCorr      2;
+        nAlphaSubCycles 1;
+        cAlpha          1;
 
-    water_in_domain
-    &#123;
-        type            volFieldValue;
-        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+        MULESCorr       yes;        // semi-implicit method MULES
+        nLimiterIter    10;         // contorls the number of MULES iterations 
 
-        enabled         true;
-        log             true;
+/*
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-8;
+        relTol          0;
+*/
 
-        //writeControl    writeTime;
-        writeControl   timeStep;
-        writeInterval  1;
-
-        writeFields     false;
-        writeLocation   false;    
-
-        regionType      all;
-
-        operation       volIntegrate;   //volume integral
-        fields
-        (
-            alpha.water
-        );
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-08;
+        relTol          0;
     &#125;
 
+    &quot;(pcorr|pcorrFinal)&quot;           // pressure correction
+    &#123;
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-8;
+        relTol          0;
     &#125;
+
+    p_rgh
+    &#123;
+
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-06;
+        relTol          0.01;
+        minIter        2;              // at least two iteration
+
+/*
+        solver           GAMG;
+        tolerance        1e-6;
+        relTol           0;
+        smoother         GaussSeidel;
+        nPreSweeps       0;
+        nPostSweeps      2;
+        cacheAgglomeration on;
+        agglomerator     faceAreaPair;
+        nCellsInCoarsestLevel 100;
+        mergeLevels      1;
+*/
+
+/*
+        solver          PCG;
+        preconditioner
+        &#123;
+            preconditioner  GAMG;
+            tolerance       1e-06;
+            relTol          0;
+            smoother        GaussSeidel;
+            nPreSweeps      0;
+            nPostSweeps     2;
+            nFinestSweeps   2;
+            cacheAgglomeration on;
+            nCellsInCoarsestLevel 10;
+            agglomerator    faceAreaPair;
+            mergeLevels     1;
+        &#125;
+        tolerance       1e-06;
+        relTol          0.01;
+*/
+    &#125;
+
+    p_rghFinal
+    &#123;
+        $p_rgh;
+        //tolerance       1e-08;
+        relTol          0;
+    minIter        2;
+    &#125;
+
+    &quot;(U|UFinal)&quot;
+    &#123;
+/*
+        solver          PBiCG;
+        preconditioner  DILU;
+        tolerance       1e-08;
+        relTol          0;
+*/
+
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-08;
+        relTol          0;
+
+    &#125;
+
+    &quot;(k|epsilon).*&quot;
+    &#123;
+/*
+        solver          PBiCG;
+        preconditioner  DILU;
+        tolerance       1e-08;
+        relTol          0;
+*/
+
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-08;
+        relTol          0;
+
+    &#125;
+
+&#125;
+
+PIMPLE
+&#123;
+    consistent         yes;
+    momentumPredictor   yes;        // recommended for highly convective flows
+
+    nOuterCorrectors    2;          // 1 = running PISO; the most expensive / shock waves
+    nCorrectors         3;          // not  very expensive
+    nNonOrthogonalCorrectors 1;     // related to mesh quality; play n=3 - DIPCG
+&#125;
+
+relaxationFactors                   // for unsteady problem
+&#123;
+    fields
+    &#123;
+        &quot;.*&quot; 0.9;
+    &#125;
+    equations
+    &#123;
+        &quot;.*&quot; 0.9;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<p><img src="images/2022-07-20-09-48-47.png" alt=""></p>
+<h4 id="functionObject-water-in-domain"><a href="#functionObject-water-in-domain" class="headerlink" title="functionObject: water_in_domain"></a>functionObject: water_in_domain</h4><pre><code>- volume integral of the field variables $\alpha$ in all the domain
+``` c++
+function 
+&#123;
+
+water_in_domain
+&#123;
+    type            volFieldValue;
+    functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+
+    enabled         true;
+    log             true;
+
+    //writeControl    writeTime;
+    writeControl   timeStep;
+    writeInterval  1;
+
+    writeFields     false;
+    writeLocation   false;    
+
+    regionType      all;
+
+    operation       volIntegrate;   //volume integral
+    fields
+    (
+        alpha.water
+    );
+&#125;
+
+&#125;
+```
 </code></pre><h4 id="functionObject-prbles1"><a href="#functionObject-prbles1" class="headerlink" title="functionObject: prbles1"></a>functionObject: prbles1</h4><ul>
 <li><p>sample the selected fields at the selected locations</p>
 <pre><code class="lang-c++">functions
