@@ -70,170 +70,6 @@
 
 <div class="icon">
     
-        
-            <a title="rss"
-               href="/atom.xml"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-rss"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="github"
-               href="https://github.com/yelog"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-github"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="facebook"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-facebook"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-    
-        
-            <a title="instagram"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-instagram"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="reddit"
-               href="https://www.reddit.com/user/yelog/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-reddit"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="weibo"
-               href="http://weibo.com/u/2307534817"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-weibo"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="jianshu"
-               href="https://www.jianshu.com/u/ff56736de7cf"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-jianshu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="zhihu"
-               href="https://www.zhihu.com/people/jaytp/activities"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-zhihu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="oschina"
-               href="https://my.oschina.net/yelog"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-oschina"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="email"
-               href="mailto:jaytp@qq.com"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-email"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="qq"
-               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-qq"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="kugou"
-               href="https://www.kugou.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-kugou"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="neteasemusic"
-               href="https://music.163.com/#/user/home?id=88151013"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-neteasemusic"></use>
-                    </svg>
-                
-            </a>
-        
-    
 </div>
 
 
@@ -311,7 +147,7 @@
                                                         
                                                         Basic
                                                         
-                                                            <small>(3)</small>
+                                                            <small>(1)</small>
                                                         
                                                     </div>
                                                 </li>
@@ -368,8 +204,6 @@
     <div class="friends-content">
         <ul>
             
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
-            
         </ul>
     </div>
 </div>
@@ -423,7 +257,7 @@
         </a>
         
         
-        <a  class="All Course WolfDynamics Basic "
+        <a  class="All Course WolfDynamics "
            href="/2022/07/19/WD_Basic/Mod11/"
            data-tag=""
            data-author="" >
@@ -432,7 +266,7 @@
         </a>
         
         
-        <a  class="All Course WolfDynamics Basic "
+        <a  class="All Course WolfDynamics "
            href="/2022/07/18/WD_Basic/Mod10/"
            data-tag=""
            data-author="" >
@@ -827,6 +661,20 @@ q=uB=\Psi_B-\Psi_A</script>offene Ränder: Stromlinien ändert ihren Wert über 
 
         /*高亮代码块行号*/
         
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
 
         /*访问数量*/
         
@@ -845,38 +693,70 @@ q=uB=\Psi_B-\Psi_A</script>offene Ränder: Stromlinien ändert ihren Wert über 
 
 <!--加入行号的高亮代码块样式-->
 
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
 <!--自定义样式设置-->
 <style>
     
     
     .nav {
-        width: 542px;
+        width: 562px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -562px;
     }
     .nav-left {
-        width: 120px;
+        width: 140px;
     }
     
     
     @media screen and (max-width: 1468px) {
         .nav {
-            width: 492px;
+            width: 512px;
         }
         .nav.fullscreen {
-            margin-left: -492px;
+            margin-left: -512px;
         }
         .nav-left {
-            width: 100px;
+            width: 120px;
         }
     }
     
     
     @media screen and (max-width: 1024px) {
         .nav {
-            width: 492px;
-            margin-left: -492px
+            width: 512px;
+            margin-left: -512px
         }
         .nav.fullscreen {
             margin-left: 0;
