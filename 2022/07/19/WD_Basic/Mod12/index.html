@@ -480,7 +480,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 13:29:24'>2022-07-19 15:17</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 16:14:43'>2022-07-19 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -510,13 +510,16 @@
         <p>To do:</p>
 <ul>
 <li>paraview: crinkle slice</li>
-<li>ico,pimpo,piso<br>``` c++</li>
+<li>ico,pimpo,piso</li>
+<li>TLC</li>
+<li>the pressure concept in OpenFOAM, (例题？)</li>
 </ul>
-<pre><code>
-``` bash
-</code></pre><hr>
+<hr>
 <h4 id="interFoam"><a href="#interFoam" class="headerlink" title="interFoam"></a>interFoam</h4><ul>
-<li>incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach</li>
+<li><p>incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach</p>
+</li>
+<li><p>relative pressure=static pressure - hydrodstatic pressure<br>$\qquad p_{rgh}=p-\rho gh$</p>
+</li>
 </ul>
 <h4 id="run-all-sh"><a href="#run-all-sh" class="headerlink" title="run_all.sh"></a>run_all.sh</h4><pre><code class="lang-bash">#!/bin/bash
 
@@ -712,8 +715,9 @@ snGradSchemes
             cAlpha          1;
 
             MULESCorr       yes;        // semi-implicit method MULES
-            nLimiterIter    10;         // contorls the number of MULES iterations 
+            nLimiterIter    10;         // contorls the number of MULES iterations
 
+           // isoAdvektor    - another method 
     /*
             solver          smoothSolver;
             smoother        symGaussSeidel;
@@ -738,11 +742,11 @@ snGradSchemes
         p_rgh
         &#123;
 
-            solver          PCG;
+            solver          PCG;             // 伯松方程对称，正定
             preconditioner  DIC;
             tolerance       1e-06;
             relTol          0.01;
-            minIter        2;              // at least two iteration
+            minIter            2;              // at least two iteration
 
     /*
             solver           GAMG;
@@ -780,9 +784,9 @@ snGradSchemes
 
         p_rghFinal
         &#123;
-            $p_rgh;
+            $p_rgh;                            //参考
             //tolerance       1e-08;
-            relTol          0;
+            relTol              0;
         minIter        2;
         &#125;
 
@@ -795,7 +799,7 @@ snGradSchemes
             relTol          0;
     */
 
-            solver          PBiCGStab;
+            solver          PBiCGStab;      // not symmetric 
             preconditioner  DILU;
             tolerance       1e-08;
             relTol          0;
@@ -844,39 +848,41 @@ snGradSchemes
 </code></pre>
 </li>
 </ul>
-<p><img src="images/2022-07-20-09-48-47.png" alt=""></p>
-<h4 id="functionObject-water-in-domain"><a href="#functionObject-water-in-domain" class="headerlink" title="functionObject: water_in_domain"></a>functionObject: water_in_domain</h4><pre><code>- volume integral of the field variables $\alpha$ in all the domain
-``` c++
-function 
-&#123;
+<p><img src="/images/2022-07-20-09-48-47.png" alt=""></p>
+<h4 id="functionObject-water-in-domain"><a href="#functionObject-water-in-domain" class="headerlink" title="functionObject: water_in_domain"></a>functionObject: water_in_domain</h4><ul>
+<li><p>volume integral of the field variables $\alpha$ in all the domain</p>
+<pre><code class="lang-c++">  function 
+  &#123;
 
-water_in_domain
-&#123;
-    type            volFieldValue;
-    functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+  water_in_domain
+  &#123;
+      type            volFieldValue;
+      functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
 
-    enabled         true;
-    log             true;
+      enabled         true;
+      log             true;
 
-    //writeControl    writeTime;
-    writeControl   timeStep;
-    writeInterval  1;
+      //writeControl    writeTime;
+      writeControl   timeStep;
+      writeInterval  1;
 
-    writeFields     false;
-    writeLocation   false;    
+      writeFields     false;
+      writeLocation   false;    
 
-    regionType      all;
+      regionType      all;
 
-    operation       volIntegrate;   //volume integral
-    fields
-    (
-        alpha.water
-    );
-&#125;
+      operation       volIntegrate;   //volume integral
+      fields
+      (
+          alpha.water
+      );
+  &#125;
 
-&#125;
-```
-</code></pre><h4 id="functionObject-prbles1"><a href="#functionObject-prbles1" class="headerlink" title="functionObject: prbles1"></a>functionObject: prbles1</h4><ul>
+  &#125;
+</code></pre>
+</li>
+</ul>
+<h4 id="functionObject-prbles1"><a href="#functionObject-prbles1" class="headerlink" title="functionObject: prbles1"></a>functionObject: prbles1</h4><ul>
 <li><p>sample the selected fields at the selected locations</p>
 <pre><code class="lang-c++">functions
 
