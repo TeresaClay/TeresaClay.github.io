@@ -487,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 20:56:41'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 21:03:44'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -498,7 +498,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -687,73 +687,72 @@
 &#125;
 </code></pre><pre><code>
 ## functionObject - forces_object
+</code></pre><pre><code>functions&#123;
 
-``` c++
+forces_object
+&#123;
+type forces;
+functionObjectLibs (&quot;libforces.so&quot;);
 
-    functions&#123;
+//writeControl outputTime;
+writeControl   timeStep;
+writeInterval  1;
 
-    forces_object
-    &#123;
-    type forces;
-    functionObjectLibs (&quot;libforces.so&quot;);
+//// Patches to sample
+//patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
+patches (&quot;cylinder&quot;);
 
-    //writeControl outputTime;
+//// Name of fields
+pName p;
+Uname U;
+
+//// Density
+rho rhoInf;
+rhoInf 1.;
+
+//// Centre of rotation
+CofR (0 0 0);
+&#125;
+&#125;
+</code></pre><pre><code>
+## functionObject - forceCoeffs_object
+</code></pre><pre><code>function&#123;
+forceCoeffs_object
+&#123;
+// rhoInf - reference density
+// CofR - Centre of rotation
+// dragDir - Direction of drag coefficient
+// liftDir - Direction of lift coefficient
+// pitchAxis - Pitching moment axis
+// magUinf - free stream velocity magnitude
+// lRef - reference length
+// Aref - reference area
+type forceCoeffs;
+functionObjectLibs (&quot;libforces.so&quot;);
+//patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
+patches (cylinder);
+
+pName p;
+Uname U;
+rho rhoInf;
+rhoInf 1.0;
+
+//// Dump to file
+log true;
+
+CofR (0.0 0 0);
+liftDir (0 1 0);
+dragDir (1 0 0);
+pitchAxis (0 0 1);
+magUInf 1.0;
+lRef 1.0;         // reference lenght for moments!!!
+Aref 2.0;         // reference area 1 for 2d
+
     writeControl   timeStep;
     writeInterval  1;
-
-    //// Patches to sample
-    //patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
-    patches (&quot;cylinder&quot;);
-
-    //// Name of fields
-    pName p;
-    Uname U;
-
-    //// Density
-    rho rhoInf;
-    rhoInf 1.;
-
-    //// Centre of rotation
-    CofR (0 0 0);
-    &#125;
-    &#125;
-</code></pre><h2 id="functionObject-forceCoeffs-object"><a href="#functionObject-forceCoeffs-object" class="headerlink" title="functionObject - forceCoeffs_object"></a>functionObject - forceCoeffs_object</h2><pre><code class="lang-c++">    function&#123;
-    forceCoeffs_object
-    &#123;
-    // rhoInf - reference density
-    // CofR - Centre of rotation
-    // dragDir - Direction of drag coefficient
-    // liftDir - Direction of lift coefficient
-    // pitchAxis - Pitching moment axis
-    // magUinf - free stream velocity magnitude
-    // lRef - reference length
-    // Aref - reference area
-    type forceCoeffs;
-    functionObjectLibs (&quot;libforces.so&quot;);
-    //patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
-    patches (cylinder);
-
-    pName p;
-    Uname U;
-    rho rhoInf;
-    rhoInf 1.0;
-
-    //// Dump to file
-    log true;
-
-    CofR (0.0 0 0);
-    liftDir (0 1 0);
-    dragDir (1 0 0);
-    pitchAxis (0 0 1);
-    magUInf 1.0;
-    lRef 1.0;         // reference lenght for moments!!!
-    Aref 2.0;         // reference area 1 for 2d
-
-        writeControl   timeStep;
-        writeInterval  1;
-    &#125;
-    &#125;
-</code></pre>
+&#125;
+&#125;
+</code></pre><p>```</p>
 <h2 id="Initial-Residuals"><a href="#Initial-Residuals" class="headerlink" title="Initial Residuals"></a>Initial Residuals</h2><p><img src="images/2022-07-20-18-47-54.png" alt=""></p>
 <ul>
 <li>initial residual goes down and up<ul>
