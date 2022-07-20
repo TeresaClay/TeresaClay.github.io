@@ -484,7 +484,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 13:22:55'>2022-07-19 15:17</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 13:25:00'>2022-07-19 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -706,147 +706,148 @@ snGradSchemes
 &#125;
 ```
 </code></pre><h4 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h4><ul>
-<li>33’57 对screen ouput 需要结合理论学习 (to do)</li>
-</ul>
-<pre><code class="lang-c++">solvers                             //smoothSolver method
-&#123;
-    &quot;alpha.water.*&quot;
-    &#123;
-        nAlphaCorr      2;
-        nAlphaSubCycles 1;
-        cAlpha          1;
+<li><p>33’57 对screen ouput 需要结合理论学习 (to do)</p>
+<pre><code class="lang-c++">  solvers                             //smoothSolver method
+  &#123;
+      &quot;alpha.water.*&quot;
+      &#123;
+          nAlphaCorr      2;
+          nAlphaSubCycles 1;
+          cAlpha          1;
 
-        MULESCorr       yes;        // semi-implicit method MULES
-        nLimiterIter    10;         // contorls the number of MULES iterations 
+          MULESCorr       yes;        // semi-implicit method MULES
+          nLimiterIter    10;         // contorls the number of MULES iterations 
 
-/*
-        solver          smoothSolver;
-        smoother        symGaussSeidel;
-        tolerance       1e-8;
-        relTol          0;
-*/
+  /*
+          solver          smoothSolver;
+          smoother        symGaussSeidel;
+          tolerance       1e-8;
+          relTol          0;
+  */
 
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-    &#125;
+          solver          PBiCGStab;
+          preconditioner  DILU;
+          tolerance       1e-08;
+          relTol          0;
+      &#125;
 
-    &quot;(pcorr|pcorrFinal)&quot;           // pressure correction
-    &#123;
-        solver          PCG;
-        preconditioner  DIC;
-        tolerance       1e-8;
-        relTol          0;
-    &#125;
+      &quot;(pcorr|pcorrFinal)&quot;           // pressure correction
+      &#123;
+          solver          PCG;
+          preconditioner  DIC;
+          tolerance       1e-8;
+          relTol          0;
+      &#125;
 
-    p_rgh
-    &#123;
+      p_rgh
+      &#123;
 
-        solver          PCG;
-        preconditioner  DIC;
-        tolerance       1e-06;
-        relTol          0.01;
-        minIter        2;              // at least two iteration
+          solver          PCG;
+          preconditioner  DIC;
+          tolerance       1e-06;
+          relTol          0.01;
+          minIter        2;              // at least two iteration
 
-/*
-        solver           GAMG;
-        tolerance        1e-6;
-        relTol           0;
-        smoother         GaussSeidel;
-        nPreSweeps       0;
-        nPostSweeps      2;
-        cacheAgglomeration on;
-        agglomerator     faceAreaPair;
-        nCellsInCoarsestLevel 100;
-        mergeLevels      1;
-*/
+  /*
+          solver           GAMG;
+          tolerance        1e-6;
+          relTol           0;
+          smoother         GaussSeidel;
+          nPreSweeps       0;
+          nPostSweeps      2;
+          cacheAgglomeration on;
+          agglomerator     faceAreaPair;
+          nCellsInCoarsestLevel 100;
+          mergeLevels      1;
+  */
 
-/*
-        solver          PCG;
-        preconditioner
-        &#123;
-            preconditioner  GAMG;
-            tolerance       1e-06;
-            relTol          0;
-            smoother        GaussSeidel;
-            nPreSweeps      0;
-            nPostSweeps     2;
-            nFinestSweeps   2;
-            cacheAgglomeration on;
-            nCellsInCoarsestLevel 10;
-            agglomerator    faceAreaPair;
-            mergeLevels     1;
-        &#125;
-        tolerance       1e-06;
-        relTol          0.01;
-*/
-    &#125;
+  /*
+          solver          PCG;
+          preconditioner
+          &#123;
+              preconditioner  GAMG;
+              tolerance       1e-06;
+              relTol          0;
+              smoother        GaussSeidel;
+              nPreSweeps      0;
+              nPostSweeps     2;
+              nFinestSweeps   2;
+              cacheAgglomeration on;
+              nCellsInCoarsestLevel 10;
+              agglomerator    faceAreaPair;
+              mergeLevels     1;
+          &#125;
+          tolerance       1e-06;
+          relTol          0.01;
+  */
+      &#125;
 
-    p_rghFinal
-    &#123;
-        $p_rgh;
-        //tolerance       1e-08;
-        relTol          0;
-    minIter        2;
-    &#125;
+      p_rghFinal
+      &#123;
+          $p_rgh;
+          //tolerance       1e-08;
+          relTol          0;
+      minIter        2;
+      &#125;
 
-    &quot;(U|UFinal)&quot;
-    &#123;
-/*
-        solver          PBiCG;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-*/
+      &quot;(U|UFinal)&quot;
+      &#123;
+  /*
+          solver          PBiCG;
+          preconditioner  DILU;
+          tolerance       1e-08;
+          relTol          0;
+  */
 
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
+          solver          PBiCGStab;
+          preconditioner  DILU;
+          tolerance       1e-08;
+          relTol          0;
 
-    &#125;
+      &#125;
 
-    &quot;(k|epsilon).*&quot;
-    &#123;
-/*
-        solver          PBiCG;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-*/
+      &quot;(k|epsilon).*&quot;
+      &#123;
+  /*
+          solver          PBiCG;
+          preconditioner  DILU;
+          tolerance       1e-08;
+          relTol          0;
+  */
 
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
+          solver          PBiCGStab;
+          preconditioner  DILU;
+          tolerance       1e-08;
+          relTol          0;
 
-    &#125;
+      &#125;
 
-&#125;
+  &#125;
 
-PIMPLE
-&#123;
-    consistent         yes;
-    momentumPredictor   yes;        // recommended for highly convective flows
+  PIMPLE
+  &#123;
+      consistent         yes;
+      momentumPredictor   yes;        // recommended for highly convective flows
 
-    nOuterCorrectors    2;          // 1 = running PISO; the most expensive / shock waves
-    nCorrectors         3;          // not  very expensive
-    nNonOrthogonalCorrectors 1;     // related to mesh quality; play n=3 - DIPCG
-&#125;
+      nOuterCorrectors    2;          // 1 = running PISO; the most expensive / shock waves
+      nCorrectors         3;          // not  very expensive
+      nNonOrthogonalCorrectors 1;     // related to mesh quality; play n=3 - DIPCG
+  &#125;
 
-relaxationFactors                   // for unsteady problem
-&#123;
-    fields
-    &#123;
-        &quot;.*&quot; 0.9;
-    &#125;
-    equations
-    &#123;
-        &quot;.*&quot; 0.9;
-    &#125;
-&#125;
+  relaxationFactors                   // for unsteady problem
+  &#123;
+      fields
+      &#123;
+          &quot;.*&quot; 0.9;
+      &#125;
+      equations
+      &#123;
+          &quot;.*&quot; 0.9;
+      &#125;
+  &#125;
 </code></pre>
+</li>
+</ul>
 </li>
 </ul>
 <p><img src="images/2022-07-20-09-48-47.png" alt=""></p>
