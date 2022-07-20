@@ -487,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 20:32:32'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 20:37:00'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -557,83 +557,38 @@
 </ul>
 </li>
 </ul>
-<h2 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h2><pre><code class="lang-c++">        solvers
+<h2 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h2><pre><code class="lang-c++">    solvers
+    &#123;
+
+        p
         &#123;
-        /*
-            p
-            &#123;
-                solver          PCG;
-                preconditioner  DIC;
-                tolerance       1e-06;
-                relTol          0;
-            minIter     2;
-            &#125;
-        */
+            solver           GAMG;
+            tolerance        1e-6;
+            relTol           0;
+            smoother         GaussSeidel;
+            nPreSweeps       0;
+            nPostSweeps      2;
+            cacheAgglomeration on;
+            agglomerator     faceAreaPair;
+            nCellsInCoarsestLevel 100;
+            mergeLevels      1;
+            minIter          2;
+        &#125;
 
-        /*
-            p
-            &#123;
-                solver          PCG;
-                preconditioner
-                &#123;
-                    preconditioner  GAMG;
-                    tolerance       1e-06;
-                    relTol          0;
-                    smoother        GaussSeidel;
-                    nPreSweeps      0;
-                    nPostSweeps     2;
-                    nFinestSweeps   2;
-                    cacheAgglomeration on;
-                    nCellsInCoarsestLevel 10;
-                    agglomerator    faceAreaPair;
-                    mergeLevels     1;
-                &#125;
-                tolerance       1e-06;
-                relTol          0.01;
-            minIter     2;
-            &#125;
-        */
+        pFinal
+        &#123;
+            $p;
+            relTol          0;
+            minIter         2;
+        &#125;
 
-            p
-            &#123;
-                solver           GAMG;
-                tolerance        1e-6;
-                relTol           0;
-                smoother         GaussSeidel;
-                nPreSweeps       0;
-                nPostSweeps      2;
-                cacheAgglomeration on;
-                agglomerator     faceAreaPair;
-                nCellsInCoarsestLevel 100;
-                mergeLevels      1;
-                minIter     2;
+        U
+        &#123;
+            solver          PBiCGStab;
+            preconditioner  DILU;
+            tolerance       1e-08;
+            relTol          0;
             &#125;
-
-            pFinal
-            &#123;
-                $p;
-                relTol          0;
-                minIter         2;
-            &#125;
-
-            U
-            &#123;
-                solver          PBiCGStab;
-                preconditioner  DILU;
-                tolerance       1e-08;
-                relTol          0;
-            &#125;
-
-        /*
-            U
-            &#123;
-                type            coupled;
-                solver          PBiCCCG;
-                preconditioner  DILU;
-                tolerance       (1e-08 1e-08 1e-08);
-                relTol          (0 0 0);
-            &#125;
-        */
         &#125;
 
         PISO
@@ -691,7 +646,7 @@
             );
         &#125;
 
-    &#125;
+&#125;
 </code></pre><pre><code>
 
 ## functionObject - fieldAverage
