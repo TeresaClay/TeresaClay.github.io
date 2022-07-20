@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec10 Stromlinien und Stromfunktion | TeresaClay的小屋</title>
+  <title>Mod12 3D break free surface | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec10 Stromlinien und Stromfunktion | TeresaClay的小屋">
+  <meta name="description" content="Mod12 3D break free surface | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="&#96;&#96; c++   --- ![](images&#x2F;2022-07-20-10-18-10.png)  ### C1 RE &#x3D; 200    icoFoam and blockMesh     ### C2     RE &#x3D; 200,    icoFoam and fluentMeshToFoam      &#96;&#96;&#96; bash     #!&#x2F;bin&#x2F;bash      foamCleanTutorial">
 <meta property="og:type" content="article">
@@ -729,9 +729,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec10" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-WD_Basic/Mod13" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec10 Stromlinien und Stromfunktion</h1>
+        <h1 class="article-title">Mod12 3D break free surface</h1>
     
     <div class="article-meta">
         
@@ -743,7 +743,9 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics&lt;---&gt;Basic">Basic</a>
             
         </span>
         
@@ -751,7 +753,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-12 10:24:39'>2022-07-12 09:40</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 10:31:38'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -762,7 +764,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stromlinien"><span class="toc-text">Stromlinien</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#die-Stromfunktion"><span class="toc-text">die Stromfunktion</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Was-sagt-aus-der-Wert-der-Stromfunktion"><span class="toc-text">Was sagt aus der Wert der Stromfunktion?</span></a></li></ol></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -778,49 +780,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Stromlinien"><a href="#Stromlinien" class="headerlink" title="Stromlinien"></a>Stromlinien</h3><ul>
-<li><p>Linien, deren Tangente in jedem Punkt in Richtung des dortigen Geschwindigkeitsvektors weist<br><img src="images/2022-07-12-09-41-05.png" alt=""></p>
-<script type="math/tex; mode=display">
-y'=\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{v}{u} \implies udy-vdx=0</script></li>
-<li><p>Bedinung für eine Stromlinie in 3D</p>
-<script type="math/tex; mode=display">
-\vec{u}\times d\vec{r}=0</script></li>
-<li>wie kann man ein einzelne Stromlinie identizifiert?</li>
-</ul>
-<h3 id="die-Stromfunktion"><a href="#die-Stromfunktion" class="headerlink" title="die Stromfunktion"></a>die Stromfunktion</h3><ul>
-<li>dient der Beschreibung von Stromlinien <script type="math/tex; mode=display">
-u=\frac{\partial \Psi}{\partial y}+\frac{\partial \Psi}{\partial x}</script></li>
-<li>durch Stromlinien beschriebene Strömungen erfüllen die Kontinuitätsgleichung <script type="math/tex; mode=display">
-\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=\frac{\partial ^{2}\Psi}{\partial x \partial y}-\frac{\partial ^{2}\Psi}{\partial x\partial y}=0</script>-&gt; entlang einer Stromlinie ist die Stromfunktion konstnt<script type="math/tex; mode=display">
-d\Psi=\frac{\partial \Psi}{\partial x}dx+\frac{\partial \Psi}{\partial y}dy=-vdx+udy=0</script><blockquote>
-<p>Note: Jede Stromlinie wird durch einen bestimmten Wert der Stromfunktion beschrieben</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="Was-sagt-aus-der-Wert-der-Stromfunktion"><a href="#Was-sagt-aus-der-Wert-der-Stromfunktion" class="headerlink" title="Was sagt aus der Wert der Stromfunktion?"></a>Was sagt aus der Wert der Stromfunktion?</h4><ul>
-<li><p>Volumencurchfluss und Flächendurchfluss</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\text{3D: }Q&=\frac{V}{t} \quad \left[ \frac{m^{3}}{s}\right] \\ \text{2D: } q&=\frac{A}{t} \quad \left[ \frac{m^{2}}{s}\right] \qquad \text{through line AB} \\q&=\int_A^B\vec{u}\vec{ds}=\int_A^B(udy-vdy)=\int_A^Bd\Psi=\Psi_B-\Psi_A \\ & \text{with } \vec{s}=\begin{bmatrix} \Delta y \\ - \Delta x \\\end{bmatrix} \quad d\vec{s}\begin{bmatrix} dy \\ -dx \\\end{bmatrix} \\ & \text{steht senkrecht auf der Verbindung von A nach B}
-\end{aligned}</script></li>
-<li><p>Stromlinien und Äquipotentiallinien</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-   &u=\frac{\partial \Phi}{\partial y}=\frac{\partial \phi}{\partial x} \qquad  & v=-\frac{\partial \Psi}{\partial x}=\frac{\partial \phi}{\partial y} \quad
-   \\ &\frac{\partial u}{\partial y}=\frac{\partial ^{2}\Psi}{\partial y^{2}}=\frac{\partial ^{2}\phi}{\partial x \partial y}  \qquad & -\frac{\partial v}{\partial x}=\frac{\partial ^{2}\Psi}{\partial x^{2}}=-\frac{\partial ^{2}\phi}{\partial x\partial y} \\ & \frac{\partial ^{2}\Psi}{\partial y^{2}}+\frac{\partial ^{2}\Psi}{\partial x^{2}}=0 \qquad & \frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial x^{2}}=0
-\end{aligned}</script><blockquote>
-<p>Stromlinien erfüllt Laplacegleichung (parallel zur Strömungsvektor)<br>Stromlinien stehen sekrecht auf Äquipotentiallinien</p>
-</blockquote>
-</li>
-<li><p>Randbedingungen für die Stromlinien-Laplacegleichung</p>
-<ul>
-<li>Partikel bewegen sich englang geschlossenen zusammenhängenden Rändern<br>(ein Rand hat einzige Stromfunktion, ein anderer Rand hat ein anderer Stromfunktion)<br>Dirichlet-RB für die Stromfunktion </li>
-<li>Geschwindigkeit über eine offenen Rand <script type="math/tex; mode=display">
-q=uB=\Psi_B-\Psi_A</script>offene Ränder: Stromlinien ändert ihren Wert über den Rand nicht —&gt; homogene Neuman-RB   </li>
-</ul>
-</li>
-</ul>
+        <p>`` c++</p>
+<pre><code>
 
+---
+![](images/2022-07-20-10-18-10.png)
+
+### C1
+RE = 200    icoFoam and blockMesh
+
+
+
+
+### C2    
+RE = 200,    icoFoam and fluentMeshToFoam
+
+    ``` bash
+    #!/bin/bash
+
+    foamCleanTutorials
+    fluent3DMeshToFoam ../../../meshes_and_geometries/vortex_shedding/ascii.msh | tee log.fluentmesh
+    checkMesh | tee log.checkMesh
+    createPatch -dict system/createPatchDict.0 -overwrite
+    createPatch -dict system/createPatchDict.1 -overwrite
+    icoFoam | tee log.solver
+</code></pre>
       
        
     </div>
