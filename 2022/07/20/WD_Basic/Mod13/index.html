@@ -487,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 21:21:34'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 21:25:41'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -498,7 +498,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvScheme"><span class="toc-text">fvScheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -557,6 +557,53 @@
 </ul>
 </li>
 </ul>
+<h2 id="fvScheme"><a href="#fvScheme" class="headerlink" title="fvScheme"></a>fvScheme</h2><pre><code class="lang-c++">ddtSchemes
+&#123;
+    //default         Euler;
+    default         backward;
+    //default         CrankNicolson 0.5;
+&#125;
+
+gradSchemes
+&#123;
+    //default         Gauss linear;
+    //grad(p)         Gauss linear;
+
+    //default          cellLimited Gauss linear 1;
+    default          cellLimited leastSquares 1;
+
+    //default          cellMDLimited leastSquares 0.5;
+    //default          cellMDLimited Gauss linear 1;
+
+    //grad(U)          cellMDLimited Gauss linear 1;
+&#125;
+
+divSchemes
+&#123;
+    default         none;
+    //div(phi,U)      Gauss linear;
+    //div(phi,U)      Gauss limitedLinearV 1;
+    //div(phi,U)      Gauss linearUpwindV default;
+    div(phi,U)      Gauss linearUpwind grad(U);
+
+    //div(phi,U)      Gauss upwind;
+&#125;
+
+laplacianSchemes
+&#123;
+    default         Gauss linear limited 1;
+&#125;
+
+interpolationSchemes
+&#123;
+    default         linear;
+&#125;
+
+snGradSchemes
+&#123;
+    default         limited 1;
+&#125;
+</code></pre>
 <h2 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h2><pre><code class="lang-c++">    solvers
     &#123;
 
