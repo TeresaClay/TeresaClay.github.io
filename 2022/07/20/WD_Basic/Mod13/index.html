@@ -487,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 21:05:12'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 21:10:15'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -498,7 +498,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -648,7 +648,7 @@
 
 &#125;
 </code></pre><pre><code>
-## functionObject - fieldAverage
+## functionObject - forces_object
 
 ``` bash
 
@@ -688,7 +688,40 @@
         &#125;
 
     &#125;
-</code></pre><h2 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h2><pre><code class="lang-bash">
+</code></pre><h2 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h2><pre><code class="lang-bash">    fieldAverage
+    &#123;
+        type            fieldAverage;
+        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+        enabled         true;
+        writeControl   outputTime;
+
+    //writeControl   timeStep;
+    //writeInterval  100;
+
+    //cleanRestart true;
+
+    //timeStart       20;
+    //timeEnd         200;
+
+        fields
+        (
+            U
+            &#123;
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            &#125;
+
+            p
+            &#123;
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            &#125;
+        );
+    &#125;
+</code></pre>
+<h2 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h2><pre><code class="lang-bash">
     functions&#123;
 
     forces_object
