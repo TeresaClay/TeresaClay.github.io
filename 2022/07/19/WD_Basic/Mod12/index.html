@@ -14,7 +14,7 @@
 <meta property="og:description" content="Enige Details:  paraview: crinkle slice         interFoam incompressible, isothermal immiscible fluids using a VOF phase-fraction based interface capturing approach  run_all.sh#!&#x2F;bin&#x2F;bash  sh run_mesh">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-19T13:17:10.096Z">
-<meta property="article:modified_time" content="2022-07-20T07:20:24.303Z">
+<meta property="article:modified_time" content="2022-07-20T07:22:29.991Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 
@@ -744,7 +744,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 09:20:24'>2022-07-19 15:17</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 09:22:29'>2022-07-19 15:17</time>
         
     </div>
     <div class="article-meta">
@@ -755,7 +755,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#interFoam"><span class="toc-text">interFoam</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-water-in-domain"><span class="toc-text">functionObject: water_in_domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-prbles1"><span class="toc-text">functionObject: prbles1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-yPlus"><span class="toc-text">functionObject: yPlus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paraview"><span class="toc-text">paraview</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#interFoam"><span class="toc-text">interFoam</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-all-sh"><span class="toc-text">run_all.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-prbles1"><span class="toc-text">functionObject: prbles1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#functionObject-yPlus"><span class="toc-text">functionObject: yPlus</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paraview"><span class="toc-text">paraview</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -968,178 +968,112 @@ snGradSchemes
     default         corrected;
 &#125;
 ```
-</code></pre><h4 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h4></li>
+</code></pre><h4 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h4><p>``` c++<br>solvers                             //smoothSolver method<br>{<br>“alpha.water.*”<br>{</p>
+<pre><code>nAlphaCorr      2;
+nAlphaSubCycles 1;
+cAlpha          1;
+
+MULESCorr       yes;        // semi-implicit method MULES
+nLimiterIter    10;         // contorls the number of MULES iterations 
+</code></pre></li>
 </ul>
-<pre><code class="lang-c++">solvers                             //smoothSolver method
+<p>/<em><br>        solver          smoothSolver;<br>        smoother        symGaussSeidel;<br>        tolerance       1e-8;<br>        relTol          0;
+</em>/</p>
+<pre><code>    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-08;
+    relTol          0;
+&#125;
+
+&quot;(pcorr|pcorrFinal)&quot;           // pressure correction
 &#123;
-    &quot;alpha.water.*&quot;
-    &#123;
-        nAlphaCorr      2;
-        nAlphaSubCycles 1;
-        cAlpha          1;
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-8;
+    relTol          0;
+&#125;
 
-        MULESCorr       yes;        // semi-implicit method MULES
-        nLimiterIter    10;         // contorls the number of MULES iterations 
+p_rgh
+&#123;
 
-/*
-        solver          smoothSolver;
-        smoother        symGaussSeidel;
-        tolerance       1e-8;
-        relTol          0;
-*/
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+    minIter        2;              // at least two iteration
+</code></pre><p>/<em><br>        solver           GAMG;<br>        tolerance        1e-6;<br>        relTol           0;<br>        smoother         GaussSeidel;<br>        nPreSweeps       0;<br>        nPostSweeps      2;<br>        cacheAgglomeration on;<br>        agglomerator     faceAreaPair;<br>        nCellsInCoarsestLevel 100;<br>        mergeLevels      1;
+</em>/</p>
+<p>/<em><br>        solver          PCG;<br>        preconditioner<br>        {<br>            preconditioner  GAMG;<br>            tolerance       1e-06;<br>            relTol          0;<br>            smoother        GaussSeidel;<br>            nPreSweeps      0;<br>            nPostSweeps     2;<br>            nFinestSweeps   2;<br>            cacheAgglomeration on;<br>            nCellsInCoarsestLevel 10;<br>            agglomerator    faceAreaPair;<br>            mergeLevels     1;<br>        }<br>        tolerance       1e-06;<br>        relTol          0.01;
+</em>/<br>    }</p>
+<pre><code>p_rghFinal
+&#123;
+    $p_rgh;
+    //tolerance       1e-08;
+    relTol          0;
+minIter        2;
+&#125;
 
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-    &#125;
-
-    &quot;(pcorr|pcorrFinal)&quot;           // pressure correction
-    &#123;
-        solver          PCG;
-        preconditioner  DIC;
-        tolerance       1e-8;
-        relTol          0;
-    &#125;
-
-    p_rgh
-    &#123;
-
-        solver          PCG;
-        preconditioner  DIC;
-        tolerance       1e-06;
-        relTol          0.01;
-        minIter        2;              // at least two iteration
-
-/*
-        solver           GAMG;
-        tolerance        1e-6;
-        relTol           0;
-        smoother         GaussSeidel;
-        nPreSweeps       0;
-        nPostSweeps      2;
-        cacheAgglomeration on;
-        agglomerator     faceAreaPair;
-        nCellsInCoarsestLevel 100;
-        mergeLevels      1;
-*/
-
-/*
-        solver          PCG;
-        preconditioner
-        &#123;
-            preconditioner  GAMG;
-            tolerance       1e-06;
-            relTol          0;
-            smoother        GaussSeidel;
-            nPreSweeps      0;
-            nPostSweeps     2;
-            nFinestSweeps   2;
-            cacheAgglomeration on;
-            nCellsInCoarsestLevel 10;
-            agglomerator    faceAreaPair;
-            mergeLevels     1;
-        &#125;
-        tolerance       1e-06;
-        relTol          0.01;
-*/
-    &#125;
-
-    p_rghFinal
-    &#123;
-        $p_rgh;
-        //tolerance       1e-08;
-        relTol          0;
-    minIter        2;
-    &#125;
-
-    &quot;(U|UFinal)&quot;
-    &#123;
-/*
-        solver          PBiCG;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-*/
-
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-
-    &#125;
-
-    &quot;(k|epsilon).*&quot;
-    &#123;
-/*
-        solver          PBiCG;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-*/
-
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-08;
-        relTol          0;
-
-    &#125;
+&quot;(U|UFinal)&quot;
+&#123;
+</code></pre><p>/<em><br>        solver          PBiCG;<br>        preconditioner  DILU;<br>        tolerance       1e-08;<br>        relTol          0;
+</em>/</p>
+<pre><code>    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-08;
+    relTol          0;
 
 &#125;
 
-PIMPLE
+&quot;(k|epsilon).*&quot;
 &#123;
-    consistent         yes;
-    momentumPredictor   yes;        // recommended for highly convective flows
+</code></pre><p>/<em><br>        solver          PBiCG;<br>        preconditioner  DILU;<br>        tolerance       1e-08;<br>        relTol          0;
+</em>/</p>
+<pre><code>    solver          PBiCGStab;
+    preconditioner  DILU;
+    tolerance       1e-08;
+    relTol          0;
 
-    nOuterCorrectors    1;          // 1 = running PISO
-    nCorrectors         3;
-    nNonOrthogonalCorrectors 1;
 &#125;
+</code></pre><p>}</p>
+<p>PIMPLE<br>{<br>    consistent         yes;<br>    momentumPredictor   yes;        // recommended for highly convective flows</p>
+<pre><code>nOuterCorrectors    1;          // 1 = running PISO
+nCorrectors         3;
+nNonOrthogonalCorrectors 1;
+</code></pre><p>}</p>
+<p>relaxationFactors<br>{<br>    fields<br>    {<br>        “.<em>“ 0.9;<br>    }<br>    equations<br>    {<br>        “.</em>“ 0.9;<br>    }<br>}</p>
+<pre><code>
 
-relaxationFactors
-&#123;
-    fields
+#### functionObject: water_in_domain
+    - volume integral of the field variables $\alpha$ in all the domain
+    ``` c++
+    function 
     &#123;
-        &quot;.*&quot; 0.9;
-    &#125;
-    equations
+
+    water_in_domain
     &#123;
-        &quot;.*&quot; 0.9;
+        type            volFieldValue;
+        functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+
+        enabled         true;
+        log             true;
+
+        //writeControl    writeTime;
+        writeControl   timeStep;
+        writeInterval  1;
+
+        writeFields     false;
+        writeLocation   false;    
+
+        regionType      all;
+
+        operation       volIntegrate;   //volume integral
+        fields
+        (
+            alpha.water
+        );
     &#125;
-&#125;
-</code></pre>
-<h4 id="functionObject-water-in-domain"><a href="#functionObject-water-in-domain" class="headerlink" title="functionObject: water_in_domain"></a>functionObject: water_in_domain</h4><pre><code>- volume integral of the field variables $\alpha$ in all the domain
-``` c++
-function 
-&#123;
 
-water_in_domain
-&#123;
-    type            volFieldValue;
-    functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
-
-    enabled         true;
-    log             true;
-
-    //writeControl    writeTime;
-    writeControl   timeStep;
-    writeInterval  1;
-
-    writeFields     false;
-    writeLocation   false;    
-
-    regionType      all;
-
-    operation       volIntegrate;   //volume integral
-    fields
-    (
-        alpha.water
-    );
-&#125;
-
-&#125;
-```
+    &#125;
 </code></pre><h4 id="functionObject-prbles1"><a href="#functionObject-prbles1" class="headerlink" title="functionObject: prbles1"></a>functionObject: prbles1</h4><ul>
 <li><p>sample the selected fields at the selected locations</p>
 <pre><code class="lang-c++">functions
