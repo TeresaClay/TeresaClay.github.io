@@ -487,7 +487,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-20 20:06:35'>2022-07-20 10:12</time>
+            Created At : <time class="date" title='Updated At: 2022-07-20 20:10:25'>2022-07-20 10:12</time>
         
     </div>
     <div class="article-meta">
@@ -498,7 +498,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-fieldAverage"><span class="toc-text">functionObject - fieldAverage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C2"><span class="toc-text">C2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-inMassFlow"><span class="toc-text">functionObject - inMassFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forces-object"><span class="toc-text">functionObject - forces_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functionObject-forceCoeffs-object"><span class="toc-text">functionObject - forceCoeffs_object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initial-Residuals"><span class="toc-text">Initial Residuals</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -658,65 +658,75 @@ relaxationFactors
   &#125;
 &#125;
 </code></pre>
-<h2 id="functionObject-inMassFlow"><a href="#functionObject-inMassFlow" class="headerlink" title="functionObject - inMassFlow"></a>functionObject - inMassFlow</h2><pre><code class="lang-c++">functions&#123;
+<h2 id="functionObject-inMassFlow"><a href="#functionObject-inMassFlow" class="headerlink" title="functionObject - inMassFlow"></a>functionObject - inMassFlow</h2><p>``` c++<br>functions{</p>
+<p>  inMassFlow                              // mass flow at the inlet<br>  {</p>
+<pre><code>  type            surfaceFieldValue;
 
-  inMassFlow                              // mass flow at the inlet
-  &#123;
-      type            surfaceFieldValue;
+  functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+  enabled         true;
+</code></pre><p>//        writeControl     outputTime;</p>
+<pre><code>  writeControl   timeStep;
+  writeInterval  1;
 
-      functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
-      enabled         true;
+  log             true;
 
-//        writeControl     outputTime;
-      writeControl   timeStep;
-      writeInterval  1;
+  writeFields     false;
 
-      log             true;
+  regionType      patch;
+  name            in;
 
-      writeFields     false;
-
-      regionType      patch;
-      name            in;
-
-      operation       sum;
-      fields
-      (
-          phi
-      );
-  &#125;
-
-&#125;
-</code></pre>
-<h2 id="functionObject-fieldAverage"><a href="#functionObject-fieldAverage" class="headerlink" title="functionObject - fieldAverage"></a>functionObject - fieldAverage</h2><p>``` c++<br>functions{</p>
-<p>fieldAverage<br>{<br>  type            fieldAverage;<br>  functionObjectLibs (“libfieldFunctionObjects.so”);<br>  enabled         true;<br>  writeControl   outputTime;</p>
-<p>//writeControl   timeStep;<br>//writeInterval  100;</p>
-<p>//cleanRestart true;</p>
-<p>//timeStart       20;<br>//timeEnd         200;</p>
-<p>  fields<br>  (</p>
-<pre><code>  U
-  &#123;
-      mean        on;
-      prime2Mean  on;     //fluctuation
-      base        time;
-  &#125;
-
-  p
-  &#123;
-      mean        on;
-      prime2Mean  on;
-      base        time;
-  &#125;
-</code></pre><p>  );<br>}</p>
-</li>
-</ul>
-</li>
-</ul>
+  operation       sum;
+  fields
+  (
+      phi
+  );
+</code></pre><p>  }</p>
 <p>}</p>
+</li>
+</ul>
+</li>
+</ul>
 <pre><code>
-## functionObject - forces_object
+## functionObject - fieldAverage
 
-    ``` c++
+``` c++
     functions&#123;
+
+        fieldAverage
+        &#123;
+            type            fieldAverage;
+            functionObjectLibs (&quot;libfieldFunctionObjects.so&quot;);
+            enabled         true;
+            writeControl   outputTime;
+
+        //writeControl   timeStep;
+        //writeInterval  100;
+
+        //cleanRestart true;
+
+        //timeStart       20;
+        //timeEnd         200;
+
+            fields
+            (
+                U
+                &#123;
+                    mean        on;
+                    prime2Mean  on;     //fluctuation
+                    base        time;
+                &#125;
+
+                p
+                &#123;
+                    mean        on;
+                    prime2Mean  on;
+                    base        time;
+                &#125;
+            );
+        &#125;
+
+    &#125;
+</code></pre><h2 id="functionObject-forces-object"><a href="#functionObject-forces-object" class="headerlink" title="functionObject - forces_object"></a>functionObject - forces_object</h2><pre><code class="lang-c++">    functions&#123;
     forces_object
     &#123;
     type forces;
@@ -744,45 +754,45 @@ relaxationFactors
 
 
 &#125;
-</code></pre><h2 id="functionObject-forceCoeffs-object"><a href="#functionObject-forceCoeffs-object" class="headerlink" title="functionObject - forceCoeffs_object"></a>functionObject - forceCoeffs_object</h2><pre><code>``` c++
-function&#123;
-forceCoeffs_object
-&#123;
-// rhoInf - reference density
-// CofR - Centre of rotation
-// dragDir - Direction of drag coefficient
-// liftDir - Direction of lift coefficient
-// pitchAxis - Pitching moment axis
-// magUinf - free stream velocity magnitude
-// lRef - reference length
-// Aref - reference area
-type forceCoeffs;
-functionObjectLibs (&quot;libforces.so&quot;);
-//patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
-patches (cylinder);
+</code></pre>
+<h2 id="functionObject-forceCoeffs-object"><a href="#functionObject-forceCoeffs-object" class="headerlink" title="functionObject - forceCoeffs_object"></a>functionObject - forceCoeffs_object</h2><pre><code class="lang-c++">    function&#123;
+    forceCoeffs_object
+    &#123;
+    // rhoInf - reference density
+    // CofR - Centre of rotation
+    // dragDir - Direction of drag coefficient
+    // liftDir - Direction of lift coefficient
+    // pitchAxis - Pitching moment axis
+    // magUinf - free stream velocity magnitude
+    // lRef - reference length
+    // Aref - reference area
+    type forceCoeffs;
+    functionObjectLibs (&quot;libforces.so&quot;);
+    //patches (&quot;body1&quot; &quot;body2&quot; &quot;body3&quot;);
+    patches (cylinder);
 
-pName p;
-Uname U;
-rho rhoInf;
-rhoInf 1.0;
+    pName p;
+    Uname U;
+    rho rhoInf;
+    rhoInf 1.0;
 
-//// Dump to file
-log true;
+    //// Dump to file
+    log true;
 
-CofR (0.0 0 0);
-liftDir (0 1 0);
-dragDir (1 0 0);
-pitchAxis (0 0 1);
-magUInf 1.0;
-lRef 1.0;         // reference lenght for moments!!!
-Aref 2.0;         // reference area 1 for 2d
+    CofR (0.0 0 0);
+    liftDir (0 1 0);
+    dragDir (1 0 0);
+    pitchAxis (0 0 1);
+    magUInf 1.0;
+    lRef 1.0;         // reference lenght for moments!!!
+    Aref 2.0;         // reference area 1 for 2d
 
-    writeControl   timeStep;
-    writeInterval  1;
-&#125;
-&#125;
-```
-</code></pre><h2 id="Initial-Residuals"><a href="#Initial-Residuals" class="headerlink" title="Initial Residuals"></a>Initial Residuals</h2><p><img src="images/2022-07-20-18-47-54.png" alt=""></p>
+        writeControl   timeStep;
+        writeInterval  1;
+    &#125;
+    &#125;
+</code></pre>
+<h2 id="Initial-Residuals"><a href="#Initial-Residuals" class="headerlink" title="Initial Residuals"></a>Initial Residuals</h2><p><img src="images/2022-07-20-18-47-54.png" alt=""></p>
 <ul>
 <li>initial residual goes down and up<ul>
 <li>not an indication of divergence, it just tells you that you have a strong unsteadniess</li>
