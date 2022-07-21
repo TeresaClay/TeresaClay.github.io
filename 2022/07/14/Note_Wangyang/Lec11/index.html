@@ -6,17 +6,23 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec11 The Finite Volume Method | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="C 14 turbulent simulation">
+<meta name="description" content="1D flow in a channel  Local mass imbalance (continuity residual)the difference between the mass flow rate out of the left face of the cell and the right face of the cell  Continuity residualevery cell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mod14 2D Vortes Shedding turbulence">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/20/WD_Basic/Mod14/index.html">
+<meta property="og:title" content="54 Residuals in CFD">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="C 14 turbulent simulation">
+<meta property="og:description" content="1D flow in a channel  Local mass imbalance (continuity residual)the difference between the mass flow rate out of the left face of the cell and the right face of the cell  Continuity residualevery cell">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-20T17:45:35.125Z">
-<meta property="article:modified_time" content="2022-07-20T20:06:17.899Z">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-13-34-28.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-00-55.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-22-55.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-52-54.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-56-47.png">
+<meta property="article:published_time" content="2022-07-21T11:22:39.747Z">
+<meta property="article:modified_time" content="2022-07-21T12:58:17.143Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-13-34-28.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -77,10 +83,14 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(25)</small>
+                <small>(27)</small>
             
         </div>
     </li>
+    
+        
+            
+        
     
         
             
@@ -93,11 +103,23 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         Course
-                        <small>(23)</small>
+                        <small>(25)</small>
                         
                     </div>
                     
                         <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Course<--->101F">
+                                        
+                                        101F
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
                             
                                 <li>
                                     <div data-rel="Course<--->AndreasMalcherek">
@@ -162,7 +184,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_posts_number" value="27">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -212,6 +234,24 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/Aidan54/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="54 Residuals in CFD">54 Residuals in CFD</span>
+            <span class="post-date" title="2022-07-21 13:22:39">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/Aidan52/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="52-53 Residuals in CFD">52-53 Residuals in CFD</span>
+            <span class="post-date" title="2022-07-21 02:05:03">2022/07/21</span>
+        </a>
         
         
         <a  class="All Course WolfDynamics "
