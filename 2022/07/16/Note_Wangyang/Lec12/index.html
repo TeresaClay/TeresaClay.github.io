@@ -3,26 +3,29 @@
 <head>
   <meta charset="utf-8">
   <title>Lec12 | TeresaClay的小屋</title>
-  <meta name="keywords" content="">
+  <meta name="keywords" content=" 散度 , 梯度 , 旋度 , 高斯散度定理 ">
   <meta name="description" content="Lec12 | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="1D flow in a channel  Local mass imbalance (continuity residual)the difference between the mass flow rate out of the left face of the cell and the right face of the cell  Continuity residualevery cell">
+<meta name="description" content="Todo conjugate gradient method add adjustTimeStep feature to PISO (just for fun)  fvSolution solvers  &amp;#123;     p                                   &#x2F;&#x2F; symmetric     &amp;#123;         solver">
 <meta property="og:type" content="article">
-<meta property="og:title" content="54 Residuals in CFD">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/index.html">
+<meta property="og:title" content="Mod6 FVM in OpenFOAM">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod6/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="1D flow in a channel  Local mass imbalance (continuity residual)the difference between the mass flow rate out of the left face of the cell and the right face of the cell  Continuity residualevery cell">
+<meta property="og:description" content="Todo conjugate gradient method add adjustTimeStep feature to PISO (just for fun)  fvSolution solvers  &amp;#123;     p                                   &#x2F;&#x2F; symmetric     &amp;#123;         solver">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-13-34-28.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-00-55.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-22-55.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-52-54.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-56-47.png">
-<meta property="article:published_time" content="2022-07-21T11:22:39.747Z">
-<meta property="article:modified_time" content="2022-07-21T12:58:17.143Z">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-17-17-56.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-50-43.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-52-29.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-46-08.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-18-38-52.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-19-15-51.png">
+<meta property="article:published_time" content="2022-07-22T12:37:39.274Z">
+<meta property="article:modified_time" content="2022-07-22T18:21:15.086Z">
 <meta property="article:author" content="TeresaClay">
+<meta property="article:tag" content="linear solvers">
+<meta property="article:tag" content="fvSolution">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-13-34-28.png">
+<meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-22-17-17-56.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -83,7 +86,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(27)</small>
+                <small>(32)</small>
             
         </div>
     </li>
@@ -103,7 +106,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         Course
-                        <small>(25)</small>
+                        <small>(29)</small>
                         
                     </div>
                     
@@ -114,7 +117,7 @@
                                         
                                         101F
                                         
-                                            <small>(2
+                                            <small>(5
                                                 )</small>
                                         
                                     </div>
@@ -150,7 +153,7 @@
                                         
                                         WolfDynamics
                                         
-                                            <small>(5
+                                            <small>(6
                                                 )</small>
                                         
                                     </div>
@@ -160,6 +163,41 @@
                         </ul>
                     
                 </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Literature">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Literature
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Literature<--->Moukalled">
+                                        
+                                        Moukalled
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
             
         
     
@@ -184,7 +222,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="27">
+<input type="hidden" id="yelog_site_posts_number" value="32">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -228,6 +266,54 @@
     <input id="tag-search" />
     <div class="tag-wrapper">
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>半离散方程</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高斯散度定理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>散度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通量</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通用形式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>旋度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>fvSolution</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linear solvers</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Residuals</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SIMPLE</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unsteadiness</a>
+            </li>
+        
     </div>
 
 </div>
@@ -236,9 +322,54 @@
     <nav id="title-list-nav">
         
         
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/22/WD_Basic/Mod6/"
+           data-tag="linear solvers,fvSolution"
+           data-author="" >
+            <span class="post-title" title="Mod6 FVM in OpenFOAM">Mod6 FVM in OpenFOAM</span>
+            <span class="post-date" title="2022-07-22 14:37:39">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/SIMPLE2/"
+           data-tag="SIMPLE"
+           data-author="" >
+            <span class="post-title" title="SIMPLE in OpenFOAM">SIMPLE in OpenFOAM</span>
+            <span class="post-date" title="2022-07-21 21:57:22">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/SIMPLE1/"
+           data-tag="SIMPLE"
+           data-author="" >
+            <span class="post-title" title="SIMPLE - Deriving the equations">SIMPLE - Deriving the equations</span>
+            <span class="post-date" title="2022-07-21 20:37:04">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Literature Moukalled "
+           href="/2022/07/21/101Fluid/Residual/"
+           data-tag="Residuals"
+           data-author="" >
+            <span class="post-title" title="Residuals in Literature">Residuals in Literature</span>
+            <span class="post-date" title="2022-07-21 19:41:13">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/Aidan56/"
+           data-tag="Residuals,Unsteadiness"
+           data-author="" >
+            <span class="post-title" title="56 Residuals in CFD">56 Residuals in CFD</span>
+            <span class="post-date" title="2022-07-21 15:43:26">2022/07/21</span>
+        </a>
+        
+        
         <a  class="All Course 101F "
            href="/2022/07/21/101Fluid/Aidan54/"
-           data-tag=""
+           data-tag="Residuals,Unsteadiness"
            data-author="" >
             <span class="post-title" title="54 Residuals in CFD">54 Residuals in CFD</span>
             <span class="post-date" title="2022-07-21 13:22:39">2022/07/21</span>
@@ -247,7 +378,7 @@
         
         <a  class="All Course 101F "
            href="/2022/07/21/101Fluid/Aidan52/"
-           data-tag=""
+           data-tag="Residuals"
            data-author="" >
             <span class="post-title" title="52-53 Residuals in CFD">52-53 Residuals in CFD</span>
             <span class="post-date" title="2022-07-21 02:05:03">2022/07/21</span>
@@ -301,7 +432,7 @@
         
         <a  class="All Course WangYang "
            href="/2022/07/16/Note_Wangyang/Lec12/"
-           data-tag=""
+           data-tag="散度,梯度,旋度,高斯散度定理"
            data-author="" >
             <span class="post-title" title="Lec12">Lec12</span>
             <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
@@ -319,7 +450,7 @@
         
         <a  class="All Course WangYang "
            href="/2022/07/12/Note_Wangyang/Lec10/"
-           data-tag=""
+           data-tag="半离散方程,通量"
            data-author="" >
             <span class="post-title" title="Lec10 The Finite Volume Method">Lec10 The Finite Volume Method</span>
             <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
@@ -427,19 +558,10 @@
         
         <a  class="All Course WangYang "
            href="/2022/07/08/Note_Wangyang/Lec9/"
-           data-tag=""
+           data-tag="通用形式"
            data-author="" >
             <span class="post-title" title="Lec9 Mathematical Description of Physical Phenomena">Lec9 Mathematical Description of Physical Phenomena</span>
             <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
-        </a>
-        
-        
-        <a  class="All Course WangYang "
-           href="/2022/07/08/Note_Wangyang/Lec00/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="拓展知识">拓展知识</span>
-            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
         </a>
         
         
@@ -448,6 +570,15 @@
            data-tag=""
            data-author="" >
             <span class="post-title" title="Lec8 Vector Calculus">Lec8 Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
             <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
         </a>
         
@@ -515,10 +646,23 @@
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">散度</a>
+            
+            <a class="color3">梯度</a>
+            
+            <a class="color3">旋度</a>
+            
+            <a class="color2">高斯散度定理</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-17 00:23:01'>2022-07-16 20:43</time>
+            Created At : <time class="date" title='Updated At: 2022-07-22 10:32:36'>2022-07-16 20:43</time>
         
     </div>
     <div class="article-meta">

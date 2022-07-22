@@ -3,26 +3,29 @@
 <head>
   <meta charset="utf-8">
   <title>52-53 Residuals in CFD | TeresaClay的小屋</title>
-  <meta name="keywords" content="">
+  <meta name="keywords" content=" Residuals ">
   <meta name="description" content="52-53 Residuals in CFD | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="1D flow in a channel  Local mass imbalance (continuity residual)the difference between the mass flow rate out of the left face of the cell and the right face of the cell  Continuity residualevery cell">
+<meta name="description" content="Todo conjugate gradient method add adjustTimeStep feature to PISO (just for fun)  fvSolution solvers  &amp;#123;     p                                   &#x2F;&#x2F; symmetric     &amp;#123;         solver">
 <meta property="og:type" content="article">
-<meta property="og:title" content="54 Residuals in CFD">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/index.html">
+<meta property="og:title" content="Mod6 FVM in OpenFOAM">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod6/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="1D flow in a channel  Local mass imbalance (continuity residual)the difference between the mass flow rate out of the left face of the cell and the right face of the cell  Continuity residualevery cell">
+<meta property="og:description" content="Todo conjugate gradient method add adjustTimeStep feature to PISO (just for fun)  fvSolution solvers  &amp;#123;     p                                   &#x2F;&#x2F; symmetric     &amp;#123;         solver">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-13-34-28.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-00-55.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-22-55.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-52-54.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-14-56-47.png">
-<meta property="article:published_time" content="2022-07-21T11:22:39.747Z">
-<meta property="article:modified_time" content="2022-07-21T12:58:17.143Z">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-17-17-56.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-50-43.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-52-29.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-46-08.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-18-38-52.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-19-15-51.png">
+<meta property="article:published_time" content="2022-07-22T12:37:39.274Z">
+<meta property="article:modified_time" content="2022-07-22T18:21:15.086Z">
 <meta property="article:author" content="TeresaClay">
+<meta property="article:tag" content="linear solvers">
+<meta property="article:tag" content="fvSolution">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://teresaclay.github.io/2022/07/21/101Fluid/Aidan54/images/2022-07-21-13-34-28.png">
+<meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-22-17-17-56.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -83,7 +86,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(27)</small>
+                <small>(32)</small>
             
         </div>
     </li>
@@ -103,7 +106,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         Course
-                        <small>(25)</small>
+                        <small>(29)</small>
                         
                     </div>
                     
@@ -114,7 +117,7 @@
                                         
                                         101F
                                         
-                                            <small>(2
+                                            <small>(5
                                                 )</small>
                                         
                                     </div>
@@ -150,7 +153,7 @@
                                         
                                         WolfDynamics
                                         
-                                            <small>(5
+                                            <small>(6
                                                 )</small>
                                         
                                     </div>
@@ -160,6 +163,41 @@
                         </ul>
                     
                 </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Literature">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Literature
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Literature<--->Moukalled">
+                                        
+                                        Moukalled
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
             
         
     
@@ -184,7 +222,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="27">
+<input type="hidden" id="yelog_site_posts_number" value="32">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -228,6 +266,54 @@
     <input id="tag-search" />
     <div class="tag-wrapper">
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>半离散方程</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高斯散度定理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>散度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通量</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通用形式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>旋度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>fvSolution</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linear solvers</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Residuals</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SIMPLE</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unsteadiness</a>
+            </li>
+        
     </div>
 
 </div>
@@ -236,9 +322,54 @@
     <nav id="title-list-nav">
         
         
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/22/WD_Basic/Mod6/"
+           data-tag="linear solvers,fvSolution"
+           data-author="" >
+            <span class="post-title" title="Mod6 FVM in OpenFOAM">Mod6 FVM in OpenFOAM</span>
+            <span class="post-date" title="2022-07-22 14:37:39">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/SIMPLE2/"
+           data-tag="SIMPLE"
+           data-author="" >
+            <span class="post-title" title="SIMPLE in OpenFOAM">SIMPLE in OpenFOAM</span>
+            <span class="post-date" title="2022-07-21 21:57:22">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/SIMPLE1/"
+           data-tag="SIMPLE"
+           data-author="" >
+            <span class="post-title" title="SIMPLE - Deriving the equations">SIMPLE - Deriving the equations</span>
+            <span class="post-date" title="2022-07-21 20:37:04">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Literature Moukalled "
+           href="/2022/07/21/101Fluid/Residual/"
+           data-tag="Residuals"
+           data-author="" >
+            <span class="post-title" title="Residuals in Literature">Residuals in Literature</span>
+            <span class="post-date" title="2022-07-21 19:41:13">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="All Course 101F "
+           href="/2022/07/21/101Fluid/Aidan56/"
+           data-tag="Residuals,Unsteadiness"
+           data-author="" >
+            <span class="post-title" title="56 Residuals in CFD">56 Residuals in CFD</span>
+            <span class="post-date" title="2022-07-21 15:43:26">2022/07/21</span>
+        </a>
+        
+        
         <a  class="All Course 101F "
            href="/2022/07/21/101Fluid/Aidan54/"
-           data-tag=""
+           data-tag="Residuals,Unsteadiness"
            data-author="" >
             <span class="post-title" title="54 Residuals in CFD">54 Residuals in CFD</span>
             <span class="post-date" title="2022-07-21 13:22:39">2022/07/21</span>
@@ -247,7 +378,7 @@
         
         <a  class="All Course 101F "
            href="/2022/07/21/101Fluid/Aidan52/"
-           data-tag=""
+           data-tag="Residuals"
            data-author="" >
             <span class="post-title" title="52-53 Residuals in CFD">52-53 Residuals in CFD</span>
             <span class="post-date" title="2022-07-21 02:05:03">2022/07/21</span>
@@ -301,7 +432,7 @@
         
         <a  class="All Course WangYang "
            href="/2022/07/16/Note_Wangyang/Lec12/"
-           data-tag=""
+           data-tag="散度,梯度,旋度,高斯散度定理"
            data-author="" >
             <span class="post-title" title="Lec12">Lec12</span>
             <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
@@ -319,7 +450,7 @@
         
         <a  class="All Course WangYang "
            href="/2022/07/12/Note_Wangyang/Lec10/"
-           data-tag=""
+           data-tag="半离散方程,通量"
            data-author="" >
             <span class="post-title" title="Lec10 The Finite Volume Method">Lec10 The Finite Volume Method</span>
             <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
@@ -427,19 +558,10 @@
         
         <a  class="All Course WangYang "
            href="/2022/07/08/Note_Wangyang/Lec9/"
-           data-tag=""
+           data-tag="通用形式"
            data-author="" >
             <span class="post-title" title="Lec9 Mathematical Description of Physical Phenomena">Lec9 Mathematical Description of Physical Phenomena</span>
             <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
-        </a>
-        
-        
-        <a  class="All Course WangYang "
-           href="/2022/07/08/Note_Wangyang/Lec00/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="拓展知识">拓展知识</span>
-            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
         </a>
         
         
@@ -448,6 +570,15 @@
            data-tag=""
            data-author="" >
             <span class="post-title" title="Lec8 Vector Calculus">Lec8 Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
             <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
         </a>
         
@@ -515,10 +646,17 @@
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">Residuals</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-21 13:55:50'>2022-07-21 02:05</time>
+            Created At : <time class="date" title='Updated At: 2022-07-21 20:31:06'>2022-07-21 02:05</time>
         
     </div>
     <div class="article-meta">
@@ -529,7 +667,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Example-Heat-Conductio-in-a-Bar"><span class="toc-text">Example - Heat Conductio in a Bar</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Energy-Imbalance"><span class="toc-text">Energy Imbalance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Residual"><span class="toc-text">Residual</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Momentum-equation"><span class="toc-text">Momentum equation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Geneal-form"><span class="toc-text">Geneal form</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Accessing-convergence"><span class="toc-text">Accessing convergence</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Representative-residual"><span class="toc-text">Representative residual</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scaling"><span class="toc-text">Scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-need-for-scaling"><span class="toc-text">The need for scaling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaled-residual"><span class="toc-text">Scaled residual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Representative-temperature-difference"><span class="toc-text">Representative temperature difference</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Example-Heat-Conductio-in-a-Bar"><span class="toc-text">Example - Heat Conductio in a Bar</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Energy-Imbalance"><span class="toc-text">Energy Imbalance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Residual"><span class="toc-text">Residual</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Momentum-equation"><span class="toc-text">Momentum equation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Geneal-form"><span class="toc-text">Geneal form</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Accessing-convergence"><span class="toc-text">Accessing convergence</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Representative-residual"><span class="toc-text">Representative residual</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scaling"><span class="toc-text">Scaling</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-need-for-scaling"><span class="toc-text">The need for scaling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaled-residual"><span class="toc-text">Scaled residual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Representative-temperature-difference"><span class="toc-text">Representative temperature difference</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary"><span class="toc-text">Summary</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -545,11 +683,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Example-Heat-Conductio-in-a-Bar"><a href="#Example-Heat-Conductio-in-a-Bar" class="headerlink" title="Example - Heat Conductio in a Bar"></a>Example - Heat Conductio in a Bar</h1><p><img src="images/2022-07-21-09-43-44.png" alt=""></p>
+        <h1 id="Example-Heat-Conductio-in-a-Bar"><a href="#Example-Heat-Conductio-in-a-Bar" class="headerlink" title="Example - Heat Conductio in a Bar"></a>Example - Heat Conductio in a Bar</h1><p><img src="/images/2022-07-21-09-43-44.png" alt=""></p>
 <ul>
 <li>heat conduction in a 1D bar between two fixed temperatures</li>
 </ul>
-<p><img src="images/2022-07-21-09-22-04.png" alt=""></p>
+<p><img src="/images/2022-07-21-09-22-04.png" alt=""></p>
 <ul>
 <li>conservation of energy for cell 2<script type="math/tex; mode=display">
 Q_{\text{left}}+Q_{\text{right}}-Q_{\text{source}}=0 \\ \qquad \\
@@ -562,7 +700,7 @@ Q_{\text{left}}+Q_{\text{right}}-Q_{\text{source}}=0 \\ \qquad \\
 </ul>
 </li>
 </ul>
-<p><img src="images/2022-07-21-09-35-43.png" alt=""></p>
+<p><img src="/images/2022-07-21-09-35-43.png" alt=""></p>
 <ul>
 <li><p>between the centroids, the temperature profile is linear</p>
 </li>
@@ -570,11 +708,11 @@ Q_{\text{left}}+Q_{\text{right}}-Q_{\text{source}}=0 \\ \qquad \\
 </li>
 </ul>
 <h2 id="Energy-Imbalance"><a href="#Energy-Imbalance" class="headerlink" title="Energy Imbalance"></a>Energy Imbalance</h2><ul>
-<li>CFD uses an <strong>iterative approach</strong><br><img src="images/2022-07-21-09-46-44.png" alt=""></li>
+<li>CFD uses an <strong>iterative approach</strong><br><img src="/images/2022-07-21-09-46-44.png" alt=""></li>
 </ul>
 <h2 id="Residual"><a href="#Residual" class="headerlink" title="Residual"></a>Residual</h2><script type="math/tex; mode=display">
 -\frac{k_lA_l}{\Delta x}(T_1-T_2)-\frac{k_rA_r}{\Delta x}(T_3-T_2)-Q_{\text{source}}-\underbrace {\color{red}{r_2}}_{\color{red}{\text{(raw) residual}}}=0</script><ul>
-<li>(raw) residual represents the local energy imbalance in that particular cell</li>
+<li><font color=red>(raw) residual</font> represents the<mark> local energy imbalance in that particular cell</mark></li>
 <li>the (modified) energy balance equation $\boldsymbol{AT-B=r}$<script type="math/tex; mode=display">
 \begin{bmatrix} A_{11} & A_{12} & A_{13} & A_{14} \\ A_{21}  &A_{22}  &A_{23}  &A_{24}  \\ A_{31} &A_{32}  &A_{33}  & A_{34} \\A_{41}  &A_{42}  & A_{43} & A_{44} \\\end{bmatrix}  \begin{bmatrix} T_1 \\ T_2 \\ T_3 \\ T_4 \\\end{bmatrix}-\begin{bmatrix} B_1 \\ B_2 \\ B_3 \\ B_4 \\\end{bmatrix}=\begin{bmatrix} r_1 \\ r_2 \\ r_3 \\ r_4 \\\end{bmatrix}</script><ul>
 <li>assess how accurate the solution is at the end of each iteration</li>
@@ -585,7 +723,7 @@ Q_{\text{left}}+Q_{\text{right}}-Q_{\text{source}}=0 \\ \qquad \\
 <li>discrete form:<script type="math/tex; mode=display">
 A_PT_P-\sum_{\text{cells}}a_{nb}T_{nb}-B_{P}=r_P</script></li>
 </ul>
-<h1 id="Momentum-equation"><a href="#Momentum-equation" class="headerlink" title="Momentum equation"></a>Momentum equation</h1><p><img src="images/2022-07-21-10-01-58.png" alt=""></p>
+<h1 id="Momentum-equation"><a href="#Momentum-equation" class="headerlink" title="Momentum equation"></a>Momentum equation</h1><p><img src="/images/2022-07-21-10-01-58.png" alt=""></p>
 <ul>
 <li>the residual represents the <strong>force imbanlance</strong> in the $x$ direction</li>
 <li>each transport equation has its own residual, in each cell </li>
@@ -598,7 +736,7 @@ A_PT_P-\sum_{\text{cells}}a_{nb}T_{nb}-B_{P}=r_P</script></li>
 <h1 id="Accessing-convergence"><a href="#Accessing-convergence" class="headerlink" title="Accessing convergence"></a>Accessing convergence</h1><ul>
 <li>the residual vector is a scalar field (like temperature / pressure)</li>
 </ul>
-<h2 id="Representative-residual"><a href="#Representative-residual" class="headerlink" title="Representative residual"></a>Representative residual</h2><p><img src="images/2022-07-21-10-11-12.png" alt=""></p>
+<h2 id="Representative-residual"><a href="#Representative-residual" class="headerlink" title="Representative residual"></a>Representative residual</h2><p><img src="/images/2022-07-21-10-11-12.png" alt=""></p>
 <ul>
 <li>a single value that is representative of the residual in all the cells</li>
 <li><p>this representative residual is calculated diffrently by different CFD codes</p>
@@ -611,8 +749,8 @@ A_PT_P-\sum_{\text{cells}}a_{nb}T_{nb}-B_{P}=r_P</script></li>
 <li>The $L$ norm<script type="math/tex; mode=display">
   r=\left\| \boldsymbol{r} \right\|_{\infty}=\max_{r_i}</script></li>
 </ul>
-<h1 id="Scaling"><a href="#Scaling" class="headerlink" title="Scaling"></a>Scaling</h1><h2 id="The-need-for-scaling"><a href="#The-need-for-scaling" class="headerlink" title="The need for scaling"></a>The need for scaling</h2><p><img src="images/2022-07-21-10-48-07.png" alt=""></p>
-<h2 id="Scaled-residual"><a href="#Scaled-residual" class="headerlink" title="Scaled residual"></a>Scaled residual</h2><p><img src="images/2022-07-21-10-52-53.png" alt=""></p>
+<h1 id="Scaling"><a href="#Scaling" class="headerlink" title="Scaling"></a>Scaling</h1><h2 id="The-need-for-scaling"><a href="#The-need-for-scaling" class="headerlink" title="The need for scaling"></a>The need for scaling</h2><p><img src="/images/2022-07-21-10-48-07.png" alt=""></p>
+<h2 id="Scaled-residual"><a href="#Scaled-residual" class="headerlink" title="Scaled residual"></a>Scaled residual</h2><p><img src="/images/2022-07-21-10-52-53.png" alt=""></p>
 <script type="math/tex; mode=display">
 r_s=\frac{r}{n} \qquad n\sim A_p\Delta T</script><ul>
 <li>$n$ is the scaling factor</li>
@@ -621,7 +759,7 @@ r_s=\frac{r}{n} \qquad n\sim A_p\Delta T</script><ul>
 <li><mark>The reduction in the <strong>orders of magnitude</strong> of the scaled residual</mark> are used to asees convergence, not the exact value.</li>
 </ul>
 <p><code> Note The excat value of $r_s$ should not be relied upon. The differences may be caused in scaling factor and not mecessarily more / less converged.</code> </p>
-<p><img src="images/2022-07-21-13-54-50.png" alt=""></p>
+<p><img src="/images/2022-07-21-13-54-50.png" alt=""></p>
 <h2 id="Representative-temperature-difference"><a href="#Representative-temperature-difference" class="headerlink" title="Representative temperature difference"></a>Representative temperature difference</h2><ol>
 <li><p>substract the average temperature </p>
 <script type="math/tex; mode=display">
@@ -630,7 +768,7 @@ r_s=\frac{r}{n} \qquad n\sim A_p\Delta T</script><ul>
 <script type="math/tex; mode=display">
 \Delta T=\max (\boldsymbol{T})-\min(\boldsymbol{T})</script></li>
 </ol>
-<p><img src="images/2022-07-21-13-17-07.png" alt=""></p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p><img src="/images/2022-07-21-13-17-07.png" alt=""></p>
 
       
        
