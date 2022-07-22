@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>安装环境 | TeresaClay的小屋</title><meta name="robots" content="noindex">
+  <title>101F | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="安装环境 | TeresaClay的小屋">
+  <meta name="description" content="101F | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="101F">
@@ -526,29 +526,19 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Note_Wangyang/安装环境" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-101F-1" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">安装环境</h1>
+        <h1 class="article-title">101F</h1>
     
     <div class="article-meta">
         
         
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="Course">Course</a> > 
-            
-            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
-            
-        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-21 00:00:27'>2022-07-08 16:02</time>
+            Created At : <time class="date" title='Updated At: 2022-07-22 21:13:33'>2022-07-22 21:13</time>
         
     </div>
     <div class="article-meta">
@@ -559,7 +549,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-text">安装环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenFOAM"><span class="toc-text">OpenFOAM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E9%A2%84%E5%AE%89%E8%A3%85"><span class="toc-text">课程预安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TeresaClay"><span class="toc-text">TeresaClay</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -575,86 +565,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><h4 id="OpenFOAM"><a href="#OpenFOAM" class="headerlink" title="OpenFOAM"></a>OpenFOAM</h4><ul>
-<li><p><a target="_blank" rel="noopener" href="https://develop.openfoam.com/Development/openfoam/-/blob/master/doc/Build.md">Build.md</a></p>
-<p>  如果直接用 <a target="_blank" rel="noopener" href="https://develop.openfoam.com/Development/openfoam/-/wikis/precompiled/debian">debian</a>，安装在 usr/—, 开机就会加载</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://develop.openfoam.com/Development/openfoam/-/blob/master/doc/Build.md">编译型安装</a>    </p>
-<p>  | | |<br>  |——|——|——|<br>  | $ sudo apt-cache show xxx | inspect the available system version<br>  | install dependencies<br>  | download <a target="_blank" rel="noopener" href="https://dl.openfoam.com/source/">source.tgz and ThirdParty.tgz</a> and move to ~/OpenFOAM<br>  | $ tar zxf OpenFOAM-xxxx.tgz <br> $ cd OpenFOAM-v2206 <br> $ source <installation path>/OpenFOAM-v2206/etc/bashrc <br> $ foamSystemCheck <br> $ foam <br> $  ./Allwmake -j -s -q -l | change to the main OpenFOAM directory <br> ($ WM_PROJECT_DIR)</p>
-</li>
-<li><p>有问题可以到<a target="_blank" rel="noopener" href="https://www.openfoam.com/">主页</a>提问 </p>
-<ul>
-<li>issue 问题</li>
-<li>注册 git lab</li>
-<li>阅读 wiki </li>
-<li>foam-extended wiki</li>
-<li><a target="_blank" rel="noopener" href="https://cfd.direct/">CFD direct</a></li>
-<li>CFD online</li>
-</ul>
-</li>
-<li><p>学习 OpenFOAM的 bashrc wmake Allwmake <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HF411F7FA?spm_id_from=333.999.0.0&amp;vd_source=b32ee3f0d328de049f36af08e4ddf0ac">cmake</a></p>
-</li>
-</ul>
-<h4 id="课程预安装"><a href="#课程预安装" class="headerlink" title="课程预安装"></a>课程预安装</h4><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12S4y1i7ic/">kubuntu 22.04LTS版本安装过程</a> </p>
-<p>下载iso安装盘</p>
-<ol>
-<li>安装制作启动盘，使用Rufus制作启动盘</li>
-<li>在电脑BIOS中，设置USB启动</li>
-<li>插入USB启动盘</li>
-<li>选择 try or installation 这一项，默认的，不用动，直接回车<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PXChUh9JmdE&amp;t=85s">How to install Kubuntu</a></li>
-</ol>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/bv1gA4y1R7Uh">kubuntu 换清华源（海外不需要）</a> </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1d34y1L7ZU?vd_source=ba555841138e937cf05a48c0a0656561">vim</a></p>
-<p>  | | |<br>  |——|——|——|<br>  | $ sudo apt install vim | |<br>  | $ sudo autoremove vim | |<br>  | $ curl -fLo ~/.vim/autoload/plug.vim —create-dirs \ <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim">https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</a> | 下载插件管理器 vim-plug|<br>  | $ cd ~/.vim | |<br>  | $ cd autoload | plug.vim |</p>
-<p>  <a target="_blank" rel="noopener" href="https://github.com/gillescastel">Gilles Castel</a> <a target="_blank" rel="noopener" href="https://castel.dev/post/lecture-notes-1/">笔记系统</a></p>
-</li>
-<li><p>如何安装中文输入法 google拼音<br>  | | |<br>  |——|——|——|<br>  | $ sudo apt install fcitx | |<br>  | $ reboot | |<br>  | $ fcitx-configtool | 若无法配置，需要重启 reboot;重新执行此命令后，选择+|<br>  | $ control + space | 切换可输入中文|</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/bv1SY4y1W7vY?vd_source=ba555841138e937cf05a48c0a0656561">vscode</a> </p>
-<ol>
-<li>下载 .deb (直接点击，自动全局安装)</li>
-<li>下载 .tar.gz (双击extract, ./code, 非全局，在 ~./bashrc 添加 alias)</li>
-</ol>
-<ul>
-<li>OpenFolder<ul>
-<li>下拉框 prefrence-setting 有 workspace (优先) 和 user 两个配置，若更改workspace的设置，会生成一个.vscode / setting.json 文件加</li>
-</ul>
-</li>
-<li>OpenFolder - 下拉框 save workspace， add folder<br>- </li>
-</ul>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X94y117uN?spm_id_from=333.999.0.0">漂亮的 shell: oh-my-zsh</a><br>  | | |<br>  |——|——|——|<br>  | $ sudo apt install zsh|<br>  | $ zsh—version| | |<br>  | $ sh -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh">https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a>)” |<br>  | $ vim ~/.zshrc |<br>  | $ pwd |<br>  | $ bash |</p>
-</li>
-<li><p>tldr<br>  | | |<br>  |——|——|——|<br>  | $ sudo apt install tldr |<br>  | $ t.dr —update|</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-anaconda-on-ubuntu-20-04/">Anaconda</a><br>  | | |<br>  |——|——|——|<br>  |download from homepage .sh <br> $ bash xxx.sh  |<br>  | $ conda env list | |<br>  | $ conda deactivate base | |<br>  | $ conda activate base | |<br>  | $ conda create —name OpenFOAM python=3.10   | |<br>  | $ conda list |  |<br>  | $ conda install r | |</p>
-</li>
-<li><p>Tex Live<br>  不要安装在 /usr/local/<br>  安装在 /.local/texlive/2022<br>  | | |<br>  |——|——|——|<br>  | $ wget  <a target="_blank" rel="noopener" href="https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz">https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz</a><br>  | $ tar xzvf install-tl-unx.tar.gz |<br>  | $ xelatex xxx.tex | for Chinese text |<br>  | $ pdflatex xxx.tex <br>  $ okular xxx.pdf | for English text|<br>  | $ texdoc | ctex, amsmath, ut-thesis, graphicx, lshort zh-sh, fontspec |<br>  | $ sudo /home/huichenzhang/.local/texlive/2022/bin/x86_64-linux/tlmgr install ut-thesis |<br>  | $ tlmdr update —list  | 看安装了什么库</p>
-<p>  <a target="_blank" rel="noopener" href="https://github.com/stevenengler/Real-Time-LaTeX">实时PDF</a></p>
-<p>  | 磁盘文件组成 | |<br>  |——|——|——|<br>  | documents | .cls |<br>  | usepackage | .sty|<br>  | include | .tex |<br>  | input | .tex |</p>
-</li>
-<li><p>make<br>  $ sudo install make</p>
-</li>
-<li><p>gfortran<br>  $ sudo apt-get install gofortran</p>
-</li>
-</ul>
-<h3 id="TeresaClay"><a href="#TeresaClay" class="headerlink" title="TeresaClay"></a>TeresaClay</h3><ul>
-<li><p>Tmux<br>create panes or windows<br>  | | |<br>  |——|——|——|<br>  | $ sudo apt install tmux |<br>  | $ control b% |</p>
-<p>  <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Yl7NFenTgIo">Tmux tutorial</a> </p>
-</li>
-<li><p>Zathura reader<br>  $ sudo apt install tmux</p>
-</li>
-<li><p>bspwm window manager<br>  $ sudo apt install bspwm</p>
-</li>
-<li><p>vimtex<br>  | | |<br>  |——|——|——|<br>  |$ cd ~/.vimrc |<br>  |add: Plug ‘lervag/vimtex’ xxxx<br>  |Normal: PlugInstall<br>  <a target="_blank" rel="noopener" href="https://github.com/lervag/vimtex">Github链接</a><br>  <a target="_blank" rel="noopener" href="https://github.com/isakhammer/ymse_config/blob/master/.config/nvim/init.vim#L259">Github链接</a></p>
-</li>
-<li><p>ranger<br>  | | |<br>  |——|——|——|<br>  | $ sudo apt-get install ranger<br>  | $ ranger —copy -config=rc<br>  | ranger | 进入<br>  | shift s| 退出</p>
-</li>
-</ul>
-<!-- flag of hidden posts -->
+        
       
        
     </div>
