@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Moe8 Turbulence modelling | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Moe8 Turbulence modelling | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="To doCharmlers Turbulence course?MTF256 Turbulent flow Introduction to turbulence modelling Turbulence can orginate as  wall bounded turbulence  shear free turbulence  jets, mixing layers,heated walls">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Moe8 Turbulence modelling">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="To doCharmlers Turbulence course?MTF256 Turbulent flow Introduction to turbulence modelling Turbulence can orginate as  wall bounded turbulence  shear free turbulence  jets, mixing layers,heated walls">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-11-12-21-40.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/images/2022-07-13-00-44-25.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/images/2022-07-15-22-28-29.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/images/2022-07-13-08-58-59.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-18-38-38.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/images/2022-07-15-22-55-07.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/images/2022-07-13-18-49-55.png">
+<meta property="og:image" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod8/images/2022-07-13-20-58-13.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-14-14-36-49.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-14-15-05-29.png">
+<meta property="article:published_time" content="2022-07-22T19:48:23.518Z">
+<meta property="article:modified_time" content="2022-07-22T21:55:26.663Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-11-12-21-40.png">
+
+
+<link rel="icon" href="/img/Teresa.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/Teresa.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(27)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Course
+                        <small>(25)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Course<--->AndreasMalcherek">
+                                        
+                                        AndreasMalcherek
+                                        
+                                            <small>(11
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WangYang">
+                                        
+                                        WangYang
+                                        
+                                            <small>(7
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WolfDynamics">
+                                        
+                                        WolfDynamics
+                                        
+                                            <small>(7
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="27">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>半离散方程</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高斯散度定理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>散度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通量</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通用形式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>旋度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>fvSolution</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linear solvers</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/22/WD_Basic/Mod8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Moe8 Turbulence modelling">Moe8 Turbulence modelling</span>
+            <span class="post-date" title="2022-07-22 21:48:23">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/22/WD_Basic/Mod6/"
+           data-tag="linear solvers,fvSolution"
+           data-author="" >
+            <span class="post-title" title="Mod6 FVM in OpenFOAM">Mod6 FVM in OpenFOAM</span>
+            <span class="post-date" title="2022-07-22 14:37:39">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/20/WD_Basic/Mod14/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod14 2D Vortes Shedding turbulence">Mod14 2D Vortes Shedding turbulence</span>
+            <span class="post-date" title="2022-07-20 19:45:35">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/20/WD_Basic/Mod13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod13 2D Vortes Shedding laminar">Mod13 2D Vortes Shedding laminar</span>
+            <span class="post-date" title="2022-07-20 10:12:13">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/19/WD_Basic/Mod12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod12 3D break free surface">Mod12 3D break free surface</span>
+            <span class="post-date" title="2022-07-19 15:17:10">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/19/WD_Basic/Mod11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod11 Cavity 2D">Mod11 Cavity 2D</span>
+            <span class="post-date" title="2022-07-19 15:15:46">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="All Course WolfDynamics "
+           href="/2022/07/18/WD_Basic/Mod10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mod10 Module 1">Mod10 Module 1</span>
+            <span class="post-date" title="2022-07-18 21:29:28">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/16/Note_Wangyang/Lec12/"
+           data-tag="散度,梯度,旋度,高斯散度定理"
+           data-author="" >
+            <span class="post-title" title="Lec12">Lec12</span>
+            <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/14/Note_Wangyang/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 The Finite Volume Method">Lec11 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-14 16:38:06">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/12/Note_Wangyang/Lec10/"
+           data-tag="半离散方程,通量"
+           data-author="" >
+            <span class="post-title" title="Lec10 The Finite Volume Method">Lec10 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec15/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec15 Die Energiebilanz in der Kontinummsmechanik">Lec15 Die Energiebilanz in der Kontinummsmechanik</span>
+            <span class="post-date" title="2022-07-12 13:33:10">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec13 Innere Spannungen und Cauchygleichungen">Lec13 Innere Spannungen und Cauchygleichungen</span>
+            <span class="post-date" title="2022-07-12 11:19:36">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec12,14 Deformation und Deformationstensor">Lec12,14 Deformation und Deformationstensor</span>
+            <span class="post-date" title="2022-07-12 10:44:01">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 Die Druck-Poisson-Gleichung">Lec11 Die Druck-Poisson-Gleichung</span>
+            <span class="post-date" title="2022-07-12 10:25:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/12/Andreas_Malcherek/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10 Stromlinien und Stromfunktion">Lec10 Stromlinien und Stromfunktion</span>
+            <span class="post-date" title="2022-07-12 09:40:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/11/Andreas_Malcherek/Lec9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9 Gibt es rotationsfreie Strömungen">Lec9 Gibt es rotationsfreie Strömungen</span>
+            <span class="post-date" title="2022-07-11 23:39:27">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/11/Andreas_Malcherek/Lec8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Das d&#39;Almebertsche Paradoxon">Lec8 Das d&#39;Almebertsche Paradoxon</span>
+            <span class="post-date" title="2022-07-11 23:32:11">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/10/Andreas_Malcherek/Lec6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec6-7 Hydraudynamische Druckberechnungen">Lec6-7 Hydraudynamische Druckberechnungen</span>
+            <span class="post-date" title="2022-07-10 20:08:55">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/10/Andreas_Malcherek/Lec4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec4 Die Potentialströmungen">Lec4 Die Potentialströmungen</span>
+            <span class="post-date" title="2022-07-10 19:36:35">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/09/Andreas_Malcherek/Lec2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec2-3 Kontinuitätsgleichung für kompressible Gleichung">Lec2-3 Kontinuitätsgleichung für kompressible Gleichung</span>
+            <span class="post-date" title="2022-07-09 23:05:59">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course AndreasMalcherek "
+           href="/2022/07/09/Andreas_Malcherek/Lec1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-09 22:18:12">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec9/"
+           data-tag="通用形式"
+           data-author="" >
+            <span class="post-title" title="Lec9 Mathematical Description of Physical Phenomena">Lec9 Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Vector Calculus">Lec8 Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec7 Introduction">Lec7 Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-WD_Basic/Mod8" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Moe8 Turbulence modelling</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-07-22 23:55:26'>2022-07-22 21:48</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-turbulence-modelling"><span class="toc-text">Introduction to turbulence modelling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reynolds-number-and-Rayleigh-number"><span class="toc-text">Reynolds number and Rayleigh number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fluctuations-of-transported-quantities"><span class="toc-text">Fluctuations of transported quantities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boundary-layer"><span class="toc-text">Boundary layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scales-of-turbulence"><span class="toc-text">Scales of turbulence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-energy-cascade"><span class="toc-text">Energy spectrum and energy cascade</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Energy-spectrum-and-mesh-resolution"><span class="toc-text">Energy spectrum and mesh resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integral-length-scale-and-grid-length-scale"><span class="toc-text">Integral length scale and grid length scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-near-the-wall"><span class="toc-text">Turbulence near the wall</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spalding%E2%80%99s-law-universal-velocity-profile-fits-the-laminar-buffer-and-logarithmic-regions"><span class="toc-text">- Spalding’s law: universal velocity profile fits the laminar, buffer and logarithmic regions </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Near-wall-treatment-and-wall-functions"><span class="toc-text">Near-wall treatment and wall functions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Removing-small-scales"><span class="toc-text">- Removing small scales</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RANS-model"><span class="toc-text">RANS model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-k-omega-family-of-turbulence-models"><span class="toc-text">The $k-\omega$ family of turbulence models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-k-epsilon-turbulence-model"><span class="toc-text">The $k-\epsilon$ turbulence model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Low-Reynolds-number-k-epsilon"><span class="toc-text">Low-Reynolds number $k-\epsilon$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#General-form-of-the-transport-equations-of-all-turbulence-models"><span class="toc-text">General form of the transport equations of all turbulence models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k-omega-SST-turbulence-model"><span class="toc-text">$k-\omega$ SST turbulence model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wilcox-2006-k-epsilon"><span class="toc-text">Wilcox 2006 $k-\epsilon$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Spalart-Allmaras-turbulence-model"><span class="toc-text">The Spalart-Allmaras turbulence model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Filtered-Navier-Stokes-FNS-equations"><span class="toc-text">Filtered Navier-Stokes (FNS) equations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LES-sub-grid-scale-models"><span class="toc-text">LES sub-grid scale models</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h2><p>Charmlers Turbulence course?<br>MTF256 Turbulent flow</p>
+<h2 id="Introduction-to-turbulence-modelling"><a href="#Introduction-to-turbulence-modelling" class="headerlink" title="Introduction to turbulence modelling"></a>Introduction to turbulence modelling</h2><ul>
+<li><p>Turbulence can orginate as</p>
+<ul>
+<li><strong>wall bounded turbulence</strong> </li>
+<li><strong>shear free turbulence</strong> <ul>
+<li>jets, mixing layers,heated walls, atmospheric flows</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Turbulent motion has a direct effects on</p>
+<ul>
+<li>the velocity profiles<ul>
+<li>in laminar case: the velocity gradient close to the walls is small (therefore the shear stresses are lower)</li>
+<li>in the turbulent case: close to the walls with very large velocity gradients(large shear stresses); far from the wall where the velocity profile is nearly uniform </li>
+</ul>
+</li>
+<li><p>shear stresse</p>
+<ul>
+<li>in a laminar flow or in the viscous sub-layer<script type="math/tex; mode=display">
+\tau_{wall}=\mu\frac{\partial u}{\partial y}|_{y=0}</script></li>
+<li>in a turbulent flow<script type="math/tex; mode=display">
+  \tau_{wall}=\mu\frac{\partial u}{\partial y}|_{y=0} + \underbrace{\tau^{R}}_{\text{effects of increased mixing,randomness,agitation of turbulence flows}}</script><code>Note:This approximation is valid for 2D boundary layers where $\tau^&#123;R&#125;=\overline&#123;u’v’&#125;$</code></li>
+</ul>
+</li>
+<li><p>mixing of transported quantities</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Reynolds-number-and-Rayleigh-number"><a href="#Reynolds-number-and-Rayleigh-number" class="headerlink" title="Reynolds number and Rayleigh number"></a>Reynolds number and Rayleigh number</h3><ul>
+<li><p>Reynolds number</p>
+<script type="math/tex; mode=display">
+  Re_L=\frac{\rho UL}{\mu}=\frac{UL}{\nu}=\frac{\text{convective}}{\text{viscous}} \qquad \nu=\frac{\mu}{\rho}</script><p>  $U$: a charactersitic veloctiy, e.g. free-stream velocity<br>  $L$: a representative length sclae (or system scale), e.g., length, height, diameter, etc.</p>
+</li>
+<li><p>Rayleigh number</p>
+</li>
+<li>Grashof number</li>
+<li>Prandtl number</li>
+</ul>
+<hr>
+<h3 id="Fluctuations-of-transported-quantities"><a href="#Fluctuations-of-transported-quantities" class="headerlink" title="Fluctuations of transported quantities"></a>Fluctuations of transported quantities</h3><ul>
+<li>methods to remove fluctuations<ul>
+<li><strong>Reynolds averaging</strong> (RANS/URANS)<ul>
+<li>all turbulence scales are modeled</li>
+<li>2D or 3D</li>
+<li>steady or unsteady</li>
+</ul>
+</li>
+<li><strong>Filtering</strong> (LES/DES)<ul>
+<li>resolves large eddies</li>
+<li>models small eddies</li>
+<li>intrinsically 3D and unsteady</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>conditions <ul>
+<li>averaging stationary turbulence</li>
+<li>averaging nonstationary turbulence</li>
+<li>statistically steady turbulence</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Boundary-layer"><a href="#Boundary-layer" class="headerlink" title="Boundary layer"></a>Boundary layer</h3><p><img src="/images/2022-07-11-12-21-40.png" alt=""></p>
+<ul>
+<li>wall resolving simulation: simulate down to the viscous sublayer</li>
+<li>wall modelling: model everthing below $y=30$</li>
+</ul>
+<hr>
+<h3 id="Scales-of-turbulence"><a href="#Scales-of-turbulence" class="headerlink" title="Scales of turbulence"></a>Scales of turbulence</h3><pre><code>![](/images/2022-07-13-16-02-20.png)
+</code></pre><ul>
+<li>Figure:turbulence energy spectrum<ul>
+<li>region A: <strong>energy containing eddies $L_0$</strong></li>
+<li>region B: inertial sub-range</li>
+<li>regiong C: <strong>the eddies’ $\text{Re}_{\text{T}}$</strong> is sufficiently small, <strong>molecular viscosity</strong> is effective in dissipating the kinetic energy ( at Kolmogorov scales $\eta$).  </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>The motion at <strong>the smallest scales</strong> should depend only upon</p>
+<ul>
+<li>The rate at which the larger eddies supply and $\nu$ <script type="math/tex; mode=display">
+ \boxed{\epsilon=-\frac{\mathrm{d}k}{\mathrm{d}t}} \qquad \left[ \frac{m^{2}}{s^{3}}\right]</script>$\qquad \epsilon \left[ \frac{m^{2}}{s^{3}}\right]$: <strong>turbulent dissipation rate</strong> (per unit mass)<br>$\qquad k \left[ \frac{m^{2}}{s^{2}}\right]$: turbulent kinetic energy (per unit mass)</li>
+</ul>
+</li>
+<li><p><strong>Kolmogorov scales</strong>: to determine the smallest scales in turbulence (at which the energy is disispated)</p>
+<p>  <img src="images/2022-07-13-00-44-25.png" alt=""></p>
+</li>
+<li><p><strong>Kolmogorov Reynolds number</strong> and <strong>Turbulent disssipation rate</strong></p>
+<script type="math/tex; mode=display">
+  \boxed{Re_{\eta}=\frac{\eta u_n}{\nu}=1} \qquad \boxed{\epsilon=\nu\left( \frac{v_\eta}{\eta} \right)^{2}=\frac{\nu}{\tau^{2}_{\eta}}} \to \underbrace{\frac{u_\eta}{\eta}=\frac{1}{\tau_{\eta}}}_{\text{velocity gradient of dissipative eddies}}</script></li>
+<li><strong>integral scales</strong>: characteritsic length and time scales of turbulence producing eddies $l_0$<script type="math/tex; mode=display">
+l_0 \sim \frac{k^{\frac{3}{2}}}{\epsilon} \qquad \tau_0\sim \frac{l_0}{k^{\frac{1}{2}}}\sim \frac{k}{\epsilon} \sim \frac{\nu_t}{k}</script></li>
+<li>combine previous two scales <script type="math/tex; mode=display">
+  \color{red}{\frac{\text{Largest eddies}}{\text{Smalles eddies}} }\qquad \color{black}{\frac{l_{0}}{\eta} \sim  Re^{\frac{3}{4}}_{T} \qquad \frac{\tau_{0}}{\tau_{\eta}}\sim Re^{\frac{1}{2}}_{T} \qquad \frac{u_0}{u_{\eta}}\sim Re^{\frac{1}{4}}_{T}}</script><blockquote>
+<p>These relationships give you some idea about the meshes</p>
+</blockquote>
+</li>
+<li><p><strong>turbulence Reynolds number</strong> (Re of the integral length)</p>
+<script type="math/tex; mode=display">\boxed{Re_T\equiv \frac{k^{\frac{1}{2}}l_{0}}{\nu}}=\frac{k^{2}}{\epsilon \nu}</script></li>
+<li><p><strong>turbulent kinetic energie</strong> (TKE)</p>
+<script type="math/tex; mode=display">
+k=\frac{1}{2}\left( \overline{u^{'2}}+\overline{v^{'2}}+\overline{w^{'2}} \right)</script></li>
+<li><p><strong>interial range</strong>: between integral scale and Kolmogorov scale </p>
+<ul>
+<li>motion of the eddies are determined by inertial effects (viscous effects are negligible)</li>
+</ul>
+</li>
+</ul>
+<p>  <img src="images/2022-07-15-22-28-29.png" alt=""></p>
+<pre><code>- under equilibrium conditions, turbulence production = turbulence dissipation
+</code></pre><hr>
+<h3 id="Energy-spectrum-and-energy-cascade"><a href="#Energy-spectrum-and-energy-cascade" class="headerlink" title="Energy spectrum and energy cascade"></a>Energy spectrum and energy cascade</h3><p>  <img src="images/2022-07-13-08-58-59.png" alt=""></p>
+<ul>
+<li><p>Energy (spectrum) density</p>
+<script type="math/tex; mode=display">
+E(\kappa)=C_K\epsilon^{\frac{2}{3}}\kappa^{-\frac{5}{3}} \qquad \kappa=\frac{2\pi}{l}=\frac{2 \pi f}{U}</script><ul>
+<li>this equation describes the wavenumber depencence of the turbulent kinetic energy</li>
+<li>a range of wavenumbers exist in which the energy transferred by inertial effects</li>
+<li>in CFD, the <strong>mesh resolution</strong> determines the fraction of the energy spectrum directly resolved<ul>
+<li>DNS:100%</li>
+<li>LES: 80%</li>
+<li>URANS: 0%</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/2022-07-13-18-38-38.png" alt=""></p>
+<hr>
+<h3 id="Energy-spectrum-and-mesh-resolution"><a href="#Energy-spectrum-and-mesh-resolution" class="headerlink" title="Energy spectrum and mesh resolution"></a>Energy spectrum and mesh resolution</h3><ul>
+<li>Ration<script type="math/tex; mode=display">
+R_l=\frac{l_0}{\Delta} \qquad=\frac{\text{integral length scales}}{\text{grid length scales}}</script><ul>
+<li>number of cells needed to resolve integral length scales $l_0$</li>
+</ul>
+</li>
+<li>Culmulative plot of the turbulent kinetic energie</li>
+</ul>
+<p><img src="images/2022-07-15-22-55-07.png" alt=""></p>
+<ul>
+<li>DNS: resolve all the turbulence scales</li>
+<li>LES: 80%-90% (SRS); 10 cells for $l_0$</li>
+<li>DES: LES in the far field; RANS close to the wall (SRS)</li>
+<li>RANS/URANS: 0% resolving (100% modeled); 5-6 cells for $l_0$</li>
+</ul>
+<p><img src="images/2022-07-13-18-49-55.png" alt=""></p>
+<hr>
+<h3 id="Integral-length-scale-and-grid-length-scale"><a href="#Integral-length-scale-and-grid-length-scale" class="headerlink" title="Integral length scale and grid length scale"></a>Integral length scale and grid length scale</h3><ul>
+<li>the integral length scale $l_0$ can be estimated from a precursor RANS simulation (to get $k, \epsilon,\omega$)<ul>
+<li>two-equation turbulence models<ul>
+<li>$k-\epsilon$ </li>
+<li>$k-\omega$</li>
+</ul>
+</li>
+<li>compute turbulent kinetic energy $k$, disispation rate  $\epsilon$, and specific dissipation rate $\omega$</li>
+</ul>
+</li>
+<li>then compute <strong>integral length scale</strong> $l_0$<script type="math/tex; mode=display">
+l_0=\frac{k^{1.5}}{\epsilon}=\frac{k^{0.5}}{0.09\times \omega} \qquad \epsilon=C_\mu\omega k, C_\mu=0.09</script><blockquote>
+<p>Note:<br>$l_0$ is telling you the region where occurs interaction of vorticies.<br>It does not represent the dimension of the largest eddies or integral length scales.</p>
+</blockquote>
+</li>
+<li>then compute <script type="math/tex; mode=display">
+\color{red}{R_l=\frac{l_0}{\Delta}} \qquad \color{black}{\text{with} \, \Delta\approx ^{3} \sqrt{\text{cell volume}}}</script></li>
+</ul>
+<hr>
+<h3 id="Turbulence-near-the-wall"><a href="#Turbulence-near-the-wall" class="headerlink" title="Turbulence near the wall"></a>Turbulence near the wall</h3><ul>
+<li><p>Definiton of $y^{+}$ and $u^{+}$</p>
+<script type="math/tex; mode=display">
+  \boxed{y^{+}=\frac{\rho U_{\tau}y}{\mu}=\frac{U_{\tau}y}{\nu}} \qquad \boxed{u^{+}=\frac{U}{U_{\tau}}} \qquad \boxed{U_{\tau}=\sqrt{\frac{\tau_{\omega}}{\rho }}}</script></li>
+<li><p><strong>Law of the wall</strong> </p>
+<script type="math/tex; mode=display">
+u^{+}=f(y^{+})</script><ol>
+<li><p><strong>Logarithmic law or log-law</strong></p>
+<script type="math/tex; mode=display">
+u^{+}=\frac{1}{\color{grey}}\ln y^{+}+{\color{grey}{C^{+}}} \qquad \color{red}{30<y^{+}<300-600}</script></li>
+<li><p><strong>The buffer layer</strong></p>
+<script type="math/tex; mode=display">
+\text{anything} \qquad \qquad 5<y^{+}<30</script></li>
+<li><p><strong>The viscous sublayer</strong></p>
+<script type="math/tex; mode=display">
+u^{+}=y^{+} \qquad \quad \color{red}{y^{+}<5-6}</script></li>
+</ol>
+</li>
+</ul>
+<h2 id="Spalding’s-law-universal-velocity-profile-fits-the-laminar-buffer-and-logarithmic-regions"><a href="#Spalding’s-law-universal-velocity-profile-fits-the-laminar-buffer-and-logarithmic-regions" class="headerlink" title="- Spalding’s law: universal velocity profile fits the laminar, buffer and logarithmic regions "></a>- <strong>Spalding’s law</strong>: universal velocity profile fits the laminar, buffer and logarithmic regions </h2><h3 id="Near-wall-treatment-and-wall-functions"><a href="#Near-wall-treatment-and-wall-functions" class="headerlink" title="Near-wall treatment and wall functions"></a>Near-wall treatment and wall functions</h3><ul>
+<li><p><strong>Wall resolving</strong> - <mark>low-RE(LRN)</mark></p>
+<ul>
+<li>cluster at leat 10 layers for $y^{+}&lt;6-10$</li>
+<li>don’t be afraid to use this approach for 2D steady simulations</li>
+</ul>
+</li>
+<li><p><strong>Wall functions</strong> - <mark>high-RE(HRN)</mark></p>
+<ul>
+<li>model everying below $y^{+}&lt;30$</li>
+<li>the first cell center located above $y^{+}&gt;40-50$ and below $y\approx_0.2\delta_{99}$(boundary layer thickness)</li>
+<li>can be used in <strong>RANS, DES and LES</strong></li>
+</ul>
+</li>
+<li><p>$y^{+}$ insensitive wall treatment</p>
+<ul>
+<li>valid in the whole boundary layer, $1&lt;y^{+}&lt;300-600$</li>
+<li>8-10 layers to resolve the profile of transported quantities</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>5-10 layers close to the wall in order to resolve the profile of the transported quantities</li>
+</ul>
+<ul>
+<li>use this approach for unsteady cases</li>
+<li><p>Launder and Spalding</p>
+<pre><code>![](images/2022-07-13-20-46-37.png)
+</code></pre><ul>
+<li>in a separation point, $\tau_{w}=0 \to  U_{\tau}=0 \to $ a singularity in $u^{+}=\frac{U}{U^{\tau}}$</li>
+<li>therefore, introduce new paramters (independent of shear velocity)<script type="math/tex; mode=display">
+  \boxed{U^{*}_{\tau}=C^{\frac{1}{4}}_{\mu}k^{\frac{1}{2}}_{p}} \qquad \boxed{y^{*}=\frac{C^{\frac{1}{4}}_{\mu}k^{\frac{1}{2}}_{p}y_p}{\nu}} \qquad \boxed{u^{*}=\frac{1}{\kappa}\ln (Ey^{*2*})}</script>  <img src="images/2022-07-13-20-58-13.png" alt=""><blockquote>
+<p>Note: if you have flow separation, wall modeling is not approprite.?1’50’. But there are models take into account the adverse gradient.</p>
+</blockquote>
+</li>
+<li>$y^{+}$ insensitive wall treatment</li>
+</ul>
+</li>
+<li>also called continuous wall functions / scalable wall functions</li>
+</ul>
+<h2 id="Removing-small-scales"><a href="#Removing-small-scales" class="headerlink" title="- Removing small scales"></a>- Removing small scales</h2><h3 id="RANS-model"><a href="#RANS-model" class="headerlink" title="RANS model"></a>RANS model</h3><ul>
+<li><p>Starting equations: exact <strong>NES</strong> (DNS)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ \frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\boldsymbol{u})&=0 \\ \frac{\partial \rho\boldsymbol{u}}{\partial t}+\nabla \cdot (\rho\boldsymbol{uu})&=-\nabla p+\nabla \cdot \tau+\boldsymbol{S}_u \\ \frac{\partial \rho e_t}{\partial t}+\nabla \cdot (\rho e_t \boldsymbol{u})&=-\nabla \cdot q-\nabla \cdot (p\boldsymbol{u})+\tau : \nabla \boldsymbol{u}+S_{e_t}
+\end{aligned}</script><p><center>additional closure equations for the turbulence models</p>
+</li>
+<li><p>Exact <strong>Navier-Stokes</strong> equations (no models)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\boldsymbol{u})=0 \\ \frac{\partial \boldsymbol{u}}{\partial t}+\nabla \cdot (\boldsymbol{uu})&=\frac{-\nabla p}{\rho}+\nu \nabla^{2}\boldsymbol{u} 
+\end{aligned}</script></li>
+<li><p>Incompressible <strong>RANS</strong> equations (governing equaiton)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\boldsymbol{\overline{u}})=0 \\ \frac{\partial \boldsymbol{\overline{u}}}{\partial t}+\nabla \cdot (\boldsymbol{\overline{u}\,\overline{u}})&=\frac{-\nabla \overline{p}}{\rho}+\nu \nabla^{2}\boldsymbol{\overline{u}}-\color{red}{\frac{1}{\rho}\nabla \cdot \tau^{R}} 
+\end{aligned}</script></li>
+<li><strong>Renolys stress tensor</strong> <script type="math/tex; mode=display">
+\boxed{\boldsymbol{\tau^{R}}=-\rho(\overline{\boldsymbol{u'u'}})}=-\begin{pmatrix} \rho\overline{u'u'} &\rho\overline{u'v'}  &\rho\overline{u'w'}  \\ \rho\overline{v'u'}  &\rho\overline{v'v'}  & \rho\overline{v'w'} \\ \rho\overline{w'u'} & \rho\overline{w'v'} & \rho\overline{w'w'} \\\end{pmatrix}</script></li>
+<li><p><strong>Boussinesq hypothesis</strong>: relate $\tau^{R}$ to the mean velocity gradient </p>
+<script type="math/tex; mode=display">
+\boxed{\tau^{R}=-\rho(\overline{\boldsymbol{u'u'}})=2\mu_t \overline{\boldsymbol{S}}^{R}-\frac{2}{3}\rho k \boldsymbol{I}={\color{red}{\mu_t}} \left[ \nabla \overline{\boldsymbol{u}}+\nabla \overline{\boldsymbol{u}}^{T}\right]-\frac{2}{3}\rho k \boldsymbol{I}} \\  \tau^{R}_{ij}=-\rho\overline{u'_{i}u'_{j}}=2\mu_t S_{ij}-\frac{2}{3}\rho k\delta_{ij}</script><ul>
+<li>strain-rate tensor <script type="math/tex">\overline{\boldsymbol{S}}^{R}=\frac{1}{2}\left[ \nabla \overline{\boldsymbol{u}}+\nabla \overline{\boldsymbol{u}}^{T}\right]</script> </li>
+<li>identity matrix $\bold{I}$</li>
+<li>each turbulence model will compute turbulent eddy viscosity $\mu_t$ in a different way<br>(not a fluid property, but needed by the turbulence model) </li>
+<li>turbulent kinetic energy <script type="math/tex">k=\frac{1}{2}\overline{\boldsymbol{u'\cdot u}}\qquad k=\frac{1}{2}\left(\overline{u^{'2}}+\overline{v^{'2}}+\overline{w^{'2}}\right)</script></li>
+</ul>
+</li>
+<li><p><strong>Solvable equations</strong>: RANS+Boussinesq</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\boldsymbol{\overline{u}})&=0 \\ \frac{\partial \bold{\overline{u}}}{\partial t}+\nabla \cdot (\bold{\overline{u}\,\overline{u}})&=-\frac{1}{\rho}\left( \nabla \overline{p}+\underbrace{\frac{2}{3}\rho \nabla  k}_{\text{normal stresses from Bouss.}} \right)+\nabla \cdot \left[ \frac{1}{\rho}(\mu+{\color{red}{\mu_t}})\nabla \overline{\bold{u}} \right]
+\end{aligned}</script><ul>
+<li>The problem now reduces to computing the turbulent eddy viscosity $\mu_t=f(k,\epsilon,\omega,l,t,v\cdots )$  (closure problem)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="The-k-omega-family-of-turbulence-models"><a href="#The-k-omega-family-of-turbulence-models" class="headerlink" title="The $k-\omega$ family of turbulence models"></a>The $k-\omega$ family of turbulence models</h3><ul>
+<li>The closure equations of the turbulence problem using Reynolds average<br>(scalar transport equation, y+ insensitive)<script type="math/tex; mode=display">
+\begin{aligned}
+\rho \frac{\partial k}{\partial t}+\rho\nabla \cdot (\overline{\bold{u}}k)&=\overbrace{\tau^{R}:\nabla \overline{\bold{u}}}^{\text{production}}-\overbrace{\beta\rho k \omega}^{\text{dissipation}}+\overbrace{\nabla \cdot [(\mu+\sigma^{*}\mu_T)\nabla k]}^{\text{diffusion}}\\ \rho \frac{\partial \omega}{\partial t}+\rho\nabla \cdot (\overline{\bold{u}}\omega)&=\alpha \frac{\omega}{k}\tau^{R}:\nabla \overline{\bold{u}}-\beta\rho  \omega^{2}+\nabla \cdot [(\mu+\sigma \mu_T)\nabla \omega]
+\end{aligned}</script></li>
+<li><p>or </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla _tk+\nabla \cdot (\overline{\boldsymbol{u}}k)&=\tau^{R}: \nabla \overline{\boldsymbol{u}}-\beta^{*}k\omega+\nabla \cdot \left[(\nu+\sigma^{*}\nu_t)\nabla k\right] \\ \nabla _t\omega+\nabla \cdot (\overline{\boldsymbol{u}}\omega)&=\alpha \frac{\omega}{k}\tau^{R}:\nabla \overline{\boldsymbol{u}}-\beta\omega^{2}+\nabla *\left[(\nu+\sigma\nu_t)\nabla \omega\right] \\\nu_t&=\frac{k}{\omega}
+\end{aligned}</script></li>
+<li><p>with auxiliary relationships </p>
+<script type="math/tex; mode=display">\epsilon=\beta ^{*}\omega k \qquad l=\frac{k^{\frac{1}{2}}}{\omega}</script></li>
+<li><p>with   </p>
+<ul>
+<li>$k=\frac{1}{2}\left(\overline{u^{‘2}}+\overline{v^{‘2}}+\overline{w^{‘2}}\right)$</li>
+<li>$\omega [\frac{1}{s}]$: <strong>specific turbulence dissipation rate</strong> / dissipation frequency / vorticiy    </li>
+<li>$\epsilon [\frac{m^{2}}{s^{3}}]$: <strong>turbulence dissipation rate</strong></li>
+<li>$l$: <strong>integral length scales</strong></li>
+<li><p>closure coefficients $\alpha,\beta,\beta^{<em>},\sigma,\sigma ^{</em>}$</p>
+<blockquote>
+<p>Note:<br>Each equation requires boundary conditions and Initial conditions<br>This method can use wall function or can resolve the boundary layer</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Using wall function for $k-\epsilon$<script type="math/tex; mode=display">
+U=\frac{u_\tau}{\kappa}\ln y+C \qquad k=\frac{u^{2_{\tau}}}{\beta^{*}} \qquad \omega=\frac{u_\tau}{\sqrt{\beta^{*}}ky}</script><ul>
+<li>relate local wall shear stress (through $u_\tau$) to $U,k,\omega$</li>
+<li>$u_\tau$ is solved iteratively by a small implicit system</li>
+<li>$u_\tau \to k\to \omega$</li>
+</ul>
+</li>
+<li><p>Resolving the boundary layer</p>
+<script type="math/tex; mode=display">
+\omega_{\text{wall}}=10 \frac{6\nu}{\beta y^{2}} \qquad k_{\text{wall}}=0</script><ul>
+<li>$\beta=0.075$</li>
+<li>$y$: distance to the first cell center normal to the wall</li>
+</ul>
+</li>
+<li><p>The free-streeam initial conditions<br>  <img src="/images/2022-07-13-23-31-41.png" alt=""></p>
+<ul>
+<li>set turbulence intensity level $I$</li>
+<li>find the viscosity ration $\frac{\mu_t}{\mu}$</li>
+<li>then get $\omega_\text{farfield}=\frac{\rho k}{\mu}\left( \frac{\mu_t}{\mu}\right)^{-1} \qquad k_{\text{farfield}}=\frac{3}{2}(UI)^{2}$</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Comment:<br>k-omega does not perform well for rotationg flows<br>k-omega tends to be more instable</p>
+<p>Workflow: </p>
+<ol>
+<li>do simulation with k-epsilon in a coarse mesh(But it has the problem with wall function)- and get all the integral length, y+ and so on (indicate the mesh quality)</li>
+<li>interpolate into a mesh for k-omega </li>
+<li>even move to LES </li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="The-k-epsilon-turbulence-model"><a href="#The-k-epsilon-turbulence-model" class="headerlink" title="The $k-\epsilon$ turbulence model"></a>The $k-\epsilon$ turbulence model</h3><ul>
+<li><p>$k-\epsilon$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_t k+\nabla \cdot (\overline{\bold{u}}k)&=\tau^{R}:\nabla \overline{\bold{u}}-\epsilon+\nabla \cdot \left[ \left(\nu+\frac{\nu_t}{\sigma_k}    \right) \nabla k \right] \\ \nabla _t\epsilon+\nabla \cdot (\overline{\bold{u}}\epsilon)&=C_{\epsilon_1} \frac{\epsilon}{k}\tau^{R}:\nabla \overline{\bold{u}}-C_{\epsilon_2}\frac{\epsilon^{2}}{k}+\nabla \cdot \left[\left( \nu+\frac{\nu_t}{\sigma_\epsilon} \right) \nabla \epsilon\right] \\ \nu_t&=\frac{C_{\mu}k^{2}}{\epsilon}
+\end{aligned}</script><ul>
+<li>closure coefficients: $C_{\epsilon_1},C_{\epsilon_2},C_\mu,\sigma_k,\sigma_\epsilon$ </li>
+<li>auxiliary relationships: $\omega=\frac{\epsilon}{C_{\mu}k} \qquad l=\frac{C_\mu k^{\frac{3}{2}}}{\epsilon}$</li>
+<li>the inaccuracies in the $k-\epsilon$ model stem from: $\nu_t$ computation and the turbulent dissipation rate equation<blockquote>
+<p>Note:<br>This module fix $C_\mu$ value. But it has been measured experimentally that this coefficient is not constant.<br>To correct this problem: Low-Re $k- \epsilon$ with blending function.   </p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>$k-\epsilon$ model can only be used with wall functions <ul>
+<li>need to give physically realistic values of boundary conditions at the walls</li>
+<li>standard wall function  developed by Launder and Spalding<script type="math/tex; mode=display">
+\frac{\partial k}{\partial n}=0 \qquad \epsilon_{p}=\frac{C^{\frac{3}{4}}_{\mu} k^{\frac{3}{2}}_{p}}{ky_p}</script></li>
+</ul>
+</li>
+<li>The free-stream initial conditions (see $k-\omega$ turbulence model)</li>
+<li>The most notable limitation: it requires the use of <strong>wall functions</strong> </li>
+</ul>
+<hr>
+<h3 id="Low-Reynolds-number-k-epsilon"><a href="#Low-Reynolds-number-k-epsilon" class="headerlink" title="Low-Reynolds number $k-\epsilon$"></a>Low-Reynolds number $k-\epsilon$</h3><ul>
+<li>low-Reynolds number refers to the Reynolds number measured normal to the wall (similar to the y+ normal to the wall), not the system Reynodls number<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_t k+\nabla \cdot (\overline{\bold{u}}k)&=\tau^{R}:\nabla \overline{\bold{u}}-\epsilon+\nabla \cdot \left[ \left(\nu+\frac{\nu_t}{\sigma_k}    \right) \nabla k \right]+L_k \\ \nabla _t\epsilon+\nabla \cdot (\overline{\bold{u}}\epsilon)&=C_{\epsilon_1} f_1 \frac{\epsilon}{k}\tau^{R}:\nabla \overline{\bold{u}}-C_{\epsilon_2}f_2\frac{\epsilon^{2}}{k}+\nabla \cdot \left[\left( \nu+\frac{\nu_t}{\sigma_\epsilon} \right) \nabla \epsilon\right]+L_\epsilon \\ \nu_t&=f_\mu C_\mu \frac{k^{2}}{\epsilon}
+\end{aligned}</script><ul>
+<li>control the behavour close to the wall through $f_i,f_2,f_\mu,L_k,L_\epsilon$<br>(correct or dampf the behavior of the turbulent viscosity as we approach to the walls)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="General-form-of-the-transport-equations-of-all-turbulence-models"><a href="#General-form-of-the-transport-equations-of-all-turbulence-models" class="headerlink" title="General form of the transport equations of all turbulence models"></a>General form of the transport equations of all turbulence models</h3><script type="math/tex; mode=display">
+  \underbrace{\nabla_t \phi}_{\text{transinet term}}+\underbrace{\nabla \cdot \overline{\bold{u}}\phi}_{\text{convection}}=\underbrace{P^{\phi}}_{\text{production}}+\underbrace{\epsilon^\phi}_{\text{dissipation}}+\underbrace{D^{\phi}}_{\text{diffusion}}+\underbrace{S^{\phi}}_{\text{source}}</script><pre><code>- production term has same strucutre: 
+    $$
+    \begin&#123;aligned&#125;
+            \text&#123;Constant&#125;&amp; \times \tau_&#123;ij&#125;\frac&#123;\partial \overline&#123;u&#125;_i&#125;&#123;\partial x_j&#125;  \\ \text&#123;Constant&#125;&amp; \times \bold&#123;\tau&#125;: \nabla \overline&#123;\bold&#123;u&#125;&#125;
+    \end&#123;aligned&#125;
+    $$
+    - constant x Reynolds stress tensor x mean velocity gradient
+    - : scalar product of two second-rank tensors
+</code></pre><hr>
+<h3 id="k-omega-SST-turbulence-model"><a href="#k-omega-SST-turbulence-model" class="headerlink" title="$k-\omega$ SST turbulence model"></a>$k-\omega$ SST turbulence model</h3><ul>
+<li><p>can be seen as a hybrid method</p>
+<ul>
+<li>away from the wall: standard $k-\epsilon$ model </li>
+<li>close to the wall: $k-\omega$ model</li>
+</ul>
+</li>
+<li><p>The solvable equations of the $k-\omega$ SST</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  \nabla _t k+\nabla \cdot (\overline{\bold{u}}k)&=\tau^{R}:\nabla \overline{\bold{u}}-\beta^{*}k\omega+\nabla \cdot \left[ \left( \nu+\frac{\nu_t}{\sigma_k} \right) \nabla k \right] \\ \frac{\partial \omega}{\partial t}+\nabla \cdot (\overline{\bold{u}}\omega)&=\frac{\alpha}{\nu_t}\tau^{R}:\nabla \overline{\bold{u}}-\beta\omega^{2}+\nabla \cdot \left[ \left( \nu+\frac{\nu_t}{\sigma_\omega} \right) \nabla  \omega \right]+2(1-F_1)\frac{\sigma_{\omega^{2}}}{\omega}\nabla k\cdot \nabla \omega \\ \mu_t&=\rho \frac{a_1k}{\text{max}(a_1\omega,F_2\Omega)}
+\end{aligned}</script><ul>
+<li>magnitude of the vorticity tensor: $\Omega=\sqrt{2W_{ij}W_{ij}}$</li>
+<li>anti-symmetric part of the velocity gradient (vorticity tensor): $W_{ij}=\frac{1}{2}\left(\frac{\partial \overline{u}_i}{\partial x_j}-\frac{\partial \overline{u}_j}{\partial x_i}\right)$</li>
+<li>a near-wall state $\phi_1$ and a far-wall state $\phi_2$: $\phi=F_1\phi_1+(1-F_1)\phi_2$</li>
+<li>$F_1=\tanh(\text{arg}_1^{4}) \qquad 0\le F_1\le 1 $</li>
+<li>$\text{arg}_1=\min \left[ \max \left(\frac{\sqrt{k}}{\beta^{*}\omega d}, \frac{500 \nu}{d^{2}\omega}\right), \frac{4\rho \sigma_{\omega 2}k}{CD_{k\omega}d^{2}} \right] \qquad \ge 0$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Wilcox-2006-k-epsilon"><a href="#Wilcox-2006-k-epsilon" class="headerlink" title="Wilcox 2006 $k-\epsilon$"></a>Wilcox 2006 $k-\epsilon$</h3><ul>
+<li><p>The solvable equations</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla _t k+\nabla \cdot (\overline{\bold{u}}k)&=\tau^{R}:\nabla \overline{\bold{u}}-\beta^{*}k\omega+\nabla \cdot \left[ \left( \nu+\sigma^{*}\frac{k}{\omega} \right) \nabla k \right] \\ \nabla _t \omega+\nabla \cdot (\overline{\bold{u}}\omega)&=\alpha \frac{\omega}{k}\tau^{R}: \nabla \overline{\bold{u}}-\beta \omega^{2}+\nabla \cdot \left[ \left(\nu+\sigma \frac{k}{\omega}\right) \nabla  \omega \right]+\underbrace{\frac{\sigma_d}{\omega}\nabla k\cdot \nabla \omega}_{\text{cross diffusion}}
+\end{aligned}</script><ul>
+<li><p>closure relation to compute th kinetmatic eddy viscosity:</p>
+<script type="math/tex; mode=display">
+  \nu_t=\frac{k}{\tilde{\omega}} \qquad \tilde{\omega}=\underbrace{\text{max}\left[ \omega,C_\text{lim}\sqrt{\frac{2\bold{S}:\bold{S}}{\beta^{*}}} \right]}_{\text{stress limiter}} \qquad C_\text{lim}=\frac{7}{8}</script></li>
+<li><p>cross-diffusion term: </p>
+<ul>
+<li>to minimize the sensitivity of the model to free-stream boundary conditions in shear free regions</li>
+<li>cross-diffusion coefficient $\sigma_d$<script type="math/tex; mode=display">
+  \sigma_d=\begin{cases}
+    0 \qquad \nabla k\cdot \nabla \omega \le 0 \qquad \text{near the walls}\\ \sigma_{d_0} \qquad \nabla k\cdot \nabla \omega \ge 0 \qquad \text{free shear (like a source term)}
+  \end{cases}</script></li>
+</ul>
+</li>
+<li>built-in stress limiter: <ul>
+<li>to improve the modeling capabilities when dealing with flow separation, incompressible free shear flows, and transonic/supersonic flows</li>
+<li>activated when the magnitude of the strain rate is too large, which happens with separated flows, high Mach number flows, and in the presence of shock waves</li>
+</ul>
+</li>
+<li>closure coefficients</li>
+</ul>
+</li>
+<li>does not need use several complex bleding functions</li>
+</ul>
+<hr>
+<h3 id="The-Spalart-Allmaras-turbulence-model"><a href="#The-Spalart-Allmaras-turbulence-model" class="headerlink" title="The Spalart-Allmaras turbulence model"></a>The Spalart-Allmaras turbulence model</h3><ul>
+<li><p>Based on the Boussinesq hypothesis</p>
+<script type="math/tex; mode=display">
+\tau^{R}_{ij}=-\rho\overline{u'_{i}u'_{j}}=2\mu_t S_{ij}-\color{grey}{\underbrace{\frac{2}{3}\rho k\delta_{ij}}_{\text{ignored in OpenFOAM since } k=0}}</script></li>
+<li><p>A closed equation for $\nu_t$ is artifically created that fits well a range of experimental and epmirical data (fully synthetic model)</p>
+</li>
+<li>It does not solve a transport equation for $\nu_t$, but a modified version of the turbulent eddy viscosity $\tilde{\nu}$</li>
+</ul>
+<hr>
+<h3 id="Filtered-Navier-Stokes-FNS-equations"><a href="#Filtered-Navier-Stokes-FNS-equations" class="headerlink" title="Filtered Navier-Stokes (FNS) equations"></a>Filtered Navier-Stokes (FNS) equations</h3><ul>
+<li>As for RANS, in <strong>LES</strong> simulations the smallest scales need to be modeled</li>
+<li><p>LES decomposition / filtering decomposition </p>
+<ul>
+<li>filter operation in space which can be ssen as a rolling average in physical space</li>
+<li>remove or filter the smallest scales of the instataneous filed variables<script type="math/tex; mode=display">
+\begin{aligned}
+\phi(\bold{x},t)&=\underbrace{\tilde{\phi}(\bold{x},t)}_{\text{GS}}+\underbrace{\phi ^{'}(\bold{x},t)}_{\text{SGS}}=\overline{\phi}(\bold{x},t)+\phi ^{'}(\bold{x},t) 
+\end{aligned}</script></li>
+<li>$\text{GS}$: <ul>
+<li>grid scales</li>
+<li>filtered quantity or resolved field</li>
+<li>already contains fluctuations</li>
+<li>the mesh or filter is able to solve the fluctuations</li>
+</ul>
+</li>
+<li><p>$\text{SGS}$: </p>
+<ul>
+<li>sub-grid scales, small sclaes,</li>
+<li>residual quantity,or unresolved fields</li>
+<li>what is modelled (can not be resolved with the filter)</li>
+</ul>
+</li>
+<li><p>the whole decomposition is time variant and three-dimensional</p>
+</li>
+<li><p>the filtering operation is dones in space and in every single time-step</p>
+<p><img src="/images/2022-07-14-14-36-49.png" alt=""></p>
+</li>
+<li><p>$\Delta$: filtering operation; low-pass filters in LES</p>
+</li>
+<li>$X$: physical space $(x,y,z)$</li>
+<li>fluctuations in time remains</li>
+</ul>
+</li>
+<li><p>FNS quations (filtered incompressible Navier-Stokes equation)<br>(applying filter operator directly to the primitive variables)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\overline{\bold{u}})&=0 \\
+\frac{\partial \overline{\bold{u}}}{\partial t}+\nabla \cdot (\overline{\bold{uu}}\color{grey}{+\overline{u}\,\overline{u}}-\overline{u}\,\overline{u})&=\frac{-\nabla \overline{p}}{\rho}+\nu\nabla ^{2}\overline{\bold{u}}
+\end{aligned}</script></li>
+<li><p><strong>Exact FNS</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla \cdot (\overline{\bold{u}})&=0 \\
+\frac{\partial \overline{\bold{u}}}{\partial t}+\nabla \cdot (\overline{\bold{u}}\,\overline{\bold{u}})&=\frac{-\nabla \overline{p}}{\rho}+\nu\nabla ^{2}\overline{\bold{u}}+\color{red}{\underbrace{\nabla \cdot \tau^{SGS}}_{\color{black}{-(\overline{\bold{uu}}-\overline{\bold{u}}\,\overline{\bold{u}})}}}
+\end{aligned}</script><ul>
+<li><strong>sub-grid scale stress tensor</strong> <script type="math/tex; mode=display">
+\begin{aligned}
+\tau^{\text{SGS}}&=-(\overline{\bold{uu}}-\overline{\bold{u}}\,\overline{\bold{u}})=\overline{\bold{u}}\,\overline{\bold{u}}-\overline{\bold{uu}} \\ \tau^{\text{SGS}}&=(\overline{\overline{\bold{u}} \, \overline{\bold{u}} }-\overline{\bold{u}}\,\overline{\bold{u}})+(\overline{\overline{\bold{u}}\bold{u^{'}}})+\overline{\bold{u^{'}u^{'}}}
+\end{aligned}</script></li>
+</ul>
+<blockquote>
+<p>Note: The integral length scales in RANS/URANS are pretty much grid independent. You are not going to resolve more coherent structures using finer and finer meshes.   </p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="LES-sub-grid-scale-models"><a href="#LES-sub-grid-scale-models" class="headerlink" title="LES sub-grid scale models"></a>LES sub-grid scale models</h3><ul>
+<li>assume we want to model the whole sub-grid scale stress tensor $\tau^{\text{SGS}}$ through Boussinesq hypothesis <script type="math/tex; mode=display">
+    \begin{aligned}
+    \tau^{\text{SGS}}&=-(\overline{\bold{uu}}-\overline{\bold{u}}\,\overline{\bold{u}})=\overline{\bold{u}}\,\overline{\bold{u}}-\overline{\bold{uu}}=-2\nu_\text{SGS}\overline{\bold{S}} \\ \tau^{\text{SGS}}&=(\overline{\overline{\bold{u}} \, \overline{\bold{u}} }-\overline{\bold{u}}\,\overline{\bold{u}})+(\overline{\overline{\bold{u}}\bold{u^{'}}})+\overline{\bold{u^{'}u^{'}}}=-2\nu_\text{SGS}\overline{\bold{S}} 
+    \end{aligned}</script></li>
+<li><p>In the <strong>Smagorinsky model</strong>: strain-rate tensor $\overline{\bold{S}}$ and sub-grid scale eddy viscosity $\nu_\text{SGS}$  </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  \overline{\bold{S}}&=\frac{1}{2}\left( \nabla \overline{\bold{u}}+\nabla \overline{\bold{u}}^{T}  \right) \\ \nu_{\text{SGS}}&=\left( C_s \Delta  \right)^{2}\left\vert \overline{\bold{S}} \right\vert 
+\end{aligned}</script><ul>
+<li>$\Delta $: filter width (proportional to the cell spacing) $\qquad (\Delta _x \Delta _y \Delta _z)^{\frac{1}{3}}=\text{cell volume}^{\frac{1}{3}}$</li>
+<li>$C_s$: Smagorinsky constant -&gt; needs to be calibrated (<strong>drawback</strong>)</li>
+<li>$\left\vert \overline{\bold{S}} \right\vert=\left(2\overline{\bold{S}}:\overline{\bold{S}}\right)^{\frac{1}{2}}$</li>
+</ul>
+<blockquote>
+<p>Note: We can see that in LES everthing depens on grids $\Delta$</p>
+</blockquote>
+</li>
+<li><p>The sub-grid scal eddy viscosity relation resembles a mixing length formulation<br>  <img src="/images/2022-07-14-15-05-29.png" alt=""></p>
+<ul>
+<li>$l_m$: a chracteristics mixing length</li>
+</ul>
+</li>
+<li><p>Problem: close to the wall, $\nu_\text{SGS}$ can be incorrectly overpredicted - fruther improved</p>
+<script type="math/tex; mode=display">
+\nu_{\text{SGS}}=\left[ C_s \Delta \underbrace{\left( 1-e^{\frac{y+}{25}} \right)}_{\text{damping function}}  \right]^{2}\left\vert \overline{\bold{S}} \right\vert</script><blockquote>
+<p>Note:Smagorinsky model is good for shear free flows, but not good for wall-bounded flow.</p>
+</blockquote>
+</li>
+</ul>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2022 TeresaClay
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 642px;
+    }
+    .nav.fullscreen {
+        margin-left: -642px;
+    }
+    .nav-left {
+        width: 220px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 592px;
+        }
+        .nav.fullscreen {
+            margin-left: -592px;
+        }
+        .nav-left {
+            width: 200px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 592px;
+            margin-left: -592px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>
