@@ -6,15 +6,26 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec11 The Finite Volume Method | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Todo conjugate gradient method add adjustTimeStep feature to PISO (just for fun)  fvSolution solvers  &amp;#123;     p                                   &#x2F;&#x2F; symmetric     &amp;#123;         solver">
 <meta property="og:type" content="article">
-<meta property="og:title" content="101F">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/22/101F-1/index.html">
+<meta property="og:title" content="Mod6 FVM in OpenFOAM">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/22/WD_Basic/Mod6/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="Todo conjugate gradient method add adjustTimeStep feature to PISO (just for fun)  fvSolution solvers  &amp;#123;     p                                   &#x2F;&#x2F; symmetric     &amp;#123;         solver">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-22T19:13:33.050Z">
-<meta property="article:modified_time" content="2022-07-22T19:13:33.050Z">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-17-17-56.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-50-43.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-52-29.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-16-46-08.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-18-38-52.png">
+<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-22-19-15-51.png">
+<meta property="article:published_time" content="2022-07-22T12:37:39.274Z">
+<meta property="article:modified_time" content="2022-07-22T18:21:15.086Z">
 <meta property="article:author" content="TeresaClay">
+<meta property="article:tag" content="linear solvers">
+<meta property="article:tag" content="fvSolution">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-22-17-17-56.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -75,7 +86,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(29)</small>
+                <small>(26)</small>
             
         </div>
     </li>
@@ -160,7 +171,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
+<input type="hidden" id="yelog_site_posts_number" value="26">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -246,33 +257,6 @@
 
     
     <nav id="title-list-nav">
-        
-        
-        <a  class="All "
-           href="/2022/07/22/101F-1/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="101F">101F</span>
-            <span class="post-date" title="2022-07-22 21:13:33">2022/07/22</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2022/07/22/101F222/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="101F">101F</span>
-            <span class="post-date" title="2022-07-22 21:12:26">2022/07/22</span>
-        </a>
-        
-        
-        <a  class="All "
-           href="/2022/07/22/test/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="test">test</span>
-            <span class="post-date" title="2022-07-22 21:06:47">2022/07/22</span>
-        </a>
         
         
         <a  class="All Course WolfDynamics "
