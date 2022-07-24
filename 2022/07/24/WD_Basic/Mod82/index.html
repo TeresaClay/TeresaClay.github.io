@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec10 Stromlinien und Stromfunktion | TeresaClay的小屋</title>
+  <title>Mod8 Turbulence modelling - OpenFOAM | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec10 Stromlinien und Stromfunktion | TeresaClay的小屋">
+  <meta name="description" content="Mod8 Turbulence modelling - OpenFOAM | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="The free-streeam initial conditions  set turbulence intensity level  I&#x3D;\frac{u^{&#39;}}{\overline{u}} find the viscosity ration $\frac{\mu_t}{\mu}$ then get  k_{\text{farfield}}&#x3D;\frac{3}{2}(UI)^{2} \qquad">
 <meta property="og:type" content="article">
@@ -522,9 +522,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec10" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-WD_Basic/Mod82" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec10 Stromlinien und Stromfunktion</h1>
+        <h1 class="article-title">Mod8 Turbulence modelling - OpenFOAM</h1>
     
     <div class="article-meta">
         
@@ -536,7 +536,7 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;AndreasMalcherek">AndreasMalcherek</a>
+            <a  data-rel="Course&lt;---&gt;WolfDynamics">WolfDynamics</a>
             
         </span>
         
@@ -544,7 +544,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-12 10:24:39'>2022-07-12 09:40</time>
+            Created At : <time class="date" title='Updated At: 2022-07-24 17:02:27'>2022-07-24 09:58</time>
         
     </div>
     <div class="article-meta">
@@ -555,7 +555,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stromlinien"><span class="toc-text">Stromlinien</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#die-Stromfunktion"><span class="toc-text">die Stromfunktion</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Was-sagt-aus-der-Wert-der-Stromfunktion"><span class="toc-text">Was sagt aus der Wert der Stromfunktion?</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#The-free-streeam-initial-conditions"><span class="toc-text">The free-streeam initial conditions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GT1"><span class="toc-text">GT1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#laminar"><span class="toc-text">laminar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSolver"><span class="toc-text">fvSolver</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#turbulent-planar"><span class="toc-text">turbulent_planar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BC-for-walls"><span class="toc-text">BC for walls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSchemes-1"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -571,48 +571,420 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Stromlinien"><a href="#Stromlinien" class="headerlink" title="Stromlinien"></a>Stromlinien</h3><ul>
-<li><p>Linien, deren Tangente in jedem Punkt in Richtung des dortigen Geschwindigkeitsvektors weist<br><img src="images/2022-07-12-09-41-05.png" alt=""></p>
-<script type="math/tex; mode=display">
-y'=\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{v}{u} \implies udy-vdx=0</script></li>
-<li><p>Bedinung für eine Stromlinie in 3D</p>
-<script type="math/tex; mode=display">
-\vec{u}\times d\vec{r}=0</script></li>
-<li>wie kann man ein einzelne Stromlinie identizifiert?</li>
-</ul>
-<h3 id="die-Stromfunktion"><a href="#die-Stromfunktion" class="headerlink" title="die Stromfunktion"></a>die Stromfunktion</h3><ul>
-<li>dient der Beschreibung von Stromlinien <script type="math/tex; mode=display">
-u=\frac{\partial \Psi}{\partial y}+\frac{\partial \Psi}{\partial x}</script></li>
-<li>durch Stromlinien beschriebene Strömungen erfüllen die Kontinuitätsgleichung <script type="math/tex; mode=display">
-\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}=\frac{\partial ^{2}\Psi}{\partial x \partial y}-\frac{\partial ^{2}\Psi}{\partial x\partial y}=0</script>-&gt; entlang einer Stromlinie ist die Stromfunktion konstnt<script type="math/tex; mode=display">
-d\Psi=\frac{\partial \Psi}{\partial x}dx+\frac{\partial \Psi}{\partial y}dy=-vdx+udy=0</script><blockquote>
-<p>Note: Jede Stromlinie wird durch einen bestimmten Wert der Stromfunktion beschrieben</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="Was-sagt-aus-der-Wert-der-Stromfunktion"><a href="#Was-sagt-aus-der-Wert-der-Stromfunktion" class="headerlink" title="Was sagt aus der Wert der Stromfunktion?"></a>Was sagt aus der Wert der Stromfunktion?</h4><ul>
-<li><p>Volumencurchfluss und Flächendurchfluss</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\text{3D: }Q&=\frac{V}{t} \quad \left[ \frac{m^{3}}{s}\right] \\ \text{2D: } q&=\frac{A}{t} \quad \left[ \frac{m^{2}}{s}\right] \qquad \text{through line AB} \\q&=\int_A^B\vec{u}\vec{ds}=\int_A^B(udy-vdy)=\int_A^Bd\Psi=\Psi_B-\Psi_A \\ & \text{with } \vec{s}=\begin{bmatrix} \Delta y \\ - \Delta x \\\end{bmatrix} \quad d\vec{s}\begin{bmatrix} dy \\ -dx \\\end{bmatrix} \\ & \text{steht senkrecht auf der Verbindung von A nach B}
-\end{aligned}</script></li>
-<li><p>Stromlinien und Äquipotentiallinien</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-   &u=\frac{\partial \Phi}{\partial y}=\frac{\partial \phi}{\partial x} \qquad  & v=-\frac{\partial \Psi}{\partial x}=\frac{\partial \phi}{\partial y} \quad
-   \\ &\frac{\partial u}{\partial y}=\frac{\partial ^{2}\Psi}{\partial y^{2}}=\frac{\partial ^{2}\phi}{\partial x \partial y}  \qquad & -\frac{\partial v}{\partial x}=\frac{\partial ^{2}\Psi}{\partial x^{2}}=-\frac{\partial ^{2}\phi}{\partial x\partial y} \\ & \frac{\partial ^{2}\Psi}{\partial y^{2}}+\frac{\partial ^{2}\Psi}{\partial x^{2}}=0 \qquad & \frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial x^{2}}=0
-\end{aligned}</script><blockquote>
-<p>Stromlinien erfüllt Laplacegleichung (parallel zur Strömungsvektor)<br>Stromlinien stehen sekrecht auf Äquipotentiallinien</p>
-</blockquote>
-</li>
-<li><p>Randbedingungen für die Stromlinien-Laplacegleichung</p>
+        <h1 id="The-free-streeam-initial-conditions"><a href="#The-free-streeam-initial-conditions" class="headerlink" title="The free-streeam initial conditions"></a>The free-streeam initial conditions</h1><p><img src="/images/2022-07-13-23-31-41.png" alt=""></p>
 <ul>
-<li>Partikel bewegen sich englang geschlossenen zusammenhängenden Rändern<br>(ein Rand hat einzige Stromfunktion, ein anderer Rand hat ein anderer Stromfunktion)<br>Dirichlet-RB für die Stromfunktion </li>
-<li>Geschwindigkeit über eine offenen Rand <script type="math/tex; mode=display">
-q=uB=\Psi_B-\Psi_A</script>offene Ränder: Stromlinien ändert ihren Wert über den Rand nicht —&gt; homogene Neuman-RB   </li>
+<li>set turbulence intensity level <script type="math/tex; mode=display">
+I=\frac{u^{'}}{\overline{u}}</script></li>
+<li>find the viscosity ration $\frac{\mu_t}{\mu}$</li>
+<li>then get <script type="math/tex; mode=display">
+k_{\text{farfield}}=\frac{3}{2}(UI)^{2} \qquad \omega_\text{farfield}=\frac{\rho k}{\mu}\left( \frac{\mu_t}{\mu}\right)^{-1} \qquad \epsilon_{\text{farfield}}=\frac{C\mu k^{2}}{\nu\cdot \left(\frac{\mu_t}{\mu}\right)  }</script></li>
+</ul>
+<p><img src="images/2022-07-24-10-03-50.png" alt=""></p>
+<h1 id="GT1"><a href="#GT1" class="headerlink" title="GT1"></a>GT1</h1><h2 id="laminar"><a href="#laminar" class="headerlink" title="laminar"></a>laminar</h2><ul>
+<li>case information</li>
+</ul>
+<p>$\nu=2e-3, D=0.2, L=8, \rho=1000, U=1, Re=\frac{D\cdot U}{\nu}=100$</p>
+<pre><code class="lang-c++">$ foamCleanTutorials    # this will clean the mesh
+$ foamListTimes -rm     # erase the solution but keep the meshe
+
+$ blockMesh
+$ extrudeMesh | tee log.extrudeMesh
+$ createPatch -overwrite | tee log.createPatch
+$ checkMesh | tee log.checkMesh
+
+$ simpleFoam | tee log.solver
+$ simpleFoam -postProcess -func wallShearStress -noZero -noFunctionObjects -latestTime
+$ simpleFoam -postProcess -func yPlus
+$ postProcess -func sampleDict0 -latestTime -noZero
+
+$ gnuplot gnuplot/gnuplot_script
+</code></pre>
+<h3 id="fvSchemes"><a href="#fvSchemes" class="headerlink" title="fvSchemes"></a>fvSchemes</h3><ul>
+<li>phi explanation (<a target="_blank" rel="noopener" href="https://doc.cfd.direct/openfoam/user-guide-v9/fvschemes">Divergence schemes</a>)<ul>
+<li>incompressible solver: volumetrix flux of velocity on the cell faces: $\phi=\boldsymbol{u}_f\cdot \boldsymbol{S}_f$</li>
+<li>mass flux for compressible flows: $\phi=\rho_f(\boldsymbol{u}_f\cdot \boldsymbol{S}_f)$</li>
 </ul>
 </li>
 </ul>
+<pre><code class="lang-c++">
+ddtSchemes
+&#123;
+    default         steadyState;
+&#125;
+
+gradSchemes
+&#123;
+    default         Gauss linear;
+    //default         cellMDLimited Gauss linear 1;
+    //default         cellLimited Gauss linear 1;
+&#125;
+
+divSchemes
+&#123;
+    default         none;
+    div(phi,U)      bounded Gauss linearUpwind default;     // check createFields.H
+
+    div(phi,k)      bounded Gauss linearUpwind default; 
+    div(phi,omega)  bounded Gauss linearUpwind default; 
+    div(phi,nuTilda) bounded Gauss linearUpwind default;
+
+    //div(phi,k)      bounded Gauss upwind;
+    //div(phi,omega)  bounded Gauss upwind;
+    //div(phi,nuTilda) bounded Gauss upwind;
+
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+&#125;
+
+laplacianSchemes
+&#123;
+    default         Gauss linear corrected;
+&#125;
+
+interpolationSchemes
+&#123;
+    default         linear;
+&#125;
+
+snGradSchemes
+&#123;
+    default         corrected;
+&#125;
+
+wallDist
+&#123;
+    method meshWave;
+&#125;
+</code></pre>
+<h3 id="fvSolver"><a href="#fvSolver" class="headerlink" title="fvSolver"></a>fvSolver</h3><pre><code class="lang-c++">solvers
+&#123;
+    p
+    &#123;
+        solver          PCG;
+    preconditioner     DIC;
+    tolerance    1e-8;
+        relTol        0.01;
+
+/*
+        solver          GAMG;
+        tolerance       1e-08;
+        relTol          0;
+        smoother        GaussSeidel;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        cacheAgglomeration true;
+        nCellsInCoarsestLevel 10;
+        agglomerator    faceAreaPair;
+        mergeLevels     1;
+*/
+
+    minIter     3;
+    &#125;
+
+    &quot;(U|k|omega)&quot;
+    &#123;
+
+        //solver          PBiCG;
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-8;
+        relTol          0;
+
+/*
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nSweeps         2;
+        tolerance       1e-08;
+        relTol          0;
+*/
+
+    minIter        3;
+    &#125;
+&#125;
+
+SIMPLE
+&#123;
+    nNonOrthogonalCorrectors 2;
+    consistent yes;
+
+    //pRefCell 0;
+    //pRefValue 0;
+
+    residualControl
+    &#123;
+        p               1e-6;
+        U               1e-6;
+        &quot;(k|omega)&quot;     1e-6;
+    &#125;
+&#125;
+
+relaxationFactors
+&#123;
+/*
+    fields
+    &#123;
+        p               0.3;
+    &#125;
+    equations
+    &#123;
+        U               0.7;
+        k               0.7;
+        omega           0.7;
+    &#125;
+*/
+
+    fields
+    &#123;
+        p               0.7;
+    &#125;
+    equations
+    &#123;
+        p               0.7;
+        U               0.7;
+        k               0.7;
+        omega           0.7;
+    &#125;
+
+&#125;
+</code></pre>
+<hr>
+<h2 id="turbulent-planar"><a href="#turbulent-planar" class="headerlink" title="turbulent_planar"></a>turbulent_planar</h2><ul>
+<li>$y^{+}\approx 1 \to$ wall resolving </li>
+<li>RASModel  kOmega2006  —-&gt;  good results</li>
+<li><p>RASModel  SpalartAllmaras —-&gt; good results  </p>
+</li>
+<li><p>some question</p>
+<ul>
+<li>why there is a jump in y+ near the inlet</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-bash">$ foamCleanTutorials
+$ blockMesh
+
+#To clean empty patches.  Patch bottom is left empty after extrudeMesh
+$ createPatch -overwrite | tee log.createPatch
+$ checkMesh | tee log.checkMesh
+
+$ simpleFoam | tee log.solver
+$ simpleFoam -postProcess -func wallShearStress -noZero -noFunctionObjects -latestTime
+$ postProcess -func sampleDict0 -latestTime -noZero
+$ simpleFoam -postProcess -func yPlus
+
+$ gnuplot gnuplot/gnuplot_script
+</code></pre>
+<h3 id="BC-for-walls"><a href="#BC-for-walls" class="headerlink" title="BC for walls"></a>BC for walls</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><center> $k$ </center></td>
+</tr>
+<tr>
+<td>kqRWallFunction + small value</td>
+<td>best for LRN (wave resolving) and HRN (wall modeling)</td>
+</tr>
+<tr>
+<td>kLowReWallFunction + small value</td>
+<td>pecific for wall resolving (y+&lt;5 in whole domain)</td>
+</tr>
+<tr>
+<td><center> $\epsilon$ </center></td>
+</tr>
+<tr>
+<td>epsilonWallFunction + small value</td>
+<td>This does not mean you’re using wall function. OpenFoam will <br>compute y+ and choose the correct formulation based on y+.<br> Therefore, LRN-HRN</td>
+</tr>
+<tr>
+<td><center> $\omega$ </center></td>
+</tr>
+<tr>
+<td>omegaWallFunction + large value</td>
+<td>LRN-HRN. The only option you have.<br> Large value since we use the inverse.</td>
+</tr>
+<tr>
+<td><center> nut </center></td>
+</tr>
+<tr>
+<td>nutUWallFunction + small value</td>
+<td>y+</td>
+</tr>
+<tr>
+<td>nutkWallFunction + small value</td>
+<td>y*</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="fvSchemes-1"><a href="#fvSchemes-1" class="headerlink" title="fvSchemes"></a>fvSchemes</h3><pre><code class="lang-c++">ddtSchemes
+&#123;
+    default         steadyState; // if here Euler, remov the word bounded
+&#125;
+
+gradSchemes
+&#123;
+    default         Gauss linear;
+    //default         cellMDLimited Gauss linear 1;
+    default         cellLimited Gauss linear 1; // always recommended, more stable, and more dissipitative 
+    //default         cellLimited leastSquares; // also a good limiter; But he found it is oscillitory in OpenFOAM, but in text book it is much more accuray than Gauss linear
+&#125;
+divSchemes 
+&#123;
+    default         none;
+    div(phi,U)      bounded Gauss linearUpwind default; // always recommended
+/*
+//You might get unbounded or oscilatted quantities using this setup
+// For convection, have to be at least 2.nd order accuracy. linearUpwind is ok  
+    div(phi,k)      bounded Gauss linearUpwind default; 
+    div(phi,omega)  bounded Gauss linearUpwind default; 
+    div(phi,epsilon)  bounded Gauss linearUpwind default; 
+    div(phi,nuTilda) bounded Gauss linearUpwind default;
+*/
+  // It is acceptable to use upwind. It doen&#39;t affect too much the solution in turbulence
+  // Tubulence is a diffusive process. You are enhencing the diffusion using upwind
+    div(phi,k)      bounded Gauss upwind;
+    div(phi,omega)  bounded Gauss upwind;     // do not use Gauss linearUpwind
+    div(phi,epsilon)  bounded Gauss upwind;
+    div(phi,nuTilda) bounded Gauss upwind;
+
+
+    div(nonlinearStress) Gauss linear;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+&#125;
+
+laplacianSchemes
+&#123;
+    default         Gauss linear limited 1; // most of the time is ok
+&#125;
+
+interpolationSchemes
+&#123;
+    default         linear;
+&#125;
+
+snGradSchemes
+&#123;
+    default         limited 1;
+&#125;
+
+wallDist
+&#123;
+    method meshWave;
+&#125;
+</code></pre>
+<h3 id="fvSolution"><a href="#fvSolution" class="headerlink" title="fvSolution"></a>fvSolution</h3><pre><code class="lang-c++">solvers
+&#123;
+    p
+    &#123;
+
+        solver          PCG;
+    preconditioner     DIC;
+    tolerance    1e-8;
+        relTol        0.01;
+
+/*
+        solver          GAMG;
+        tolerance       1e-08;
+        relTol          0.01;
+        smoother        GaussSeidel;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        cacheAgglomeration true;
+        nCellsInCoarsestLevel 10;
+        agglomerator    faceAreaPair;
+        mergeLevels     1;
+*/
+
+    minIter     3;
+    &#125;
+
+    &quot;(U|k|omega|epsilon|nuTilda)&quot;
+    &#123;
+
+        //solver          PBiCG;
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-8;
+        relTol          0;
+
+/*
+        solver          smoothSolver;
+        smoother        GaussSeidel;
+        nSweeps         2;
+        tolerance       1e-08;
+        relTol          0;
+*/
+
+    minIter        3;
+    &#125;
+&#125;
+
+SIMPLE
+&#123;
+    nNonOrthogonalCorrectors 1;
+    consistent yes;
+
+    //pRefCell 0;
+    //pRefValue 0;
+
+/*
+    residualControl
+    &#123;
+        p               1e-6;
+        U               1e-6;
+        &quot;(k|omega|epsilon|nuTilda)&quot;     1e-6;
+    &#125;
+*/
+&#125;
+
+relaxationFactors
+&#123;
+/*
+    fields
+    &#123;
+        p               0.3;
+    &#125;
+    equations
+    &#123;
+        U               0.7;
+        k               0.5;
+        epsilon         0.5;
+        omega           0.7;
+        nuTilda         0.7;
+    &#125;
+*/
+
+/*
+    fields
+    &#123;
+        p               0.7;
+    &#125;
+    equations
+    &#123;
+        p               0.7;
+        U               0.7;
+        k               0.7;
+        omega           0.7;
+        epsilon         0.7;
+        nuTilda         0.7;
+    &#125;
+*/
+
+    fields
+    &#123;
+        &quot;.*&quot;            0.9;
+    &#125;
+    equations
+    &#123;
+        &quot;.*&quot;            0.9;
+    &#125;
+
+&#125;
+</code></pre>
 
       
        
