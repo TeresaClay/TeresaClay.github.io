@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/24/WD_Basic/Mod82/images/2022-07-24-10-03-50.png">
 <meta property="article:published_time" content="2022-07-24T07:58:03.276Z">
-<meta property="article:modified_time" content="2022-07-24T15:02:27.819Z">
+<meta property="article:modified_time" content="2022-07-24T15:38:52.748Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
@@ -544,7 +544,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-24 17:02:27'>2022-07-24 09:58</time>
+            Created At : <time class="date" title='Updated At: 2022-07-24 17:38:52'>2022-07-24 09:58</time>
         
     </div>
     <div class="article-meta">
@@ -811,11 +811,19 @@ $ gnuplot gnuplot/gnuplot_script
 </tr>
 <tr>
 <td>nutUWallFunction + small value</td>
-<td>y+</td>
+<td>y+; best for HRN <br> Can be applied to SA</td>
 </tr>
 <tr>
 <td>nutkWallFunction + small value</td>
-<td>y*</td>
+<td>y*; best for HRN <br> Wrong (diverge) with SA which doesn’t produce $k$</td>
+</tr>
+<tr>
+<td><font color=blue>nutUSpaldingWallFunction + small value</font></td>
+<td>The most general one <br> Can be applied to SA</td>
+</tr>
+<tr>
+<td>nutLowReWallFunction + small value</td>
+<td>best for LRN</td>
 </tr>
 </tbody>
 </table>
