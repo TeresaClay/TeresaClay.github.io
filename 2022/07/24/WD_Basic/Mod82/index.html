@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
 <meta property="og:image" content="https://teresaclay.github.io/2022/07/24/WD_Basic/Mod82/images/2022-07-24-10-03-50.png">
 <meta property="article:published_time" content="2022-07-24T07:58:03.276Z">
-<meta property="article:modified_time" content="2022-07-24T15:38:52.748Z">
+<meta property="article:modified_time" content="2022-07-24T16:03:22.424Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
@@ -544,7 +544,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-24 17:38:52'>2022-07-24 09:58</time>
+            Created At : <time class="date" title='Updated At: 2022-07-24 18:03:22'>2022-07-24 09:58</time>
         
     </div>
     <div class="article-meta">
@@ -555,7 +555,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#The-free-streeam-initial-conditions"><span class="toc-text">The free-streeam initial conditions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GT1"><span class="toc-text">GT1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#laminar"><span class="toc-text">laminar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSolver"><span class="toc-text">fvSolver</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#turbulent-planar"><span class="toc-text">turbulent_planar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BC-for-walls"><span class="toc-text">BC for walls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSchemes-1"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#The-free-streeam-initial-conditions"><span class="toc-text">The free-streeam initial conditions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GT1"><span class="toc-text">GT1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#laminar"><span class="toc-text">laminar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSchemes"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSolver"><span class="toc-text">fvSolver</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#turbulent-planar"><span class="toc-text">turbulent_planar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Turbulence-models"><span class="toc-text">Turbulence models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BC-for-walls"><span class="toc-text">BC for walls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSchemes-1"><span class="toc-text">fvSchemes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fvSolution"><span class="toc-text">fvSolution</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -748,9 +748,7 @@ relaxationFactors
 </code></pre>
 <hr>
 <h2 id="turbulent-planar"><a href="#turbulent-planar" class="headerlink" title="turbulent_planar"></a>turbulent_planar</h2><ul>
-<li>$y^{+}\approx 1 \to$ wall resolving </li>
-<li>RASModel  kOmega2006  —-&gt;  good results</li>
-<li><p>RASModel  SpalartAllmaras —-&gt; good results  </p>
+<li><p>$y^{+}\approx 1 \to$ wall resolving </p>
 </li>
 <li><p>some question</p>
 <ul>
@@ -772,6 +770,54 @@ $ simpleFoam -postProcess -func yPlus
 
 $ gnuplot gnuplot/gnuplot_script
 </code></pre>
+<h3 id="Turbulence-models"><a href="#Turbulence-models" class="headerlink" title="Turbulence models"></a>Turbulence models</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RASModel  <font color=blue>kOmega2006</font></td>
+<td>good model and results</td>
+</tr>
+<tr>
+<td>RASModel  <font color=blue>realizableKE</font></td>
+<td>good model and results <br>system rotation, concetrated vorticies</td>
+</tr>
+<tr>
+<td>RASModel  <font color=blue>RNGkEpsilon</font></td>
+<td>good model and results <br>system rotation, concentrated vorticies</td>
+</tr>
+<tr>
+<td>RASModel  <font color=blue>kEpsilon</font></td>
+<td>good wall modeling model <br>Here we are applying it into a wall resolving meshes. <br>Therefore we get wrong solution.</td>
+</tr>
+<tr>
+<td>RASModel  <font color=blue>kOmegaSST</font></td>
+<td>most general; Aber nicht unbedingt die beste Lösung</td>
+</tr>
+<tr>
+<td>RASModel  <font color=blue>ShihQuadraticKE</font></td>
+<td>LRN-KE Nonlinear <br> very good mode,it is a k epsion, wall resolving</td>
+</tr>
+<tr>
+<td>RASModel  SpalartAllmaras</td>
+<td>good results</td>
+</tr>
+<tr>
+<td>RASModel  LaunderSharmaKE</td>
+<td>Issues with BCs and model</td>
+</tr>
+<tr>
+<td>RASModel  LamBremhorstKE</td>
+<td>Issues with BCs and model <br>diverging; negative value of epsilon</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="BC-for-walls"><a href="#BC-for-walls" class="headerlink" title="BC for walls"></a>BC for walls</h3><div class="table-container">
 <table>
 <thead>
@@ -824,6 +870,13 @@ $ gnuplot gnuplot/gnuplot_script
 <tr>
 <td>nutLowReWallFunction + small value</td>
 <td>best for LRN</td>
+</tr>
+<tr>
+<td><center> nuTilda </center></td>
+</tr>
+<tr>
+<td>fixed Valu<br>valu uniform 0</td>
+<td>the only option</td>
 </tr>
 </tbody>
 </table>
