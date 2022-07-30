@@ -6,20 +6,19 @@
   <meta name="keywords" content=" 半离散方程 , 通量 ">
   <meta name="description" content="Lec10 The Finite Volume Method | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="The free-streeam initial conditions  set turbulence intensity level  I&#x3D;\frac{u^{&#39;}}{\overline{u}} find the viscosity ration $\frac{\mu_t}{\mu}$ then get  k_{\text{farfield}}&#x3D;\frac{3}{2}(UI)^{2} \qquad">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mod8 Turbulence modelling - OpenFOAM">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/24/WD_Basic/Mod82/index.html">
+<meta property="og:title" content="Lec14 The diffusion term II">
+<meta property="og:url" content="https://teresaclay.github.io/2022/07/30/Note_Wangyang/Lec14/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="The free-streeam initial conditions  set turbulence intensity level  I&#x3D;\frac{u^{&#39;}}{\overline{u}} find the viscosity ration $\frac{\mu_t}{\mu}$ then get  k_{\text{farfield}}&#x3D;\frac{3}{2}(UI)^{2} \qquad">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
-<meta property="og:image" content="https://teresaclay.github.io/2022/07/24/WD_Basic/Mod82/images/2022-07-24-10-03-50.png">
-<meta property="article:published_time" content="2022-07-24T07:58:03.276Z">
-<meta property="article:modified_time" content="2022-07-24T16:03:22.424Z">
+<meta property="article:published_time" content="2022-07-30T12:46:55.504Z">
+<meta property="article:modified_time" content="2022-07-30T12:48:51.549Z">
 <meta property="article:author" content="TeresaClay">
+<meta property="article:tag" content="散度">
+<meta property="article:tag" content="梯度">
+<meta property="article:tag" content="旋度">
+<meta property="article:tag" content="高斯散度定理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://teresaclay.github.io/images/2022-07-13-23-31-41.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -80,65 +79,20 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(28)</small>
+                <small>(22)</small>
             
         </div>
     </li>
     
         
             
-        
-    
-        
-            
                 <li>
-                    <div data-rel="Course">
-                        <i class="fold iconfont icon-right"></i>
+                    <div data-rel="Andreas">
                         
-                        Course
-                        <small>(26)</small>
+                        Andreas
+                        <small>(11)</small>
                         
                     </div>
-                    
-                        <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="Course<--->AndreasMalcherek">
-                                        
-                                        AndreasMalcherek
-                                        
-                                            <small>(11
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="Course<--->WangYang">
-                                        
-                                        WangYang
-                                        
-                                            <small>(7
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="Course<--->WolfDynamics">
-                                        
-                                        WolfDynamics
-                                        
-                                            <small>(8
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                        </ul>
                     
                 </li>
             
@@ -146,9 +100,15 @@
     
         
             
-        
-    
-        
+                <li>
+                    <div data-rel="WangYang">
+                        
+                        WangYang
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                </li>
             
         
     
@@ -165,7 +125,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="28">
+<input type="hidden" id="yelog_site_posts_number" value="22">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -237,14 +197,6 @@
                 <i class="iconfont icon-tag"></i><a>旋度</a>
             </li>
         
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>fvSolution</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>linear solvers</a>
-            </li>
-        
     </div>
 
 </div>
@@ -253,79 +205,25 @@
     <nav id="title-list-nav">
         
         
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/24/WD_Basic/Mod82/"
+        <a  class="All WangYang "
+           href="/2022/07/30/Note_Wangyang/Lec14/"
+           data-tag="散度,梯度,旋度,高斯散度定理"
+           data-author="" >
+            <span class="post-title" title="Lec14 The diffusion term II">Lec14 The diffusion term II</span>
+            <span class="post-date" title="2022-07-30 14:46:55">2022/07/30</span>
+        </a>
+        
+        
+        <a  class="All WangYang "
+           href="/2022/07/27/Note_Wangyang/Lec13/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Mod8 Turbulence modelling - OpenFOAM">Mod8 Turbulence modelling - OpenFOAM</span>
-            <span class="post-date" title="2022-07-24 09:58:03">2022/07/24</span>
+            <span class="post-title" title="Lec13 The diffusion term">Lec13 The diffusion term</span>
+            <span class="post-date" title="2022-07-27 15:21:06">2022/07/27</span>
         </a>
         
         
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/22/WD_Basic/Mod81/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Mod8 Turbulence modelling - Theory">Mod8 Turbulence modelling - Theory</span>
-            <span class="post-date" title="2022-07-22 21:48:23">2022/07/22</span>
-        </a>
-        
-        
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/22/WD_Basic/Mod6/"
-           data-tag="linear solvers,fvSolution"
-           data-author="" >
-            <span class="post-title" title="Mod6 FVM in OpenFOAM">Mod6 FVM in OpenFOAM</span>
-            <span class="post-date" title="2022-07-22 14:37:39">2022/07/22</span>
-        </a>
-        
-        
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/20/WD_Basic/Mod14/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Mod14 2D Vortes Shedding turbulence">Mod14 2D Vortes Shedding turbulence</span>
-            <span class="post-date" title="2022-07-20 19:45:35">2022/07/20</span>
-        </a>
-        
-        
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/20/WD_Basic/Mod13/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Mod13 2D Vortes Shedding laminar">Mod13 2D Vortes Shedding laminar</span>
-            <span class="post-date" title="2022-07-20 10:12:13">2022/07/20</span>
-        </a>
-        
-        
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/19/WD_Basic/Mod12/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Mod12 3D break free surface">Mod12 3D break free surface</span>
-            <span class="post-date" title="2022-07-19 15:17:10">2022/07/19</span>
-        </a>
-        
-        
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/19/WD_Basic/Mod11/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Mod11 Cavity 2D">Mod11 Cavity 2D</span>
-            <span class="post-date" title="2022-07-19 15:15:46">2022/07/19</span>
-        </a>
-        
-        
-        <a  class="All Course WolfDynamics "
-           href="/2022/07/18/WD_Basic/Mod10/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Mod10 Module 1">Mod10 Module 1</span>
-            <span class="post-date" title="2022-07-18 21:29:28">2022/07/18</span>
-        </a>
-        
-        
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/16/Note_Wangyang/Lec12/"
            data-tag="散度,梯度,旋度,高斯散度定理"
            data-author="" >
@@ -334,7 +232,7 @@
         </a>
         
         
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/14/Note_Wangyang/Lec11/"
            data-tag=""
            data-author="" >
@@ -343,7 +241,7 @@
         </a>
         
         
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/12/Note_Wangyang/Lec10/"
            data-tag="半离散方程,通量"
            data-author="" >
@@ -352,7 +250,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/12/Andreas_Malcherek/Lec15/"
            data-tag=""
            data-author="" >
@@ -361,7 +259,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/12/Andreas_Malcherek/Lec13/"
            data-tag=""
            data-author="" >
@@ -370,7 +268,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/12/Andreas_Malcherek/Lec12/"
            data-tag=""
            data-author="" >
@@ -379,7 +277,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/12/Andreas_Malcherek/Lec11/"
            data-tag=""
            data-author="" >
@@ -388,7 +286,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/12/Andreas_Malcherek/Lec10/"
            data-tag=""
            data-author="" >
@@ -397,7 +295,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/11/Andreas_Malcherek/Lec9/"
            data-tag=""
            data-author="" >
@@ -406,7 +304,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/11/Andreas_Malcherek/Lec8/"
            data-tag=""
            data-author="" >
@@ -415,7 +313,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/10/Andreas_Malcherek/Lec6/"
            data-tag=""
            data-author="" >
@@ -424,7 +322,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/10/Andreas_Malcherek/Lec4/"
            data-tag=""
            data-author="" >
@@ -433,7 +331,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/09/Andreas_Malcherek/Lec2/"
            data-tag=""
            data-author="" >
@@ -442,7 +340,7 @@
         </a>
         
         
-        <a  class="All Course AndreasMalcherek "
+        <a  class="All Andreas "
            href="/2022/07/09/Andreas_Malcherek/Lec1/"
            data-tag=""
            data-author="" >
@@ -451,7 +349,7 @@
         </a>
         
         
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/Lec9/"
            data-tag="通用形式"
            data-author="" >
@@ -460,7 +358,7 @@
         </a>
         
         
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/Lec8/"
            data-tag=""
            data-author="" >
@@ -469,7 +367,7 @@
         </a>
         
         
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
            data-tag=""
            data-author="" >
@@ -478,7 +376,7 @@
         </a>
         
         
-        <a  class="All Course WangYang "
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/Lec7/"
            data-tag=""
            data-author="" >
@@ -534,9 +432,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Course">Course</a> > 
-            
-            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
+            <a  data-rel="WangYang">WangYang</a>
             
         </span>
         
@@ -553,7 +449,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-22 10:20:32'>2022-07-12 15:33</time>
+            Created At : <time class="date" title='Updated At: 2022-07-29 16:58:56'>2022-07-12 15:33</time>
         
     </div>
     <div class="article-meta">
@@ -564,7 +460,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E4%BD%93%E7%A7%AF%E6%B3%95"><span class="toc-text">有限体积法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E7%A6%BB%E6%95%A3%E6%96%B9%E7%A8%8B"><span class="toc-text">半离散方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E9%87%8F"><span class="toc-text">通量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E7%A7%AF%E5%88%86%E7%82%B9"><span class="toc-text">高斯积分点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%87%E7%94%A8%E4%B8%80%E4%B8%AA%E7%A7%AF%E5%88%86%E7%82%B9"><span class="toc-text">采用一个积分点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-text">边界条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6"><span class="toc-text">精度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%96%B9%E7%A8%8B%E6%80%A7%E8%B4%A8"><span class="toc-text">离散方程性质</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E9%99%90%E4%BD%93%E7%A7%AF%E6%B3%95"><span class="toc-text">有限体积法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8A%E7%A6%BB%E6%95%A3%E6%96%B9%E7%A8%8B"><span class="toc-text">半离散方程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E9%87%8F"><span class="toc-text">通量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E7%A7%AF%E5%88%86%E7%82%B9"><span class="toc-text">高斯积分点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%87%E7%94%A8%E4%B8%80%E4%B8%AA%E7%A7%AF%E5%88%86%E7%82%B9"><span class="toc-text">采用一个积分点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-text">边界条件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6"><span class="toc-text">精度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%96%B9%E7%A8%8B%E6%80%A7%E8%B4%A8"><span class="toc-text">离散方程性质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Implicit-vs-explicit-numerical-methods"><span class="toc-text">Implicit vs explicit numerical methods</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Explicit-numerical-method"><span class="toc-text">Explicit numerical method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implict-numerical-method"><span class="toc-text">Implict numerical method</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -597,7 +493,7 @@
 <li>自由</li>
 </ol>
 <hr>
-<h4 id="有限体积法"><a href="#有限体积法" class="headerlink" title="有限体积法"></a>有限体积法</h4><ul>
+<h1 id="有限体积法"><a href="#有限体积法" class="headerlink" title="有限体积法"></a>有限体积法</h1><ul>
 <li>将控制方程转变为半离散方程</li>
 <li>将半离散方程变为代数方程 (8-14)</li>
 <li><p>在两步变化过程中的选择都会影响精度和健壮性(robust)</p>
@@ -624,7 +520,7 @@
 </li>
 </ul>
 <hr>
-<h4 id="半离散方程"><a href="#半离散方程" class="headerlink" title="半离散方程"></a>半离散方程</h4><ul>
+<h1 id="半离散方程"><a href="#半离散方程" class="headerlink" title="半离散方程"></a>半离散方程</h1><ul>
 <li><p>微分形式: <script type="math/tex">\frac{\partial \rho \phi}{\partial t}+\nabla \cdot (\rho \phi \boldsymbol{U}) = \nabla \cdot (\Gamma \nabla \phi)+S_\phi</script> </p>
 </li>
 <li><p><strong>稳态方程</strong>: <script type="math/tex">\nabla \cdot (\rho \phi \boldsymbol{U}) = \nabla \cdot (\Gamma \nabla \phi)+S_\phi</script> </p>
@@ -641,16 +537,20 @@
 <li>把封闭的变成n个连续的和<script type="math/tex; mode=display">
 \int_{\partial v_c}(\rho\boldsymbol{U}\phi)\cdot d\boldsymbol{S}=\int_{f_1}(\rho\boldsymbol{U}\phi)\cdot d\boldsymbol{S}+\int_{f_2}(\rho\boldsymbol{U}\phi)\cdot d\boldsymbol{S}+ \cdots \int_{f_6}(\rho\boldsymbol{U}\phi)\cdot d\boldsymbol{S}</script></li>
 </ul>
-<hr>
-<h4 id="通量"><a href="#通量" class="headerlink" title="通量"></a>通量</h4><ul>
-<li>扩散通量： <script type="math/tex; mode=display">
+<h1 id="通量"><a href="#通量" class="headerlink" title="通量"></a>通量</h1><ul>
+<li><p>扩散通量： </p>
+<script type="math/tex; mode=display">
 \begin{aligned}
- \boldsymbol{J}^{D}&=\Gamma \nabla \phi \\ \int_{\partial V_c}\boldsymbol{n}\cdot \boldsymbol{J}^{D} dS&= \sum_f \left( \int_f(\boldsymbol{n}\cdot \Gamma\nabla \phi)dS \right) \\ &=\sum_f {\sum_{ip}}(w_{ip}\boldsymbol{n}\cdot (\Gamma \nabla  \phi )_{ip}S_f) \\ &=\sum_{f}(\boldsymbol{n}\cdot (\Gamma\nabla \phi)S_f)
+ \boldsymbol{J}^{D}&=\Gamma \nabla \phi \\ \int_{\partial V_c}\boldsymbol{n}\cdot \boldsymbol{J}^{D} dS&= \sum_f \left( \int_f(\boldsymbol{n}\cdot \Gamma\nabla \phi)dS \right) =\sum_f {\sum_{ip}}(w_{ip}\boldsymbol{n}\cdot (\Gamma \nabla  \phi )_{ip}S_f)=\sum_{f}(\boldsymbol{n}\cdot (\Gamma\nabla \phi)S_f)
 \end{aligned}</script></li>
-<li>对流通量： <script type="math/tex; mode=display">
+<li><p>对流通量： </p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\boldsymbol{J}^{C}&=\rho\boldsymbol{v}\phi \\ \int_{\partial V_C}\boldsymbol{n}\cdot \boldsymbol{J}^{C}dS&=\sum_{f}\left(\int_f (\boldsymbol{n}\cdot \rho\boldsymbol{v}\phi)dS \right) \\&=\sum_{f}\sum_{ip}(w_{ip}\boldsymbol{n}\cdot (\rho\boldsymbol{v}\phi)_{ip}S_f) \\ &=\sum_{f}(\boldsymbol{n}\cdot (\rho\boldsymbol{v}\phi)S_f)
-\end{aligned}</script></li>
+\boldsymbol{J}^{C}&=\rho\boldsymbol{v}\phi \\ \int_{\partial V_C}\boldsymbol{n}\cdot \boldsymbol{J}^{C}dS&=\sum_{f}\left(\int_f (\boldsymbol{n}\cdot \rho\boldsymbol{v}\phi)dS \right) =\sum_{f}\sum_{ip}(w_{ip}\boldsymbol{n}\cdot (\rho\boldsymbol{v}\phi)_{ip}S_f) =\sum_{f}(\boldsymbol{n}\cdot (\rho\boldsymbol{v}\phi)S_f)
+\end{aligned}</script><blockquote>
+<p>only one integration point located at the centroid of the face</p>
+</blockquote>
+</li>
 <li><p>总通量</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -663,8 +563,7 @@
 <script type="math/tex; mode=display">
 \int_{v_c}S_\phi dV =S_cV_c</script></li>
 </ul>
-<hr>
-<h4 id="高斯积分点"><a href="#高斯积分点" class="headerlink" title="高斯积分点"></a>高斯积分点</h4><p>$\int_a^bf(x)dx=f(x)h \qquad \int_f (\rho\vec{v}\phi)\cdot d\vec{S}=(\rho\vec{v}\phi)_f S_f$ </p>
+<h1 id="高斯积分点"><a href="#高斯积分点" class="headerlink" title="高斯积分点"></a>高斯积分点</h1><p>$\int_a^bf(x)dx=f(x)h \qquad \int_f (\rho\vec{v}\phi)\cdot d\vec{S}=(\rho\vec{v}\phi)_f S_f$ </p>
 <ul>
 <li><p>思考下面公式</p>
 <script type="math/tex; mode=display">
@@ -678,16 +577,15 @@
 \int_{V_c} S_{\phi}dV=\sum_{ip}(S_{ip}w_{ip}V) \qquad=S_cV_c</script></li>
 </ul>
 <hr>
-<h4 id="采用一个积分点"><a href="#采用一个积分点" class="headerlink" title="采用一个积分点"></a>采用一个积分点</h4><ul>
-<li><p>定常半离散公式</p>
+<h1 id="采用一个积分点"><a href="#采用一个积分点" class="headerlink" title="采用一个积分点"></a>采用一个积分点</h1><ul>
+<li><p>semi-discrete steady state finite volume equation </p>
 <script type="math/tex; mode=display">
-\sum_{f}(\rho \boldsymbol{v}\phi-\Gamma \nabla \phi)_f \cdot \boldsymbol{S}_f =S_cV_c</script></li>
+\boxed{\sum_{f}(\rho \boldsymbol{v}\phi-\Gamma \nabla \phi)_f \cdot \boldsymbol{S}_f =S_cV_c}</script></li>
 <li><p>最后代数方程形式</p>
 <script type="math/tex; mode=display">
 a_p\phi_p+\sum_{f}a_n\phi_n=b</script></li>
 </ul>
-<hr>
-<h4 id="边界条件"><a href="#边界条件" class="headerlink" title="边界条件"></a>边界条件</h4><ul>
+<h1 id="边界条件"><a href="#边界条件" class="headerlink" title="边界条件"></a>边界条件</h1><ul>
 <li>Dirichlet (给定$\phi_b$ )<script type="math/tex; mode=display">
 \boldsymbol{J}^{\phi}_{b}\cdot \boldsymbol{S}_b=(\rho\boldsymbol{v}_b\cdot \boldsymbol{S}_b)\phi_b</script></li>
 <li>Neumann （给定通量 $q_b$)<script type="math/tex; mode=display">
@@ -696,8 +594,7 @@ a_p\phi_p+\sum_{f}a_n\phi_n=b</script></li>
 </blockquote>
 </li>
 </ul>
-<hr>
-<h4 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h4><ul>
+<h1 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h1><ul>
 <li><p>假设 $\phi$在空间中线性变化</p>
 <script type="math/tex; mode=display">
 \phi(\boldsymbol{x})=\phi_c+(\boldsymbol{x}-\boldsymbol{x}_c)\cdot (\nabla \phi)_c</script></li>
@@ -723,8 +620,7 @@ a_p\phi_p+\sum_{f}a_n\phi_n=b</script></li>
   \overline{(\rho_f\boldsymbol{v}_f\phi_f)\cdot \boldsymbol{S}_f}&=\int_f(\rho_f\boldsymbol{v}_f\phi)\cdot d\boldsymbol{S} \\ &=(\rho\boldsymbol{v}_f\cdot S_f)[\phi_f+O(\left\vert \boldsymbol{x}-\boldsymbol{x}_f \right\vert )^{2}] \\&=\rho\boldsymbol{v}_f\cdot \boldsymbol{S}_f\phi_f
 \end{aligned}</script></li>
 </ul>
-<hr>
-<h4 id="离散方程性质"><a href="#离散方程性质" class="headerlink" title="离散方程性质"></a>离散方程性质</h4><ul>
+<h1 id="离散方程性质"><a href="#离散方程性质" class="headerlink" title="离散方程性质"></a>离散方程性质</h1><ul>
 <li>守恒 conservation</li>
 <li><strong>精度</strong> accuracy</li>
 <li>收敛 convergence </li>
@@ -733,6 +629,10 @@ a_p\phi_p+\sum_{f}a_n\phi_n=b</script></li>
 <li>经济 economy</li>
 <li>输运 transportiveness</li>
 <li><strong>有界</strong> boundedness</li>
+</ul>
+<h1 id="Implicit-vs-explicit-numerical-methods"><a href="#Implicit-vs-explicit-numerical-methods" class="headerlink" title="Implicit vs explicit numerical methods"></a>Implicit vs explicit numerical methods</h1><h2 id="Explicit-numerical-method"><a href="#Explicit-numerical-method" class="headerlink" title="Explicit numerical method"></a>Explicit numerical method</h2><h2 id="Implict-numerical-method"><a href="#Implict-numerical-method" class="headerlink" title="Implict numerical method"></a>Implict numerical method</h2><ul>
+<li>dependent variables are treated as unknowns</li>
+<li>form a coupled set of equations</li>
 </ul>
 
       

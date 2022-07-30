@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>拓展知识 | TeresaClay的小屋</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="拓展知识 | TeresaClay的小屋">
+  <title>Lec14 The diffusion term II | TeresaClay的小屋</title>
+  <meta name="keywords" content=" 散度 , 梯度 , 旋度 , 高斯散度定理 ">
+  <meta name="description" content="Lec14 The diffusion term II | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lec14 The diffusion term II">
@@ -420,9 +420,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Note_Wangyang/知识拓展" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec14" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">拓展知识</h1>
+        <h1 class="article-title">Lec14 The diffusion term II</h1>
     
     <div class="article-meta">
         
@@ -437,10 +437,23 @@
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">散度</a>
+            
+            <a class="color3">梯度</a>
+            
+            <a class="color3">旋度</a>
+            
+            <a class="color2">高斯散度定理</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-30 15:15:39'>2022-07-08 16:02</time>
+            Created At : <time class="date" title='Updated At: 2022-07-30 14:48:51'>2022-07-30 14:46</time>
         
     </div>
     <div class="article-meta">
@@ -451,7 +464,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E7%9F%A5%E8%AF%86"><span class="toc-text">拓展知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%A6%E7%B1%8D-%E7%90%86%E8%AE%BA-%E8%AF%BE%E7%A8%8B"><span class="toc-text">书籍 理论 课程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-text">工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">小的知识点</span></a></li></ol></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -467,100 +480,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h3><h4 id="书籍-理论-课程"><a href="#书籍-理论-课程" class="headerlink" title="书籍 理论 课程"></a>书籍 理论 课程</h4><ul>
-<li><p>汪洋的PDE课程 bilibili</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://www.cfd-peric.de/">Comutational methods for fluid dynamics, Joel H. Ferziger, Milovan Peric, Robert L. street</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/damogranlabs/classy_blocks">classy blocks (mesh)</a></p>
-</li>
-<li><p>icem</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/flame/blis">Blis</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/doyubkim/fluid-engine-dev">fluid engine development —Flip</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://doc.cfd.direct/notes/cfd-general-principles/">Notes on Computational Fluid Dynamics: General Principles, Henry Weller</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.amazon.de/Modern-FORTRAN-Milan-Curcic/dp/1617295280/ref=asc_df_1617295280/?tag=googshopde-21&amp;linkCode=df0&amp;hvadid=447474488305&amp;hvpos=&amp;hvnetw=g&amp;hvrand=2944107959076367289&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9060640&amp;hvtargid=pla-921664658623&amp;psc=1&amp;th=1&amp;psc=1">Modern Fortran: Building Efficient Parallel Applications</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://item.jd.com/12580612.html">The C Programming Language, C程序设计语言</a> </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~kmcrane/Projects/DDG/">Diescrete Differential Geometry 计算几何</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://orbit.dtu.dk/en/persons/david-r-fuhrman">Turbulence in coastal and civil enginerring, Fuhrman, DTU</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/c/timofeymukha">WMLES, Timofey Mukha</a> </p>
-</li>
-<li><a target="_blank" rel="noopener" href="http://www.ulaff.net/">Linear Algebra: Foundations to Frontiers</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/c/SciNetHPCattheUniversityofToronto">HPC at University of Toronto</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/c/QiqiWangGG">Qiqi Wang</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eCw55EVn-PA&amp;list=PLwSEyKg12dVbP6C0EVKomi0CK-Ar9rnS1&amp;index=10">OpenFOAM Journal</a></li>
-<li><p>计算机四大神兽: MIT CMU Berkery Stanford</p>
-<ul>
-<li>CS106a</li>
-<li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/schedule.html">CS6.8282 Operating System Engineering</a></li>
-<li>CS267 Berkeley</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CME211">CME211, Sotfware Development for Scientists and Engineers (Standford)</a></li>
-<li>CME212</li>
-<li>CME213</li>
-<li>CME345 (Fahrhat)</li>
-<li><a target="_blank" rel="noopener" href="http://www.tfd.chalmers.se/~lada/turbulent_flow/">MTF245 Turbulent Flow - Chalmers</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLMrJAkhIeNNR2W2sPWsYxfrxcASrUt_9j">ME564, ME565, Engineering Mathematics, Steve Brunton</a> </li>
-<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/aa222/cgi-bin/wordpress/">AA222 Engineering Design Optimization (Standford)</a></li>
-<li>CS61abc</li>
-<li><a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs107/">CS107 Computer Organization &amp; Systems</a></li>
-<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs110/">CS110 Principles of Computer Systems (Stanford)</a></li>
-<li><a target="_blank" rel="noopener" href="https://sites.google.com/lbl.gov/cs267-spr2021">CS267 Applications of Parallel Computers (Berkeley)</a></li>
-<li>MIT 操作系统</li>
-</ul>
-</li>
-<li><p>Tobi OpenFOM (Holzman), youtube</p>
-</li>
-<li><a target="_blank" rel="noopener" href="https://sites.cs.ucsb.edu/~lingqi/teaching/games202.html">GAMES 201</a> </li>
-<li>一些小网站<ul>
-<li><a target="_blank" rel="noopener" href="https://0xffff.one/">https://0xffff.one/</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell-io-redirections.html">RUNOOB</a></li>
-<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">Linux</a></li>
-<li><a target="_blank" rel="noopener" href="https://user-web.icecube.wisc.edu/~dglo/c_class/">C Language</a></li>
-</ul>
-</li>
-</ul>
-<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
-<li><p>beamer</p>
-</li>
-<li><p>blender</p>
-</li>
-<li><p>画图的工具</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://matplotlib.org/">matplotlib.org</a></li>
-<li><a target="_blank" rel="noopener" href="https://plotly.com/python/">Plotly</a></li>
-<li>Inkspace (.svg)</li>
-<li>klatexformula </li>
-<li><a target="_blank" rel="noopener" href="https://matplotlib-cpp.readthedocs.io/en/latest/">c++</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>比较快的从HPC下载方法</p>
-<p>  | | |<br>  |——|——|——|<br>  | $ scp<br>  | $ rsync -raul <br> $ rsync -azvhp | 速度更快</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/88325211">Linux截图工具 flamshot</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> (c++ Library)</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://petsc.org/release/">PETSc</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods">hypre</a>: scalable Linear Solvers and Multigrid Methods</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://arma.sourceforge.net">Armadillo</a>: C++ library for linear algebra &amp; scientific computing</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://arma.sourceforge.net">OpenBLAS</a></p>
-<h4 id="小的知识点"><a href="#小的知识点" class="headerlink" title="小的知识点"></a>小的知识点</h4></li>
-<li><p>一个核算5万个网格比较好 </p>
-</li>
-</ul>
-
+        
       
        
     </div>
