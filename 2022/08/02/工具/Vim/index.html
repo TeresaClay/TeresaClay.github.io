@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec2-3 Kontinuitätsgleichung für kompressible Gleichung | TeresaClay的小屋</title>
+  <title>Vim 基本使用 | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec2-3 Kontinuitätsgleichung für kompressible Gleichung | TeresaClay的小屋">
+  <meta name="description" content="Vim 基本使用 | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
 <meta property="og:type" content="article">
@@ -452,9 +452,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec2" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-工具/Vim" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec2-3 Kontinuitätsgleichung für kompressible Gleichung</h1>
+        <h1 class="article-title">Vim 基本使用</h1>
     
     <div class="article-meta">
         
@@ -464,7 +464,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Andreas">Andreas</a>
+            <a  data-rel="工具">工具</a>
             
         </span>
         
@@ -472,7 +472,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-29 17:02:17'>2022-07-09 23:05</time>
+            Created At : <time class="date" title='Updated At: 2022-08-02 13:07:13'>2022-08-02 13:02</time>
         
     </div>
     <div class="article-meta">
@@ -483,7 +483,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Massenbilanz-fur-ein-offenes-Systemtheoretische"><span class="toc-text">Die Massenbilanz für ein offenes Systemtheoretische</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Kontinuitatsgleichung-fur-inkompressible-Massenbilanz"><span class="toc-text">Die Kontinuitätsgleichung für inkompressible Massenbilanz</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Zusammenfassung"><span class="toc-text">Zusammenfassung</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -499,47 +499,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Die-Massenbilanz-fur-ein-offenes-Systemtheoretische"><a href="#Die-Massenbilanz-fur-ein-offenes-Systemtheoretische" class="headerlink" title="Die Massenbilanz für ein offenes Systemtheoretische"></a>Die Massenbilanz für ein offenes Systemtheoretische</h4><ul>
-<li><p>Massenbilanz in einem Speicher<br><img src="/images/2022-07-10-12-46-20.png" alt=""></p>
-<script type="math/tex; mode=display">
-\frac{\partial M}{\partial t}=\dot{m}_{ein}-\dot{m}_{aus}</script></li>
-<li><p>Massendurchfluss durch Fläche</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
- \dot{m}&=\rho Q=\rho Av=-\int_{\partial{\Omega}}\rho\vec{v}\vec{n}\,\mathrm{d}A 
- \\ \to \frac{\mathrm{d}M}{\mathrm{d}t}&=-\int_{\partial{\Omega}}\rho\vec{v}\vec{n}\,\mathrm{d}A \quad \quad \text{with} \quad M=\int_\Omega \rho \mathrm{d} \Omega 
- \\ \to \frac{\mathrm{d}}{\mathrm{d}t}\int_\Omega \rho  \, \mathrm{d}\Omega &=-\int_{\partial{\Omega}}\rho\vec{v}\vec{n}\,\mathrm{d}A=-\int_\Omega \text{div}(\rho\vec{v})\,\mathrm{d}\Omega
-\end{aligned}</script><p>when CV ein unendlich klein Punkt: $\rho$ and div constant</p>
-<script type="math/tex; mode=display">
-\frac{\mathrm{d}\rho}{\mathrm{d}t}\int_\Omega d \Omega=-\text{div}(\rho\vec{v})\int_\Omega d \Omega</script><p>infinisierte Massenbilanz, Kontinuitätsgleichung für kompressible Fluid</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-  \boxed{  \frac{\partial \rho}{\partial t}=-\text{div}(\rho\vec{v})}</script><hr>
-<h4 id="Die-Kontinuitatsgleichung-fur-inkompressible-Massenbilanz"><a href="#Die-Kontinuitatsgleichung-fur-inkompressible-Massenbilanz" class="headerlink" title="Die Kontinuitätsgleichung für inkompressible Massenbilanz"></a>Die Kontinuitätsgleichung für inkompressible Massenbilanz</h4><script type="math/tex; mode=display">
-\frac{\partial \rho}{\partial t}+\text{div}(\rho\vec{v})=0
-\\ \\ \underbrace{ \frac{\partial \rho}{\partial t}+\vec{u} \ \text{grad} \, \rho }_{\frac{D\rho}{Dt}=0 \text{ 不可压}} +\rho \ \text{div}\vec{u}=0</script><center>
-
-$
-\color{grey}{\frac{\partial (\rho u)}{\partial x}+\frac{\partial (\rho v)}{\partial y}+\frac{\partial (\rho w)}{\partial z}=u\frac{\partial \rho}{\partial x}+v\frac{\partial \rho}{\partial y}+w\frac{\partial \rho}{\partial z}+\rho(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z} )}\\   =\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}\cdot\ \begin{bmatrix} \frac{\partial \rho}{\partial x} \\ \frac{\partial \rho}{\partial y} \\ \frac{\partial \rho}{\partial z} \\\end{bmatrix}+\rho(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}) \\ = \vec{u} \ \text{grad} \, \rho+\rho \ \text{div}\vec{u} \qquad \qquad \qquad  
-$
-
-</center>
-
-<hr>
-<h4 id="Zusammenfassung"><a href="#Zusammenfassung" class="headerlink" title="Zusammenfassung"></a>Zusammenfassung</h4><ul>
-<li><p>Massenbilanz in einem Speicher:  </p>
-<script type="math/tex; mode=display">\frac{\mathrm{d}M}{\mathrm{d}t}=\dot{m}_{ein}-\dot{m}_{aus}</script></li>
-<li><p>Massendurchfluss durch Fläche</p>
-<script type="math/tex; mode=display">
-\dot{m}=\rho Q=\rho Av=-\int_{\partial \Omega}\rho\vec{v}\vec{n}\,\mathrm{d}A</script></li>
-<li><p>Massenbilanz an einem Punkt </p>
-<script type="math/tex; mode=display">
-\frac{\partial \rho}{\partial t}+\text{div}(\rho \vec{v})=0</script></li>
-<li><p>incompressible</p>
-<script type="math/tex; mode=display">
-\text{div}\,\vec{v}=0</script></li>
-</ul>
+        <div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>4+enter</td>
+<td>直接跳到这一行</td>
+</tr>
+<tr>
+<td><code>G</td>
+<td>跳转到最后一行</td>
+</tr>
+<tr>
+<td><code>gg</td>
+<td>回到顶行</td>
+</tr>
+</tbody>
+</table>
+</div>
 
       
        

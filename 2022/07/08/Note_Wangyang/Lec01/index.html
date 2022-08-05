@@ -2,23 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec12 | TeresaClay的小屋</title>
-  <meta name="keywords" content=" 散度 , 梯度 , 旋度 , 高斯散度定理 ">
-  <meta name="description" content="Lec12 | TeresaClay的小屋">
+  <title>Lec01 Vector Calculus | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Lec01 Vector Calculus | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lec14 The diffusion term II">
-<meta property="og:url" content="https://teresaclay.github.io/2022/07/30/Note_Wangyang/Lec14/index.html">
+<meta property="og:title" content="Lec10 Convection Term">
+<meta property="og:url" content="https://teresaclay.github.io/2022/08/05/Note_Wangyang/Lec10/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-30T12:46:55.504Z">
-<meta property="article:modified_time" content="2022-07-30T12:48:51.549Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
+<meta property="article:published_time" content="2022-08-05T08:04:41.282Z">
+<meta property="article:modified_time" content="2022-08-05T23:31:48.781Z">
 <meta property="article:author" content="TeresaClay">
-<meta property="article:tag" content="散度">
-<meta property="article:tag" content="梯度">
-<meta property="article:tag" content="旋度">
-<meta property="article:tag" content="高斯散度定理">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -79,10 +79,24 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(22)</small>
+                <small>(24)</small>
             
         </div>
     </li>
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        
+                        工具
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
     
         
             
@@ -104,7 +118,7 @@
                     <div data-rel="WangYang">
                         
                         WangYang
-                        <small>(9)</small>
+                        <small>(10)</small>
                         
                     </div>
                     
@@ -125,7 +139,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="22">
+<input type="hidden" id="yelog_site_posts_number" value="24">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -206,46 +220,64 @@
         
         
         <a  class="All WangYang "
-           href="/2022/07/30/Note_Wangyang/Lec14/"
-           data-tag="散度,梯度,旋度,高斯散度定理"
+           href="/2022/08/05/Note_Wangyang/Lec10/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="Lec14 The diffusion term II">Lec14 The diffusion term II</span>
-            <span class="post-date" title="2022-07-30 14:46:55">2022/07/30</span>
+            <span class="post-title" title="Lec10 Convection Term">Lec10 Convection Term</span>
+            <span class="post-date" title="2022-08-05 10:04:41">2022/08/05</span>
         </a>
         
         
         <a  class="All WangYang "
-           href="/2022/07/27/Note_Wangyang/Lec13/"
+           href="/2022/08/02/Note_Wangyang/Lec08/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Lec13 The diffusion term">Lec13 The diffusion term</span>
+            <span class="post-title" title="Lec08 Gradient computation">Lec08 Gradient computation</span>
+            <span class="post-date" title="2022-08-02 22:12:16">2022/08/02</span>
+        </a>
+        
+        
+        <a  class="All 工具 "
+           href="/2022/08/02/%E5%B7%A5%E5%85%B7/Vim/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vim 基本使用">Vim 基本使用</span>
+            <span class="post-date" title="2022-08-02 13:02:20">2022/08/02</span>
+        </a>
+        
+        
+        <a  class="All WangYang "
+           href="/2022/07/27/Note_Wangyang/Lec06/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec06-07 The diffusion term">Lec06-07 The diffusion term</span>
             <span class="post-date" title="2022-07-27 15:21:06">2022/07/27</span>
         </a>
         
         
         <a  class="All WangYang "
-           href="/2022/07/16/Note_Wangyang/Lec12/"
+           href="/2022/07/16/Note_Wangyang/Lec05/"
            data-tag="散度,梯度,旋度,高斯散度定理"
            data-author="" >
-            <span class="post-title" title="Lec12">Lec12</span>
+            <span class="post-title" title="Lec05 The Finite Volume Mesh">Lec05 The Finite Volume Mesh</span>
             <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
         </a>
         
         
         <a  class="All WangYang "
-           href="/2022/07/14/Note_Wangyang/Lec11/"
+           href="/2022/07/14/Note_Wangyang/Lec04/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Lec11 The Finite Volume Method">Lec11 The Finite Volume Method</span>
+            <span class="post-title" title="Lec04 The Finite Volume Method">Lec04 The Finite Volume Method</span>
             <span class="post-date" title="2022-07-14 16:38:06">2022/07/14</span>
         </a>
         
         
         <a  class="All WangYang "
-           href="/2022/07/12/Note_Wangyang/Lec10/"
+           href="/2022/07/12/Note_Wangyang/Lec03/"
            data-tag="半离散方程,通量"
            data-author="" >
-            <span class="post-title" title="Lec10 The Finite Volume Method">Lec10 The Finite Volume Method</span>
+            <span class="post-title" title="Lec03 The Finite Volume Method">Lec03 The Finite Volume Method</span>
             <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
         </a>
         
@@ -350,19 +382,19 @@
         
         
         <a  class="All WangYang "
-           href="/2022/07/08/Note_Wangyang/Lec9/"
+           href="/2022/07/08/Note_Wangyang/Lec02/"
            data-tag="通用形式"
            data-author="" >
-            <span class="post-title" title="Lec9 Mathematical Description of Physical Phenomena">Lec9 Mathematical Description of Physical Phenomena</span>
+            <span class="post-title" title="Lec02 Mathematical Description of Physical Phenomena">Lec02 Mathematical Description of Physical Phenomena</span>
             <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
         </a>
         
         
         <a  class="All WangYang "
-           href="/2022/07/08/Note_Wangyang/Lec8/"
+           href="/2022/07/08/Note_Wangyang/Lec01/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Lec8 Vector Calculus">Lec8 Vector Calculus</span>
+            <span class="post-title" title="Lec01 Vector Calculus">Lec01 Vector Calculus</span>
             <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
         </a>
         
@@ -377,10 +409,10 @@
         
         
         <a  class="All WangYang "
-           href="/2022/07/08/Note_Wangyang/Lec7/"
+           href="/2022/07/08/Note_Wangyang/Lec00/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Lec7 Introduction">Lec7 Introduction</span>
+            <span class="post-title" title="Lec00 Introduction">Lec00 Introduction</span>
             <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
         </a>
         
@@ -420,9 +452,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Note_Wangyang/Lec12" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec01" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec12</h1>
+        <h1 class="article-title">Lec01 Vector Calculus</h1>
     
     <div class="article-meta">
         
@@ -437,23 +469,10 @@
         </span>
         
         
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color3">散度</a>
-            
-            <a class="color3">梯度</a>
-            
-            <a class="color3">旋度</a>
-            
-            <a class="color2">高斯散度定理</a>
-            
-        </span>
-        
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-30 17:24:46'>2022-07-16 20:43</time>
+            Created At : <time class="date" title='Updated At: 2022-08-02 22:06:01'>2022-07-08 16:02</time>
         
     </div>
     <div class="article-meta">
@@ -464,7 +483,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Domain-discretization-%E5%87%A0%E4%BD%95%E7%A6%BB%E6%95%A3"><span class="toc-text">Domain discretization 几何离散</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-finite-volume-mesh"><span class="toc-text">The finite volume mesh</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E8%AE%A1%E7%AE%97-%E6%89%A9%E6%95%A3%E9%A1%B9"><span class="toc-text">梯度计算 (扩散项):</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E7%A6%BB%E6%95%A3-mid-point-integration"><span class="toc-text">梯度离散 (mid-point integration)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%BF%83%E5%80%BC-overline-phi-f"><span class="toc-text">面心值 $\overline{\phi}_f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E6%AD%A3%E4%BA%A4"><span class="toc-text">非正交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gt-%E7%BD%91%E6%A0%BC%E8%B4%A8%E9%87%8F-%E8%86%A8%E8%83%80%E7%B3%BB%E6%95%B0-lt-1-2-LES-lt-1-1-aspect-ration%EF%BC%8C-non-orthogonal-lt-75-skewness"><span class="toc-text">&gt; 网格质量:膨胀系数( &lt; 1.2, LES&lt;1.1), aspect ration， non-orthogonal (&lt;75), skewness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structured-mesh-grid"><span class="toc-text">Structured mesh&#x2F;grid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unstructured-mesh-grid"><span class="toc-text">Unstructured mesh&#x2F;grid</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Geometric-Quantities-%E5%87%A0%E4%BD%95%E9%87%8F"><span class="toc-text">Geometric Quantities 几何量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E7%A7%AF%E5%92%8C%E9%9D%A2%E5%BF%83-%E5%87%A0%E4%BD%95%E4%B8%AD%E5%BF%83"><span class="toc-text">面积和面心, 几何中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%A7%AF%E5%92%8C%E4%BD%93%E5%BF%83"><span class="toc-text">体积和体心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skewness-%E5%A5%87%E5%BC%82-ff-%E2%80%98"><span class="toc-text">skewness 奇异 $ff^{‘}$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exmaple-4-P156"><span class="toc-text">Exmaple 4 P156</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E7%9A%84%E5%81%8F%E6%96%B9%E7%A8%8B"><span class="toc-text">经典的偏方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-text">向量微积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6-gradient-nabla"><span class="toc-text">梯度, gradient, $\nabla $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%A3%E5%BA%A6-divergent%EF%BC%8C-nabla-cdot"><span class="toc-text">散度, divergent，$\nabla \cdot$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E5%BA%A6-curl-nabla-times"><span class="toc-text">旋度, curl, $\nabla \times $</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="toc-text">高斯散度定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stokes%E5%AE%9A%E7%90%86%E5%92%8C%E6%A0%BC%E6%9E%97%E5%AE%9A%E7%90%86"><span class="toc-text">Stokes定理和格林定理</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -480,41 +499,148 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Book 第六章<br>RenumberMesh<br>CMU 微分几何 C68 C65 c++代码<br>cfx: 顶点格式</p>
-<hr>
-<h1 id="Domain-discretization-几何离散"><a href="#Domain-discretization-几何离散" class="headerlink" title="Domain discretization 几何离散"></a>Domain discretization 几何离散</h1><ul>
-<li>structured mesh/grid</li>
-<li>unstructured mesh/grid</li>
-</ul>
-<h1 id="The-finite-volume-mesh"><a href="#The-finite-volume-mesh" class="headerlink" title="The finite volume mesh"></a>The finite volume mesh</h1><h2 id="梯度计算-扩散项"><a href="#梯度计算-扩散项" class="headerlink" title="梯度计算 (扩散项):"></a>梯度计算 (扩散项):</h2><p>the average gradient over a finite volume element  </p>
+        <h4 id="经典的偏方程"><a href="#经典的偏方程" class="headerlink" title="经典的偏方程"></a>经典的偏方程</h4><ul>
+<li><p>波动方程 (线性) </p>
 <script type="math/tex; mode=display">
-\overline{\nabla \phi}_C=\frac{1}{V_C}\int_{V_C}\nabla \phi dV=\frac{1}{V_C}\int_{\partial V_C} \phi d\boldsymbol{S}</script><h2 id="梯度离散-mid-point-integration"><a href="#梯度离散-mid-point-integration" class="headerlink" title="梯度离散 (mid-point integration)"></a>梯度离散 (mid-point integration)</h2><script type="math/tex; mode=display">
-  \overline{\nabla \phi}_C=\frac{1}{V_C}\sum_{f}\int_f \phi d\boldsymbol{S}={\color{red}{\frac{1}{V_C}\sum_{f}\overline{\phi}_f\boldsymbol{S}_f}}</script><h2 id="面心值-overline-phi-f"><a href="#面心值-overline-phi-f" class="headerlink" title="面心值 $\overline{\phi}_f$"></a>面心值 $\overline{\phi}_f$</h2><script type="math/tex; mode=display">
-    \overline{\phi}_f=g_{F}\phi_{F}+g_{C}\phi_{C}\\g_F=\frac{V_C}{V_C+V_F}\qquad  g_C=\frac{V_F}{V_C+V_F}</script><h2 id="非正交"><a href="#非正交" class="headerlink" title="非正交"></a>非正交</h2><p>  <img src="/+images/2022-07-16-21-18-05.png" alt=""></p>
+\begin{aligned}
+ u_{tt}&=c^{2}u_{xx} \\
+ u_{tt}&=c^{2}\nabla ^{2}u 
+\end{aligned}</script><ul>
+<li>Fourier级数，变换; 正交基 $\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin x \cos x \mathrm{d}x$</li>
+<li>Krlow CG (painless的CG) $ \begin{bmatrix} x_1, x_2, \cdots, x_n \end{bmatrix} ^{T} \cdot \begin{bmatrix} y_1, y_2, \cdots, y_n \end{bmatrix}^{T}=0$</li>
+<li>time-initial condition; space - boundary condition    </li>
+</ul>
+</li>
+<li><p>热传导方程 (线性)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+u_{t}&=\alpha^{2}u_{xx} \\
+u_t&=\alpha^{2}\nabla ^{2}u
+\end{aligned}</script><ul>
+<li>$\alpha$: 扩散系数  </li>
+</ul>
+</li>
+<li><p>拉普拉斯方程 (线性)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+u_{x x}+u_{yy}&=0 \\
+\nabla ^{2}u&=0
+\end{aligned}</script></li>
+<li><p>Navier-Stokes 方程 (非线性) </p>
+</li>
+</ul>
+<hr>
+<h4 id="向量微积分"><a href="#向量微积分" class="headerlink" title="向量微积分"></a>向量微积分</h4><ul>
+<li>守恒率 <ul>
+<li>质量</li>
+<li>动量</li>
+<li>不可压基本不用能量守恒，可压的部分密度基</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="梯度-gradient-nabla"><a href="#梯度-gradient-nabla" class="headerlink" title="梯度, gradient, $\nabla $"></a>梯度, gradient, $\nabla $</h4><script type="math/tex; mode=display">
+    \text{标量场}\implies \text{向量场}</script><ul>
+<li>梯度是一个方向，最快变化 （24.27）  </li>
+<li><p>标量场函数 $f(x,y)$</p>
+<script type="math/tex; mode=display">
+      \nabla f= \begin{bmatrix} 
+          \frac{\partial f}{\partial x} \\
+          \frac{\partial f}{\partial 
+          y} 
+      \end{bmatrix}</script></li>
+<li><p>梯度是线性的 </p>
+<script type="math/tex; mode=display">\nabla (f_1+f_2) = \nabla f_1+\nabla f_2</script></li>
+<li><p>方向导数  </p>
+<script type="math/tex; mode=display">
+  D_v(f)=\boldsymbol{n_v}\cdot \nabla f</script><ul>
+<li>same direction (变化最快的方向): $\frac{\nabla f}{\left\vert \nabla f \right\vert }\cdot \nabla f= \left\vert \nabla f \right\vert $ </li>
+<li>if $D_v(f)=0$, 在 $\boldsymbol{n}_v$方向$f$ 是不会改变的</li>
+</ul>
+</li>
+<li><p>Example: $f=x_2+y_2$ 35.33</p>
+</li>
+</ul>
+<hr>
+<h4 id="散度-divergent，-nabla-cdot"><a href="#散度-divergent，-nabla-cdot" class="headerlink" title="散度, divergent，$\nabla \cdot$"></a>散度, divergent，$\nabla \cdot$</h4><script type="math/tex; mode=display">
+    \text{向量场}\implies \text{标量场}</script><ul>
+<li>吸星大法(加图)</li>
+<li><p>向量场函数 $\boldsymbol{f}(x,y)$</p>
+<script type="math/tex; mode=display">
+      \nabla \cdot  \boldsymbol{f}= \begin{bmatrix} 
+          \frac{\partial }{\partial x} \\
+          \frac{\partial }{\partial 
+          y}
+      \end{bmatrix} \cdot \begin{bmatrix}
+      f_1 \\ f_2
+      \end{bmatrix} = \frac{\partial f_1}{\partial x}+\frac{\partial f_2}{\partial y}</script></li>
+<li><p>散度&gt;0: source </p>
+</li>
+<li>散度=0: divergence free<ul>
+<li>不可压的速度满足无散条件 $\nabla \cdot \boldsymbol{U}=0 $</li>
+</ul>
+</li>
+<li>散度是线性的 <script type="math/tex; mode=display">
+\nabla \cdot (\boldsymbol{f}_1+\boldsymbol{f}_2)=\nabla \cdot \boldsymbol{f}_1+\nabla \cdot \boldsymbol{f}_2</script></li>
+<li><p>拉普拉斯方程 （梯度的散度） </p>
+<script type="math/tex; mode=display">\begin{aligned}
+\nabla \cdot \nabla f&=\frac{\partial ^{2} f}{\partial x^{2}}+ \frac{\partial ^{2} f}{\partial y^{2}}\\ \nabla ^{2}f&=\Delta f
+\end{aligned}</script></li>
+<li><p>43.24</p>
+</li>
+</ul>
+<hr>
+<h4 id="旋度-curl-nabla-times"><a href="#旋度-curl-nabla-times" class="headerlink" title="旋度, curl, $\nabla \times $"></a>旋度, curl, $\nabla \times $</h4><script type="math/tex; mode=display">
+\text{向量场}\implies \text{向量场}</script><ul>
+<li>向量场函数 $\boldsymbol{f}=(f_1,f_2,f_3)$<script type="math/tex; mode=display">
+\text{curl}(\boldsymbol{f})=\nabla\times \boldsymbol{f}= \text{det} \begin{bmatrix} i & j & k \\ \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\ f_1 & f_2 & f_3 \\\end{bmatrix}</script></li>
+<li>无旋，irrotational (旋度的散度) $\nabla \cdot (\nabla \times \boldsymbol{f})=0$</li>
+<li>思考 (梯度的旋度) $\nabla \times (\nabla f)$</li>
+<li><p>思考 (两次旋度的)横等0 $\nabla \times (\nabla \times \boldsymbol{f}) \equiv 0 \qquad  \vec{a} \times ( \vec{a} \times \vec{b} ) \equiv 0 $</p>
+</li>
+<li><p>1.12.50</p>
+</li>
+<li>1.30.35</li>
+<li>马桶抽水</li>
+</ul>
+<hr>
+<h4 id="高斯散度定理"><a href="#高斯散度定理" class="headerlink" title="高斯散度定理"></a>高斯散度定理</h4><ul>
+<li><p>穿过一个封闭面 $S$ 的<a href="https://teresaclay.github.io/2022/07/12/Note_Wangyang/Lec10/">通量</a> $F$ 等于对该封闭体内散度 $div(F)$ 的体积分</p>
+<script type="math/tex; mode=display">
+\iiint_V \nabla \cdot \boldsymbol{F} dV=\iint_S \boldsymbol{F} \cdot  \boldsymbol{n} dS</script></li>
+<li><p>推倒质量守恒</p>
+<script type="math/tex; mode=display">
+m=\iiint_V \rho dV</script><script type="math/tex; mode=display">
+\frac{\partial }{\partial t} \iiint_V \rho dV = - \iint_S \rho \boldsymbol{F} \cdot \boldsymbol{n} dS = - \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV</script><script type="math/tex; mode=display">
+\iiint \frac{\partial \rho}{\partial t} dV + \iiint_V \nabla \cdot (\rho \boldsymbol{F}) dV = \iiint_V \left[\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho\boldsymbol{F})\right] dV =0</script><script type="math/tex; mode=display">
+\boxed{\frac{\partial \rho}{\partial t}+\nabla \cdot (\rho \boldsymbol{F})=0}</script><script type="math/tex; mode=display">
+\text{incompressible:  } \quad \nabla \cdot \boldsymbol{F}=0</script></li>
+</ul>
+<hr>
+<h4 id="Stokes定理和格林定理"><a href="#Stokes定理和格林定理" class="headerlink" title="Stokes定理和格林定理"></a>Stokes定理和格林定理</h4><ul>
+<li><p>对一个封闭曲面上的旋度进行面积分</p>
+<script type="math/tex; mode=display">
+\iint_S (\nabla \times \boldsymbol{F} ) \cdot d\boldsymbol{S}= \int_{\partial S} \boldsymbol{F}\cdot dS</script><p><img src="/images/2022-07-16-15-41-20.png" alt=""></p>
+</li>
+<li><p>格林公式是Stokes的二维情况</p>
+<script type="math/tex; mode=display">
+\iint_S (\frac{\partial f_2}{\partial x}-\frac{\partial f_1}{\partial y}) dxdy=\int_{\partial{S}}f_1dx+f_2dy</script></li>
+<li><p>可以用格林来求面积</p>
+<script type="math/tex; mode=display">
+\boldsymbol{F}=(-y,x)^{T} \\
+\iint_S (1+1)dxdy=2A=\int_{\partial S}{-ydx+xdy}</script></li>
+<li><p>Note</p>
+<script type="math/tex; mode=display">
+\nabla \times \boldsymbol{F} = \det</script><p>1‘40</p>
+</li>
+</ul>
+<hr>
+<p>补充：</p>
 <ul>
-<li>3.25 P84 (Jasak) </li>
-<li>扩散项 $\int_{V_c}\nabla \cdot (\Gamma \nabla \phi)dV \to \sum_{f}\int_{f}(\Gamma\nabla \phi)_f\cdot d\vec{S}$</li>
+<li>Machine Learning for Fluid Mechanics, Bruonton, Annual Revies of Fluid Mechanics</li>
+<li>Chen11, xxx,xxx</li>
 </ul>
-<ul>
-<li>Example 1 P140</li>
-</ul>
-<h2 id="gt-网格质量-膨胀系数-lt-1-2-LES-lt-1-1-aspect-ration，-non-orthogonal-lt-75-skewness"><a href="#gt-网格质量-膨胀系数-lt-1-2-LES-lt-1-1-aspect-ration，-non-orthogonal-lt-75-skewness" class="headerlink" title="&gt; 网格质量:膨胀系数( &lt; 1.2, LES&lt;1.1), aspect ration， non-orthogonal (&lt;75), skewness"></a>&gt; 网格质量:膨胀系数( &lt; 1.2, LES&lt;1.1), aspect ration， non-orthogonal (&lt;75), skewness</h2><h2 id="Structured-mesh-grid"><a href="#Structured-mesh-grid" class="headerlink" title="Structured mesh/grid"></a>Structured mesh/grid</h2><p><img src="/images/2022-07-16-23-39-07.png" alt=""></p>
-<ul>
-<li>网格数 nxm </li>
-<li>A:(nxm)x(nxm)</li>
-<li>整体编号(i,j)</li>
-<li>局部编号 i+(j-1)xm     </li>
-</ul>
-<p><img src="/images/2022-07-16-23-42-17.png" alt=""></p>
-<h2 id="Unstructured-mesh-grid"><a href="#Unstructured-mesh-grid" class="headerlink" title="Unstructured mesh/grid"></a>Unstructured mesh/grid</h2><ul>
-<li>Example 3 P150 </li>
-</ul>
-<h1 id="Geometric-Quantities-几何量"><a href="#Geometric-Quantities-几何量" class="headerlink" title="Geometric Quantities 几何量"></a>Geometric Quantities 几何量</h1><h2 id="面积和面心-几何中心"><a href="#面积和面心-几何中心" class="headerlink" title="面积和面心, 几何中心"></a>面积和面心, 几何中心</h2><script type="math/tex; mode=display">
-    \begin{aligned}
-    \boldsymbol{x}_G&=\frac{1}{k}\sum_{i=1}^{k}\boldsymbol{x}_i 
-    \\ \boldsymbol{x}_{CE}&= \frac{\sum_{i=1}^k \boldsymbol{x}_i*S_i}{\boldsymbol{S}} \\
-    \end{aligned}</script><h2 id="体积和体心"><a href="#体积和体心" class="headerlink" title="体积和体心"></a>体积和体心</h2><h2 id="skewness-奇异-ff-‘"><a href="#skewness-奇异-ff-‘" class="headerlink" title="skewness 奇异 $ff^{‘}$"></a>skewness 奇异 $ff^{‘}$</h2><p>  <img src="/images/2022-07-17-00-05-43.png" alt=""></p>
-<h2 id="Exmaple-4-P156"><a href="#Exmaple-4-P156" class="headerlink" title="Exmaple 4 P156"></a>Exmaple 4 P156</h2>
+
       
        
     </div>

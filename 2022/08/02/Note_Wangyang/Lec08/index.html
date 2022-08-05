@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec2-3 Kontinuitätsgleichung für kompressible Gleichung | TeresaClay的小屋</title>
+  <title>Lec08 Gradient computation | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec2-3 Kontinuitätsgleichung für kompressible Gleichung | TeresaClay的小屋">
+  <meta name="description" content="Lec08 Gradient computation | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
 <meta property="og:type" content="article">
@@ -452,9 +452,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec2" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec08" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec2-3 Kontinuitätsgleichung für kompressible Gleichung</h1>
+        <h1 class="article-title">Lec08 Gradient computation</h1>
     
     <div class="article-meta">
         
@@ -464,7 +464,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Andreas">Andreas</a>
+            <a  data-rel="WangYang">WangYang</a>
             
         </span>
         
@@ -472,7 +472,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-07-29 17:02:17'>2022-07-09 23:05</time>
+            Created At : <time class="date" title='Updated At: 2022-08-05 22:31:50'>2022-08-02 22:12</time>
         
     </div>
     <div class="article-meta">
@@ -483,7 +483,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Massenbilanz-fur-ein-offenes-Systemtheoretische"><span class="toc-text">Die Massenbilanz für ein offenes Systemtheoretische</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Kontinuitatsgleichung-fur-inkompressible-Massenbilanz"><span class="toc-text">Die Kontinuitätsgleichung für inkompressible Massenbilanz</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Zusammenfassung"><span class="toc-text">Zusammenfassung</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-text">作业</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4computing-gradients-in-cartesian-grides"><span class="toc-text">正交computing gradients in cartesian grides</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E6%AD%A3%E4%BA%A4Green-Gauss-Gradient"><span class="toc-text">非正交Green-Gauss Gradient</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#non-orthogonal-%E9%9D%9E%E6%AD%A3%E4%BA%A4face-based-gradient-computation"><span class="toc-text">non-orthogonal: 非正交face-based gradient computation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skewness-%E9%9D%9E%E6%AD%A3%E4%BA%A4face-based-gradient-computation"><span class="toc-text">skewness: 非正交face-based gradient computation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1-%EF%BC%88face-based-gradient-computation"><span class="toc-text">计算方法 1 （face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2-face-based-gradient-computation"><span class="toc-text">计算方法 2 (face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-3-face-based-gradient-computation"><span class="toc-text">计算方法 3 (face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1-P280"><span class="toc-text">Example 1 P280</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-text">最小二乘法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F101"><span class="toc-text">F101</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#book"><span class="toc-text">book</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%B0%8F%E7%BB%93-nabla-phi-f"><span class="toc-text">梯度小结 $(\nabla\phi)_f$</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -499,47 +499,217 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Die-Massenbilanz-fur-ein-offenes-Systemtheoretische"><a href="#Die-Massenbilanz-fur-ein-offenes-Systemtheoretische" class="headerlink" title="Die Massenbilanz für ein offenes Systemtheoretische"></a>Die Massenbilanz für ein offenes Systemtheoretische</h4><ul>
-<li><p>Massenbilanz in einem Speicher<br><img src="/images/2022-07-10-12-46-20.png" alt=""></p>
+        <h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p><a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/guides/v2112/doc/guide-schemes-gradient.html">梯度</a></p>
+<pre><code class="lang-c++">gradSchemes
+&#123;
+    default         none;
+    grad(p)         &lt;optional limiter&gt; &lt;gradient scheme&gt; &lt;interpolation scheme&gt;;
+&#125;
+</code></pre>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>limiter</th>
+<th>gradient</th>
+<th>interpolation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cellLimited<br>cellMDLimited<br>faceLimited<br>faceMDLimited</td>
+<td>Gauss<br>leastSquares</td>
+<td>linear<br>pointLinear<br>leastSquares </td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>F101:26-28</li>
+</ul>
+<h1 id="正交computing-gradients-in-cartesian-grides"><a href="#正交computing-gradients-in-cartesian-grides" class="headerlink" title="正交computing gradients in cartesian grides"></a>正交computing gradients in cartesian grides</h1><p><img align="right" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-02-22-59-17.png></p>
+<ul>
+<li>1D</li>
+</ul>
+<p><img align="right" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-02-23-02-38.png></p>
 <script type="math/tex; mode=display">
-\frac{\partial M}{\partial t}=\dot{m}_{ein}-\dot{m}_{aus}</script></li>
-<li><p>Massendurchfluss durch Fläche</p>
+  \left(\frac{\mathrm{d}\phi}{\mathrm{d}x}     \right)_e=\frac{\phi_E-\phi_P}{x_E-x_P}</script><ul>
+<li>2D<script type="math/tex; mode=display">
+\left(\frac{\partial \phi}{\partial x}\right)_P=\frac{\phi_E-\phi_W}{x_E-x_W}\\
+\left(\frac{\partial \phi}{\partial x}\right)_P=\frac{\phi_N-\phi_S}{x_N-x_S}</script></li>
+</ul>
+<hr>
+<h1 id="非正交Green-Gauss-Gradient"><a href="#非正交Green-Gauss-Gradient" class="headerlink" title="非正交Green-Gauss Gradient"></a>非正交Green-Gauss Gradient</h1><p>体心梯度</p>
+<script type="math/tex; mode=display">
+(\nabla \phi)_P=\frac{1}{V_P}\sum_{f}\phi_f\cdot \boldsymbol{S}_f</script><ul>
+<li>两种方法计算 $\phi_f$</li>
+</ul>
+<h2 id="non-orthogonal-非正交face-based-gradient-computation"><a href="#non-orthogonal-非正交face-based-gradient-computation" class="headerlink" title="non-orthogonal: 非正交face-based gradient computation"></a>non-orthogonal: 非正交face-based gradient computation</h2><script type="math/tex; mode=display">
+\phi_f=\gamma \phi_P+(1-\gamma)\phi_N \qquad \gamma=\frac{\left\vert \vec{r}_N-\vec{r}_f     \right\vert }{\left\vert \vec{r}_N-\vec{r}_P \right\vert }=\frac{d_{Nf}}{d_{NP}}</script><ul>
+<li>精度较低</li>
+<li>二阶精度 $\phi_f=\frac{\phi_P+\phi_N}{2}$</li>
+</ul>
+<p>最终可计算面心梯度   $\qquad \qquad \color{green}{ \phi_f \to (\nabla \phi)_P\text{ and }(\nabla \phi)_N \to (\nabla \phi)_f }$</p>
+<script type="math/tex; mode=display">
+  \boxed{(\nabla \phi)_f=\gamma(\nabla \phi)_P+（1-\gamma)(\nabla \phi)_N}</script><p><img align="center" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-02-23-09-13.png></p>
+<h2 id="skewness-非正交face-based-gradient-computation"><a href="#skewness-非正交face-based-gradient-computation" class="headerlink" title="skewness: 非正交face-based gradient computation"></a>skewness: 非正交face-based gradient computation</h2><ul>
+<li>skewness $\phi_{f^{‘}}$</li>
+<li><p>泰勒公式</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
- \dot{m}&=\rho Q=\rho Av=-\int_{\partial{\Omega}}\rho\vec{v}\vec{n}\,\mathrm{d}A 
- \\ \to \frac{\mathrm{d}M}{\mathrm{d}t}&=-\int_{\partial{\Omega}}\rho\vec{v}\vec{n}\,\mathrm{d}A \quad \quad \text{with} \quad M=\int_\Omega \rho \mathrm{d} \Omega 
- \\ \to \frac{\mathrm{d}}{\mathrm{d}t}\int_\Omega \rho  \, \mathrm{d}\Omega &=-\int_{\partial{\Omega}}\rho\vec{v}\vec{n}\,\mathrm{d}A=-\int_\Omega \text{div}(\rho\vec{v})\,\mathrm{d}\Omega
-\end{aligned}</script><p>when CV ein unendlich klein Punkt: $\rho$ and div constant</p>
-<script type="math/tex; mode=display">
-\frac{\mathrm{d}\rho}{\mathrm{d}t}\int_\Omega d \Omega=-\text{div}(\rho\vec{v})\int_\Omega d \Omega</script><p>infinisierte Massenbilanz, Kontinuitätsgleichung für kompressible Fluid</p>
+\phi_f&=\phi_{f^{'}}+{\color{blue}{\text{correction}}}
+\\ &=\phi_{f^{'}}+\left(\nabla \phi\right)_{f^{'}}\cdot (\vec{r}_{f}-\vec{r}_{f^{'}})+O(\Delta \vec{r}^{2}) 
+\\ &=\gamma \left[ \phi_p+(\nabla \phi)_P\cdot (\vec{r}_f-\vec{r}_P)\right]+(1-\gamma)\left[\phi_N+(\nabla \phi)_N\cdot (\vec{r}_f-\vec{r}_N)\right] 
+\\ &=\phi_{f^{'}}+{\color{blue}{\gamma(\nabla \phi)_{P}\cdot (\vec{r}_{f}-\vec{r}_{P})+(1-\gamma)(\nabla \phi)_N\cdot (\vec{r}_{f}-\vec{r}_{N})}}
+\end{aligned}</script></li>
+<li><p>可以选择有或没有corrected (To do:对应一下fvScheme and fvSolution)</p>
+</li>
+<li><p>由于 $\phi_f$ 造成了迭代问题</p>
 </li>
 </ul>
-<script type="math/tex; mode=display">
-  \boxed{  \frac{\partial \rho}{\partial t}=-\text{div}(\rho\vec{v})}</script><hr>
-<h4 id="Die-Kontinuitatsgleichung-fur-inkompressible-Massenbilanz"><a href="#Die-Kontinuitatsgleichung-fur-inkompressible-Massenbilanz" class="headerlink" title="Die Kontinuitätsgleichung für inkompressible Massenbilanz"></a>Die Kontinuitätsgleichung für inkompressible Massenbilanz</h4><script type="math/tex; mode=display">
-\frac{\partial \rho}{\partial t}+\text{div}(\rho\vec{v})=0
-\\ \\ \underbrace{ \frac{\partial \rho}{\partial t}+\vec{u} \ \text{grad} \, \rho }_{\frac{D\rho}{Dt}=0 \text{ 不可压}} +\rho \ \text{div}\vec{u}=0</script><center>
-
-$
-\color{grey}{\frac{\partial (\rho u)}{\partial x}+\frac{\partial (\rho v)}{\partial y}+\frac{\partial (\rho w)}{\partial z}=u\frac{\partial \rho}{\partial x}+v\frac{\partial \rho}{\partial y}+w\frac{\partial \rho}{\partial z}+\rho(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z} )}\\   =\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}\cdot\ \begin{bmatrix} \frac{\partial \rho}{\partial x} \\ \frac{\partial \rho}{\partial y} \\ \frac{\partial \rho}{\partial z} \\\end{bmatrix}+\rho(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}) \\ = \vec{u} \ \text{grad} \, \rho+\rho \ \text{div}\vec{u} \qquad \qquad \qquad  
-$
-
-</center>
-
-<hr>
-<h4 id="Zusammenfassung"><a href="#Zusammenfassung" class="headerlink" title="Zusammenfassung"></a>Zusammenfassung</h4><ul>
-<li><p>Massenbilanz in einem Speicher:  </p>
-<script type="math/tex; mode=display">\frac{\mathrm{d}M}{\mathrm{d}t}=\dot{m}_{ein}-\dot{m}_{aus}</script></li>
-<li><p>Massendurchfluss durch Fläche</p>
-<script type="math/tex; mode=display">
-\dot{m}=\rho Q=\rho Av=-\int_{\partial \Omega}\rho\vec{v}\vec{n}\,\mathrm{d}A</script></li>
-<li><p>Massenbilanz an einem Punkt </p>
-<script type="math/tex; mode=display">
-\frac{\partial \rho}{\partial t}+\text{div}(\rho \vec{v})=0</script></li>
-<li><p>incompressible</p>
-<script type="math/tex; mode=display">
-\text{div}\,\vec{v}=0</script></li>
+<p><img align="center" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-05_15-25.png></p>
+<h3 id="计算方法-1-（face-based-gradient-computation"><a href="#计算方法-1-（face-based-gradient-computation" class="headerlink" title="计算方法 1 （face-based gradient computation)"></a>计算方法 1 （face-based gradient computation)</h3><p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-02-23-47-39.png" alt=""></p>
+<ul>
+<li>一般2-3次迭代</li>
 </ul>
+<h3 id="计算方法-2-face-based-gradient-computation"><a href="#计算方法-2-face-based-gradient-computation" class="headerlink" title="计算方法 2 (face-based gradient computation)"></a>计算方法 2 (face-based gradient computation)</h3><script type="math/tex; mode=display">
+\gamma=0.5</script><p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-05_15-17.png" alt=""></p>
+<h3 id="计算方法-3-face-based-gradient-computation"><a href="#计算方法-3-face-based-gradient-computation" class="headerlink" title="计算方法 3 (face-based gradient computation)"></a>计算方法 3 (face-based gradient computation)</h3><h3 id="Example-1-P280"><a href="#Example-1-P280" class="headerlink" title="Example 1 P280"></a>Example 1 P280</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>体心点</th>
+<th>坐标</th>
+<th>$\phi$</th>
+<th>$\nabla \phi$</th>
+<th>$f_i=\frac{n_i+n_{i+1}}{2}$</th>
+<th>$\vec{S}_{f_{i}}$</th>
+<th>$\gamma$</th>
+<th>$\phi_{f_i}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td>$\begin{bmatrix} 13 \\ 11 \\\end{bmatrix}$</td>
+<td>167</td>
+<td>${\color{red}{(\nabla \phi)_C}=}\frac{1}{V_C}\sum_{i}\phi_{f_{i}}\vec{S}_{f_{i}}=\begin{bmatrix} 11.889 \\ 12.433 \\\end{bmatrix}$</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$F_1$</td>
+<td>$\begin{bmatrix} 4.5 \\ 9.5 \\\end{bmatrix}$</td>
+<td>56.75</td>
+<td>$\begin{bmatrix} 10.5 \\ 5.5 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 8.5 \\ 11 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} -6 \\ 1 \\\end{bmatrix}$</td>
+<td>0.487</td>
+<td>110.442</td>
+</tr>
+<tr>
+<td>$F_2$</td>
+<td>$\begin{bmatrix} 8 \\ 3 \\\end{bmatrix}$</td>
+<td>35</td>
+<td>$\begin{bmatrix} -4 \\ 9 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 10 \\ 6.5 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} -3 \\ -4 \\\end{bmatrix}$</td>
+<td>0.427</td>
+<td>91.364</td>
+</tr>
+<tr>
+<td>$F_3$</td>
+<td>$\begin{bmatrix} 17 \\ 3.5 \\\end{bmatrix}$</td>
+<td>80</td>
+<td>$\begin{bmatrix} -4.5 \\ 18 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 14.5 \\ 7 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 4 \\ -5 \\\end{bmatrix}$</td>
+<td>0.502</td>
+<td>123.674</td>
+</tr>
+<tr>
+<td>$F_4$</td>
+<td>$\begin{bmatrix} 22 \\ 10 \\\end{bmatrix}$</td>
+<td>252</td>
+<td>$\begin{bmatrix} 11 \\ 23 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 17.25 \\ 11.5 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 5 \\ -0.5 \\\end{bmatrix}$</td>
+<td>0.538</td>
+<td>206.27</td>
+</tr>
+<tr>
+<td>$F_5$</td>
+<td>$\begin{bmatrix} 16 \\ 20 \\\end{bmatrix}$</td>
+<td>356</td>
+<td>$\begin{bmatrix} 21 \\ 17 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 14.74 \\15.5  \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 3 \\ 5.5 \\\end{bmatrix}$</td>
+<td>0.492</td>
+<td>263.012</td>
+</tr>
+<tr>
+<td>$F_6$</td>
+<td>$\begin{bmatrix} 7 \\ 18 \\\end{bmatrix}$</td>
+<td>151</td>
+<td>$\begin{bmatrix} 19 \\ 8 \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} 10.5 \\ 15.5  \\\end{bmatrix}$</td>
+<td>$\begin{bmatrix} -3 \\ 3 \\\end{bmatrix}$</td>
+<td>0.455</td>
+<td>158.28</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>$V_C=76$</p>
+<ul>
+<li><p>The Green-Gauss method with no correction</p>
+<p>$  \gamma=\frac{}{}=\begin{bmatrix}  \\  \\  \\  \\  \\  \\\end{bmatrix} \qquad \phi_{f}=\gamma\phi_C+(1-\gamma)\phi_{F_{i}}=\begin{bmatrix}  \\  \\  \\  \\  \\  \\\end{bmatrix}$</p>
+</li>
+<li><p>The Green-Gauss method with skewness correction ($\gamma=0.5$)<br>$\phi_{f^{‘}}=0.5(\phi_C+\phi_{F_{i}})=\begin{bmatrix}  \\  \\  \\  \\  \\  \\\end{bmatrix} \quad (\nabla \phi)_C=\frac{1}{V_C}\sum_{i}\phi_{f^{‘}}= \quad $ </p>
+</li>
+</ul>
+<hr>
+<h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><h2 id="F101"><a href="#F101" class="headerlink" title="F101"></a>F101</h2><p>扩散项 $\to (\nabla \phi)_f \to (\nabla \phi)_P=\frac{1}{V_P}\sum_{}\phi_f\vec{S}_f$</p>
+<p>Ex. 温度 $T$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\nabla T)_P&=\frac{1}{V_P}\left(T_1\vec{S}_{f_1}+T_2\vec{S}_{f_2}+ \cdots +T_6\vec{S}_{f_6}\right) \\T_N&=T_P+\vec{d}_{PN}\cdot (\nabla T)_P
+\\ \phi_N &=\phi_P+(\nabla \phi)_{P}\cdot (\vec{r}_N-\vec{r}_P) \\ 泰勒公式: & f(x)=f(x_0)+f^{'}(x_0)(x-x_0)+\color{grey}{\frac{f^{''}(x_0)}{2!}(x-x_0)^{2}}  
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+\\ T_1&=T_P+(\nabla T)_P \cdot \vec{r}_{P1} \\ T_1&=T_P+(\nabla T)_P \cdot \vec{r}_{P2} \\ \vdots \\ \\ T_6&=T_P+(\nabla T)_P \cdot \vec{r}_{P6}   \\
+\end{aligned} \qquad   \qquad 
+ \begin{bmatrix} r_{P1,x} & r_{P1,y}  & r_{P1,z} \\ r_{P2,x} & r_{P 2,y} & r_{P 3,z} \\ \vdots & \vdots & \vdots  \\ r_{P 6,x} & r_{P 6,y} & r_{P 6,z} \\\end{bmatrix}\begin{bmatrix} \frac{\partial T}{\partial x} \\ \frac{\partial T}{\partial y} \\ \frac{\partial T}{\partial z} \\\end{bmatrix} = \begin{bmatrix} T_1-T_P \\ T_2-T_P \\ \vdots \\ T_6-T_P \\\end{bmatrix}  \\ \qquad \\ \underbrace{A^{T}A}_{G}x=A^{T}b \\ (\nabla T)_P=G^{-1}A^{T}b</script><p>Note:没有插值，精度较高,但是G占用内存</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-05_10-48.png" alt=""></p>
+<script type="math/tex; mode=display">
+A=\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & -1 & 0 \\\end{bmatrix} \quad A^{T}=\begin{bmatrix} 1 & 0 & -1 & 0 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \\\end{bmatrix} \quad G=A^{T}A=\begin{bmatrix} 2 &0  & 0  \\ 0 & 2 & 0 \\ 0 & 0 & 0 \\\end{bmatrix} \quad G^{-1}=\begin{bmatrix} \frac{1}{2} & 0 & 0 \\ 0 & \frac{1}{2} & 0 \\ 0 & 0 & 0 \\\end{bmatrix} \quad b=\begin{bmatrix} 100 \\ 100 \\ -100 \\ -100 \\\end{bmatrix} 
+\\ \qquad \\ \begin{aligned}
+(\nabla T)_P&=G^{-1}A^{T}b =\color{grey}{\begin{bmatrix} \frac{1}{2} & 0 & 0 \\ 0 & \frac{1}{2} & 0 \\ 0 & 0 & 0 \\\end{bmatrix} \begin{bmatrix} 1 & 0 & -1 & 0 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \\\end{bmatrix}\begin{bmatrix} 100 \\ 100 \\ -100 \\ -100 \\\end{bmatrix}}=\begin{bmatrix} 100 \\ 100 \\ 0 \\\end{bmatrix}
+\end{aligned}</script><h2 id="book"><a href="#book" class="headerlink" title="book"></a>book</h2><script type="math/tex; mode=display">
+\begin{aligned}
+\phi_N &=\phi_P+(\nabla \phi)_P\cdot (\vec{r}_N-\vec{r}_P) \qquad \qquad w_i=\frac{1}{\left\vert \vec{r}_P-\vec{r}_i \right\vert} \\ G&=\sum_{i=1} \{w_i\left[\phi_N-\left(  \phi_P+(\nabla \phi)_P\cdot\vec{r}_{PN}   \right)    \right]^{2} \} \\ &=\sum_{i=1}\{w_i\left[ \Delta \phi_i - \left(     \Delta x_i \left(\frac{\partial \phi}{\partial x}\right)_{P} +  \Delta y_i\left(\frac{\partial \phi}{\partial y} \right)_{P}+\Delta z_{i}\left(\frac{\partial \phi}{\partial z}\right)_{P} \right)  \right]^{2}\}
+\end{aligned}</script><script type="math/tex; mode=display">
+\boxed{ \frac{\partial G}{ \frac{\partial \phi}{\partial x}}=\frac{\partial G}{\frac{\partial \phi}{\partial y}}=\frac{\partial G}{\frac{\partial \phi}{\partial z}}=0}</script><script type="math/tex; mode=display">\color{grey}{\sum_{i=1}\left\{ 2w_i\left[ \Delta \phi_i - \left(\Delta x_i \left(\frac{\partial \phi}{\partial x}\right)_{P} +  \Delta y_i\left(\frac{\partial \phi}{\partial y} \right)_{P}+\Delta z_{i}\left(\frac{\partial \phi}{\partial z}\right)_{P} \right)  \right] \Delta x_i \right\}=0} 
+\\ \color{grey}{\sum_{i=1}\left\{ 2w_i\left[ \Delta \phi_i - \left(     \Delta x_i \left(\frac{\partial \phi}{\partial x}\right)_{P} +  \Delta y_i\left(\frac{\partial \phi}{\partial y} \right)_{P}+\Delta z_{i}\left(\frac{\partial \phi}{\partial z}\right)_{P} \right)  \right] \Delta y_i \right\}=0} 
+\\ \color{grey}{\sum_{i=1}\left\{ 2w_i\left[ \Delta \phi_i - \left(     \Delta x_i \left(\frac{\partial \phi}{\partial x}\right)_{P} +  \Delta y_i\left(\frac{\partial \phi}{\partial y} \right)_{P}+\Delta z_{i}\left(\frac{\partial \phi}{\partial z}\right)_{P} \right)  \right] \Delta z_i \right\}=0}
+\\ \qquad \\ \color{grey}{\sum_{i=1}2w_i\Delta \phi_i \Delta x_i=\left( \sum_{i=1}(\Delta x_i)^{2}, \sum_{i=1}(\Delta x_i \Delta y_i),\sum_{i=1}\Delta x_i \Delta z_i \right) \cdot (\nabla  \phi)_P}
+\\ \color{grey}{\sum_{i=1}2w_i\Delta \phi_i \Delta y_i=\left( \sum_{i=1}(\Delta x_i \Delta y_i), \sum_{i=1}(\Delta y_i)^{2},\sum_{i=1}\Delta y_i \Delta z_i \right) \cdot (\nabla  \phi)_P}
+\\ \color{grey}{\sum_{i=1}2w_i\Delta \phi_i \Delta z_i=\left( \sum_{i=1}(\Delta x_i \Delta z_i), \sum_{i=1}(\Delta y_i \Delta z_i),\sum_{i=1} (\Delta z_i)^{2} \right) \cdot (\nabla  \phi)_P} 
+\\ \qquad \\
+\begin{bmatrix}  \sum_{i=1}(\Delta x_i)^{2} & \sum_{i=1}(\Delta x_i \Delta y_i) &  \sum_{i=1}\Delta x_i \Delta z_i\\  \sum_{i=1}(\Delta x_i \Delta y_i) & \sum_{i=1}(\Delta y_i)^{2} & \sum_{i=1}\Delta y_i \Delta z_i \\ \sum_{i=1}(\Delta x_i \Delta z_i) & \sum_{i=1}(\Delta y_i \Delta z_i) &\sum_{i=1} (\Delta z_i)^{2} \\ \end{bmatrix} \begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\ \frac{\partial \phi}{\partial z} \\\end{bmatrix}_{P}=\begin{bmatrix} \sum_{i=1}2w_i\Delta \phi_i \Delta x_i  \\ \sum_{i=1}2w_i\Delta \phi_i \Delta y_i  \\ \sum_{i=1}2w_i\Delta \phi_i \Delta z_i \\\end{bmatrix}</script><ul>
+<li>Interpolating gradients to faces</li>
+</ul>
+<h1 id="梯度小结-nabla-phi-f"><a href="#梯度小结-nabla-phi-f" class="headerlink" title="梯度小结 $(\nabla\phi)_f$"></a>梯度小结 $(\nabla\phi)_f$</h1><p><img align="right" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-05_13-28.png></p>
+<script type="math/tex; mode=display">
+(\nabla \phi)_f \to \begin{cases}
+  (1) \, \frac{\phi_P-\phi_N}{d_{PN}} \\ (2) \, \gamma(\nabla \phi)_P+(1-\gamma)(\nabla \phi)_N \quad \\ \qquad \gamma=\frac{\overrightarrow{fN}}{\overrightarrow{Pf}+\overrightarrow{fN}} \\ \qquad (\nabla \phi)_P=\frac{1}{V_P}\sum_{f}\phi_f\vec{S}_f \\ \qquad \phi_f=\phi_{f^{'}}=\gamma_2 \phi_P+(1-\gamma_2)\phi_N \quad \gamma_2=\frac{\overrightarrow{f^{'}N}}{PN}
+\end{cases}</script><ul>
+<li>$\gamma,\gamma_{2}$ 需要再理解</li>
+</ul>
+<h1 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h1><p><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam-solving/124345-gradient-schemes.html">CFD-online1</a><br><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam-solving/81486-cellmdlimited-vs-celllimited.html">CFD-online2</a></p>
+<p>关于 programming 的知识点</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/UnnamedMoose/BasicOpenFOAMProgrammingTutorials">OpenFOAM programming tutorials</a></p>
 
       
        
