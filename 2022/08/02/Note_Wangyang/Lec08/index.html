@@ -6,16 +6,16 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec08 Gradient computation | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
+<meta name="description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lec10 Convection Term">
 <meta property="og:url" content="https://teresaclay.github.io/2022/08/05/Note_Wangyang/Lec10/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
+<meta property="og:description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
 <meta property="article:published_time" content="2022-08-05T08:04:41.282Z">
-<meta property="article:modified_time" content="2022-08-05T23:31:48.781Z">
+<meta property="article:modified_time" content="2022-08-07T21:47:26.267Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
@@ -79,7 +79,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(24)</small>
+                <small>(25)</small>
             
         </div>
     </li>
@@ -118,7 +118,7 @@
                     <div data-rel="WangYang">
                         
                         WangYang
-                        <small>(10)</small>
+                        <small>(11)</small>
                         
                     </div>
                     
@@ -139,7 +139,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="24">
+<input type="hidden" id="yelog_site_posts_number" value="25">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -400,6 +400,15 @@
         
         
         <a  class="All WangYang "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
            data-tag=""
            data-author="" >
@@ -472,7 +481,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-05 22:31:50'>2022-08-02 22:12</time>
+            Created At : <time class="date" title='Updated At: 2022-08-07 23:25:34'>2022-08-02 22:12</time>
         
     </div>
     <div class="article-meta">
@@ -483,7 +492,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-text">作业</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4computing-gradients-in-cartesian-grides"><span class="toc-text">正交computing gradients in cartesian grides</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E6%AD%A3%E4%BA%A4Green-Gauss-Gradient"><span class="toc-text">非正交Green-Gauss Gradient</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#non-orthogonal-%E9%9D%9E%E6%AD%A3%E4%BA%A4face-based-gradient-computation"><span class="toc-text">non-orthogonal: 非正交face-based gradient computation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skewness-%E9%9D%9E%E6%AD%A3%E4%BA%A4face-based-gradient-computation"><span class="toc-text">skewness: 非正交face-based gradient computation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1-%EF%BC%88face-based-gradient-computation"><span class="toc-text">计算方法 1 （face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2-face-based-gradient-computation"><span class="toc-text">计算方法 2 (face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-3-face-based-gradient-computation"><span class="toc-text">计算方法 3 (face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1-P280"><span class="toc-text">Example 1 P280</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-text">最小二乘法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F101"><span class="toc-text">F101</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#book"><span class="toc-text">book</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%B0%8F%E7%BB%93-nabla-phi-f"><span class="toc-text">梯度小结 $(\nabla\phi)_f$</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4computing-gradients-in-cartesian-grides"><span class="toc-text">正交computing gradients in cartesian grides</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E6%AD%A3%E4%BA%A4-Green-Gauss-Gradient"><span class="toc-text">非正交 Green-Gauss Gradient</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#face-based-gradient-computation"><span class="toc-text">face-based gradient computation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#non-orthogonal"><span class="toc-text">non-orthogonal:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#skewness"><span class="toc-text">skewness:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1-%EF%BC%88face-based-gradient-computation"><span class="toc-text">计算方法 1 （face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2-face-based-gradient-computation"><span class="toc-text">计算方法 2 (face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-3-face-based-gradient-computation"><span class="toc-text">计算方法 3 (face-based gradient computation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1-P280"><span class="toc-text">Example 1 P280</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node-based-gradient-computation"><span class="toc-text">node-based gradient computation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-text">最小二乘法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F101"><span class="toc-text">F101</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#book"><span class="toc-text">book</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E5%B0%8F%E7%BB%93-nabla-phi-f"><span class="toc-text">梯度小结 $(\nabla\phi)_f$</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -499,7 +508,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p><a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/guides/v2112/doc/guide-schemes-gradient.html">梯度</a></p>
+        <h1 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h1><ul>
+<li>101F:26-28</li>
+<li>Tipcs and Tricks in OpenFOAM</li>
+<li><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam-solving/124345-gradient-schemes.html">CFD-online: gradient schemes</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam-solving/81486-cellmdlimited-vs-celllimited.html">cellMDLimited vs. cellLimited</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/UnnamedMoose/BasicOpenFOAMProgrammingTutorials">OpenFOAM programming tutorials</a></p>
+</li>
+<li>Chalmers Programm</li>
+<li>视频中Programm的部分</li>
+</ul>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/guides/v2112/doc/guide-schemes-gradient.html">梯度</a></p>
 <pre><code class="lang-c++">gradSchemes
 &#123;
     default         none;
@@ -517,16 +538,13 @@
 </thead>
 <tbody>
 <tr>
-<td>cellLimited<br>cellMDLimited<br>faceLimited<br>faceMDLimited</td>
+<td>cellLimited<br><font color=blue>cellMDLimited</font><br>faceLimited<br>faceMDLimited</td>
 <td>Gauss<br>leastSquares</td>
 <td>linear<br>pointLinear<br>leastSquares </td>
 </tr>
 </tbody>
 </table>
 </div>
-<ul>
-<li>F101:26-28</li>
-</ul>
 <h1 id="正交computing-gradients-in-cartesian-grides"><a href="#正交computing-gradients-in-cartesian-grides" class="headerlink" title="正交computing gradients in cartesian grides"></a>正交computing gradients in cartesian grides</h1><p><img align="right" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-02-22-59-17.png></p>
 <ul>
 <li>1D</li>
@@ -539,12 +557,16 @@
 \left(\frac{\partial \phi}{\partial x}\right)_P=\frac{\phi_N-\phi_S}{x_N-x_S}</script></li>
 </ul>
 <hr>
-<h1 id="非正交Green-Gauss-Gradient"><a href="#非正交Green-Gauss-Gradient" class="headerlink" title="非正交Green-Gauss Gradient"></a>非正交Green-Gauss Gradient</h1><p>体心梯度</p>
+<h1 id="非正交-Green-Gauss-Gradient"><a href="#非正交-Green-Gauss-Gradient" class="headerlink" title="非正交 Green-Gauss Gradient"></a>非正交 Green-Gauss Gradient</h1><p>体心梯度</p>
 <script type="math/tex; mode=display">
 (\nabla \phi)_P=\frac{1}{V_P}\sum_{f}\phi_f\cdot \boldsymbol{S}_f</script><ul>
-<li>两种方法计算 $\phi_f$</li>
+<li>两种方法计算 $\phi_f$<ol>
+<li><font color=blue>face-based</font></li>
+<li>vertex-based</li>
+</ol>
+</li>
 </ul>
-<h2 id="non-orthogonal-非正交face-based-gradient-computation"><a href="#non-orthogonal-非正交face-based-gradient-computation" class="headerlink" title="non-orthogonal: 非正交face-based gradient computation"></a>non-orthogonal: 非正交face-based gradient computation</h2><script type="math/tex; mode=display">
+<h2 id="face-based-gradient-computation"><a href="#face-based-gradient-computation" class="headerlink" title="face-based gradient computation"></a>face-based gradient computation</h2><h3 id="non-orthogonal"><a href="#non-orthogonal" class="headerlink" title="non-orthogonal:"></a>non-orthogonal:</h3><script type="math/tex; mode=display">
 \phi_f=\gamma \phi_P+(1-\gamma)\phi_N \qquad \gamma=\frac{\left\vert \vec{r}_N-\vec{r}_f     \right\vert }{\left\vert \vec{r}_N-\vec{r}_P \right\vert }=\frac{d_{Nf}}{d_{NP}}</script><ul>
 <li>精度较低</li>
 <li>二阶精度 $\phi_f=\frac{\phi_P+\phi_N}{2}$</li>
@@ -552,7 +574,7 @@
 <p>最终可计算面心梯度   $\qquad \qquad \color{green}{ \phi_f \to (\nabla \phi)_P\text{ and }(\nabla \phi)_N \to (\nabla \phi)_f }$</p>
 <script type="math/tex; mode=display">
   \boxed{(\nabla \phi)_f=\gamma(\nabla \phi)_P+（1-\gamma)(\nabla \phi)_N}</script><p><img align="center" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-02-23-09-13.png></p>
-<h2 id="skewness-非正交face-based-gradient-computation"><a href="#skewness-非正交face-based-gradient-computation" class="headerlink" title="skewness: 非正交face-based gradient computation"></a>skewness: 非正交face-based gradient computation</h2><ul>
+<h3 id="skewness"><a href="#skewness" class="headerlink" title="skewness:"></a>skewness:</h3><ul>
 <li>skewness $\phi_{f^{‘}}$</li>
 <li><p>泰勒公式</p>
 <script type="math/tex; mode=display">
@@ -670,7 +692,7 @@
 </li>
 </ul>
 <hr>
-<h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><h2 id="F101"><a href="#F101" class="headerlink" title="F101"></a>F101</h2><p>扩散项 $\to (\nabla \phi)_f \to (\nabla \phi)_P=\frac{1}{V_P}\sum_{}\phi_f\vec{S}_f$</p>
+<h2 id="node-based-gradient-computation"><a href="#node-based-gradient-computation" class="headerlink" title="node-based gradient computation"></a>node-based gradient computation</h2><h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><h2 id="F101"><a href="#F101" class="headerlink" title="F101"></a>F101</h2><p>扩散项 $\to (\nabla \phi)_f \to (\nabla \phi)_P=\frac{1}{V_P}\sum_{}\phi_f\vec{S}_f$</p>
 <p>Ex. 温度 $T$</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -707,9 +729,6 @@ A=\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & -1 & 0 \\\end{bmat
 \end{cases}</script><ul>
 <li>$\gamma,\gamma_{2}$ 需要再理解</li>
 </ul>
-<h1 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h1><p><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam-solving/124345-gradient-schemes.html">CFD-online1</a><br><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam-solving/81486-cellmdlimited-vs-celllimited.html">CFD-online2</a></p>
-<p>关于 programming 的知识点</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/UnnamedMoose/BasicOpenFOAMProgrammingTutorials">OpenFOAM programming tutorials</a></p>
 
       
        

@@ -6,16 +6,16 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec06-07 The diffusion term | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
+<meta name="description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lec10 Convection Term">
 <meta property="og:url" content="https://teresaclay.github.io/2022/08/05/Note_Wangyang/Lec10/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
+<meta property="og:description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
 <meta property="article:published_time" content="2022-08-05T08:04:41.282Z">
-<meta property="article:modified_time" content="2022-08-05T23:31:48.781Z">
+<meta property="article:modified_time" content="2022-08-07T21:47:26.267Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
@@ -79,7 +79,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(24)</small>
+                <small>(25)</small>
             
         </div>
     </li>
@@ -118,7 +118,7 @@
                     <div data-rel="WangYang">
                         
                         WangYang
-                        <small>(10)</small>
+                        <small>(11)</small>
                         
                     </div>
                     
@@ -139,7 +139,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="24">
+<input type="hidden" id="yelog_site_posts_number" value="25">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -400,6 +400,15 @@
         
         
         <a  class="All WangYang "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
            data-tag=""
            data-author="" >
@@ -472,7 +481,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-02 22:11:55'>2022-07-27 15:21</time>
+            Created At : <time class="date" title='Updated At: 2022-08-07 20:19:13'>2022-07-27 15:21</time>
         
     </div>
     <div class="article-meta">
@@ -483,7 +492,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B"><span class="toc-text">二维扩散方程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3-%EF%BC%88Two-dimensional-diffusion-in-a-rectangular-domain"><span class="toc-text">离散 （Two dimensional diffusion in a rectangular domain)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundary-condition"><span class="toc-text">Boundary condition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-diffusivity"><span class="toc-text">Interface diffusivity</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E7%BD%91%E6%A0%BC-non-orthogonal"><span class="toc-text">非结构化网格 non orthogonal</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%88%86%E8%A7%A3%E6%96%B9%E5%BC%8F"><span class="toc-text">三种分解方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0"><span class="toc-text">复习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Algebraic-equation-for-non-orthogonal-meshes"><span class="toc-text">Algebraic equation for non-orthogonal meshes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-2-P246"><span class="toc-text">Example 2 (P246)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundary-conditions-for-non-orthogonal-grids"><span class="toc-text">Boundary conditions for non-orthogonal grids</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dirichlet-BC-phi-b"><span class="toc-text">Dirichlet BC ($\phi_b$)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neumann"><span class="toc-text">Neumann</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Skewness"><span class="toc-text">Skewness</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Under-relaxation-%E4%BD%8E%E6%9D%BE%E5%BC%9B"><span class="toc-text">Under relaxation 低松弛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F"><span class="toc-text">显式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F"><span class="toc-text">隐式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenFOAM"><span class="toc-text">OpenFOAM</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B"><span class="toc-text">二维扩散方程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3-%EF%BC%88Two-dimensional-diffusion-in-a-rectangular-domain"><span class="toc-text">离散 （Two dimensional diffusion in a rectangular domain)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E9%A1%B9"><span class="toc-text">源项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%95%B0%E6%96%B9%E7%A8%8B"><span class="toc-text">代数方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundary-condition"><span class="toc-text">Boundary condition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-diffusivity"><span class="toc-text">Interface diffusivity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1-P227"><span class="toc-text">Example 1 P227</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E7%BD%91%E6%A0%BC-non-orthogonal"><span class="toc-text">非结构化网格 non orthogonal</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%88%86%E8%A7%A3%E6%96%B9%E5%BC%8F"><span class="toc-text">三种分解方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0"><span class="toc-text">复习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Algebraic-equation-for-non-orthogonal-meshes"><span class="toc-text">Algebraic equation for non-orthogonal meshes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%BD%A2%E5%BC%8F"><span class="toc-text">矩阵形式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-2-P246"><span class="toc-text">Example 2 (P246)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundary-conditions-for-non-orthogonal-grids"><span class="toc-text">Boundary conditions for non-orthogonal grids</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dirichlet-BC-phi-b"><span class="toc-text">Dirichlet BC ($\phi_b$)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neumann"><span class="toc-text">Neumann</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Skewness"><span class="toc-text">Skewness</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Under-relaxation-of-the-interative-solution-process"><span class="toc-text">Under relaxation of the interative solution process</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F"><span class="toc-text">显式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F"><span class="toc-text">隐式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenFOAM"><span class="toc-text">OpenFOAM</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -499,78 +508,82 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>蓝皮书 Ch14<br>红皮书 Ch8<br>作业：P206,Ex3,P269,Ex7</p>
+        <p>蓝皮书 Ch4<br>红皮书 Ch8<br>101F  relaxation<br>作业：P206,Ex3,P269,Ex7</p>
 <h1 id="二维扩散方程"><a href="#二维扩散方程" class="headerlink" title="二维扩散方程"></a>二维扩散方程</h1><script type="math/tex; mode=display">
 \begin{aligned}
 -\nabla \cdot (D\nabla \phi)=Q  \\ \frac{\partial }{\partial x}D\frac{\partial \phi}{\partial x}+\frac{\partial }{\partial y}D\frac{\partial \phi}{\partial y}+Q=0 
 \end{aligned}</script><h2 id="离散-（Two-dimensional-diffusion-in-a-rectangular-domain"><a href="#离散-（Two-dimensional-diffusion-in-a-rectangular-domain" class="headerlink" title="离散 （Two dimensional diffusion in a rectangular domain)"></a>离散 （Two dimensional diffusion in a rectangular domain)</h2><script type="math/tex; mode=display">
 \begin{aligned}
-\\ \color{grey}{ \int_V \nabla \cdot (D\nabla \phi)dV+\int_VQdV=0} \\ \color{grey}{\sum_{f}\int_f (D\nabla \phi)d\vec{S}+Q_PV_P = 0}\\\color{grey}{ \sum_{f}(D \nabla \phi)_f\cdot \vec{S}_f+Q_PV_P=0}
-\end{aligned}</script><ul>
-<li><p>gradient $(\nabla \phi)_f$:</p>
+\\ \color{grey}{ \int_V \nabla \cdot (D\nabla \phi)dV+\int_VQdV=0} \\ \color{grey}{\sum_{f}\int_f (D\nabla \phi)d\vec{S}+Q_PV_P = 0}\\\boxed{ \sum_{f}(D \nabla \phi)_f\cdot \vec{S}_f+Q_PV_P=0}
+\end{aligned}</script><p>gradient $(\nabla \phi)_f\begin{cases}<br>   \frac{\phi_N-\phi_P}{\Delta PN} \\ a(\nabla \phi)_P+b(\nabla \phi)_N<br>\end{cases}$</p>
+<p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-07_12-57.png" alt=""></p>
 <ul>
-<li>$\frac{\phi_N-\phi_P}{\Delta PN}$</li>
-<li>$a(\nabla \phi)_P+b(\nabla \phi)_N$</li>
-</ul>
-</li>
 <li><p>East</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
   \boldsymbol{S}_e&=\Delta y\boldsymbol{i}
-\\ D(\nabla \phi)_e\cdot \boldsymbol{S}_e&=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_e\boldsymbol{i}=\Delta yD \left(\frac{\partial \phi}{\partial x}\right)_e=\Delta y D \frac{\phi_E-\phi_P}{\delta x_{PE}}=a_E(\phi_E-\phi_P)
+\\ D(\nabla \phi)_e\cdot \boldsymbol{S}_e&\color{grey}{=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_e\boldsymbol{i}=\Delta yD \left(\frac{\partial \phi}{\partial x}\right)_e=\Delta y D \frac{\phi_E-\phi_P}{\delta x_{PE}}=a_E(\phi_E-\phi_P)}
 \end{aligned}</script></li>
 <li><p>West</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
   \boldsymbol{S}_w&=-\Delta y\boldsymbol{i}
-\\ D(\nabla \phi)_w\cdot \boldsymbol{S}_w&=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_w\boldsymbol{i}=-\Delta yD \left(\frac{\partial \phi}{\partial x}\right)_w=-\Delta y D \frac{\phi_P-\phi_W}{\delta x_{WP}}=\Delta y D\frac{\phi_W-\phi_P}{\delta x_{WP}}=a_W(\phi_W-\phi_P)
+\\ D(\nabla \phi)_w\cdot \boldsymbol{S}_w&\color{grey}{=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_w\boldsymbol{i}=-\Delta yD \left(\frac{\partial \phi}{\partial x}\right)_w=-\Delta y D \frac{\phi_P-\phi_W}{\delta x_{WP}}=\Delta y D\frac{\phi_W-\phi_P}{\delta x_{WP}}=a_W(\phi_W-\phi_P)}
 \end{aligned}</script></li>
 <li><p>South</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
   \boldsymbol{S}_s&=-\Delta x\boldsymbol{j}
-\\ D(\nabla \phi)_s\cdot \boldsymbol{S}_s&=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_s\boldsymbol{j}=-\Delta xD \left(\frac{\partial \phi}{\partial y}\right)_s=-\Delta x D \frac{\phi_P-\phi_S}{\delta y_{SP}}=\Delta x D\frac{\phi_S-\phi_P}{\delta y_{SP}}=a_S(\phi_S-\phi_P)
+\\ D(\nabla \phi)_s\cdot \boldsymbol{S}_s&\color{grey}{=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_s\boldsymbol{j}=-\Delta xD \left(\frac{\partial \phi}{\partial y}\right)_s=-\Delta x D \frac{\phi_P-\phi_S}{\delta y_{SP}}=\Delta x D\frac{\phi_S-\phi_P}{\delta y_{SP}}=a_S(\phi_S-\phi_P)}
 \end{aligned}</script></li>
 <li><p>North</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
   \boldsymbol{S}_n&=\Delta x\boldsymbol{j}
-\\ D(\nabla \phi)_n\cdot \boldsymbol{S}_n&=D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_n\boldsymbol{j}=\Delta xD \left(\frac{\partial \phi}{\partial y}\right)_n=\Delta x D \frac{\phi_N-\phi_P}{\delta y_{PN}}=a_N(\phi_N-\phi_P)
+\\ D(\nabla \phi)_n\cdot \boldsymbol{S}_n&=\color{grey}{D\left(\frac{\partial \phi}{\partial x}\boldsymbol{i}+\frac{\partial \phi}{\partial y}\boldsymbol{j}\right)\cdot S_n\boldsymbol{j}=\Delta xD \left(\frac{\partial \phi}{\partial y}\right)_n=\Delta x D \frac{\phi_N-\phi_P}{\delta y_{PN}}=a_N(\phi_N-\phi_P)}
 \end{aligned}</script></li>
-<li><p>源项</p>
-<script type="math/tex; mode=display">
-Q_PV_P=Q_u+Q_S\phi_P 
-\\ \underbrace{(-a_E-a_W-a_S-a_N+{\color{red}{Q_S}})}_{-a_P}\phi_P+a_E\phi_E+a_W\phi_W+a_S\phi_S+a_N\phi_N+Q_u=0</script><ul>
-<li>隐式</li>
-<li>反号</li>
-<li>无 $Q_S$ 零和</li>
-<li>$Q_S$ 可能破坏系数矩阵的对角占优性质</li>
-<li>注意边界条件</li>
 </ul>
+<h3 id="源项"><a href="#源项" class="headerlink" title="源项"></a>源项</h3><script type="math/tex; mode=display">
+  Q_PV_P=Q_u+Q_S\phi_P</script><h3 id="代数方程"><a href="#代数方程" class="headerlink" title="代数方程"></a>代数方程</h3><script type="math/tex; mode=display">
+{\color{grey}{(-a_E-a_W-a_S-a_N)\phi_P+a_E\phi_E+a_W\phi_W+a_S\phi_S+a_N\phi_N+Q_u+Q_S\phi_P}=0}</script><ul>
+<li>若无源项，系数零和</li>
+<li>若$Q_s$与其他系数反号，破坏对角占优;反之若同号，加强对角占优</li>
+<li><p>放到方程左侧系数矩阵，属于隐式离散</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+a_P\phi_P&=a_W\phi_W+a_E\phi_E+a_S\phi_S+a_N\phi_N+Q_u
+\\ a_P&=a_W+a_E+a_S+a_N-{\color{red}{Q_S}}
+\end{aligned}</script></li>
+<li><p>注意边界条件</p>
 </li>
 </ul>
-<h2 id="Boundary-condition"><a href="#Boundary-condition" class="headerlink" title="Boundary condition"></a>Boundary condition</h2><ul>
+<h2 id="Boundary-condition"><a href="#Boundary-condition" class="headerlink" title="Boundary condition"></a>Boundary condition</h2><p><img align="right" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-07_14-54.png></p>
+<ul>
 <li><p>Dirichlet: $\phi_b$</p>
 <script type="math/tex; mode=display">
 D(\nabla \phi)_b \cdot \vec{S}_f=D \frac{\phi_b-\phi_P}{\delta x_{Pb}}\cdot \Delta y =\frac{\Delta y D}{\delta x _{Pb}}(\phi_b-\phi_P) \quad=a_b\phi_b-a_b\phi_P</script><script type="math/tex; mode=display">
-\underbrace{(a_W+a_N+a_S+{\color{red}{a_b}})}_{a_P}-(a_N\phi_N+a_W\phi_W+a_S\phi_S)=a_b\phi_b</script></li>
+\underbrace{(a_W+a_N+a_S+{\color{red}{a_b}})}_{a_P}\phi_P-(a_N\phi_N+a_W\phi_W+a_S\phi_S)=a_b\phi_b</script><ul>
+<li>Dirichlet边界条件加强对角系数</li>
+</ul>
+</li>
 <li><p>Neumann: $(D\nabla \phi)_b\cdot \vec{i}=q$</p>
 <script type="math/tex; mode=display">
 D(\nabla \phi)_b\cdot \vec{S}_b=(D\nabla \phi)_b\cdot \Delta y \vec{i}=q \Delta y</script><script type="math/tex; mode=display">
 \underbrace{(a_W+a_N+a_S)}_{a_P}\phi_P+a_N\phi_N+a_W\phi_W+a_S\phi_S+q\Delta y=0</script><ul>
-<li>对 $a_P$无影响</li>
+<li>梯度边界条件对 $a_P$无影响</li>
 <li>zeroGradient 零梯度, $\phi_P=\phi_b$</li>
 </ul>
 </li>
 </ul>
 <h2 id="Interface-diffusivity"><a href="#Interface-diffusivity" class="headerlink" title="Interface diffusivity"></a>Interface diffusivity</h2><p>Jasak 3.3.4,</p>
 <script type="math/tex; mode=display">
-D_e=(1-\gamma_e)D_P+\gamma_eD_E \qquad \gamma_e=\frac{d_{pe}}{d_{pe}+d_{eE}}</script><ul>
-<li>Example</li>
+D_e=(1-\gamma_e)D_P+\gamma_eD_E \qquad \gamma_e=\frac{d_{pe}}{d_{pe}+d_{eE}}</script><h2 id="Example-1-P227"><a href="#Example-1-P227" class="headerlink" title="Example 1 P227"></a>Example 1 P227</h2><ul>
+<li>GS，Jacobian，python 代码</li>
 </ul>
+<hr>
 <h1 id="非结构化网格-non-orthogonal"><a href="#非结构化网格-non-orthogonal" class="headerlink" title="非结构化网格 non orthogonal"></a>非结构化网格 non orthogonal</h1><ul>
 <li>可将 $(\nabla \phi)_f \cdot \boldsymbol{S}_f$ 分为两个部分处理<br><img src="images/2022-07-30-15-02-33.png" alt=""><script type="math/tex; mode=display">
-(\nabla \phi)_f\cdot \boldsymbol{S}_f=\underbrace{(\nabla\phi)_f\cdot \Delta}_{正交贡献 \text{implicit}}+\underbrace{(\nabla \phi)_f\cdot\boldsymbol{k}}_{非正交修正 \text{explicit}}</script></li>
+(\nabla \phi)_f\cdot \boldsymbol{S}_f=\underbrace{(\nabla\phi)_f\cdot \Delta}_{正交贡献 \text{implicit}}+\underbrace{(\nabla \phi)_f\cdot\boldsymbol{k}}_{非正交修正 \text{explicit (corss-diffusion, as a source term)}}</script></li>
 </ul>
 <h2 id="三种分解方式"><a href="#三种分解方式" class="headerlink" title="三种分解方式"></a>三种分解方式</h2><div class="table-container">
 <table>
@@ -602,21 +615,84 @@ D_e=(1-\gamma_e)D_P+\gamma_eD_E \qquad \gamma_e=\frac{d_{pe}}{d_{pe}+d_{eE}}</sc
 <li>梯度离散<script type="math/tex; mode=display">
 \overline{\nabla \phi}_P=\frac{1}{V_P}\sum_{f}\int_{f}\phi d\boldsymbol{S}=\frac{1}{V_P}\sum_{f}\phi_f\boldsymbol{S}_f</script></li>
 <li>面心梯度 （带着权重的向量和成）<script type="math/tex; mode=display">
-(\nabla \phi)_f=g_N(\nabla \phi)_N+g_P(\nabla \phi)_P</script></li>
+(\nabla \phi)_f=g_N(\nabla \phi)_N+g_P(\nabla \phi)_P \\ g_N=\frac{V_P}{V_P+V_N} \qquad g_P=\frac{V_N}{V_P+V_N}</script></li>
 </ul>
 <h2 id="Algebraic-equation-for-non-orthogonal-meshes"><a href="#Algebraic-equation-for-non-orthogonal-meshes" class="headerlink" title="Algebraic equation for non-orthogonal meshes"></a>Algebraic equation for non-orthogonal meshes</h2><script type="math/tex; mode=display">
 \begin{aligned}
-\sum_{f}(D\nabla \phi)_f\cdot \boldsymbol{S}_f=\sum_{f}((D\nabla \phi)_f\cdot (\Delta+\boldsymbol{k}))&=\sum_{f}(D\nabla \phi)_f\cdot \Delta+\sum_{f}(D\nabla \phi)_f\cdot \boldsymbol{k} \\ &=\boxed{\sum_{f}\left(D \frac{\phi_{N}-\phi_{P}}{PN}\right)\left\vert \Delta \right\vert+\sum_{f}(D \nabla  \phi)\cdot \boldsymbol{k}} 
-\end{aligned}</script><ul>
-<li>矩阵形式<script type="math/tex; mode=display">
-a_P\phi_P+\sum_{f}a_N\phi_N=b_P</script></li>
-<li>with<script type="math/tex; mode=display">
-a_N=\frac{D}{PN}\left\vert \Delta \right\vert _f \qquad a_P=-\sum_{f}\frac{D}{PN}\left\vert \Delta \right\vert _f \qquad b_P=S_PV_P-\sum_{f}(D \nabla  \phi)\cdot \boldsymbol{k}</script></li>
+\sum_{f}(D\nabla \phi)_f\cdot \boldsymbol{S}_f&=\sum_{f}((D\nabla \phi)_f\cdot (\vec{\Delta}+\boldsymbol{k}))\\&=\sum_{f}(D\nabla \phi)_f\cdot \vec{\Delta}+\sum_{f}(D\nabla \phi)_f\cdot \boldsymbol{k} \\ &=\boxed{\sum_{f}\left(D \frac{\phi_{N}-\phi_{P}}{PN}\right)\left\vert \Delta \right\vert+\sum_{f}(D \nabla  \phi)_f\cdot \boldsymbol{k}} 
+\end{aligned}</script><h3 id="矩阵形式"><a href="#矩阵形式" class="headerlink" title="矩阵形式"></a>矩阵形式</h3><script type="math/tex; mode=display">
+  a_P\phi_P+\sum_{f}a_N\phi_N=b_P
+  \\ \qquad
+    a_N=\frac{D}{PN}\left\vert \Delta \right\vert _f \qquad a_P=-\sum_{f}\frac{D}{PN}\left\vert \Delta \right\vert _f \qquad b_P=Q_PV_P-\sum_{f}(D \nabla  \phi)\cdot \boldsymbol{k}</script><h2 id="Example-2-P246"><a href="#Example-2-P246" class="headerlink" title="Example 2 (P246)"></a>Example 2 (P246)</h2><ul>
+<li>编程玩一下<script type="math/tex; mode=display">
+\begin{aligned}
+\phi&=x^{2}+y^{2}+x^{2}y^{2} \qquad V_C=8.625
+\\ \text{analytical gradient: }\nabla \phi&=\begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\\end{bmatrix}=\begin{bmatrix} 2x+2xy^{2} \\ 2y+2x^{2}y \\\end{bmatrix} 
+\\ \nabla \phi_F&=\begin{bmatrix} 112.625  \\ 133.4375 \\\end{bmatrix} \qquad \nabla \phi_{f_1}=\begin{bmatrix} 51.375 \\ 55 \\\end{bmatrix}
+\end{aligned}</script></li>
 </ul>
-<h2 id="Example-2-P246"><a href="#Example-2-P246" class="headerlink" title="Example 2 (P246)"></a>Example 2 (P246)</h2><ul>
-<li>numerical和analytical的差异很大，由于网格较大</li>
-<li>编程玩一下</li>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>location</th>
+<th>$\phi$</th>
+<th>$\boldsymbol{S}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$C$</td>
+<td>$\begin{bmatrix} 1.75 \\ 2 \\\end{bmatrix}$</td>
+<td>19.3125</td>
+</tr>
+<tr>
+<td>$F$</td>
+<td>$\begin{bmatrix} 4.25 \\ 3.5 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$f_1$</td>
+<td>$\begin{bmatrix} 3 \\ 2.75 \\\end{bmatrix}$</td>
+<td>84.625</td>
+<td>$\begin{bmatrix} 2.5 \\ 1 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$f_2$</td>
+<td>$\begin{bmatrix} 1.5 \\ 3.5 \\\end{bmatrix}$</td>
+<td>42.0625</td>
+<td>$\begin{bmatrix} -1 \\ 2 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$f_3$</td>
+<td>$\begin{bmatrix} 0.25 \\ 2 \\\end{bmatrix}$</td>
+<td>4.3125</td>
+<td>$\begin{bmatrix} -2 \\ 0.5 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$f_4$</td>
+<td>$\begin{bmatrix} 1 \\ 0.5 \\\end{bmatrix}$</td>
+<td>1.5</td>
+<td>$\begin{bmatrix} -1 \\ -2 \\\end{bmatrix}$</td>
+</tr>
+<tr>
+<td>$f_5$</td>
+<td>$\begin{bmatrix} 2.75 \\ 0.75 \\\end{bmatrix}$</td>
+<td>12.3789</td>
+<td>$\begin{bmatrix} 1.5 \\ -1.5 \\\end{bmatrix}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>$\nabla \phi_C=\frac{1}{V_C}\sum_{f}\phi_f\boldsymbol{S}_f=\begin{bmatrix} 20.63 \\ 17.31 \\\end{bmatrix}$</li>
+</ol>
+<ul>
+<li>numerical和analytical的差异很大，由于网格较大  </li>
 </ul>
+<ol>
+<li>$ \nabla \phi_{f_1}=g_{f_1}\nabla \phi_F+(1-g_{f_1})\nabla \phi_{C}=\begin{bmatrix} 66.63 \\ 75.38 \\\end{bmatrix} \\ g_{f_1}=\frac{d_{Cf_1}}{d_{Cf_1}+d_{f_1F}}=0.5$</li>
+</ol>
 <h2 id="Boundary-conditions-for-non-orthogonal-grids"><a href="#Boundary-conditions-for-non-orthogonal-grids" class="headerlink" title="Boundary conditions for non-orthogonal grids"></a>Boundary conditions for non-orthogonal grids</h2><h3 id="Dirichlet-BC-phi-b"><a href="#Dirichlet-BC-phi-b" class="headerlink" title="Dirichlet BC ($\phi_b$)"></a>Dirichlet BC ($\phi_b$)</h3><script type="math/tex; mode=display">
 \begin{aligned}
 (\nabla  \phi)_b&=\frac{\phi_b-\phi_P}{Pb} 
@@ -624,14 +700,16 @@ a_N=\frac{D}{PN}\left\vert \Delta \right\vert _f \qquad a_P=-\sum_{f}\frac{D}{PN
 \end{aligned}</script><h3 id="Neumann"><a href="#Neumann" class="headerlink" title="Neumann"></a>Neumann</h3><script type="math/tex; mode=display">
 (D \nabla \phi)_b\cdot \boldsymbol{S}_f=q_b\left\vert \boldsymbol{S}_f \right\vert</script><h2 id="Skewness"><a href="#Skewness" class="headerlink" title="Skewness"></a>Skewness</h2><p> <img src="/images/2022-07-17-00-05-43.png" alt=""></p>
 <script type="math/tex; mode=display">
-\phi_f=\phi_{f^{'}}+(\nabla \phi)_{f^{'}}\cdot \boldsymbol{d}_{f^{'}f}</script><h1 id="Under-relaxation-低松弛"><a href="#Under-relaxation-低松弛" class="headerlink" title="Under relaxation 低松弛"></a>Under relaxation 低松弛</h1><p>Jasak(3.6)</p>
+\phi_f=\phi_{f^{'}}+(\nabla \phi)_{f^{'}}\cdot \boldsymbol{d}_{f^{'}f}</script><hr>
+<h1 id="Under-relaxation-of-the-interative-solution-process"><a href="#Under-relaxation-of-the-interative-solution-process" class="headerlink" title="Under relaxation of the interative solution process"></a>Under relaxation of the interative solution process</h1><p>Jasak(3.6)<br>slowing down the changes in $\phi$ between iterations</p>
 <ul>
 <li>代数方程组<script type="math/tex; mode=display">
 a_P\phi_P+\sum_{f}a_N\phi_N=b_P 
 \\ \phi_P=\frac{b_P-\sum_{f}a_N\phi_N}{a_P}</script></li>
 </ul>
-<h2 id="显式"><a href="#显式" class="headerlink" title="显式"></a>显式</h2><script type="math/tex; mode=display">
-\phi_P^{\text{new}}=\phi_P^{\text{old}}+\alpha\left( \frac{b_P-\sum_{f}a_N\phi_N^{\text{old}}}{a_P}-\phi_{P}^{\text{old}} \right)</script><ul>
+<h2 id="显式"><a href="#显式" class="headerlink" title="显式"></a>显式</h2><ul>
+<li>在右边加减 $\phi_P^{\text{old}}$ <script type="math/tex; mode=display">
+\phi_P^{\text{new}}=\phi_P^{\text{old}}+\alpha\left(\underbrace{\frac{b_P-\sum_{f}a_N\phi_N^{\text{old}}}{a_P}-\phi_{P}^{\text{old}}}_{\text{change in }\phi_P \text{ in the current iteration}} \right)</script></li>
 <li>无需构造系数矩阵，直接代数计算 （Jacobi）</li>
 <li>stable, false converge?</li>
 </ul>
@@ -641,7 +719,6 @@ a_P\phi_P+\sum_{f}a_N\phi_N=b_P
 <li>隐式, equations U 0.9</li>
 <li>区分  SIMPLE 和 SIMPLEC</li>
 <li><a target="_blank" rel="noopener" href="https://www.simscale.com/docs/simulation-setup/numerics/relaxation-factors/">SIMSCALE</a></li>
-<li>101F</li>
 </ul>
 
       

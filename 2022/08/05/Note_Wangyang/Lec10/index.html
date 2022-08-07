@@ -6,16 +6,16 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec10 Convection Term | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
+<meta name="description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lec10 Convection Term">
 <meta property="og:url" content="https://teresaclay.github.io/2022/08/05/Note_Wangyang/Lec10/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="作业read Introduction:Chapter 5   run divergence例题   read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Steady one-dimensional convection and diffusion \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}">
+<meta property="og:description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
 <meta property="article:published_time" content="2022-08-05T08:04:41.282Z">
-<meta property="article:modified_time" content="2022-08-05T23:31:48.781Z">
+<meta property="article:modified_time" content="2022-08-07T21:47:26.267Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
@@ -79,7 +79,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(24)</small>
+                <small>(25)</small>
             
         </div>
     </li>
@@ -118,7 +118,7 @@
                     <div data-rel="WangYang">
                         
                         WangYang
-                        <small>(10)</small>
+                        <small>(11)</small>
                         
                     </div>
                     
@@ -139,7 +139,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="24">
+<input type="hidden" id="yelog_site_posts_number" value="25">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -400,6 +400,15 @@
         
         
         <a  class="All WangYang "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All WangYang "
            href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
            data-tag=""
            data-author="" >
@@ -472,7 +481,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-06 01:31:48'>2022-08-05 10:04</time>
+            Created At : <time class="date" title='Updated At: 2022-08-07 23:47:26'>2022-08-05 10:04</time>
         
     </div>
     <div class="article-meta">
@@ -483,7 +492,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-text">作业</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Steady-one-dimensional-convection-and-diffusion"><span class="toc-text">Steady one-dimensional convection and diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CD-%EF%BC%88central-difference-scheme"><span class="toc-text">CD （central difference scheme)</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Divergence-schemes"><span class="toc-text">Divergence schemes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Steady-one-dimensional-convection-and-diffusion"><span class="toc-text">Steady one-dimensional convection and diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CD-%EF%BC%88central-difference-scheme"><span class="toc-text">CD （central difference scheme)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%9D%87%E5%8C%80%E7%BD%91%E6%A0%BC"><span class="toc-text">对于均匀网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3-1"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E6%95%B0%E7%9F%A9%E9%98%B5"><span class="toc-text">系数矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1-%E8%93%9D%E7%9A%AE%E4%B9%A6-P137"><span class="toc-text">Example 1 蓝皮书 P137</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -499,14 +508,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><p>read Introduction:Chapter 5 </p>
-<ul>
-<li>run <a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/guides/v2112/doc/guide-schemes-divergence-example.html">divergence例题</a></li>
+        <h1 id="To-do"><a href="#To-do" class="headerlink" title="To do"></a>To do</h1><ul>
+<li><p>read 蓝皮书:Chapter 5 </p>
+</li>
+<li><p>run <a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/guides/v2112/doc/guide-schemes-divergence-example.html">divergence例题</a></p>
+</li>
 </ul>
 <ul>
 <li>read <a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/user-guide/6-solving/6.2-numerical-schemes">6.2 Numerical Schemes</a></li>
 <li>read <a target="_blank" rel="noopener" href="https://doc.cfd.direct/notes/cfd-general-principles/numerical-method">Chapter 3 Numerical Method</a></li>
 </ul>
+<h1 id="Divergence-schemes"><a href="#Divergence-schemes" class="headerlink" title="Divergence schemes"></a>Divergence schemes</h1><pre><code class="lang-c++">divSchemes
+&#123;
+    default         none;
+    div(phi,Q)      Gauss &lt;interpolation scheme&gt;; // phi: velocity field; Q: transported property
+&#125;
+</code></pre>
+<ul>
+<li>volumetric flux $\phi=\boldsymbol{u}_f\cdot \boldsymbol{S}_f$</li>
+<li>mass flux $\phi=\rho_f(\boldsymbol{u}_f\cdot \boldsymbol{S}_f)$</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limitedLinear <coeff></td>
+<td>first/seond order, unbounded</td>
+</tr>
+<tr>
+<td>linear</td>
+<td>$\phi_f=0.5(\phi_c+\phi_d)$ <br>2nd order, unbounded<br>LES</td>
+</tr>
+<tr>
+<td>linearUpwind grad(U)</td>
+<td>2nd order, unbounded</td>
+</tr>
+<tr>
+<td>midPoint</td>
+<td>$\phi_f=0.5(\phi_c+\phi_d)$ <br> first/second order, unbounded</td>
+</tr>
+<tr>
+<td>Minmod</td>
+<td>first order, unbounded</td>
+</tr>
+<tr>
+<td>MUSCL</td>
+<td>2nd order, unbounded</td>
+</tr>
+<tr>
+<td>QUICK</td>
+<td>2nd order, unbounded</td>
+</tr>
+<tr>
+<td>UMIST</td>
+<td>2nd order, unbounded</td>
+</tr>
+<tr>
+<td>upwind</td>
+<td>$\phi_f=\phi_c$ <br>first order, bounded</td>
+</tr>
+<tr>
+<td>vanLeer</td>
+<td>2nd order, unbounded</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h1 id="Steady-one-dimensional-convection-and-diffusion"><a href="#Steady-one-dimensional-convection-and-diffusion" class="headerlink" title="Steady one-dimensional convection and diffusion"></a>Steady one-dimensional convection and diffusion</h1><script type="math/tex; mode=display">
 \frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}-\frac{\mathrm{d}}{\mathrm{d}x}\left( \lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \right)=0</script><ul>
 <li><p>解析解</p>
@@ -521,21 +594,85 @@ Pe=\frac{\rho u L}{\lambda}=\frac{\text{advection}}{\text{diffusion}}</script></
 \int_{V_P}\left(\nabla \cdot (\rho \boldsymbol{U}\phi)-\nabla \cdot \left(\lambda \nabla \phi\right)  \right)dV=0 \\ \int_{\partial V_P}\left(\rho\boldsymbol{U}\phi -\lambda \nabla  \phi  \right)\cdot d\boldsymbol{S}=\int_{\partial V_P}\left[ \rho\boldsymbol{U}\phi\boldsymbol{i}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\boldsymbol{i} \right] \cdot d\boldsymbol{S}=0
 \end{aligned}</script><ul>
 <li>1D 离散后<script type="math/tex; mode=display">
-\sum_{f}\left( \rho u \phi\boldsymbol{i}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\boldsymbol{i} \right)\cdot \boldsymbol{S}_f=0 \\ \left[ (\rho u \phi)\Delta y_{e}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y_e\right]_e -\left[ (\rho u \phi)\Delta y_{w}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y_w\right]_w=0</script></li>
+\sum_{f}\left( \rho u \phi\boldsymbol{i}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\boldsymbol{i} \right)\cdot \boldsymbol{S}_f=0 \\ \boxed{ \left[ (\rho u \phi)\Delta y_{e}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y_e\right]_e -\left[ (\rho u \phi)\Delta y_{w}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y_w\right]_w=0}
+\\ F_e\phi_e-F_w\phi_w=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W) \tag{1}</script></li>
 </ul>
 <h2 id="CD-（central-difference-scheme"><a href="#CD-（central-difference-scheme" class="headerlink" title="CD （central difference scheme)"></a>CD （central difference scheme)</h2><script type="math/tex; mode=display">
 \phi(x)=k_0+k_1(x-x_P)</script><ul>
-<li>$e$ 处的差值格式<script type="math/tex; mode=display">
-\phi_e=\phi_P+ \frac{\phi_E-\phi_P}{x_E-x_P}(x_e-x_P)</script></li>
-<li><p>对于均匀网格</p>
-<script type="math/tex; mode=display">
+<li>$e,w$ 处的差值格式<script type="math/tex; mode=display">
+\phi_e=\phi_P+ \frac{\phi_E-\phi_P}{x_E-x_P}(x_e-x_P)\qquad \phi_w=\phi_W+\frac{\phi_P-\phi_W}{x_P-x_W}(x_w-x_W)</script><h3 id="对于均匀网格"><a href="#对于均匀网格" class="headerlink" title="对于均匀网格"></a>对于均匀网格</h3><script type="math/tex; mode=display">
 \phi_e= \frac{\phi_P+\phi_E}{2} \qquad \phi_w=\frac{\phi_W+\phi_P}{2}</script></li>
-<li><p>数值解</p>
-<script type="math/tex; mode=display">
-(\rho u \phi \Delta y)_e-\left(\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\Delta y\right)_e=0 \\(\rho u \Delta y)_e \frac{\phi_E+\phi_P}{2}-\left(\frac{\lambda}{\delta x }\Delta y\right)_e(\phi_E-\phi_P)=0 \\ {\color{grey}{\left( \frac{\rho u \Delta y}{2}+\frac{\lambda}{\delta x} \right)_e \phi_P-\left(\frac{\lambda}{\delta x}\Delta y-\frac{\rho u \Delta y}{2} \right)_e}\phi_E=0}</script></li>
-<li><p>系数矩阵</p>
-<script type="math/tex; mode=display">
-a_P\phi_P+a_E\phi_E+a_W\phi_W=0</script></li>
+</ul>
+<h3 id="数值解-1"><a href="#数值解-1" class="headerlink" title="数值解"></a>数值解</h3><script type="math/tex; mode=display">
+(\rho u \phi \Delta y)_e-\left(\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\Delta y\right)_e \\(\rho u \Delta y)_e \frac{\phi_E+\phi_P}{2}-\left(\frac{\lambda}{\delta x }\Delta y\right)_e(\phi_E-\phi_P) \\ \left[{\color{grey}{\left( \frac{\rho u \Delta y}{2}+\frac{\lambda}{\delta x}\Delta y \right)_e \phi_P-\left(\frac{\lambda}{\delta x}\Delta y-\frac{\rho u \Delta y}{2} \right)_e}\phi_E}\right]-\left[ {\color{grey}{\left( \frac{\rho u \Delta y}{2}+\frac{\lambda}{\delta x}\Delta y \right)_w \phi_W-\left(\frac{\lambda}{\delta x}\Delta y-\frac{\rho u \Delta y}{2} \right)_w}\phi_P}\right]=0</script><ul>
+<li>其他表达, define<script type="math/tex; mode=display">
+F=\rho u \qquad D=\frac{\lambda}{\delta x}</script></li>
+</ul>
+<h3 id="系数矩阵"><a href="#系数矩阵" class="headerlink" title="系数矩阵"></a>系数矩阵</h3><ul>
+<li>internal node<script type="math/tex; mode=display">
+a_P\phi_P=a_W\phi_W+a_E\phi_E</script></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$a_P$</th>
+<th>$a_E$</th>
+<th>$a_W$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$(a_E+a_W)$</td>
+<td>$D_e-\frac{F_e}{2}$</td>
+<td>$D_w+\frac{F_w}{2}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>boundary node<script type="math/tex; mode=display">
+a_P\phi_P=a_W\phi_W+a_E\phi_E+(S_u+S_p\phi_P)</script></li>
+</ul>
+<h2 id="Example-1-蓝皮书-P137"><a href="#Example-1-蓝皮书-P137" class="headerlink" title="Example 1 蓝皮书 P137"></a>Example 1 蓝皮书 P137</h2><ul>
+<li>node 1 ($\phi_w=\phi_A=1$)<script type="math/tex; mode=display">
+F_e \frac{\phi_P+\phi_E}{2}-F_A\phi_A=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_A)</script></li>
+<li>node 5 ($\phi_e=\phi_B=0$)<script type="math/tex; mode=display">
+F_B\phi_B-F_w \frac{\phi_P+\phi_W}{2}=D_B(\phi_B-\phi_P)-D_w(\phi_P-\phi_W)</script></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>node</th>
+<th>$a_W$</th>
+<th>$a_E$</th>
+<th>$S_P$</th>
+<th>$S_u$</th>
+<th>$a_P=a_W+a_E-S_p$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>$D-\frac{F}{2}$</td>
+<td>$-(2D+F)$</td>
+</tr>
+<tr>
+<td>2-4</td>
+<td>$D+\frac{F}{2}$</td>
+<td>$D-\frac{F}{2}$</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>Peclet number</p>
 <script type="math/tex; mode=display">
 \text{if } \frac{\lambda}{\delta x_e}\Delta y_e-\frac{\rho u}{2}\Delta y_e > 0  \quad \to Pe=\frac{\rho u \delta x}{\lambda}>2</script></li>
