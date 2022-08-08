@@ -6,19 +6,17 @@
   <meta name="keywords" content="">
   <meta name="description" content="Lec10 Convection Term | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
+<meta name="description" content="OpenFOAM 编程 OpenFOAM编程  code 与 OF-Workshop 中的内容类似，可以结合操作   $ cd &#x2F;home&#x2F;huichenzhang&#x2F;OpenFOAM&#x2F;OpenFOAM-v2112&#x2F;tutorials&#x2F;verificationAndValidation&#x2F;schemes&#x2F;skewnessCavity&#x2F;setups.orig&#x2F;cellMDLimited-iterativ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lec10 Convection Term">
-<meta property="og:url" content="https://teresaclay.github.io/2022/08/05/Note_Wangyang/Lec10/index.html">
+<meta property="og:title" content="答疑">
+<meta property="og:url" content="https://teresaclay.github.io/2022/08/08/Note_Wangyang/%E7%AD%94%E7%96%91/index.html">
 <meta property="og:site_name" content="TeresaClay的小屋">
-<meta property="og:description" content="To do read 蓝皮书:Chapter 5   run divergence例题    read 6.2 Numerical Schemes read Chapter 3 Numerical Method  Divergence schemesdivSchemes &amp;#123;     default         none;     div(phi,Q)      Gauss &lt;i">
+<meta property="og:description" content="OpenFOAM 编程 OpenFOAM编程  code 与 OF-Workshop 中的内容类似，可以结合操作   $ cd &#x2F;home&#x2F;huichenzhang&#x2F;OpenFOAM&#x2F;OpenFOAM-v2112&#x2F;tutorials&#x2F;verificationAndValidation&#x2F;schemes&#x2F;skewnessCavity&#x2F;setups.orig&#x2F;cellMDLimited-iterativ">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
-<meta property="article:published_time" content="2022-08-05T08:04:41.282Z">
-<meta property="article:modified_time" content="2022-08-07T21:47:26.267Z">
+<meta property="article:published_time" content="2022-08-08T11:55:40.632Z">
+<meta property="article:modified_time" content="2022-08-08T13:13:55.244Z">
 <meta property="article:author" content="TeresaClay">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png">
 
 
 <link rel="icon" href="/img/Teresa.jpg">
@@ -79,7 +77,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(25)</small>
+                <small>(26)</small>
             
         </div>
     </li>
@@ -118,7 +116,7 @@
                     <div data-rel="WangYang">
                         
                         WangYang
-                        <small>(11)</small>
+                        <small>(12)</small>
                         
                     </div>
                     
@@ -139,7 +137,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_posts_number" value="26">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -217,6 +215,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="All WangYang "
+           href="/2022/08/08/Note_Wangyang/%E7%AD%94%E7%96%91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="答疑">答疑</span>
+            <span class="post-date" title="2022-08-08 13:55:40">2022/08/08</span>
+        </a>
         
         
         <a  class="All WangYang "
@@ -481,7 +488,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-07 23:47:26'>2022-08-05 10:04</time>
+            Created At : <time class="date" title='Updated At: 2022-08-08 20:04:46'>2022-08-05 10:04</time>
         
     </div>
     <div class="article-meta">
@@ -492,7 +499,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Divergence-schemes"><span class="toc-text">Divergence schemes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Steady-one-dimensional-convection-and-diffusion"><span class="toc-text">Steady one-dimensional convection and diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CD-%EF%BC%88central-difference-scheme"><span class="toc-text">CD （central difference scheme)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%9D%87%E5%8C%80%E7%BD%91%E6%A0%BC"><span class="toc-text">对于均匀网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3-1"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E6%95%B0%E7%9F%A9%E9%98%B5"><span class="toc-text">系数矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1-%E8%93%9D%E7%9A%AE%E4%B9%A6-P137"><span class="toc-text">Example 1 蓝皮书 P137</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Divergence-schemes"><span class="toc-text">Divergence schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#steady-state-bounded-form"><span class="toc-text">steady state (bounded form)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Steady-one-dimensional-convection-and-diffusion"><span class="toc-text">Steady one-dimensional convection and diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">数值解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A31"><span class="toc-text">离散1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A32"><span class="toc-text">离散2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CD-%EF%BC%88central-difference-scheme"><span class="toc-text">CD （central difference scheme)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%9D%87%E5%8C%80%E7%BD%91%E6%A0%BC"><span class="toc-text">对于均匀网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3-1"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E6%95%B0%E7%9F%A9%E9%98%B5"><span class="toc-text">系数矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Peclet-number"><span class="toc-text">Peclet number</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1-%E8%93%9D%E7%9A%AE%E4%B9%A6-P137"><span class="toc-text">Example 1 蓝皮书 P137</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-of-discretisation-schemes"><span class="toc-text">Properties of discretisation schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#conservative"><span class="toc-text">conservative</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundedness"><span class="toc-text">Boundedness</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -517,6 +524,7 @@
 <ul>
 <li>read <a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/user-guide/6-solving/6.2-numerical-schemes">6.2 Numerical Schemes</a></li>
 <li>read <a target="_blank" rel="noopener" href="https://doc.cfd.direct/notes/cfd-general-principles/numerical-method">Chapter 3 Numerical Method</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam/77362-second-order-schemes.html">2nd order Schemes</a></li>
 </ul>
 <h1 id="Divergence-schemes"><a href="#Divergence-schemes" class="headerlink" title="Divergence schemes"></a>Divergence schemes</h1><pre><code class="lang-c++">divSchemes
 &#123;
@@ -538,7 +546,7 @@
 </thead>
 <tbody>
 <tr>
-<td>limitedLinear <coeff></td>
+<td>limitedLinear &lt; coeff &gt;</td>
 <td>first/seond order, unbounded</td>
 </tr>
 <tr>
@@ -580,30 +588,116 @@
 </tbody>
 </table>
 </div>
+<h2 id="steady-state-bounded-form"><a href="#steady-state-bounded-form" class="headerlink" title="steady state (bounded form)"></a>steady state (bounded form)</h2><pre><code class="lang-c++">divSchemes
+&#123;
+    default         none;
+    div(phi,Q)      bounded Gauss &lt;interpolation scheme&gt;;
+&#125;
+</code></pre>
 <h1 id="Steady-one-dimensional-convection-and-diffusion"><a href="#Steady-one-dimensional-convection-and-diffusion" class="headerlink" title="Steady one-dimensional convection and diffusion"></a>Steady one-dimensional convection and diffusion</h1><script type="math/tex; mode=display">
-\frac{\mathrm{d}\rho u \phi}{\mathrm{d}x}-\frac{\mathrm{d}}{\mathrm{d}x}\left( \lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \right)=0</script><ul>
-<li><p>解析解</p>
-</li>
-<li><p>Peclet number</p>
-<script type="math/tex; mode=display">
-Pe=\frac{\rho u L}{\lambda}=\frac{\text{advection}}{\text{diffusion}}</script></li>
+\begin{aligned}
+\nabla \cdot (\rho \vec{u}\vec{u})-\nabla \cdot (\nu \nabla  \vec{u})&=0
+\\ \text{1D： } \frac{\mathrm{d}(\rho u \phi)}{\mathrm{d}x}-\frac{\mathrm{d}}{\mathrm{d}x}\left( \lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \right)&=0 \qquad \frac{\mathrm{d}(\rho \vec{u})}{\mathrm{d}x}=0
+\end{aligned}</script><ul>
+<li>解析解<script type="math/tex; mode=display">
+\frac{\phi-\phi_W}{\phi_E-\phi_W}=\frac{e^{\frac{puL}{\lambda}\frac{x-x_W}{L}}-1}{e^{\frac{puL}{\lambda}}-1}</script></li>
+<li>Peclet number<script type="math/tex; mode=display">
+Pe=\frac{\rho u L}{\lambda}=\frac{\text{advective transport rte}}{\text{diffusive transport rate}}</script></li>
 </ul>
-<h2 id="数值解"><a href="#数值解" class="headerlink" title="数值解"></a>数值解</h2><p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-06_00-09.png" alt=""></p>
-<script type="math/tex; mode=display">
+<h2 id="数值解"><a href="#数值解" class="headerlink" title="数值解"></a>数值解</h2><p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-08_11-34.png" alt=""></p>
+<h3 id="离散1"><a href="#离散1" class="headerlink" title="离散1"></a>离散1</h3><script type="math/tex; mode=display">
 \begin{aligned}
 \int_{V_P}\left(\nabla \cdot (\rho \boldsymbol{U}\phi)-\nabla \cdot \left(\lambda \nabla \phi\right)  \right)dV=0 \\ \int_{\partial V_P}\left(\rho\boldsymbol{U}\phi -\lambda \nabla  \phi  \right)\cdot d\boldsymbol{S}=\int_{\partial V_P}\left[ \rho\boldsymbol{U}\phi\boldsymbol{i}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\boldsymbol{i} \right] \cdot d\boldsymbol{S}=0
 \end{aligned}</script><ul>
-<li>1D 离散后<script type="math/tex; mode=display">
-\sum_{f}\left( \rho u \phi\boldsymbol{i}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\boldsymbol{i} \right)\cdot \boldsymbol{S}_f=0 \\ \boxed{ \left[ (\rho u \phi)\Delta y_{e}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y_e\right]_e -\left[ (\rho u \phi)\Delta y_{w}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y_w\right]_w=0}
-\\ F_e\phi_e-F_w\phi_w=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W) \tag{1}</script></li>
+<li><p>1D 离散后</p>
+<script type="math/tex; mode=display">
+\sum_{f}\left( \rho u \phi\boldsymbol{i}-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\boldsymbol{i} \right)\cdot \boldsymbol{S}_f=0 \\ \boxed{ \left[ (\rho u \phi)\Delta y-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y\right]_e -\left[ (\rho u \phi)\Delta y-\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x} \Delta y\right]_w=0}
+\\ F_e\phi_e-F_w\phi_w=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W) \tag{1}</script><ul>
+<li>$u$ is known, $\phi$ is unknown, $\frac{\mathrm{d}\phi}{\mathrm{d}x}$ can be discretized as previous, problem is how to get $\phi_f$ - <font color=blue>advection schemes</font></li>
+<li>扩散项处理的是梯度，对流项处理的是面心值</li>
 </ul>
+</li>
+</ul>
+<h3 id="离散2"><a href="#离散2" class="headerlink" title="离散2"></a>离散2</h3><script type="math/tex; mode=display">
+(\rho uA \phi)_e-(\rho u A \phi)_w=\left(\Gamma A \frac{\mathrm{d}\phi}{\mathrm{d}x}\right)_e-\left(\Gamma A \frac{\mathrm{d}\phi}{\mathrm{d}x}\right)_w \\ \left(\rho u A\right)_e-\left(\rho u A\right)_w=0</script><ul>
+<li>define <script type="math/tex; mode=display">
+F=\rho u \qquad D=\frac{\Gamma}{\delta x}
+\\ F_w=(\rho u)_w \qquad F_e=(\rho u)_e  \qquad D_w=\frac{\Gamma_w}{\delta x _{WP}} \qquad D_e=\frac{\Gamma_e}{\delta x_{PE}} \\ A_e=A_w=A</script></li>
+<li><p>得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  F_e\phi_e-F_w\phi_w&=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W)\\ F_e&=F_w 
+\end{aligned}</script></li>
+<li><p>带入 $\phi_f$</p>
+<script type="math/tex; mode=display">
+\phi_f=\begin{cases}
+  \text{CD: }\quad \phi_e=\frac{\phi_P+\phi_E}{2} \quad \phi_w=\frac{\phi_W+\phi_P}{2} \\ \text{upwind: } \phi_e=\phi_P \quad \phi_w=\phi_W
+\end{cases}</script></li>
+<li><p>由CD得到的离散方程</p>
+<script type="math/tex; mode=display">
+\frac{F_e}{2}(\phi_P+\phi_E)-\frac{F_w}{2}(\phi_W+\phi_P)=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W)</script></li>
+<li><p>general form</p>
+<script type="math/tex; mode=display">
+a_P\phi_P+\sum_{f \sim nb(n)}a_f\phi_f=S=S_u+S_p\phi_P</script></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$a_P$</th>
+<th>$a_W$</th>
+<th>$a_E$</th>
+<th>$S_p$</th>
+<th>$S_u$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$-(D_e+D_w)+\frac{F_w}{2}-\frac{F_e}{2}$</td>
+<td>$D_w+\frac{F_w}{2}$</td>
+<td>$D_e-\frac{F_e}{2}$</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>矩阵的对称性被破坏</li>
+</ul>
+<ul>
+<li>对比纯扩散方程<script type="math/tex; mode=display">
+D_e\phi_E+D_w\phi_W-(D_e+D_w)\phi_P=0</script></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$a_P=a_E+a_W$</th>
+<th>$a_W$</th>
+<th>$a_E$</th>
+<th>$S_p$</th>
+<th>$S_u$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$-(D_e+D_w)$</td>
+<td>$D_w$</td>
+<td>$D_e$</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="CD-（central-difference-scheme"><a href="#CD-（central-difference-scheme" class="headerlink" title="CD （central difference scheme)"></a>CD （central difference scheme)</h2><script type="math/tex; mode=display">
 \phi(x)=k_0+k_1(x-x_P)</script><ul>
 <li>$e,w$ 处的差值格式<script type="math/tex; mode=display">
-\phi_e=\phi_P+ \frac{\phi_E-\phi_P}{x_E-x_P}(x_e-x_P)\qquad \phi_w=\phi_W+\frac{\phi_P-\phi_W}{x_P-x_W}(x_w-x_W)</script><h3 id="对于均匀网格"><a href="#对于均匀网格" class="headerlink" title="对于均匀网格"></a>对于均匀网格</h3><script type="math/tex; mode=display">
-\phi_e= \frac{\phi_P+\phi_E}{2} \qquad \phi_w=\frac{\phi_W+\phi_P}{2}</script></li>
+\phi_e=\phi_P+ \frac{\phi_E-\phi_P}{x_E-x_P}(x_e-x_P)\\ \phi_w=\phi_W+\frac{\phi_P-\phi_W}{x_P-x_W}(x_w-x_W)</script></li>
 </ul>
-<h3 id="数值解-1"><a href="#数值解-1" class="headerlink" title="数值解"></a>数值解</h3><script type="math/tex; mode=display">
+<h3 id="对于均匀网格"><a href="#对于均匀网格" class="headerlink" title="对于均匀网格"></a>对于均匀网格</h3><script type="math/tex; mode=display">
+  \phi_e= \frac{\phi_P+\phi_E}{2} \qquad \phi_w=\frac{\phi_W+\phi_P}{2}</script><h3 id="数值解-1"><a href="#数值解-1" class="headerlink" title="数值解"></a>数值解</h3><script type="math/tex; mode=display">
 (\rho u \phi \Delta y)_e-\left(\lambda \frac{\mathrm{d}\phi}{\mathrm{d}x}\Delta y\right)_e \\(\rho u \Delta y)_e \frac{\phi_E+\phi_P}{2}-\left(\frac{\lambda}{\delta x }\Delta y\right)_e(\phi_E-\phi_P) \\ \left[{\color{grey}{\left( \frac{\rho u \Delta y}{2}+\frac{\lambda}{\delta x}\Delta y \right)_e \phi_P-\left(\frac{\lambda}{\delta x}\Delta y-\frac{\rho u \Delta y}{2} \right)_e}\phi_E}\right]-\left[ {\color{grey}{\left( \frac{\rho u \Delta y}{2}+\frac{\lambda}{\delta x}\Delta y \right)_w \phi_W-\left(\frac{\lambda}{\delta x}\Delta y-\frac{\rho u \Delta y}{2} \right)_w}\phi_P}\right]=0</script><ul>
 <li>其他表达, define<script type="math/tex; mode=display">
 F=\rho u \qquad D=\frac{\lambda}{\delta x}</script></li>
@@ -633,6 +727,10 @@ a_P\phi_P=a_W\phi_W+a_E\phi_E</script></li>
 <ul>
 <li>boundary node<script type="math/tex; mode=display">
 a_P\phi_P=a_W\phi_W+a_E\phi_E+(S_u+S_p\phi_P)</script></li>
+</ul>
+<h4 id="Peclet-number"><a href="#Peclet-number" class="headerlink" title="Peclet number"></a>Peclet number</h4><script type="math/tex; mode=display">
+\text{avoid: } \frac{\lambda}{\delta x_e}\Delta y_e-\frac{\rho u}{2}\Delta y_e > 0  \quad \to Pe=\frac{\rho u \delta x}{\lambda}>2</script><ul>
+<li>若$Pe&gt;2$, CD造成震荡，发散</li>
 </ul>
 <h2 id="Example-1-蓝皮书-P137"><a href="#Example-1-蓝皮书-P137" class="headerlink" title="Example 1 蓝皮书 P137"></a>Example 1 蓝皮书 P137</h2><ul>
 <li>node 1 ($\phi_w=\phi_A=1$)<script type="math/tex; mode=display">
@@ -672,11 +770,28 @@ F_B\phi_B-F_w \frac{\phi_P+\phi_W}{2}=D_B(\phi_B-\phi_P)-D_w(\phi_P-\phi_W)</scr
 </tbody>
 </table>
 </div>
+<hr>
+<h1 id="Properties-of-discretisation-schemes"><a href="#Properties-of-discretisation-schemes" class="headerlink" title="Properties of discretisation schemes"></a>Properties of discretisation schemes</h1><p>numerical results will only be physically realistic when the disretisation scheme has certain fundamental properties</p>
+<h2 id="conservative"><a href="#conservative" class="headerlink" title="conservative"></a>conservative</h2><p><img src="https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-08_19-13.png" alt=""></p>
 <ul>
-<li><p>Peclet number</p>
+<li>overall flux blance and conservation of $\phi$<script type="math/tex; mode=display">
+\underbrace{\left(\Gamma_{e_1}\frac{\phi_2-\phi_1}{\delta x}-q_A\right)}_{\text{through cell 1}}+\underbrace{\left(\Gamma_{e_2}\frac{\phi_3-\phi_2}{\delta x}-\Gamma_{w_2}\frac{\phi_2-\phi_1}{\delta x}\right)}_{\text{through cell 2}}+\underbrace{\left(\Gamma_{e_3 }\frac{\phi_4-\phi_3}{\delta x}-\Gamma_{w_3}\frac{\phi_3-\phi_2}{\delta x}\right)}_{\text{through cell 3}}+\underbrace{\left(q_B-\Gamma_{w_4}\frac{\phi_4-\phi_3}{\delta x}\right)}_{\text{through cell 4}}=q_B-q_A</script></li>
+</ul>
+<h2 id="Boundedness"><a href="#Boundedness" class="headerlink" title="Boundedness"></a>Boundedness</h2><ul>
+<li><p>源项的隐式处理</p>
 <script type="math/tex; mode=display">
-\text{if } \frac{\lambda}{\delta x_e}\Delta y_e-\frac{\rho u}{2}\Delta y_e > 0  \quad \to Pe=\frac{\rho u \delta x}{\lambda}>2</script></li>
-<li><p>震荡，发散</p>
+\begin{aligned}
+a_P\phi_P+\sum_{\text{nb}}a_{nb}\phi_{nb}&=S_u+S_p\phi_P  \\ \underbrace{(a_P-S_p)}_{a^{'}_{p}}\phi_P+\sum_{\text{f}}a_f\phi_f&=S_u
+\end{aligned}</script><ul>
+<li>desirable feature is $a_P$ 与 $S_p$ 反号，帮助 $a_P$的对角占优</li>
+</ul>
+</li>
+<li><p>对角占优</p>
+<script type="math/tex; mode=display">
+\frac{\sum_{}\left\vert a_{nb} \right\vert }{a^{'}_p}\begin{cases}
+\le 1 \text{ at all nodes} \\ <1 \text{ at one node at least}
+\end{cases}</script></li>
+<li><p>If the discretisation scheme does not satisfy the boundedness requirements it is possible that the solution does not converge at all, or contains <font color=red>wiggles</font></p>
 </li>
 </ul>
 
