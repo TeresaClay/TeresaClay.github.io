@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec10-12 Convection Term | TeresaClay的小屋</title>
+  <title>Lec10-13 Convection Term | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec10-12 Convection Term | TeresaClay的小屋">
+  <meta name="description" content="Lec10-13 Convection Term | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Equimolar counter-diffusion (EMD)Case A mola fluxes of A and B are equal + opposite direction total pressure constant  \begin{aligned} N&amp;&#x3D;N_A+N_B&#x3D;0 \to  N_A&#x3D;-N_B \\ J_A&amp;&#x3D;-J_B \\ D_{AB}&amp;&#x3D;D_{BA} \end{al">
 <meta property="og:type" content="article">
@@ -281,7 +281,7 @@
            href="/2022/08/05/Note_Wangyang/Lec10/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Lec10-12 Convection Term">Lec10-12 Convection Term</span>
+            <span class="post-title" title="Lec10-13 Convection Term">Lec10-13 Convection Term</span>
             <span class="post-date" title="2022-08-05 10:04:41">2022/08/05</span>
         </a>
         
@@ -521,7 +521,7 @@
     <div class="pjax">
         <article id="post-Note_Wangyang/Lec10" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec10-12 Convection Term</h1>
+        <h1 class="article-title">Lec10-13 Convection Term</h1>
     
     <div class="article-meta">
         
@@ -541,7 +541,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-12 18:02:55'>2022-08-05 10:04</time>
+            Created At : <time class="date" title='Updated At: 2022-08-15 10:55:24'>2022-08-05 10:04</time>
         
     </div>
     <div class="article-meta">
@@ -552,7 +552,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Divergence-schemes"><span class="toc-text">Divergence schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#steady-state-bounded-form"><span class="toc-text">steady state (bounded form)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Steady-one-dimensional-convection-and-diffusion"><span class="toc-text">Steady one-dimensional convection and diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">数值解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A31"><span class="toc-text">离散1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A32"><span class="toc-text">离散2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CD-%EF%BC%88central-difference-scheme"><span class="toc-text">CD （central difference scheme)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%9D%87%E5%8C%80%E7%BD%91%E6%A0%BC"><span class="toc-text">对于均匀网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3-1"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E6%95%B0%E7%9F%A9%E9%98%B5"><span class="toc-text">系数矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Peclet-number"><span class="toc-text">Peclet number</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1-%E8%93%9D%E7%9A%AE%E4%B9%A6-P137"><span class="toc-text">Example 1 蓝皮书 P137</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-of-discretisation-schemes"><span class="toc-text">Properties of discretisation schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#conservative"><span class="toc-text">conservative</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundedness"><span class="toc-text">Boundedness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transportivness"><span class="toc-text">Transportivness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accuracy"><span class="toc-text">Accuracy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CD-2nd-order-in-uniform-mesh"><span class="toc-text">CD (2nd order in uniform mesh)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Upwind-1st-order"><span class="toc-text">Upwind (1st order)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#High-order-schemes"><span class="toc-text">High order schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Higher-order-upwind-schemes"><span class="toc-text">Higher order upwind schemes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QUICK-Scheme"><span class="toc-text">QUICK Scheme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BD%91%E6%A0%BC"><span class="toc-text">内部网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-text">第一类边界条件</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#To-do"><span class="toc-text">To do</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Divergence-schemes"><span class="toc-text">Divergence schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#steady-state-bounded-form"><span class="toc-text">steady state (bounded form)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Steady-one-dimensional-convection-and-diffusion"><span class="toc-text">Steady one-dimensional convection and diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">数值解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A31"><span class="toc-text">离散1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A32"><span class="toc-text">离散2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CD-%EF%BC%88central-difference-scheme"><span class="toc-text">CD （central difference scheme)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%9D%87%E5%8C%80%E7%BD%91%E6%A0%BC"><span class="toc-text">对于均匀网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E8%A7%A3-1"><span class="toc-text">数值解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E6%95%B0%E7%9F%A9%E9%98%B5"><span class="toc-text">系数矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Peclet-number"><span class="toc-text">Peclet number</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1-%E8%93%9D%E7%9A%AE%E4%B9%A6-P137"><span class="toc-text">Example 1 蓝皮书 P137</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Properties-of-discretisation-schemes"><span class="toc-text">Properties of discretisation schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#conservative"><span class="toc-text">conservative</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boundedness"><span class="toc-text">Boundedness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transportivness"><span class="toc-text">Transportivness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accuracy"><span class="toc-text">Accuracy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CD-2nd-order-in-uniform-mesh"><span class="toc-text">CD (2nd order in uniform mesh)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Upwind-1st-order"><span class="toc-text">Upwind (1st order)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#High-order-schemes"><span class="toc-text">High order schemes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Higher-order-upwind-schemes"><span class="toc-text">Higher order upwind schemes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QUICK-Scheme"><span class="toc-text">QUICK Scheme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BD%91%E6%A0%BC"><span class="toc-text">内部网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%B1%BB%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-text">第一类边界条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95"><span class="toc-text">拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TVD-Scheme"><span class="toc-text">TVD Scheme</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%B5%81%E9%A1%B9%E8%AE%A1%E7%AE%97-TVD-Scheme"><span class="toc-text">对流项计算 TVD Scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E9%AB%98%E9%98%B6%E6%A0%BC%E5%BC%8F"><span class="toc-text">广义高阶格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Total-variation-and-TVD-Schemes"><span class="toc-text">Total variation and TVD Schemes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Criteria-for-TVD-Schemes"><span class="toc-text">Criteria for TVD Schemes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementation-TVD-Scheme"><span class="toc-text">Implementation TVD Scheme</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C-u-gt-0-x%E6%96%B9%E5%90%91"><span class="toc-text">如果 $u&gt;0$ (x方向)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C-u-lt-0"><span class="toc-text">如果 $u&lt;0$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E5%A4%84%E7%90%86"><span class="toc-text">边界处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evaluation-of-TVD-Schemes"><span class="toc-text">Evaluation of TVD Schemes</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -585,6 +585,10 @@ margin: auto;
 <li>read <a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/user-guide/6-solving/6.2-numerical-schemes">6.2 Numerical Schemes</a></li>
 <li>read <a target="_blank" rel="noopener" href="https://doc.cfd.direct/notes/cfd-general-principles/numerical-method">Chapter 3 Numerical Method</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cfd-online.com/Forums/openfoam/77362-second-order-schemes.html">2nd order Schemes</a></li>
+</ul>
+<ul>
+<li>read 阿根廷论文 2.6 关于FCT</li>
+<li>python code  41‘</li>
 </ul>
 <h1 id="Divergence-schemes"><a href="#Divergence-schemes" class="headerlink" title="Divergence schemes"></a><a target="_blank" rel="noopener" href="https://www.openfoam.com/documentation/guides/v2112/doc/guide-schemes-divergence.html">Divergence schemes</a></h1><pre><code class="lang-c++">divSchemes
 &#123;
@@ -928,7 +932,7 @@ a_P\phi_P=a_W\phi_W+a_E\phi_E+a_{WW}\phi_{WW}</script><div class="table-containe
 \phi_A&=\frac{\phi_P+\phi_0}{2} \quad \text{二阶精度}\qquad \to \qquad \phi_0=2\phi_A-\phi_P 
 \\ \phi_e&=\frac{6}{8}\phi_P+\frac{3}{8}\phi_E-\frac{1}{8}\phi_0=\frac{6}{8}\phi_P+\frac{3}{8}\phi_E-\frac{1}{8}(2\phi_A-\phi_1)=\frac{7}{8}\phi_P+\frac{3}{8}\phi_E-\frac{2}{8}\phi_A \quad \text{三阶精度}
 \\ \left(\Gamma \frac{\partial \phi}{\partial x}\right)_A&=\Gamma \frac{\phi_P-\phi_A}{\frac{\Delta x}{2}}=\frac{2\Gamma}{\Delta x}(\phi_P-\phi_A) \quad \text{一阶精度}
-\end{aligned}</script><ul>
+\end{aligned} \tag{3}</script><ul>
 <li>二阶的梯度推导 （泰勒展开）</li>
 </ul>
 <script type="math/tex; mode=display">
@@ -1015,6 +1019,176 @@ F_e\phi_e-F_w\phi_w&=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W)
 <li>$Pe&gt;\frac{8}{3}$ 会出现异号问题，导致计算稳定性和有界性出现问题</li>
 </ul>
 </li>
+</ul>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/002199919290177Z">QUICK，1992</a></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi_w^{n}&=\phi_W^{n}+\frac{1}{8}\left[3\phi_P^{n-1}-2\phi_W^{n-1}-\phi_{WW}^{n-1}\right] \quad \text{for } F_w>0
+\\ \phi_3^{n}&=\phi_P^{n}+\frac{1}{8}\left[3\phi_E^{n-1}-2\phi_P^{n-1}-\phi_{W}^{n-1}\right] \quad \text{for } F_e >0
+\end{aligned}</script><ul>
+<li>延迟修正 (deferred correction): 用上一步计算结果计算公式右侧第二项，这样就保证了系数项不会出现异号问题</li>
+<li>注意OpenFOAM使用的原生的QUICK</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>upwind scheme 无条件稳定，有界,没有 wiggles现象。但是会带来 false diffusion.</li>
+<li>High order scheme (在计算流体指 2nd order) 当 $Pe$ 较大时，会带来 spurious oscillation or wiggles, 例如在计算 $k,\omega,\epsilon$等出现奇怪的非物理真实的负值，还会诱发计算的不稳定。</li>
+<li><strong>TVD</strong> 格式就是用来处理该问题: 有界，稳定<ul>
+<li>找到精度高更稳定的格式</li>
+<li>构造保证单调性格式</li>
+<li>total variation</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="TVD-Scheme"><a href="#TVD-Scheme" class="headerlink" title="TVD Scheme"></a>TVD Scheme</h1><p>total variation diminish </p>
+<ul>
+<li>增加人工扩散或者增加上游的权重，基于此思考，统称为通量修正输运格式 <strong>flux corrected transport (FCT)</strong></li>
+</ul>
+<h2 id="对流项计算-TVD-Scheme"><a href="#对流项计算-TVD-Scheme" class="headerlink" title="对流项计算 TVD Scheme"></a>对流项计算 TVD Scheme</h2><ul>
+<li><p>基于偏向 upwind 格式</p>
+<script type="math/tex; mode=display">
+\phi_e=\phi_P</script></li>
+<li><p>LUD (linear upwind differencint)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  \phi_e&=\phi_P+\frac{1}{2}(\phi_P-\phi_W)=\frac{3}{2}\phi_P-\frac{\phi_W}{2} \\ &=\phi_P+\frac{1}{2} \frac{\phi_P-\phi_W}{\phi_E-\phi_P} (\phi_E-\phi_P)  \qquad  \qquad \psi=\frac{\phi_P-\phi_W}{\phi_E-\phi_P}
+\end{aligned}</script></li>
+<li><p>QUICK</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi_e&=\phi_P+\frac{1}{8}\left[3\phi_E+2\phi_P-\phi_W\right] 
+\\ &=\phi_P+\frac{1}{2}\left[(3+\frac{\phi_P-\phi_W}{\phi_E-\phi_P})\frac{1}{4}\right](\phi_E-\phi_P) \quad \psi=\left[(3+\frac{\phi_P-\phi_W}{\phi_E-\phi_P})\frac{1}{4}\right]
+\end{aligned}</script></li>
+<li><p>CD</p>
+<script type="math/tex; mode=display">
+\phi_e=\phi_P+\frac{1}{2}(\phi_E-\phi_P)= \frac{\phi_E+\phi_P}{2}</script></li>
+</ul>
+<h2 id="广义高阶格式"><a href="#广义高阶格式" class="headerlink" title="广义高阶格式"></a>广义高阶格式</h2><script type="math/tex; mode=display">
+{\color{red}{\phi_e=\phi_P+\frac{1}{2}\psi(r)\underbrace{(\phi_E-\phi_P)}_{梯度}}}  \qquad r=\frac{\phi_P-\phi_W}{\phi_E-\phi_P}
+\\ \psi(r)=\begin{cases}
+  0 \text{ UD} \\ 1 \text{ CD} \\ r \text{ LUD} \\ 0.25r+0.75 \text{ QUICK}
+\end{cases}</script><h2 id="Total-variation-and-TVD-Schemes"><a href="#Total-variation-and-TVD-Schemes" class="headerlink" title="Total variation and TVD Schemes"></a>Total variation and TVD Schemes</h2><ul>
+<li><p>保证单调性TVD基本假设：</p>
+<ol>
+<li>No new local extrema must be created</li>
+<li>The value of an existing local minimum must be non-decreasing and that of a local maximum must be non-increasing</li>
+</ol>
+</li>
+<li><p>Total variation</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+TV(\phi)&=\left\vert \phi_2-\phi_1 \right\vert +\left\vert \phi_3-\phi_2 \right\vert + \left\vert \phi_4-\phi_3 \right\vert +\left\vert \phi_5-\phi_4 \right\vert  \\ &=\left\vert \phi_3-\phi_1 \right\vert + \left\vert \phi_5-\phi_3 \right\vert 
+\end{aligned}</script></li>
+<li><p>最初是随着时间变化的, 意味着 $TV(\phi^{n+1})\le TV(\phi^{n})$</p>
+</li>
+</ul>
+<h2 id="Criteria-for-TVD-Schemes"><a href="#Criteria-for-TVD-Schemes" class="headerlink" title="Criteria for TVD Schemes"></a>Criteria for TVD Schemes</h2><ul>
+<li>Sweby 给出了 TVD格式的冲要条件</li>
+</ul>
+<script type="math/tex; mode=display">
+上界 \psi(r)= \begin{cases}
+  2r \quad 0<r<1 \\ 2 \quad r>1 
+\end{cases}</script><p><img align="left" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-12_20-01.png height=60% width=60%></p>
+<ul>
+<li><p>阴影区域为TVD区域，保证有界，但不涉及精度</p>
+</li>
+<li><p>$\psi(r)$为通量限制器函数 flux limiter function</p>
+</li>
+<li><p>$\psi(r)$ 对于二阶精度格式,必须通过点（1,1）<br><br><br><br><br><br><br><br><br><br></p>
+</li>
+<li><p>Sweby 给出了二阶格式可能范围</p>
+</li>
+</ul>
+<p><img align="right" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-15_09-11.png height=48% width=48%></p>
+<script type="math/tex; mode=display">
+r \in [0,1] \begin{cases}
+  下界 \psi(r)=r \\ 上界 \psi(r)=1
+\end{cases}   \to  r \le \psi(r)\le 1
+\\ r\in [1,\infty] \begin{cases}
+  下界 \psi(r)=1 \\ 上界 \psi(r)=r
+\end{cases}  \to  1\le \psi(r)\le r</script><p><img align="left" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-15_09-22.png height=60% width=60%></p>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<h2 id="Implementation-TVD-Scheme"><a href="#Implementation-TVD-Scheme" class="headerlink" title="Implementation TVD Scheme"></a>Implementation TVD Scheme</h2><h3 id="如果-u-gt-0-x方向"><a href="#如果-u-gt-0-x方向" class="headerlink" title="如果 $u&gt;0$ (x方向)"></a>如果 $u&gt;0$ (x方向)</h3><script type="math/tex; mode=display">
+\begin{aligned}
+\phi_e&=\phi_P+\frac{1}{2}\psi(r_e^{+})(\phi_E-\phi_P) \qquad r_e^{+}=\left(\frac{\phi_P-\phi_W}{\phi_E-\phi_P}\right) 
+\\ \phi_w&=\phi_W+\frac{1}{2}\psi(r_w^{+})(\phi_P-\phi_W)\qquad r_w^{+}=\left(\frac{\phi_W-\phi_{WW}}{\phi_P-\phi_W}\right) 
+\end{aligned}</script><ul>
+<li><p>带入 eqn(2)</p>
+<script type="math/tex; mode=display">
+F_e\left[\phi_P+\frac{1}{2}\psi(r_e^{+})(\phi_E-\phi_P) \right]-F_w\left[\phi_W+\frac{1}{2}\psi(r_w^{+})(\phi_P-\phi_W)\right]=D_e(\phi_E-\phi_P)-D_w(\phi_P-\phi_W)
+\\ (D_e+F_e+D_w)\phi_P=(D_w+F_w)\phi_W+D_e\phi_E-\underbrace{F_e\left[\frac{1}{2}\psi(r_e^{+})(\phi_E-\phi_P) \right]+F_w\left[\frac{1}{2}\psi(r_w^{+})(\phi_P-\phi_W)\right]}_{显示处理，延迟修正}</script></li>
+<li><p>可以写成</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\color{red}{a_P\phi_P^{n}=a_W\phi_W^{n}+a_E\phi_E^{n}+S_u^{DC n-1}} \\ a_P=a_W+a_E+(F_e-F_w)</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$a_W$</th>
+<th>$a_E$</th>
+<th>$S_u^{DC}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$D_w+F_w$</td>
+<td>$D_e$</td>
+<td>$-F_e\left[\frac{1}{2}\psi(r_e^{+})(\phi_E-\phi_P) \right]+F_w\left[\frac{1}{2}\psi(r_w^{+})(\phi_P-\phi_W)\right]$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="如果-u-lt-0"><a href="#如果-u-lt-0" class="headerlink" title="如果 $u&lt;0$"></a>如果 $u&lt;0$</h3><script type="math/tex; mode=display">
+\begin{aligned}
+\phi_e&=\phi_P+\frac{1}{2}\psi(r_e^{-})(\phi_{E}-\phi_P) \qquad r_e^{-}=\left(\frac{\phi_{EE}-\phi_E}{\phi_E-\phi_P}\right) 
+\\ \phi_w&=\phi_W+\frac{1}{2}\psi(r_w^{-})(\phi_P-\phi_W)\qquad r_w^{-}=\left(\frac{\phi_E-\phi_{P}}{\phi_P-\phi_W}\right) 
+\end{aligned}</script><ul>
+<li>带入eqn(2)<script type="math/tex; mode=display">
+(D_e-F_w+D_w)\phi_P=D_w\phi_W+(D_e-F_e)\phi_E+F_e\left[\frac{1}{2}\psi(r_e^{-})(\phi_E-\phi_P) \right]-F_w\left[\frac{1}{2}\psi(r_w^{-})(\phi_P-\phi_W)\right]</script></li>
+<li>可以写成</li>
+</ul>
+<script type="math/tex; mode=display">
+\color{red}{a_P\phi_P^{n}=a_W\phi_W^{n}+a_E\phi_E^{n}+S_u^{DC n-1}} \\ a_P=a_W+a_E+(F_e-F_w)</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$a_W$</th>
+<th>$a_E$</th>
+<th>$S_u^{DC}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$D_w$</td>
+<td>$D_e-F_e$</td>
+<td>$F_e\left[\frac{1}{2}\psi(r_e^{-})(\phi_E-\phi_P) \right]-F_w\left[\frac{1}{2}\psi(r_w^{-})(\phi_P-\phi_W)\right]$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img align="center" src=https://cdn.jsdelivr.net/gh/TeresaClay/blogImage@main/img/2022-08-15_10-28.png height=70% width=70%></p>
+<ul>
+<li>$a_w=\begin{cases}<br>1 \quad \text{for }F_w&gt;0 \\ 0 \quad \text{for }F_w<0
+\end{cases} \qquad a_e=\begin{cases}
+1 \quad \text{for }F_e>0 \\ 0 \quad \text{for }F_e&lt;0<br>\end{cases} $</li>
+</ul>
+<h3 id="边界处理"><a href="#边界处理" class="headerlink" title="边界处理"></a>边界处理</h3><ul>
+<li><p>左端点： $\phi=\phi_A$</p>
+<script type="math/tex; mode=display">
+F_e\left[\phi_P+\frac{1}{2}\psi(r_e)(\phi_E-\phi_P) \right]-F_A\phi_A=D_e(\phi_E-\phi_P)- \begin{cases}
+ D_A^{'}(\phi_P-\phi_A)  \\ D_A(\phi_P-\phi_0)
+\end{cases}</script></li>
+<li><p>处理 A 边界处的 $r_e$, 外插</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\phi_0&=2\phi_A-\phi_P \\ r_e&=\frac{\phi_P-\phi_0}{\phi_E-\phi_P}= \frac{2(\phi_P-\phi_A)}{\phi_E-\phi_P}
+\end{aligned}</script><h2 id="Evaluation-of-TVD-Schemes"><a href="#Evaluation-of-TVD-Schemes" class="headerlink" title="Evaluation of TVD Schemes"></a>Evaluation of TVD Schemes</h2><ul>
+<li>守恒，有界，稳定 （TVD本质上是改变矩阵的性质）</li>
+<li>UMIST 格式比标准的 QUICK格式要额外增加 15% 的 开销 （延迟增加迭代）</li>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/abs/pii/S0017931002003307?via%3Dihub">非结构化网格TVD</a></li>
 </ul>
 
       
