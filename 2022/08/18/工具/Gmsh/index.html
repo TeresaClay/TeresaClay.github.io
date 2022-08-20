@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec4 Die Potentialströmungen | TeresaClay的小屋</title>
+  <title>Gmsh | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec4 Die Potentialströmungen | TeresaClay的小屋">
+  <meta name="description" content="Gmsh | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="SU2 VScode: contrl+shift+i: c++重新排版 control+shift+’: 在vscode中打开terminal CLion:contrl+鼠标左键: 跳转 传统运行 .cpp  $ g++ test.cpp $ .&#x2F;a.out   $ g++ test.cpp -o wangyang $ .&#x2F;wangyang  # 预编译 $ g++ -E test.cpp -o">
 <meta property="og:type" content="article">
@@ -545,9 +545,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec4" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-工具/Gmsh" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec4 Die Potentialströmungen</h1>
+        <h1 class="article-title">Gmsh</h1>
     
     <div class="article-meta">
         
@@ -557,9 +557,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Course">Course</a> > 
-            
-            <a  data-rel="Course&lt;---&gt;Andreas">Andreas</a>
+            <a  data-rel="工具">工具</a>
             
         </span>
         
@@ -567,7 +565,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-09 23:29:38'>2022-07-10 19:36</time>
+            Created At : <time class="date" title='Updated At: 2022-08-19 19:21:39'>2022-08-18 08:50</time>
         
     </div>
     <div class="article-meta">
@@ -578,7 +576,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Das-Geschwindigkeitspotenzial"><span class="toc-text">Das Geschwindigkeitspotenzial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Potenzialstromung"><span class="toc-text">Die Potenzialströmung</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -594,28 +592,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Das-Geschwindigkeitspotenzial"><a href="#Das-Geschwindigkeitspotenzial" class="headerlink" title="Das Geschwindigkeitspotenzial"></a>Das Geschwindigkeitspotenzial</h4><ul>
-<li><p>Anname für Potenzialströmung</p>
-<script type="math/tex; mode=display">
-\vec{u}=\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}=-\text{grad}\,\phi=-\begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\ \frac{\partial \phi}{\partial z} \\\end{bmatrix}</script><p><code>nicht alle Strömung durch Potentialströmung dargestellt werden</code></p>
-</li>
-<li><p>Bsp: die homogene stationäre Strömung</p>
-<script type="math/tex; mode=display">
-\text{given }\phi(x,y)=-u_{0}x-v_{0}y 
-\\ \to \vec{u}=-\text{grad}\,\phi=\begin{bmatrix} u_0 \\ v_0 \\\end{bmatrix}</script><p>die Umströmungeines kreiszylinders</p>
-<script type="math/tex; mode=display">
-\phi(x,y)=-u_{\infty}\left( 1+\frac{R^{2}}{x^{2}+y^{2}}x \right) \to</script><p><img src="/images/2022-07-10-19-51-54.png" alt=""></p>
-<p><code>Aber Potenzialströmung beschreibt keine Realität: Strömung direkt an der Kugel hat zero-Geschwindigkeit</code></p>
-</li>
-</ul>
-<hr>
-<h4 id="Die-Potenzialstromung"><a href="#Die-Potenzialstromung" class="headerlink" title="Die Potenzialströmung"></a>Die Potenzialströmung</h4><ul>
-<li>Geschwindigkeitspotenzial <script type="math/tex; mode=display">
-\vec{u}=-\text{grad} \, \phi</script></li>
-<li>Inkompressible Strömung<script type="math/tex; mode=display">
-\text{div}\vec{u}=0</script><script type="math/tex; mode=display">
-\to \text{div grad}\,\phi= \nabla \phi=\frac{\partial ^{2}\phi}{\partial x^{2}}+\frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial z^{2}}=0  \qquad \color{red}{\text{viele Lösung}}</script></li>
-</ul>
+        <p><a target="_blank" rel="noopener" href="https://gitlab.onelab.info/gmsh/gmsh/-/tree/gmsh_4_10_5/examples/boolean">Official Examples</a></p>
+<pre><code class="lang-bash">$ gmsh gmsh-4.10.5-Linux64/share/doc/gmsh/tutorials/t1.geo
+
+## save 2D mesh
+$ gmsh t1.geo -2
+
+## generate flat geometry
+$ gmsh t2.geo -0
+
+## global scale mesh sizes
+$ gmsh t5.geo -clscale 1
+$ gmsh t5.geo --clscale 0.2
+</code></pre>
+<pre><code class="lang-c++">
+// Loop
+For i In &#123;1:3&#125;
+    x~&#123;i&#125;=i;
+EndFor
+
+x_1=1;
+x_2=2;
+x_3=3;
+</code></pre>
 
       
        

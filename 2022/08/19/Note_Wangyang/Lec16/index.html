@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lec4 Die Potentialströmungen | TeresaClay的小屋</title>
+  <title>Lec16 | TeresaClay的小屋</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Lec4 Die Potentialströmungen | TeresaClay的小屋">
+  <meta name="description" content="Lec16 | TeresaClay的小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="SU2 VScode: contrl+shift+i: c++重新排版 control+shift+’: 在vscode中打开terminal CLion:contrl+鼠标左键: 跳转 传统运行 .cpp  $ g++ test.cpp $ .&#x2F;a.out   $ g++ test.cpp -o wangyang $ .&#x2F;wangyang  # 预编译 $ g++ -E test.cpp -o">
 <meta property="og:type" content="article">
@@ -545,9 +545,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Andreas_Malcherek/Lec4" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Note_Wangyang/Lec16" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Lec4 Die Potentialströmungen</h1>
+        <h1 class="article-title">Lec16</h1>
     
     <div class="article-meta">
         
@@ -559,7 +559,7 @@
             
             <a  data-rel="Course">Course</a> > 
             
-            <a  data-rel="Course&lt;---&gt;Andreas">Andreas</a>
+            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
             
         </span>
         
@@ -567,7 +567,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-08-09 23:29:38'>2022-07-10 19:36</time>
+            Created At : <time class="date" title='Updated At: 2022-08-20 00:18:22'>2022-08-19 07:48</time>
         
     </div>
     <div class="article-meta">
@@ -578,7 +578,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Das-Geschwindigkeitspotenzial"><span class="toc-text">Das Geschwindigkeitspotenzial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Die-Potenzialstromung"><span class="toc-text">Die Potenzialströmung</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Eigen%E5%BA%93"><span class="toc-text">安装Eigen库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cmake"><span class="toc-text">Cmake</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -594,28 +594,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Das-Geschwindigkeitspotenzial"><a href="#Das-Geschwindigkeitspotenzial" class="headerlink" title="Das Geschwindigkeitspotenzial"></a>Das Geschwindigkeitspotenzial</h4><ul>
-<li><p>Anname für Potenzialströmung</p>
-<script type="math/tex; mode=display">
-\vec{u}=\begin{bmatrix} u \\ v \\ w \\\end{bmatrix}=-\text{grad}\,\phi=-\begin{bmatrix} \frac{\partial \phi}{\partial x} \\ \frac{\partial \phi}{\partial y} \\ \frac{\partial \phi}{\partial z} \\\end{bmatrix}</script><p><code>nicht alle Strömung durch Potentialströmung dargestellt werden</code></p>
-</li>
-<li><p>Bsp: die homogene stationäre Strömung</p>
-<script type="math/tex; mode=display">
-\text{given }\phi(x,y)=-u_{0}x-v_{0}y 
-\\ \to \vec{u}=-\text{grad}\,\phi=\begin{bmatrix} u_0 \\ v_0 \\\end{bmatrix}</script><p>die Umströmungeines kreiszylinders</p>
-<script type="math/tex; mode=display">
-\phi(x,y)=-u_{\infty}\left( 1+\frac{R^{2}}{x^{2}+y^{2}}x \right) \to</script><p><img src="/images/2022-07-10-19-51-54.png" alt=""></p>
-<p><code>Aber Potenzialströmung beschreibt keine Realität: Strömung direkt an der Kugel hat zero-Geschwindigkeit</code></p>
-</li>
-</ul>
-<hr>
-<h4 id="Die-Potenzialstromung"><a href="#Die-Potenzialstromung" class="headerlink" title="Die Potenzialströmung"></a>Die Potenzialströmung</h4><ul>
-<li>Geschwindigkeitspotenzial <script type="math/tex; mode=display">
-\vec{u}=-\text{grad} \, \phi</script></li>
-<li>Inkompressible Strömung<script type="math/tex; mode=display">
-\text{div}\vec{u}=0</script><script type="math/tex; mode=display">
-\to \text{div grad}\,\phi= \nabla \phi=\frac{\partial ^{2}\phi}{\partial x^{2}}+\frac{\partial ^{2}\phi}{\partial y^{2}}+\frac{\partial ^{2}\phi}{\partial z^{2}}=0  \qquad \color{red}{\text{viele Lösung}}</script></li>
-</ul>
+        <p><a target="_blank" rel="noopener" href="https://su2code.github.io/docs_v7/home/">SU2</a></p>
+<p>VScode:<br><code> contrl+shift+i</code>: c++重新排版<br><code> control+shift+’</code>: 在vscode中打开terminal</p>
+<p>CLion:<br><code>contrl+鼠标左键</code>: 跳转</p>
+<p>传统运行 .cpp</p>
+<pre><code class="lang-bash">
+$ g++ test.cpp
+$ ./a.out
+
+
+$ g++ test.cpp -o wangyang
+$ ./wangyang
+
+# 预编译
+$ g++ -E test.cpp -o test.i
+# 汇编
+$ g++ -S test.i -o test.s
+# 目标文件
+$ g++ -c test.s -o test.o
+# 可执行文件
+$ g++ test.o -o test
+</code></pre>
+<h1 id="安装Eigen库"><a href="#安装Eigen库" class="headerlink" title="安装Eigen库"></a>安装<a target="_blank" rel="noopener" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a>库</h1><p><a target="_blank" rel="noopener" href="https://petsc.org/release/">PETSc</a><br><a target="_blank" rel="noopener" href="https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods">Hypre</a></p>
+<p>GDB调试</p>
+<pre><code class="lang-bash">$ git clone https://gitlab.com/libeigen/eigen.git
+</code></pre>
+<h1 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nlKcXPUJGwA&amp;list=PLalVdRk2RC6o5GHu618ARWh0VO0bFlif4&amp;index=1&amp;t=0s">CMAKE Tutorial</a></p>
+<pre><code class="lang-bash">$ mkdir built
+$ cmake ..              # 生成makefile
+$ make
+$ ./testEigen           # 运行 .cpp
+</code></pre>
 
       
        
