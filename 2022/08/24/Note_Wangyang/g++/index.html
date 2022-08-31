@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>g++ | TeresaClay的小屋</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="g++ | TeresaClay的小屋">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lec19">
+<meta property="og:url" content="https://teresaclay.github.io/2022/08/31/Note_Wangyang/Lec19/index.html">
+<meta property="og:site_name" content="TeresaClay的小屋">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-31T10:13:27.725Z">
+<meta property="article:modified_time" content="2022-08-31T10:13:58.587Z">
+<meta property="article:author" content="TeresaClay">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/Teresa.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/Teresa.jpg"/>
+</a>
+<div class="author">
+    <span>TeresaClay</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(33)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        
+                        工具
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Course">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Course
+                        <small>(28)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Course<--->Andreas">
+                                        
+                                        Andreas
+                                        
+                                            <small>(11
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Course<--->WangYang">
+                                        
+                                        WangYang
+                                        
+                                            <small>(17
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="PhD_S4">
+                        
+                        PhD_S4
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="33">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>半离散方程</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高斯散度定理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>散度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通量</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通用形式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>旋度</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cmake</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>g++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pressure</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/31/Note_Wangyang/Lec19/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec19">Lec19</span>
+            <span class="post-date" title="2022-08-31 12:13:27">2022/08/31</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/29/Note_Wangyang/Lec17/"
+           data-tag="g++,库,Cmake"
+           data-author="" >
+            <span class="post-title" title="Lec17 Pressure-Velocity Coupling">Lec17 Pressure-Velocity Coupling</span>
+            <span class="post-date" title="2022-08-29 16:22:00">2022/08/29</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/24/Note_Wangyang/g++/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="g++">g++</span>
+            <span class="post-date" title="2022-08-24 22:22:25">2022/08/24</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/19/Note_Wangyang/Lec16/"
+           data-tag="g++,库,Cmake"
+           data-author="" >
+            <span class="post-title" title="g++, Cmake">g++, Cmake</span>
+            <span class="post-date" title="2022-08-19 07:48:34">2022/08/19</span>
+        </a>
+        
+        
+        <a  class="All 工具 "
+           href="/2022/08/18/%E5%B7%A5%E5%85%B7/Gmsh/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Gmsh">Gmsh</span>
+            <span class="post-date" title="2022-08-18 08:50:13">2022/08/18</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/15/Note_Wangyang/Lec14/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec14 Convection Term unstructured Grids">Lec14 Convection Term unstructured Grids</span>
+            <span class="post-date" title="2022-08-15 22:21:05">2022/08/15</span>
+        </a>
+        
+        
+        <a  class="All PhD_S4 "
+           href="/2022/08/11/Mass_transfer/Ex/"
+           data-tag="pressure"
+           data-author="" >
+            <span class="post-title" title="Gas absorption and stripping in chemical engineering">Gas absorption and stripping in chemical engineering</span>
+            <span class="post-date" title="2022-08-11 10:54:17">2022/08/11</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/08/Note_Wangyang/%E7%AD%94%E7%96%91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="答疑">答疑</span>
+            <span class="post-date" title="2022-08-08 13:55:40">2022/08/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/05/Note_Wangyang/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10-13 Convection Term">Lec10-13 Convection Term</span>
+            <span class="post-date" title="2022-08-05 10:04:41">2022/08/05</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/08/02/Note_Wangyang/Lec08/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec08 Gradient computation">Lec08 Gradient computation</span>
+            <span class="post-date" title="2022-08-02 22:12:16">2022/08/02</span>
+        </a>
+        
+        
+        <a  class="All 工具 "
+           href="/2022/08/02/%E5%B7%A5%E5%85%B7/Vim/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vim 基本使用">Vim 基本使用</span>
+            <span class="post-date" title="2022-08-02 13:02:20">2022/08/02</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/27/Note_Wangyang/Lec06/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec06-07 The diffusion term">Lec06-07 The diffusion term</span>
+            <span class="post-date" title="2022-07-27 15:21:06">2022/07/27</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/16/Note_Wangyang/Lec05/"
+           data-tag="散度,梯度,旋度,高斯散度定理"
+           data-author="" >
+            <span class="post-title" title="Lec05 The Finite Volume Mesh">Lec05 The Finite Volume Mesh</span>
+            <span class="post-date" title="2022-07-16 20:43:57">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/14/Note_Wangyang/Lec04/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec04 The Finite Volume Method">Lec04 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-14 16:38:06">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/12/Note_Wangyang/Lec03/"
+           data-tag="半离散方程,通量"
+           data-author="" >
+            <span class="post-title" title="Lec03 The Finite Volume Method">Lec03 The Finite Volume Method</span>
+            <span class="post-date" title="2022-07-12 15:33:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/12/Andreas_Malcherek/Lec15/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec15 Die Energiebilanz in der Kontinummsmechanik">Lec15 Die Energiebilanz in der Kontinummsmechanik</span>
+            <span class="post-date" title="2022-07-12 13:33:10">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/12/Andreas_Malcherek/Lec13/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec13 Innere Spannungen und Cauchygleichungen">Lec13 Innere Spannungen und Cauchygleichungen</span>
+            <span class="post-date" title="2022-07-12 11:19:36">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/12/Andreas_Malcherek/Lec12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec12,14 Deformation und Deformationstensor">Lec12,14 Deformation und Deformationstensor</span>
+            <span class="post-date" title="2022-07-12 10:44:01">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/12/Andreas_Malcherek/Lec11/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec11 Die Druck-Poisson-Gleichung">Lec11 Die Druck-Poisson-Gleichung</span>
+            <span class="post-date" title="2022-07-12 10:25:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/12/Andreas_Malcherek/Lec10/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec10 Stromlinien und Stromfunktion">Lec10 Stromlinien und Stromfunktion</span>
+            <span class="post-date" title="2022-07-12 09:40:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/11/Andreas_Malcherek/Lec9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec9 Gibt es rotationsfreie Strömungen">Lec9 Gibt es rotationsfreie Strömungen</span>
+            <span class="post-date" title="2022-07-11 23:39:27">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/11/Andreas_Malcherek/Lec8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec8 Das d&#39;Almebertsche Paradoxon">Lec8 Das d&#39;Almebertsche Paradoxon</span>
+            <span class="post-date" title="2022-07-11 23:32:11">2022/07/11</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/10/Andreas_Malcherek/Lec6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec6-7 Hydraudynamische Druckberechnungen">Lec6-7 Hydraudynamische Druckberechnungen</span>
+            <span class="post-date" title="2022-07-10 20:08:55">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/10/Andreas_Malcherek/Lec4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec4 Die Potentialströmungen">Lec4 Die Potentialströmungen</span>
+            <span class="post-date" title="2022-07-10 19:36:35">2022/07/10</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/09/Andreas_Malcherek/Lec2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec2-3 Kontinuitätsgleichung für kompressible Gleichung">Lec2-3 Kontinuitätsgleichung für kompressible Gleichung</span>
+            <span class="post-date" title="2022-07-09 23:05:59">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course Andreas "
+           href="/2022/07/09/Andreas_Malcherek/Lec1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec1 Lagrangesche Ableitung und Advektion">Lec1 Lagrangesche Ableitung und Advektion</span>
+            <span class="post-date" title="2022-07-09 22:18:12">2022/07/09</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec02/"
+           data-tag="通用形式"
+           data-author="" >
+            <span class="post-title" title="Lec02 Mathematical Description of Physical Phenomena">Lec02 Mathematical Description of Physical Phenomena</span>
+            <span class="post-date" title="2022-07-08 23:12:54">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec01/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec01 Vector Calculus">Lec01 Vector Calculus</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="安装环境">安装环境</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="拓展知识">拓展知识</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All Course WangYang "
+           href="/2022/07/08/Note_Wangyang/Lec00/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lec00 Introduction">Lec00 Introduction</span>
+            <span class="post-date" title="2022-07-08 16:02:34">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/08/Markdown_Note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Cheat Sheet">Cheat Sheet</span>
+            <span class="post-date" title="2022-07-08 08:28:52">2022/07/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2022/07/05/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-05 15:03:00">2022/07/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Note_Wangyang/g++" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">g++</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Course">Course</a> > 
+            
+            <a  data-rel="Course&lt;---&gt;WangYang">WangYang</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-08-24 22:42:45'>2022-08-24 22:22</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#g-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">g++的使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E6%B1%87%E7%BC%96%E5%92%8C%E9%93%BE%E6%8E%A5"><span class="toc-text">预处理、编译、汇编和链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96"><span class="toc-text">汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-text">链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#g-%E9%87%8D%E8%A6%81%E7%BC%96%E8%AF%91%E5%8F%82%E6%95%B0"><span class="toc-text">g++重要编译参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#g-%E7%BC%96%E8%AF%91%E5%B8%A6%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-text">-g 编译带调试信息的可执行文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-n-%E4%BC%98%E5%8C%96%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-text">-O[n] 优化源代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#l%E5%92%8C-L%E5%88%B6%E5%AE%9A%E5%BA%93%E6%96%87%E4%BB%B6%E5%92%8C%E5%BA%93%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-text">-l和-L制定库文件和库文件路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%E6%8C%87%E5%AE%9A%E5%A4%B4%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E7%9B%AE%E5%BD%95"><span class="toc-text">-I指定头文件搜索目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wall%E6%89%93%E5%BC%80%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF"><span class="toc-text">-Wall打开警告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w%E5%85%B3%E9%97%AD%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF"><span class="toc-text">-w关闭警告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-c-11-%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E6%A0%87%E5%87%86"><span class="toc-text">&#96;-std&#x3D;c++11&#96;&#96;设置编译标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o%E5%88%B6%E5%AE%9A%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text">-o制定输出文件名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%E5%AE%9A%E4%B9%89%E5%AE%8F"><span class="toc-text">-D定义宏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E6%93%8D%E4%BD%9C"><span class="toc-text">实例操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-text">直接在命令行中输入参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BA%93%E6%96%87%E4%BB%B6%E5%B9%B6%E7%BC%96%E8%AF%91"><span class="toc-text">生成库文件并编译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB%E8%B0%83%E8%AF%95%E5%99%A8"><span class="toc-text">GDB调试器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0"><span class="toc-text">常用命令参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0"><span class="toc-text">常用调试命令参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%B0%83%E8%AF%95"><span class="toc-text">命令行调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CMake"><span class="toc-text">CMake</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cross-platform-development"><span class="toc-text">Cross-platform development</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7"><span class="toc-text">语法特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%8C%87%E4%BB%A4%E5%92%8CCMAKE%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F"><span class="toc-text">重要指令和CMAKE常用变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%8C%87%E4%BB%A4"><span class="toc-text">重要指令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89SRC%E5%8F%98%E9%87%8F%EF%BC%8C%E5%85%B6%E5%80%BC%E4%B8%BA%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6"><span class="toc-text">定义SRC变量，其值为当前目录下所有的源代码文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91SRC%E5%8F%98%E9%87%8F%E6%89%80%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%8C%E7%94%9F%E6%88%90main%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-text">编译SRC变量所代表的源文件，生成main可执行文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CMake%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F"><span class="toc-text">CMake常用变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake%E7%BC%96%E8%AF%91%E5%B7%A5%E7%A8%8B"><span class="toc-text">CMake编译工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B"><span class="toc-text">编译流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">两种构建方式</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="g-的使用方法"><a href="#g-的使用方法" class="headerlink" title="g++的使用方法"></a><code>g++</code>的使用方法</h1><h2 id="预处理、编译、汇编和链接"><a href="#预处理、编译、汇编和链接" class="headerlink" title="预处理、编译、汇编和链接"></a>预处理、编译、汇编和链接</h2><h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><pre><code class="lang-bash">g++ -E test.cpp -o test.i
+</code></pre>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code class="lang-bash">g++ -S test.i -o test.s
+</code></pre>
+<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><pre><code class="lang-bash">g++ -c test.s -o test.o
+</code></pre>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><pre><code class="lang-bash">g++ test.o -o test
+</code></pre>
+<p>这里面的逻辑要思考一下</p>
+<h2 id="g-重要编译参数"><a href="#g-重要编译参数" class="headerlink" title="g++重要编译参数"></a><code>g++</code>重要编译参数</h2><h3 id="g-编译带调试信息的可执行文件"><a href="#g-编译带调试信息的可执行文件" class="headerlink" title="-g 编译带调试信息的可执行文件"></a><code>-g</code> 编译带调试信息的可执行文件</h3><pre><code class="lang-bash"># -g 选项告诉GCC产生能被GNU调试器GDB使用的调试信息
+
+g++ -g test.cpp -o test
+</code></pre>
+<h3 id="O-n-优化源代码"><a href="#O-n-优化源代码" class="headerlink" title="-O[n] 优化源代码"></a><code>-O[n]</code> 优化源代码</h3><pre><code class="lang-bash">## 优化源代码。
+
+# -O 告诉g++对源代码进行基本优化。
+# -O0 表示不做优化
+# -O1 表示默认优化
+# -O2 表示完成O1优化之外，还进行一些额外的调整工作
+# -O3 表示包括循环展开和其他一些预处理相关的特性工作
+
+g++ -O2 test.cpp -o test
+# 注意看看文件价的inefficiency的demo,时间差距有1000倍
+</code></pre>
+<h3 id="l和-L制定库文件和库文件路径"><a href="#l和-L制定库文件和库文件路径" class="headerlink" title="-l和-L制定库文件和库文件路径"></a><code>-l</code>和<code>-L</code>制定库文件和库文件路径</h3><pre><code class="lang-bash"># -l参数就是用来指定程序要链接的库，-l参数紧跟着就是库名
+# 在`/lib, /usr/lib, /usr/local/lib`里的库直接用-l参数就能链接
+
+# 链接glog库
+g++ -lglog test.cpp
+
+# 如果库文件没有在上面三个目录，则需要指定库文件所在目录# -L参数跟着库文件所在的目录名
+
+# 链接mytest库，libmytest.so在/home/cfd-wy/Desktop/mytestlib目录下
+g++ -L/home/cfd-wy/Desktop/mytestlib -lmytest test.cpp -o test
+</code></pre>
+<h3 id="I指定头文件搜索目录"><a href="#I指定头文件搜索目录" class="headerlink" title="-I指定头文件搜索目录"></a><code>-I</code>指定头文件搜索目录</h3><pre><code class="lang-bash"># -I
+# /usr/include目录一般是不用指定的，gcc知道哪里找。但是如果头文件不再这个目录里面，我们就要用-I参数指定了。-I可以使用相对路径
+
+g++ -I/myinclude test.cpp -o test
+</code></pre>
+<h3 id="Wall打开警告信息"><a href="#Wall打开警告信息" class="headerlink" title="-Wall打开警告信息"></a><code>-Wall</code>打开警告信息</h3><pre><code class="lang-bash">g++ -Wall test.cpp -o test
+</code></pre>
+<h3 id="w关闭警告信息"><a href="#w关闭警告信息" class="headerlink" title="-w关闭警告信息"></a><code>-w</code>关闭警告信息</h3><pre><code class="lang-bash">g++ -w test.cpp -o test
+</code></pre>
+<h3 id="std-c-11-设置编译标准"><a href="#std-c-11-设置编译标准" class="headerlink" title="`-std=c++11``设置编译标准"></a>`-std=c++11``设置编译标准</h3><pre><code class="lang-bash">g++ -std=c++11 test.cpp -o test
+</code></pre>
+<h3 id="o制定输出文件名"><a href="#o制定输出文件名" class="headerlink" title="-o制定输出文件名"></a><code>-o</code>制定输出文件名</h3><h3 id="D定义宏"><a href="#D定义宏" class="headerlink" title="-D定义宏"></a><code>-D</code>定义宏</h3><pre><code class="lang-bash"># 在使用gcc/g++编译时定义宏
+
+# 常用场景
+
+# -DDEBUG定义DEBUG宏，可能文件中有DEBUG宏部分的相关信息，用个DDEBUG来选择开启或关闭DEBUG
+</code></pre>
+<p>示例代码</p>
+<pre><code class="lang-bash">// -Dname 定义宏name，默认定义内容为字符串&quot;1&quot;
+
+#include &lt;stdio.h&gt;
+
+int main() &#123;
+    #ifdef DEBUG
+        printf(&quot;DEBUG LOG\n&quot;);
+    #endif
+        printf(&quot;in\n&quot;);
+&#125;
+</code></pre>
+<h2 id="实例操作"><a href="#实例操作" class="headerlink" title="实例操作"></a>实例操作</h2><h3 id="直接在命令行中输入参数"><a href="#直接在命令行中输入参数" class="headerlink" title="直接在命令行中输入参数"></a>直接在命令行中输入参数</h3><pre><code class="lang-bash">g++ main.cpp src/swap.cpp -Iinclude -o wangyang
+g++ main.cpp src/swap.cpp -Iinclude -Wall -std=c++11 -o wangyang
+</code></pre>
+<h3 id="生成库文件并编译"><a href="#生成库文件并编译" class="headerlink" title="生成库文件并编译"></a>生成库文件并编译</h3><p>链接<strong>静态库</strong>生产可执行文件</p>
+<pre><code class="lang-bash">$cd src
+$g++ swap.cpp -c -I../include
+$ar rs libswap.a swap.o
+$cd ..
+$g++ main.cpp -Lsrc -lswap -Iinclude -o wangyang
+</code></pre>
+<p>链接<strong>动态库</strong>生成可执行文件</p>
+<pre><code class="lang-bash">$cd src
+$g++ swap.cpp -I../include -fPIC -shared -o libswap.so
+# position independence code
+$cd ..
+$g++ main.cpp -Iinclude -Lsrc -lswap -o wangyang
+</code></pre>
+<p>这里生成的<code>wangyang</code>执行时会报错，链接不到动态库。两种办法解决</p>
+<pre><code class="lang-bash">$export LD_LIBRARY_PATH=src/:$LD_LIBRARY_PATH
+# 或者
+$LD_LIBRARY_PATH=src ./wangyang
+</code></pre>
+<h2 id="GDB调试器"><a href="#GDB调试器" class="headerlink" title="GDB调试器"></a><code>GDB</code>调试器</h2><h3 id="常用命令参数"><a href="#常用命令参数" class="headerlink" title="常用命令参数"></a>常用命令参数</h3><ul>
+<li><code>GDB</code>(GNU Debugger)是一个用来调试<code>C/C++</code>程序的功能强大的调试器，是<code>Linux</code>系统开发<code>C/C++</code>最常用的调试器</li>
+<li>学会用调试器，可以减少工作量</li>
+</ul>
+<p><strong>GDB主要功能</strong></p>
+<ul>
+<li>设置断点</li>
+<li>观察制定位置的程序执行</li>
+<li>单步执行程序，便于调试</li>
+<li>查看变量值的变化</li>
+<li>动态改变程序的执行环境</li>
+<li>分析崩溃程序产生的执行文件</li>
+</ul>
+<h3 id="常用调试命令参数"><a href="#常用调试命令参数" class="headerlink" title="常用调试命令参数"></a>常用调试命令参数</h3><p>调试执行，执行<code>GDB [exefilename]</code>，进入gdb调试程序</p>
+<pre><code class="lang-bash">$(gdb)help(h)
+
+$(gdb)run(r)
+
+$(gdb)start
+
+$(gdb)list(l)
+
+$(gdb)set
+
+$(gdb)next(n) # 单步调试，逐过程
+
+$(gdb)step(s) # 单步调试，逐语句
+
+$(gdb)backtrace(bt)
+
+$(gdb)frame(f)
+
+$(gdb)info(i)
+
+$(gdb)finish
+
+$(gdb)continue(c)
+
+$(gdb)print(p)
+
+$(gdb)quit(q)
+</code></pre>
+<pre><code class="lang-bash">$(gdb)break+num(b)
+
+$(gdb)info breakpoints
+
+$(gdb)delte breakpoints num(d)
+
+$(gdb)display
+
+$(gdb)undisplay
+
+$(gdb)watch
+
+$(gdb)i watch
+
+$(gdb)enable breakpoints
+
+$(gdb)disable breakpoints
+
+$(gdb)x
+
+$(gdb)run argv[1] argv[2]
+
+$(gdb)set follow-fork-mode child
+</code></pre>
+<blockquote>
+<p>Tips:</p>
+<ol>
+<li>编译程序必须添加<code>-g</code>选项，不然没用</li>
+<li>回车键，重复上一条命令</li>
+</ol>
+</blockquote>
+<h3 id="命令行调试"><a href="#命令行调试" class="headerlink" title="命令行调试"></a>命令行调试</h3><pre><code class="lang-C++">#include &lt;iostream&gt;
+using namespace std;
+
+int main(int argc, char *argv[]) &#123;
+  int N = 100;
+  int sum = 0;
+  int i = 1;
+
+  // calculate sum from 1 to 100
+  while (i &lt;= N) &#123;
+    sum = sum + i;
+    i = i + 1;
+  &#125;
+
+  cout &lt;&lt; &quot;sum = &quot; &lt;&lt; sum &lt;&lt; endl;
+  cout &lt;&lt; &quot;The program is over.&quot; &lt;&lt; endl;
+
+  return 0;
+&#125;
+</code></pre>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p><img src="./vscode.png" alt="vscode"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">跳转文件</td>
+<td style="text-align:center">Ctrl+p</td>
+<td style="text-align:center">关闭当前文件</td>
+<td style="text-align:center">Ctrl+w</td>
+</tr>
+<tr>
+<td style="text-align:center">打开命令面板</td>
+<td style="text-align:center">Ctrl+Shift+p</td>
+<td style="text-align:center">关闭当前文件</td>
+<td style="text-align:center">Alt+up/down</td>
+</tr>
+<tr>
+<td style="text-align:center">打开终端</td>
+<td style="text-align:center">Ctrl+`</td>
+<td style="text-align:center">变量统一命名</td>
+<td style="text-align:center">F2</td>
+</tr>
+<tr>
+<td style="text-align:center">关闭侧边栏</td>
+<td style="text-align:center">Ctrl+B</td>
+<td style="text-align:center">转到定义处</td>
+<td style="text-align:center">F12</td>
+</tr>
+<tr>
+<td style="text-align:center">复制文件</td>
+<td style="text-align:center">Ctrl+C</td>
+<td style="text-align:center">粘贴文本</td>
+<td style="text-align:center">Ctrl+v</td>
+</tr>
+<tr>
+<td style="text-align:center">保存文件</td>
+<td style="text-align:center">Ctrl+S</td>
+<td style="text-align:center">撤销操作</td>
+<td style="text-align:center">Ctrl+z</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>在Ctrl+p</strong>窗口下还可以:</p>
+<ul>
+<li>直接输入文件名，跳转到文件</li>
+<li><code>?</code>列出当前可执行的动作</li>
+<li><code>!</code>显示<code>Errors</code>或<code>Warnings</code>，也可以<code>Ctrl+Shift+M</code></li>
+<li><code>:</code>跳转到行数，也可以<code>Ctrl+G</code>直接进入</li>
+<li><code>@</code>跳转到<code>symbol</code>(搜索变量或者函数)，也可以<code>Ctrl+Shift+O</code>直接进入</li>
+<li><code>@</code>根据分类跳转<code>symbol</code>，查找属性或函数，也可以<code>Ctrl+Shift+O</code>后输入<code>:</code>进入</li>
+<li><code>#</code>根据名字查找<code>symbol</code>，也可以<code>Ctrl+T</code></li>
+</ul>
+<p><strong>快捷键：编辑器与管理窗口</strong></p>
+<ol>
+<li>打开一个新窗口，<code>Ctrl+Shift+N</code>，这个我这里可以用</li>
+<li>关闭一个窗口，<code>Ctrl+Shift+W</code>，这里好像被<code>飞书</code>占用了。</li>
+<li>同时打开多个编辑器(查看多个文件)</li>
+<li>新建文件<code>Ctrl+N</code></li>
+<li>文件之间切换<code>Ctrl+Tab</code></li>
+<li>切出一个新的编辑器(最多3个)<code>Ctrl+\</code></li>
+<li>左中右<code>3</code>个编辑器的快捷键<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code></li>
+<li><code>3</code>个编辑器之间循环切换`ctrl+</li>
+<li>编辑器换位置，<code>Ctrl+k</code>然后按<code>Left</code>或<code>Right</code></li>
+</ol>
+<p><strong>代码编辑相关的快捷键</strong></p>
+<p><strong>快捷键: 格式调整</strong></p>
+<ol>
+<li>代码缩进<code>Ctlr+[</code>, <code>Ctrl+]</code></li>
+<li><code>Ctrl+C</code>, <code>Ctrl+V</code>复制或者剪切当前行</li>
+<li>代码格式化<code>Shift+Alt+F</code>或<code>Ctrl+Shift+I</code></li>
+<li>上下移动一行: <code>Alt+up</code>或<code>Alt+Down</code></li>
+<li>向上或向下复制一行: <code>Shift+Alt+up</code>或<code>Shift+Alt+Down</code></li>
+<li>在当前行下边输入一行: <code>Ctrl+enter</code></li>
+<li>在当前行上边输入一行: <code>Ctrl+Alt+enter</code></li>
+</ol>
+<p><strong>快捷键：光标相关</strong></p>
+<ol>
+<li>移动行收：home</li>
+<li>移动行尾: End</li>
+<li>移动到文件结尾: <code>Ctrl+end</code></li>
+<li>移动到文件开口: <code>Ctrl+home</code></li>
+<li>移动到定义处: <code>F12</code></li>
+<li>定义处缩略图：只看一眼不跳转过去<code>Alt+F12</code></li>
+<li>移动到后半个括号:<code>Ctrl+Shift+]</code></li>
+<li>光标到行尾: <code>Shift+end</code></li>
+<li>光标到行手: <code>Shift+home</code></li>
+<li>扩展/缩小选取范围: <code>Shift+Alt+Left</code>和<code>Shift+Alt+Right</code></li>
+<li>删除光标右侧所有字: <code>Ctrl+Delete</code></li>
+<li>多行编辑(列编辑): <code>Alt+Shift+left click</code>和<code>ctrl+Alt+down/up</code></li>
+<li>同时选中所有匹配：<code>Ctrl+Shift+L</code></li>
+<li><code>Ctlr+D</code>下一个匹配也被选中</li>
+<li>回退上一个光标操作<code>Ctrl+U</code></li>
+</ol>
+<p><strong>快捷键: 代码重构</strong></p>
+<ol>
+<li>找到所有的引用：<code>Shift+F12</code></li>
+<li>同时修改文件中所有匹配的:<code>Ctrl+F12</code></li>
+<li>重命名: 比如要修改一个方法名，可以选中后按<code>F2</code>，输入新的名字，回车，会发现所有的文件都修改了</li>
+<li>跳转到下一个<code>Error</code>或<code>warning</code>:当有多个错误时可以按<code>F8</code>逐个跳转</li>
+<li>查看<code>diff</code>，在<code>explorer</code>里选择文件右键<code>set file to compare</code>，然后需要对比文件上右键选择<code>compare with file_name_you_chose</code></li>
+</ol>
+<p><strong>快捷键: 查找替换</strong></p>
+<ol>
+<li>查找<code>Ctrl+F</code></li>
+<li>查找替换<code>Ctrl+H</code></li>
+<li>整个文件夹中查找<code>Ctrl+Shift+H</code></li>
+</ol>
+<p><strong>快捷键: 显示相关</strong></p>
+<ol>
+<li>全屏：<code>F11</code></li>
+<li>zoom in/out: <code>Ctrl + +/-</code></li>
+<li>显示资源管理器:<code>Ctrl+Shift+E</code></li>
+<li>显示搜索:<code>Ctrl+Shift+F</code></li>
+<li>显示Git: <code>Ctrl+Shift+G</code></li>
+<li>显示Debug: <code>Ctrl+Shift+D</code></li>
+<li>显示Output: <code>Ctrl+Shift+U</code></li>
+</ol>
+<h1 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h1><p><strong>前言</strong>:</p>
+<ul>
+<li><strong>CMake</strong>是一个跨平台的安装编译工具，可以用<strong>简单</strong>的语句来描述所有平台的的安装(编译过程)</li>
+<li>CMake已经是大部分<strong>C++开源项目的标配</strong></li>
+</ul>
+<h2 id="Cross-platform-development"><a href="#Cross-platform-development" class="headerlink" title="Cross-platform development"></a>Cross-platform development</h2><p><strong>没有CMAKE</strong></p>
+<ul>
+<li>不同平台没有办法统一，都是各自独立，<code>win,macos,linux</code>各自做各自的。</li>
+</ul>
+<p><strong>有CMake</strong></p>
+<ul>
+<li>可以通过<code>CMakeLists.txt</code>然后使用<code>cmake</code>工具来管理</li>
+</ul>
+<h3 id="语法特性"><a href="#语法特性" class="headerlink" title="语法特性"></a>语法特性</h3><ul>
+<li><strong>基本语法格式</strong>：指令(参数1 参数2 …)</li>
+<li><ul>
+<li>参数使用<strong>括弧</strong>括起</li>
+</ul>
+</li>
+<li><ul>
+<li>参数之间使用空格或分号分开</li>
+</ul>
+</li>
+<li><strong>指令</strong>是大小写无关的，<strong>参数</strong>是大小写相关的<pre><code class="lang-cmake">set(HELLO hello.cpp)
+add_executable(hello main.cpp hello.cpp)
+ADD_EXECUTABLE(hello main.cpp $&#123;HELLO&#125;)
+IF(HELLO)
+if($&#123;HELLO&#125;) error
+</code></pre>
+</li>
+<li>变量使用<code>$&#123;&#125;</code>方式取值，但是在<strong>IF</strong>控制语句中是直接使用变量名</li>
+</ul>
+<h2 id="重要指令和CMAKE常用变量"><a href="#重要指令和CMAKE常用变量" class="headerlink" title="重要指令和CMAKE常用变量"></a>重要指令和<code>CMAKE</code>常用变量</h2><h3 id="重要指令"><a href="#重要指令" class="headerlink" title="重要指令"></a>重要指令</h3><ul>
+<li><p>cmake_minimum_required - <strong>指定<code>CMAKE</code>的最小版本要求</strong></p>
+<ul>
+<li>语法: cmake_minimum_required(VERSION versionNumber [FATAL_ERROR])<pre><code class="lang-cmake"># CMake最小版本要求2.8.3
+cmake_minimum_required(VERSION 2.8.3)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>project - <strong>定义工程名称，并可制定工程支持语言</strong></p>
+<ul>
+<li>语法: project(projectname [CXX][C][Java])<pre><code class="lang-cmake"># 指定工程名为HELLOWORLD
+project(HELLOWORLD)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>set - <strong>显示的定义变量</strong></p>
+<ul>
+<li>语法: set(VAR [VALUE][CACHE TYPE DOCSTRING [FORCE]]])<pre><code class="lang-cmake"># 定义SRC变量，其值为syahello.cpp hello.cpp
+set(SRC sayhello.cpp hello.cpp)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>include_directories - <strong>向工程添加多个特定的头文件搜索路径—-&gt;相当与指定<code>g++</code>编译器的-I参数</strong></p>
+<ul>
+<li>语法: include_directories([AFTER|BEFORE][SYSTEM] dir1 dir2 …)<pre><code class="lang-cmake"># 将`/usr/include/myincludefolder 和 ./include 添加到头文件搜索路径
+include_direcotories(/usr/include/myincludefolder ./include)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>link_libraries - <strong>向工程添加多个特定库文件的搜索路径—-&gt;相当与指定<code>g++</code>编译器的-L参数</strong></p>
+<ul>
+<li>语法: link_libraries(dir1 dir2)<pre><code class="lang-cmake"># 将/usr/lib/mylibfolder 和 ./lib 添加到库文件的搜索路径
+link_libraries(/usr/lib/mylibfolder ./lib)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>add_library - <strong>生成库文件</strong></p>
+<ul>
+<li>语法: add_library(libname [SHARED|STATIC|MODULE][EXCLUDE_FROM_ALL] source1 source2 …)<pre><code class="lang-cmake"># 通过变量SRC生成libhello.so共享库
+add_library(hello SHARED $&#123;SRC&#125;)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>add_compile_options - <strong>添加编译参数</strong></p>
+<ul>
+<li>语法: add_compile_options(<options> …)<pre><code class="lang-cmake"># 添加编译参数 -Wall -std=c++11
+add_compile_options(-Wall -std=c++11 -O2)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>add_executable - <strong>生成可执行文件</strong></p>
+<ul>
+<li>语法: add_executable(exename source1 source2 … sourceN)<pre><code class="lang-cmake"># 编译main.cpp生成可执行的main
+add_executable(main main.cpp)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>target_link_libraries - <strong>为target添加需要链接的共享库 —&gt; 相同于指定<code>g++</code>编译器的<code>-l</code>参数</strong></p>
+<ul>
+<li>语法: target_link_libraries(target library1<debug | optimized> library2 …)<pre><code class="lang-cmake"># 将hello动态库文件链接到可执行文件main
+target_link_libraries(main hello)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>add_subdirectory - <strong>向当前工程添加存放源文件的子目录，并可以指定中间二进制和目标二进制存放的位置</strong></p>
+<ul>
+<li>add_subdirecoty(source_dir [binary_dir][EXCLUDE_FROM_ALL])<pre><code class="lang-cmake"># 添加src子目录，src中需要有一个CMakeLists.txt
+add_subdirectory(src)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>aux_source_directory - <strong>发现一个目录下所有的源文件并将列表存储在一个变量中，这个指令临时被用来自动构建源文件列表</strong></p>
+<ul>
+<li>语法: aux_source_diretory(dir VARIBLE)<br>```cmake<h1 id="定义SRC变量，其值为当前目录下所有的源代码文件"><a href="#定义SRC变量，其值为当前目录下所有的源代码文件" class="headerlink" title="定义SRC变量，其值为当前目录下所有的源代码文件"></a>定义SRC变量，其值为当前目录下所有的源代码文件</h1>aux_source_directory(. SRC)<h1 id="编译SRC变量所代表的源文件，生成main可执行文件"><a href="#编译SRC变量所代表的源文件，生成main可执行文件" class="headerlink" title="编译SRC变量所代表的源文件，生成main可执行文件"></a>编译SRC变量所代表的源文件，生成main可执行文件</h1>add_executable(main ${SRC})</li>
+</ul>
+</li>
+</ul>
+<h3 id="CMake常用变量"><a href="#CMake常用变量" class="headerlink" title="CMake常用变量"></a>CMake常用变量</h3><ul>
+<li><strong>CMAKE_C_FLAGS</strong> gcc编译选项</li>
+<li><strong>CMAKE_CXX_FLAGS</strong> g++编译选项<pre><code class="lang-cmake"># 在CMAKE_CXX_FLAGS编译选项后追加-std=c++11
+set( CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -std=c++11&quot; )
+</code></pre>
+</li>
+<li><strong>CMAKE_BUILD_TYPE</strong> 编译类型(Debug, Release)<pre><code class="lang-cmake"># 设定编译类型为debug，调试时需要选择debug
+set(CMAKE_BUILD_TYPE Debug)
+# 设定编译类型为release，调试时需要选择release
+set(CMAKE_BUILD_TYPE Release)
+</code></pre>
+</li>
+<li><p><strong>CMAKE_BINARY_DIR</strong><br>PROJECT_BINARY_DIR<br><strong><projectname>_BINARY_DIR</strong></p>
+<ol>
+<li>这三个变量指代的内容是一致的</li>
+<li>如果是<code>in source build</code>, 指得就是工程顶层目录</li>
+<li>如果是<code>out-of-source</code>编译，指得就是工程编译发生的目录</li>
+<li>PROJECT_BINARY_DIR 跟其他指令稍有区别，不过现在可以理解为一致</li>
+</ol>
+</li>
+<li><p><strong>CMAKE_SOURCE_DIR</strong><br>PROJECT_SOURCE_DIR<br><strong><projectname>_SOURCE_DIR</strong></p>
+<ol>
+<li>这三个变量指代的内容是一致的，不论采用何种编译方式，都是工程顶层目录</li>
+<li>也就是<code>in source build</code>时，他跟<code>CMAKE_BINARY_DIR</code>等变量一致</li>
+<li><code>PROJECT_SOURCE_DIR</code> 跟其他指令稍有区别，现在也可以理解为一致</li>
+</ol>
+</li>
+<li><p><strong>CMAKE_C_COMPILER</strong>: 指定C编译器</p>
+</li>
+<li><strong>CMAKE_CXX_COMPILER</strong>: 指定C++编译器</li>
+<li><strong>EXECUTABLE_OUTPUT_PATH</strong>: 可执行文件输出的存放路径</li>
+<li><strong>LIBRARY_OUTPUT_PATH</strong>: 库文件输出的存放路径</li>
+</ul>
+<h2 id="CMake编译工程"><a href="#CMake编译工程" class="headerlink" title="CMake编译工程"></a>CMake编译工程</h2><p>CMake目录结构: 项目主目录存在一个<code>CMakeLists.txt</code>文件</p>
+<p><strong>两种方式设置编译规则</strong></p>
+<ol>
+<li>包含源文件的子文件夹<strong>包含</strong>CMakeLists.txt文件，主目录的CMakelists.txt通过add_subdirectory添加子目录即可;</li>
+<li>包含源文件的子文件夹<strong>未包含</strong>CMakeLists.txt文件，子目录编译规则体现在CMakeLists.txt中</li>
+</ol>
+<h3 id="编译流程"><a href="#编译流程" class="headerlink" title="编译流程"></a>编译流程</h3><p><strong>在linux平台下使用CMake构建C/C++工程的流程如下</strong></p>
+<ul>
+<li>手动编写CMakeLists.txt</li>
+<li>执行命令<code>cmake PATH</code>生成<code>Makefile</code>（PATH是顶层CMakeLists.txt所在目录)</li>
+<li>执行命令<code>make</code></li>
+</ul>
+<pre><code class="lang-cmake"># importants tips
+.   # 表示当前目录
+./  # 表示当前目录
+
+..  # 表示上级目录
+../ # 表示上级目录
+</code></pre>
+<h3 id="两种构建方式"><a href="#两种构建方式" class="headerlink" title="两种构建方式"></a>两种构建方式</h3><ul>
+<li><p>内部构建<code>in source build</code>: 不推荐使用</p>
+<p>内部构建会在同级目录下产生一堆中间文件，这些中间文件并不是我们最终所需要的，将其和工程文件放在一起会显得杂乱无章</p>
+<pre><code class="lang-cmake">## 内部构建
+
+# 在当前目录下，编译本目录的CMakeLists.txt，生成Makefile和其他文件
+cmake .
+# 执行make命令，生产target
+make
+</code></pre>
+</li>
+<li><p>外部构建<code>out of source build</code>: 推荐使用</p>
+<p>将编译输出文件与源文件放到不同目录中</p>
+<pre><code class="lang-cmake">## 外部构建
+
+# 1. 在当前目录下，创建build文件夹
+mkdir build
+# 2. 进入到build文件夹
+cd build
+# 3. 编译上级目录的CMakeLists.txt，生成Makefile和其他文件
+cmake ..
+# 4. 执行make命令，生成target
+make
+</code></pre>
+</li>
+</ul>
+
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2022 TeresaClay
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 642px;
+    }
+    .nav.fullscreen {
+        margin-left: -642px;
+    }
+    .nav-left {
+        width: 220px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 592px;
+        }
+        .nav.fullscreen {
+            margin-left: -592px;
+        }
+        .nav-left {
+            width: 200px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 592px;
+            margin-left: -592px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
+    
+</style>
+
+
+
+
+
+
+
+</html>
